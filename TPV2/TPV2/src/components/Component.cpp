@@ -6,11 +6,6 @@ Component::Component() : ent_(), mngr_()
 
 }
 
-inline void Component::setContext(Entity* ent, Manager* mngr)
-{
-	ent_ = ent;
-	mngr_ = mngr;
-}
 
 void Component::initComponent()
 {

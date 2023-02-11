@@ -16,6 +16,10 @@ void PlayState::render() //Renderizado del juego
 bool PlayState::onEnter() //Se inicializan los objetos
 {
 	manager_ = new Manager();
+	Entity* e = manager_->addEntity();
+	e->setContext(manager_);
+	e->addComponent<Transform>(ecs::_TRANSFORM, 100,100, 30,30);
+	e->addComponent<Image>(ecs::_IMAGE, game->getTexture(2));
 	return true;
 }
 

@@ -1,6 +1,5 @@
 #include "Manager.h"
 #include "Entity.h"
-
 Manager::Manager() : ents_()
 {
     ents_.reserve(100);

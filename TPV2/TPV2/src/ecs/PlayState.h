@@ -2,6 +2,9 @@
 #include "GameState.h"
 #include "../utils/Vector2D.h"
 #include "Manager.h"
+#include "../components/Transform.h"
+#include "../components/Image.h"
+#include "Entity.h"
 using namespace std;
 class Game;
 class PlayState : public GameState

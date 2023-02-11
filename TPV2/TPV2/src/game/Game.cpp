@@ -69,15 +69,16 @@ void Game::LoadTextures(SDL_Renderer* renderer) { //Cada valor del array de text
 	textures[Fire] = new Texture(renderer, TEXT_DESCRIPT[Fire].filename);
 	textures[Heart] = new Texture(renderer, TEXT_DESCRIPT[Heart].filename);
 }
+Texture* Game::getTexture(int x) { //Devuelve una textura del vector
+	return textures[x];
+}
 /*void Game::exitGame() { //Activa la salida
 	exit = true;
 }
 void Game::startGameState() { //Pasa al estado de juego
 	gameStateMachine->changeState(new PlayState(this, false, WIN_WIDTH, WIN_HEIGHT));
 }
-Texture* Game::getTexture(int x) { //Devuelve una textura del vector
-	return textures[x];
-}
+
 void Game::pauseGame() { //Pausa el juego
 	gameStateMachine->pushState(new PauseState(this, WIN_WIDTH, WIN_HEIGHT));
 }

@@ -1,4 +1,6 @@
 #pragma once
+#include "../game/ecs.h"
+
 class Manager;
 class Entity;
 class Component
@@ -6,7 +8,10 @@ class Component
 public:
 	Component();
 	virtual ~Component();
-	inline void setContext(Entity* ent, Manager* mngr);
+	inline void setContext(Entity* ent, Manager* mngr) {
+		ent_ = ent;
+		mngr_ = mngr;
+	}
 	virtual void initComponent();
 	virtual void update();
 	virtual void render();
