@@ -1,5 +1,10 @@
 ﻿C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Microsoft\VC\v160\Microsoft.CppBuild.targets(499,5): warning MSB8004: El directorio Output no termina con una barra diagonal final. Esta instancia de compilación agregará la barra diagonal porque es necesaria para que se pueda evaluar correctamente el directorio Output.
+  GameState.cpp
+  PlayState.cpp
   Game.cpp
 C:\Users\Maestro Miguel\Desktop\Practica1_TPV2\TPV2\TPV2\src\game\Game.cpp(12,38): warning C4244: 'argumento': conversión de 'double' a 'int'; posible pérdida de datos
 C:\Users\Maestro Miguel\Desktop\Practica1_TPV2\TPV2\TPV2\src\game\Game.cpp(12,27): warning C4244: 'argumento': conversión de 'double' a 'int'; posible pérdida de datos
+  main.cpp
+  Generando código...
+     Creando biblioteca C:\Users\Maestro Miguel\Desktop\Practica1_TPV2\TPV2\bin\TPV2Debug.lib y objeto C:\Users\Maestro Miguel\Desktop\Practica1_TPV2\TPV2\bin\TPV2Debug.exp
   TPV2.vcxproj -> C:\Users\Maestro Miguel\Desktop\Practica1_TPV2\TPV2\bin\TPV2Debug.exe

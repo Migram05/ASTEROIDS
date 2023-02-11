@@ -18,8 +18,8 @@ public:
 	GameState(double w, double h);
 	~GameState();
 	virtual void update();
-	void render();
-	virtual void handleEvents() = 0;
+	virtual void render();
+	virtual void refresh();
 
 	virtual bool onEnter() = 0;
 	virtual string getStateID() const = 0;

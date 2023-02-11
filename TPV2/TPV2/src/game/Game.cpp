@@ -39,8 +39,6 @@ void Game::Run() { //Bucle principal de juego
 		throw exception("Error fatal SDL");
 	startTime = SDL_GetTicks();
 	while (!exit) { //Bucle de juego con condiciones de detención
-		gameStateMachine->currentState()->handleEvents();
-
 		frameTime = SDL_GetTicks() - startTime;
 		if (frameTime >= FRAME_RATE) { //Se comprueba el tiempo transcurrido entre el último update
 			gameStateMachine->currentState()->update();

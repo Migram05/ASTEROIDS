@@ -1,6 +1,7 @@
 #pragma once
 #include "GameState.h"
 #include "../utils/Vector2D.h"
+#include "Manager.h"
 using namespace std;
 class Game;
 class PlayState : public GameState
@@ -10,8 +11,8 @@ public:
 	~PlayState();
 	virtual void update();
 	virtual void render();
-	virtual void handleEvents();
 	virtual bool onEnter();
+	virtual void refresh();
 
 	virtual std::string getStateID() const { return s_playID; }
 private:
@@ -19,5 +20,6 @@ private:
 	static const string s_playID;
 	int numLives = 0;
 	list<GameObject*>::iterator ObjIt;
+	Manager* manager_;
 };
 

@@ -1,7 +1,6 @@
 // Miguel Ramírez Castrillo
 
 #include <iostream>
-#include "sdlutils/sdlutils_demo.h"
 #include "game/Game.h"
 using namespace std;
 int main(int ac, char **av) {
@@ -9,7 +8,6 @@ int main(int ac, char **av) {
 	Game* game = nullptr; //Crea el puntero
 	try {
 		game = new Game(); //Creación del juego
-		//game->mainMenu(); //Crea el menú de inicio
 		game->Run(); //Bucle de juego
 	}
 	catch (string s) { cout << s << endl; }

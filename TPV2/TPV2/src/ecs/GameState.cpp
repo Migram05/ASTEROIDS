@@ -6,13 +6,13 @@ GameState::GameState(double w, double h) { //Constructora de estado de juego
 	
 }
 void GameState::update() {
-	for (GameObject* g : objectsList) g->update();
+	//for (GameObject* g : objectsList) g->update();
 }
 void GameState::render() {
-	for (GameObject* g : objectsList) g->render();
+	//for (GameObject* g : objectsList) g->render();
 }
-void GameState::handleEvents() {
-
+void GameState::refresh()
+{
 }
 bool GameState::onEnter() {
 	return 0;
