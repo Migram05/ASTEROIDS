@@ -1,6 +1,7 @@
 #pragma once
 #include "Component.h"
 #include "../utils/Vector2D.h"
+#include <iostream>
 class Transform : public Component {
 public:
 	Transform();
@@ -9,6 +10,7 @@ public:
 	virtual ~Transform();
 	inline Vector2D& getPos() { return position_; }
 	inline Vector2D& getVel() { return velocity_; }
+	inline Vector2D& getForward() { return forward_; }
 	inline float& getW() { return width_; }
 	inline float& getH() { return height_; }
 	inline float& getRotation() { return rotation_; }
@@ -18,6 +20,7 @@ public:
 private:
 	Vector2D position_;
 	Vector2D velocity_;
+	Vector2D forward_;
 	float width_;
 	float height_;
 	float rotation_;

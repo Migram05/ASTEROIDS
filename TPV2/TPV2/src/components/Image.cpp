@@ -7,7 +7,6 @@ Image::Image(Texture* text) : tr_(nullptr), tex_(text), Component()
 void Image::initComponent()
 {
 	tr_ = ent_->getComponent<Transform>(ecs::_TRANSFORM);
-	//assert(tr_ != nullptr);
 }
 
 void Image::render()

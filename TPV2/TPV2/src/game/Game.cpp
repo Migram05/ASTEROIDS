@@ -11,13 +11,15 @@ Game::Game() { //Constructora del juego, con la carga de texturas incluida
 	window = SDL_CreateWindow("ASTEROIDS", SDL_WINDOWPOS_CENTERED, //Creación de la ventana
 		SDL_WINDOWPOS_CENTERED, WIN_WIDTH, WIN_HEIGHT, SDL_WINDOW_SHOWN);
 	renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED); //Creación del render
-	SDL_SetRenderDrawColor(renderer, 70,130,191, 255);
+	//SDL_SetRenderDrawColor(renderer, 70,130,191, 255);
+	SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
 	SDL_RenderClear(renderer);
 	exit = false;
 	LoadTextures(renderer); //Se canrgan las texturas en el array
 	InitGameObjects();//Se crean los objetos del juego (paddle, ball, wall...)
 }
 void Game::gameSettings() { //Carga los datos del juego desde un archivo, si lo encuentra
+
 	ifstream readFile("gameData.txt");
 	if (readFile.is_open()) {
 		readFile >> WIN_WIDTH;
@@ -26,7 +28,7 @@ void Game::gameSettings() { //Carga los datos del juego desde un archivo, si lo 
 		readFile.close();
 	}
 	else {
-		ofstream saveFile("src/esc/gameData.txt"); //Si no encuentra el archivo, lo crea
+		ofstream saveFile("gameData.txt"); //Si no encuentra el archivo, lo crea
 		saveFile << WIN_WIDTH << endl;
 		saveFile << WIN_HEIGHT << endl;
 		saveFile << FRAME_RATE << endl;

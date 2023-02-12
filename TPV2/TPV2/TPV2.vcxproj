@@ -20,7 +20,12 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\components\Component.h" />
+    <ClInclude Include="src\components\DeAcceleration.h" />
+    <ClInclude Include="src\components\FighterControl.h" />
+    <ClInclude Include="src\components\Gun.h" />
+    <ClInclude Include="src\components\Health.h" />
     <ClInclude Include="src\components\Image.h" />
+    <ClInclude Include="src\components\ShowOpposite.h" />
     <ClInclude Include="src\components\Transform.h" />
     <ClInclude Include="src\ecs\Entity.h" />
     <ClInclude Include="src\ecs\GameObject.h" />
@@ -51,7 +56,12 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\components\Component.cpp" />
+    <ClCompile Include="src\components\DeAcceleration.cpp" />
+    <ClCompile Include="src\components\FighterControl.cpp" />
+    <ClCompile Include="src\components\Gun.cpp" />
+    <ClCompile Include="src\components\Health.cpp" />
     <ClCompile Include="src\components\Image.cpp" />
+    <ClCompile Include="src\components\ShowOpposite.cpp" />
     <ClCompile Include="src\components\Transform.cpp" />
     <ClCompile Include="src\ecs\GameObject.cpp" />
     <ClCompile Include="src\ecs\GameState.cpp" />
