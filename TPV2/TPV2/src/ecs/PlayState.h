@@ -24,7 +24,7 @@ public:
 
 	virtual std::string getStateID() const { return s_playID; }
 private:
-	enum ValoresArray { GrayAsteroid, GoldAsteroid, Fighter1, Fighter2, Fire, Heart };
+	
 	bool exit = false, gameOver = false, win = false, renderTime = false, startGame = false;
 	static const string s_playID;
 	int numLives = 0;

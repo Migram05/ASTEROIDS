@@ -11,8 +11,8 @@ Game::Game() { //Constructora del juego, con la carga de texturas incluida
 	window = SDL_CreateWindow("ASTEROIDS", SDL_WINDOWPOS_CENTERED, //Creación de la ventana
 		SDL_WINDOWPOS_CENTERED, WIN_WIDTH, WIN_HEIGHT, SDL_WINDOW_SHOWN);
 	renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED); //Creación del render
-	//SDL_SetRenderDrawColor(renderer, 70,130,191, 255);
-	SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
+	SDL_SetRenderDrawColor(renderer, 70,130,191, 255);
+	//SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
 	SDL_RenderClear(renderer);
 	exit = false;
 	LoadTextures(renderer); //Se canrgan las texturas en el array

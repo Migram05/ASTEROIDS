@@ -18,6 +18,5 @@ public:
 private:
 	Transform* tr_;
 	float speed, rotationSpeed;
-	
 };
 

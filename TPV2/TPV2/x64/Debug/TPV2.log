@@ -1,8 +1,9 @@
 ﻿C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Microsoft\VC\v160\Microsoft.CppBuild.targets(499,5): warning MSB8004: El directorio Output no termina con una barra diagonal final. Esta instancia de compilación agregará la barra diagonal porque es necesaria para que se pueda evaluar correctamente el directorio Output.
-  GameState.cpp
+  Gun.cpp
 C:\Users\Maestro Miguel\Desktop\Practica1_TPV2\TPV2\TPV2\src\ecs\Entity.h(3,10): warning C4067: símbolos (token) inesperados después de la directiva del preprocesador; se esperaba una nueva línea
 C:\Users\Maestro Miguel\Desktop\Practica1_TPV2\TPV2\TPV2\src\components\DeAcceleration.h(17,30): warning C4305: 'inicializando': truncamiento de 'double' a 'float'
-  PlayState.cpp
+C:\Users\Maestro Miguel\Desktop\Practica1_TPV2\TPV2\TPV2\src\components\Gun.cpp(25,36): warning C4018: '>=': no coinciden signed/unsigned
+  Manager.cpp
 C:\Users\Maestro Miguel\Desktop\Practica1_TPV2\TPV2\TPV2\src\ecs\Entity.h(3,10): warning C4067: símbolos (token) inesperados después de la directiva del preprocesador; se esperaba una nueva línea
 C:\Users\Maestro Miguel\Desktop\Practica1_TPV2\TPV2\TPV2\src\components\DeAcceleration.h(17,30): warning C4305: 'inicializando': truncamiento de 'double' a 'float'
 C:\Users\Maestro Miguel\Desktop\Practica1_TPV2\TPV2\TPV2\src\ecs\Entity.h(38,32): warning C4244: 'argumento': conversión de '_Ty' a 'float'; posible pérdida de datos
@@ -10,24 +11,21 @@ C:\Users\Maestro Miguel\Desktop\Practica1_TPV2\TPV2\TPV2\src\ecs\Entity.h(38,32)
           [
               _Ty=int
           ]
-C:\Users\Maestro Miguel\Desktop\Practica1_TPV2\TPV2\TPV2\src\ecs\PlayState.cpp(21): message : Vea la referencia a la creación de una instancia de la función plantilla "T *Entity::addComponent<Transform,int,int,int,int>(cmpId_type,int &&,int &&,int &&,int &&)" que se está compilando
+C:\Users\Maestro Miguel\Desktop\Practica1_TPV2\TPV2\TPV2\src\ecs\Manager.cpp(47): message : Vea la referencia a la creación de una instancia de la función plantilla "T *Entity::addComponent<Transform,Vector2D&,int,int,Vector2D&,float&>(cmpId_type,Vector2D &,int &&,int &&,Vector2D &,float &)" que se está compilando
           with
           [
               T=Transform
           ]
 C:\Users\Maestro Miguel\Desktop\Practica1_TPV2\TPV2\TPV2\src\ecs\Entity.h(38,32): warning C4244: 'argumento': conversión de 'double' a 'int'; posible pérdida de datos
-C:\Users\Maestro Miguel\Desktop\Practica1_TPV2\TPV2\TPV2\src\ecs\PlayState.cpp(25): message : Vea la referencia a la creación de una instancia de la función plantilla "T *Entity::addComponent<ShowOpposite,double&,double&>(cmpId_type,double &,double &)" que se está compilando
+C:\Users\Maestro Miguel\Desktop\Practica1_TPV2\TPV2\TPV2\src\ecs\Manager.cpp(49): message : Vea la referencia a la creación de una instancia de la función plantilla "T *Entity::addComponent<DisableOnExit,double&,double&>(cmpId_type,double &,double &)" que se está compilando
           with
           [
-              T=ShowOpposite
+              T=DisableOnExit
           ]
-  Game.cpp
-C:\Users\Maestro Miguel\Desktop\Practica1_TPV2\TPV2\TPV2\src\ecs\Entity.h(3,10): warning C4067: símbolos (token) inesperados después de la directiva del preprocesador; se esperaba una nueva línea
-C:\Users\Maestro Miguel\Desktop\Practica1_TPV2\TPV2\TPV2\src\components\DeAcceleration.h(17,30): warning C4305: 'inicializando': truncamiento de 'double' a 'float'
-C:\Users\Maestro Miguel\Desktop\Practica1_TPV2\TPV2\TPV2\src\game\Game.cpp(12,38): warning C4244: 'argumento': conversión de 'double' a 'int'; posible pérdida de datos
-C:\Users\Maestro Miguel\Desktop\Practica1_TPV2\TPV2\TPV2\src\game\Game.cpp(12,27): warning C4244: 'argumento': conversión de 'double' a 'int'; posible pérdida de datos
-  main.cpp
-C:\Users\Maestro Miguel\Desktop\Practica1_TPV2\TPV2\TPV2\src\ecs\Entity.h(3,10): warning C4067: símbolos (token) inesperados después de la directiva del preprocesador; se esperaba una nueva línea
-C:\Users\Maestro Miguel\Desktop\Practica1_TPV2\TPV2\TPV2\src\components\DeAcceleration.h(17,30): warning C4305: 'inicializando': truncamiento de 'double' a 'float'
+C:\Users\Maestro Miguel\Desktop\Practica1_TPV2\TPV2\TPV2\src\ecs\Entity.h(38,32): warning C4244: 'argumento': conversión de '_Ty' a 'float'; posible pérdida de datos
+          with
+          [
+              _Ty=double
+          ]
   Generando código...
   TPV2.vcxproj -> C:\Users\Maestro Miguel\Desktop\Practica1_TPV2\TPV2\bin\TPV2Debug.exe

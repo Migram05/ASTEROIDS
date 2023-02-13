@@ -13,7 +13,7 @@ public:
 	Gun(float s, int shootR);
 	virtual ~Gun();
 	virtual void initComponent();
-	void shoot(Vector2D pos, Vector2D dir);
+	void shoot(Vector2D pos, Vector2D dir, float rot);
 private:
 	float speed;
 	int lastShotTime, shootRate;

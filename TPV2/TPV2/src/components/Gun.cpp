@@ -1,11 +1,11 @@
 #include "Gun.h"
 
-Gun::Gun() : speed (1), shootRate(1000)
+Gun::Gun() : speed (1), shootRate(500)
 {
 	lastShotTime = -shootRate;
 }
 
-Gun::Gun(float s) : speed(s), shootRate(1000)
+Gun::Gun(float s) : speed(s), shootRate(500)
 {
 	lastShotTime = -shootRate;
 }
@@ -20,10 +20,11 @@ void Gun::initComponent()
 
 }
 
-void Gun::shoot(Vector2D pos, Vector2D dir)
+void Gun::shoot(Vector2D pos, Vector2D dir, float rot)
 {
 	if (SDL_GetTicks() - lastShotTime >= shootRate) {
-		cout << "Disparo" << endl;
+		
+		mngr_->spawnShot(pos, Vector2D{ dir.getX() * speed, dir.getY() * -speed }, rot);
 		lastShotTime = SDL_GetTicks();
 	}
 }

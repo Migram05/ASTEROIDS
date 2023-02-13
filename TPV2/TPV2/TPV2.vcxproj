@@ -21,6 +21,7 @@
   <ItemGroup>
     <ClInclude Include="src\components\Component.h" />
     <ClInclude Include="src\components\DeAcceleration.h" />
+    <ClInclude Include="src\components\DisableOnExit.h" />
     <ClInclude Include="src\components\FighterControl.h" />
     <ClInclude Include="src\components\Gun.h" />
     <ClInclude Include="src\components\Health.h" />
@@ -57,6 +58,7 @@
   <ItemGroup>
     <ClCompile Include="src\components\Component.cpp" />
     <ClCompile Include="src\components\DeAcceleration.cpp" />
+    <ClCompile Include="src\components\DisableOnExit.cpp" />
     <ClCompile Include="src\components\FighterControl.cpp" />
     <ClCompile Include="src\components\Gun.cpp" />
     <ClCompile Include="src\components\Health.cpp" />

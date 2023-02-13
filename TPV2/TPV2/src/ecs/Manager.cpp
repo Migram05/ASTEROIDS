@@ -1,6 +1,6 @@
 #include "Manager.h"
 #include "Entity.h"
-Manager::Manager() : ents_()
+Manager::Manager(Game* g) : ents_(), game(g)
 {
     ents_.reserve(100);
 }
@@ -23,6 +23,7 @@ void Manager::refresh()
         }
         else {
             delete e;
+            cout << "Destruida entidad" << endl;
             return true;
         }
     }), 
@@ -39,6 +40,25 @@ void Manager::render()
 {
     auto n = ents_.size();
     for (auto i = 0u; i < n; i++) ents_[i]->render();
+}
+void Manager::spawnShot(Vector2D pos, Vector2D dir, float rot) {
+    Entity* aux = addEntity();
+    aux->setContext(this);
+    aux->addComponent<Transform>(ecs::_TRANSFORM, pos, 5, 30, dir, rot);
+    aux->addComponent<Image>(ecs::_IMAGE, game->getTexture(Fire));
+    aux->addComponent<DisableOnExit>(ecs::_DISABLEONEXIT, game->WIN_WIDTH, game->WIN_HEIGHT);
+}
+
+void Manager::createPlayer()
+{
+    Entity* player = addEntity();
+    player->addComponent<Transform>(ecs::_TRANSFORM, game->WIN_WIDTH /2 -15, game->WIN_HEIGHT /2 -15, 30, 30);
+    player->addComponent<Image>(ecs::_IMAGE, game->getTexture(Fighter1));
+    player->addComponent<FighterControl>(ecs::_CTRL);
+    player->addComponent<DeAcceleration>(ecs::_DEACCELERATION);
+    player->addComponent<ShowOpposite>(ecs::_SHOWOPOSITE, game->WIN_WIDTH, game->WIN_HEIGHT);
+    player->addComponent<Health>(ecs::_HEALTH, game->getTexture(Heart), game->WIN_WIDTH, game->WIN_HEIGHT, 5);
+    player->addComponent<Gun>(ecs::_GUN);
 }
 
 Manager::~Manager()

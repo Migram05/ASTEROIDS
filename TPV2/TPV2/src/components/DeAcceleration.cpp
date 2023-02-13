@@ -20,7 +20,7 @@ void DeAcceleration::initComponent()
 void DeAcceleration::update()
 {
 	Vector2D& v = tr_->getVel();
-	Vector2D& f = tr_->getForward();
+	Vector2D& f = tr_->getLastForward();
 	if (abs(v.getX()) > stopMargin || abs(v.getY()) > stopMargin)
 		v = v + Vector2D{ f.getX() * -reduction, f.getY() * reduction };
 	else v = { 0,0 };

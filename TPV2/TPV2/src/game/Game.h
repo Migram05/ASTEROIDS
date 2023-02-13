@@ -46,7 +46,6 @@ private:
 	const static unsigned int NUM_TEXTURES = 6;
 	GameStateMachine* gameStateMachine;
 	Texture* textures[NUM_TEXTURES]; //Array de texturas del juego
-	//unordered_map<int, Texture*> textures;
 	enum ValoresArray { GrayAsteroid, GoldAsteroid, Fighter1, Fighter2, Fire, Heart};
 	
 	typedef struct {
