@@ -7,7 +7,8 @@ public:
 	Transform();
 	Transform(Vector2D pos, float w, float h);
 	Transform(float x, float y, float w, float h);
-	Transform(Vector2D pos, float w, float h, Vector2D vel, float rot);
+	Transform(Vector2D pos, float w, float h, Vector2D vel, float rot = 0);
+	Transform(float x, float y, float w, float h, Vector2D vel, float rot = 0);
 	virtual ~Transform();
 	inline Vector2D& getPos() { return position_; }
 	inline Vector2D& getVel() { return velocity_; }

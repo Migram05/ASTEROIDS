@@ -9,6 +9,8 @@
 #include "../components/Health.h"
 #include "../components/Gun.h"
 #include "../components/DisableOnExit.h"
+#include "../components/FramedImage.h"
+#include "../components/Follow.h"
 #include "../game/Game.h"
 using namespace std;
 class Entity;
@@ -23,7 +25,12 @@ public:
 	void render();
 	void spawnShot(Vector2D pos, Vector2D dir, float rot);
 	void createPlayer();
+	inline Entity* getPlayer() { return player; }
+	Texture* getTexture(int t);
+	const int getWidth();
+	const int getHeight();
 private:
+	Entity* player;
 	vector<Entity*> ents_;
 	Game* game;
 	enum ValoresArray { GrayAsteroid, GoldAsteroid, Fighter1, Fighter2, Fire, Heart };

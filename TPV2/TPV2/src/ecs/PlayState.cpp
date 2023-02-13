@@ -17,6 +17,7 @@ bool PlayState::onEnter() //Se inicializan los objetos
 {
 	manager_ = new Manager(game);
 	manager_->createPlayer();
+	asteroidsManager_ = new AsteroidsManager(manager_, 20);
 	return true;
 }
 

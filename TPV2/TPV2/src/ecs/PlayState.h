@@ -2,6 +2,7 @@
 #include "GameState.h"
 #include "../utils/Vector2D.h"
 #include "Manager.h"
+#include "../game/AsteroidsManager.h"
 #include "../components/Transform.h"
 #include "../components/Image.h"
 #include "../components/FighterControl.h"
@@ -24,11 +25,11 @@ public:
 
 	virtual std::string getStateID() const { return s_playID; }
 private:
-	
 	bool exit = false, gameOver = false, win = false, renderTime = false, startGame = false;
 	static const string s_playID;
 	int numLives = 0;
 	list<GameObject*>::iterator ObjIt;
 	Manager* manager_;
+	AsteroidsManager* asteroidsManager_;
 };
 
