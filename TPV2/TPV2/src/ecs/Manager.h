@@ -11,6 +11,7 @@
 #include "../components/DisableOnExit.h"
 #include "../components/FramedImage.h"
 #include "../components/Follow.h"
+#include "../components/Generations.h"
 #include "../game/Game.h"
 #include "../game/checkML.h"
 using namespace std;
@@ -32,6 +33,7 @@ public:
 	const int getWidth();
 	const int getHeight();
 	void exitGame();
+	vector<Entity*>& getEntities();
 private:
 	Entity* player;
 	vector<Entity*> ents_;

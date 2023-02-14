@@ -6,9 +6,19 @@ AsteroidsManager::AsteroidsManager(Manager* m, Entity* p) : mngRef_(m), numAster
     createAsteroids(numAsteroids);
 }
 
-AsteroidsManager::AsteroidsManager(Manager* m,Entity* p, int n) : mngRef_(m), numAsteroids(n), player_(p)
+AsteroidsManager::AsteroidsManager(Manager* m,Entity* p, int n) : mngRef_(m), player_(p)
 {
+    if (n > maxAsteroids) n = maxAsteroids;
+    numAsteroids = n;
     createAsteroids(numAsteroids);
+}
+
+void AsteroidsManager::destroyAllAsteroids()
+{
+    vector<Entity*>& entities = mngRef_->getEntities();
+    for (Entity* e : entities) {
+        if (e->hasComponent(ecs::_GENERATIONS)) e->setAlive(false);
+    }
 }
 
 void AsteroidsManager::createAsteroids(int n)
@@ -27,9 +37,10 @@ void AsteroidsManager::createNormalAsteroid()
     Vector2D dir = mngRef_->getPlayer()->getComponent<Transform>(ecs::_TRANSFORM)->getPos() - spawnPos;
     float mag = sqrt((dir.getX() * dir.getX()) + (dir.getY() * dir.getY()));
     dir = Vector2D((dir.getX() / mag) / 10, (dir.getY() / mag) / 10);
-    a->addComponent<Transform>(ecs::_TRANSFORM, spawnPos, 30, 30, dir);
+    a->addComponent<Transform>(ecs::_TRANSFORM, spawnPos, 10, 10, dir);
     a->addComponent<FramedImage>(ecs::_FRAMEDIMAGE, mngRef_->getTexture(GrayAsteroid), 5, 6, 200);
     a->addComponent<ShowOpposite>(ecs::_SHOWOPOSITE, mngRef_->getWidth(), mngRef_->getHeight());
+    a->addComponent<Generations>(ecs::_GENERATIONS);
 }
 
 void AsteroidsManager::createSeakingAsteroid()
@@ -39,8 +50,18 @@ void AsteroidsManager::createSeakingAsteroid()
     Vector2D dir = mngRef_->getPlayer()->getComponent<Transform>(ecs::_TRANSFORM)->getPos() - spawnPos;
     float mag = sqrt((dir.getX() * dir.getX()) + (dir.getY() * dir.getY()));
     dir = Vector2D((dir.getX() / mag) / 2, (dir.getY() / mag) / 2);
-    a->addComponent<Transform>(ecs::_TRANSFORM, spawnPos, 30, 30);
+    a->addComponent<Transform>(ecs::_TRANSFORM, spawnPos, 10, 10);
     a->addComponent<FramedImage>(ecs::_FRAMEDIMAGE, mngRef_->getTexture(GoldAsteroid), 5, 6, 200);
     a->addComponent<ShowOpposite>(ecs::_SHOWOPOSITE, mngRef_->getWidth(), mngRef_->getHeight());
     a->addComponent<Follow>(ecs::_FOLLOW, player_);
+    a->addComponent<Generations>(ecs::_GENERATIONS);
+}
+
+void AsteroidsManager::onCollision(Entity* e)
+{
+    e->setAlive(false);
+    int gen = e->getComponent<Generations>(ecs::_GENERATIONS)->GetGeneration();
+    if (gen > 0) {
+
+    }
 }

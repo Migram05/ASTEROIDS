@@ -80,6 +80,11 @@ void Manager::exitGame()
     game->exitGame();
 }
 
+vector<Entity*>& Manager::getEntities()
+{
+    return ents_;
+}
+
 Manager::~Manager()
 {
     for (auto e : ents_) {

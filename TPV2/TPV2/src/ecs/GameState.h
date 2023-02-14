@@ -16,7 +16,7 @@ protected:
 	double WIN_HEIGHT;
 public:
 	GameState(double w, double h);
-	~GameState();
+	virtual ~GameState();
 	virtual void update();
 	virtual void render();
 	virtual void refresh();

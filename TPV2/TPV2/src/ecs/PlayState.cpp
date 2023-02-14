@@ -27,8 +27,6 @@ void PlayState::refresh()
 }
 
 PlayState::~PlayState() {
-
-	objectsList.clear();
 	delete manager_;
 	delete asteroidsManager_;
 }
