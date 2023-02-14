@@ -38,6 +38,7 @@
     <ClInclude Include="src\ecs\Manager.h" />
     <ClInclude Include="src\ecs\PlayState.h" />
     <ClInclude Include="src\game\AsteroidsManager.h" />
+    <ClInclude Include="src\game\checkML.h" />
     <ClInclude Include="src\game\ecs.h" />
     <ClInclude Include="src\game\Game.h" />
     <ClInclude Include="src\json\JSON.h" />

@@ -23,7 +23,6 @@ void Manager::refresh()
         }
         else {
             delete e;
-            cout << "Destruida entidad" << endl;
             return true;
         }
     }), 
@@ -74,6 +73,11 @@ const int Manager::getWidth()
 const int Manager::getHeight()
 {
     return game->WIN_HEIGHT;
+}
+
+void Manager::exitGame()
+{
+    game->exitGame();
 }
 
 Manager::~Manager()

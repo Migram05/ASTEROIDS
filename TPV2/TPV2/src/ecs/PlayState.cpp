@@ -1,5 +1,5 @@
 #include "PlayState.h"
-#include "../game/Game.h"
+//#include "../game/Game.h"
 PlayState::PlayState(Game* g, double w, double h) : GameState(w,h){ // Constructora
 	game = g;
 }
@@ -17,7 +17,7 @@ bool PlayState::onEnter() //Se inicializan los objetos
 {
 	manager_ = new Manager(game);
 	manager_->createPlayer();
-	asteroidsManager_ = new AsteroidsManager(manager_, 20);
+	asteroidsManager_ = new AsteroidsManager(manager_, manager_->getPlayer(), 10);
 	return true;
 }
 
@@ -27,9 +27,8 @@ void PlayState::refresh()
 }
 
 PlayState::~PlayState() {
-	for (ObjIt = objectsList.begin(); ObjIt != objectsList.end(); ++ObjIt) { //Se borrran los objetos
-		delete* ObjIt;
-	}
+
 	objectsList.clear();
 	delete manager_;
+	delete asteroidsManager_;
 }

@@ -39,7 +39,9 @@ void FighterControl::update()
 				if (ent_->hasComponent(ecs::_GUN)) {
 					ent_->getComponent<Gun>(ecs::_GUN)->shoot(tr_->getPos(), tr_->getForward(), tr_->getRotation());
 				}
+				break;
 			}
+			case SDLK_ESCAPE: mngr_->exitGame(); break;
 			default:
 				break;
 			}

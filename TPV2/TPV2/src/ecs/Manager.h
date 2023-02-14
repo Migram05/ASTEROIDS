@@ -12,10 +12,12 @@
 #include "../components/FramedImage.h"
 #include "../components/Follow.h"
 #include "../game/Game.h"
+#include "../game/checkML.h"
 using namespace std;
 class Entity;
 class Manager
 {
+
 public:
 	Manager(Game* g);
 	virtual ~Manager();
@@ -29,6 +31,7 @@ public:
 	Texture* getTexture(int t);
 	const int getWidth();
 	const int getHeight();
+	void exitGame();
 private:
 	Entity* player;
 	vector<Entity*> ents_;

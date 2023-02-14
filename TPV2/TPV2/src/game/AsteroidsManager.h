@@ -1,16 +1,19 @@
 #pragma once
 #include "../utils/Vector2D.h"
 #include "../sdlutils/Texture.h"
-#include "../ecs/Entity.h"
-#include "../ecs/Manager.h"
+
+class Entity;
+class Manager;
 class AsteroidsManager
 {
 public:
-	AsteroidsManager(Manager* m);
-	AsteroidsManager(Manager* m, int n);
+	AsteroidsManager(Manager* m, Entity* p);
+	AsteroidsManager(Manager* m, Entity* p,  int n);
 
 private:
 	void createAsteroids(int n);
+	void createNormalAsteroid();
+	void createSeakingAsteroid();
 	int numAsteroids;
 	Manager* mngRef_;
 	Entity* player_;

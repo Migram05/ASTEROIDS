@@ -74,9 +74,10 @@ void Game::LoadTextures(SDL_Renderer* renderer) { //Cada valor del array de text
 Texture* Game::getTexture(int x) { //Devuelve una textura del vector
 	return textures[x];
 }
-/*void Game::exitGame() { //Activa la salida
+void Game::exitGame() { //Activa la salida
 	exit = true;
 }
+/*
 void Game::startGameState() { //Pasa al estado de juego
 	gameStateMachine->changeState(new PlayState(this, false, WIN_WIDTH, WIN_HEIGHT));
 }
