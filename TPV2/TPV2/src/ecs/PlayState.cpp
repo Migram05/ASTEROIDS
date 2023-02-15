@@ -1,5 +1,5 @@
 #include "PlayState.h"
-//#include "../game/Game.h"
+
 PlayState::PlayState(Game* g, double w, double h) : GameState(w,h){ // Constructora
 	game = g;
 }
@@ -38,6 +38,11 @@ void PlayState::checkCollisions() {
 					if (e2->hasComponent(ecs::_HEALTH)) {
 						asteroidsManager_->destroyAllAsteroids();
 						e2->getComponent<Health>(ecs::_HEALTH)->damage();
+						t2->getPos() = Vector2D{(float)WIN_WIDTH / 2, (float)WIN_HEIGHT / 2 };
+						t2->getRotation() = 0;
+						t2->getVel() = Vector2D{ 0,0 };
+						game->pauseGame();
+						asteroidsManager_->createAsteroids(10);
 					}
 					else if (e2->hasComponent(ecs::_DISABLEONEXIT)) {
 						asteroidsManager_->onCollision(e);

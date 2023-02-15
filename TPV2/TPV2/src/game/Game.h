@@ -11,7 +11,7 @@
 #include "../ecs/GameStateMachine.h"
 //#include "MainMenuState.h"
 #include "../ecs/PlayState.h"
-//#include "PauseState.h"
+#include "../ecs/PauseState.h"
 //#include "EndState.h"*/
 #include <list>
 #include <unordered_set>
@@ -28,8 +28,8 @@ public:
 
 	Texture* getTexture(int n);
 	void exitGame();
-	void startGameState();
 	void pauseGame();
+	void startGameState();
 	void resumeGame();
 	void mainMenu();
 	void playerWins();

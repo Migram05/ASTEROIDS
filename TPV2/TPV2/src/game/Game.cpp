@@ -77,17 +77,17 @@ Texture* Game::getTexture(int x) { //Devuelve una textura del vector
 void Game::exitGame() { //Activa la salida
 	exit = true;
 }
-/*
-void Game::startGameState() { //Pasa al estado de juego
-	gameStateMachine->changeState(new PlayState(this, false, WIN_WIDTH, WIN_HEIGHT));
-}
-
 void Game::pauseGame() { //Pausa el juego
 	gameStateMachine->pushState(new PauseState(this, WIN_WIDTH, WIN_HEIGHT));
 }
 void Game::resumeGame() { //Reanuda el juego
 	gameStateMachine->popState();
 }
+/*
+void Game::startGameState() { //Pasa al estado de juego
+	gameStateMachine->changeState(new PlayState(this, false, WIN_WIDTH, WIN_HEIGHT));
+}
+
 void Game::mainMenu() { //Vuelve al menu principal
 	gameStateMachine->popState();
 	gameStateMachine->changeState(new MainMenuState(this, WIN_WIDTH, WIN_HEIGHT));

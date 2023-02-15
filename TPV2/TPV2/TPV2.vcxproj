@@ -36,6 +36,7 @@
     <ClInclude Include="src\ecs\GameState.h" />
     <ClInclude Include="src\ecs\GameStateMachine.h" />
     <ClInclude Include="src\ecs\Manager.h" />
+    <ClInclude Include="src\ecs\PauseState.h" />
     <ClInclude Include="src\ecs\PlayState.h" />
     <ClInclude Include="src\game\AsteroidsManager.h" />
     <ClInclude Include="src\game\checkML.h" />
@@ -77,6 +78,7 @@
     <ClCompile Include="src\ecs\GameState.cpp" />
     <ClCompile Include="src\ecs\GameStateMachine.cpp" />
     <ClCompile Include="src\ecs\Manager.cpp" />
+    <ClCompile Include="src\ecs\PauseState.cpp" />
     <ClCompile Include="src\ecs\PlayState.cpp" />
     <ClCompile Include="src\game\AsteroidsManager.cpp" />
     <ClCompile Include="src\game\Game.cpp" />

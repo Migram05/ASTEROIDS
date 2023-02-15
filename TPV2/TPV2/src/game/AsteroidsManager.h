@@ -11,13 +11,14 @@ public:
 	AsteroidsManager(Manager* m, Entity* p,  int n);
 	void destroyAllAsteroids();
 	void onCollision(Entity* e);
+	void createAsteroids(int n);
 
 private:
-	void createAsteroids(int n);
 	void createNormalAsteroid();
 	void createSeakingAsteroid();
+	void createSmallerAsteroids(int n, int g, Entity* e);
 	
-	int numAsteroids, maxAsteroids = 30;
+	int numAsteroids, maxAsteroids = 11, maxDivision = 3;
 	Manager* mngRef_;
 	Entity* player_;
 	enum ValoresArray { GrayAsteroid, GoldAsteroid, Fighter1, Fighter2, Fire, Heart };
