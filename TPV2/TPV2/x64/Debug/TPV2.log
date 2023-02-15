@@ -4,14 +4,18 @@ C:\Users\Maestro Miguel\Desktop\Practica1_TPV2\TPV2\TPV2\src\ecs\Entity.h(3,10):
 C:\Users\Maestro Miguel\Desktop\Practica1_TPV2\TPV2\TPV2\src\components\DeAcceleration.h(17,30): warning C4305: 'inicializando': truncamiento de 'double' a 'float'
 C:\Users\Maestro Miguel\Desktop\Practica1_TPV2\TPV2\TPV2\src\game\AsteroidsManager.cpp(35,60): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
 C:\Users\Maestro Miguel\Desktop\Practica1_TPV2\TPV2\TPV2\src\game\AsteroidsManager.cpp(35,30): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
-C:\Users\Maestro Miguel\Desktop\Practica1_TPV2\TPV2\TPV2\src\game\AsteroidsManager.cpp(48,60): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
-C:\Users\Maestro Miguel\Desktop\Practica1_TPV2\TPV2\TPV2\src\game\AsteroidsManager.cpp(48,30): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\Maestro Miguel\Desktop\Practica1_TPV2\TPV2\TPV2\src\game\AsteroidsManager.cpp(38,59): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\Maestro Miguel\Desktop\Practica1_TPV2\TPV2\TPV2\src\game\AsteroidsManager.cpp(38,39): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\Maestro Miguel\Desktop\Practica1_TPV2\TPV2\TPV2\src\game\AsteroidsManager.cpp(50,60): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\Maestro Miguel\Desktop\Practica1_TPV2\TPV2\TPV2\src\game\AsteroidsManager.cpp(50,30): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\Maestro Miguel\Desktop\Practica1_TPV2\TPV2\TPV2\src\game\AsteroidsManager.cpp(71,55): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\Maestro Miguel\Desktop\Practica1_TPV2\TPV2\TPV2\src\game\AsteroidsManager.cpp(72,40): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
 C:\Users\Maestro Miguel\Desktop\Practica1_TPV2\TPV2\TPV2\src\ecs\Entity.h(38,32): warning C4244: 'argumento': conversión de '_Ty' a 'float'; posible pérdida de datos
           with
           [
               _Ty=int
           ]
-C:\Users\Maestro Miguel\Desktop\Practica1_TPV2\TPV2\TPV2\src\game\AsteroidsManager.cpp(40): message : Vea la referencia a la creación de una instancia de la función plantilla "T *Entity::addComponent<Transform,Vector2D&,int,int,Vector2D&>(cmpId_type,Vector2D &,int &&,int &&,Vector2D &)" que se está compilando
+C:\Users\Maestro Miguel\Desktop\Practica1_TPV2\TPV2\TPV2\src\game\AsteroidsManager.cpp(42): message : Vea la referencia a la creación de una instancia de la función plantilla "T *Entity::addComponent<Transform,Vector2D&,int,int,Vector2D&>(cmpId_type,Vector2D &,int &&,int &&,Vector2D &)" que se está compilando
           with
           [
               T=Transform

@@ -10,12 +10,13 @@ public:
 	AsteroidsManager(Manager* m, Entity* p);
 	AsteroidsManager(Manager* m, Entity* p,  int n);
 	void destroyAllAsteroids();
+	void onCollision(Entity* e);
 
 private:
 	void createAsteroids(int n);
 	void createNormalAsteroid();
 	void createSeakingAsteroid();
-	void onCollision(Entity* e);
+	
 	int numAsteroids, maxAsteroids = 30;
 	Manager* mngRef_;
 	Entity* player_;

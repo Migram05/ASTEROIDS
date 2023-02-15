@@ -52,7 +52,7 @@ void SDLUtils::initWindow() {
 #endif
 
 	// Create window
-	window_ = SDL_CreateWindow(windowTitle_.c_str(),
+	/*window_ = SDL_CreateWindow(windowTitle_.c_str(),
 	SDL_WINDOWPOS_UNDEFINED,
 	SDL_WINDOWPOS_UNDEFINED, width_, height_, SDL_WINDOW_SHOWN);
 	assert(window_ != nullptr);
@@ -66,7 +66,7 @@ void SDLUtils::initWindow() {
 	assert(renderer_ != nullptr);
 
 	// hide cursor by default
-	hideCursor();
+	hideCursor();*/
 
 }
 
