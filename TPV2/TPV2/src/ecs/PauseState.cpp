@@ -7,15 +7,16 @@ const std::string PauseState::s_pauseID = "PAUSE";//ID del estado
 
 void PauseState::update() //Se actualizan los objetos de la lista
 {
+	
 	SDL_Event event;
-	if (SDL_PollEvent(&event) && event.type == SDL_KEYDOWN) {
+	if (SDL_PollEvent(&event) && event.type == SDL_KEYDOWN && event.key.keysym.sym == SDLK_SPACE) {
 		game->resumeGame();
 	}
 }
 
 bool PauseState::onEnter() //Se inicializan los objetos
 {
-
+	
 	return true;
 }
 

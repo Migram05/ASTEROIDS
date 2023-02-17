@@ -12,6 +12,7 @@
 //#include "MainMenuState.h"
 #include "../ecs/PlayState.h"
 #include "../ecs/PauseState.h"
+#include "../sdlutils/SDLUtils.h"
 //#include "EndState.h"*/
 #include <list>
 #include <unordered_set>

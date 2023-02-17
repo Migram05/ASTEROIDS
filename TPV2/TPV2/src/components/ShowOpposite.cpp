@@ -6,7 +6,7 @@ ShowOpposite::ShowOpposite(int w, int h) : winWidth_(w), winHeight_(h)
 
 void ShowOpposite::initComponent()
 {
-	tr_ = ent_->getComponent<Transform>(ecs::_TRANSFORM);
+	tr_ = ent_->getComponent<Transform>();
 }
 
 void ShowOpposite::update()

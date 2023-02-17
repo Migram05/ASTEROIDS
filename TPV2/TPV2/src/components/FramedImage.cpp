@@ -10,7 +10,7 @@ FramedImage::FramedImage(Texture* text, int r, int c, int f) : tex_(text), numRo
 
 void FramedImage::initComponent()
 {
-	tr_ = ent_->getComponent<Transform>(ecs::_TRANSFORM);
+	tr_ = ent_->getComponent<Transform>();
 }
 
 void FramedImage::render()

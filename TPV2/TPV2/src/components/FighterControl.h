@@ -15,6 +15,7 @@ public:
 	virtual ~FighterControl();
 	virtual void initComponent();
 	virtual void update();
+	constexpr static cmpId_type id = ecs::_CTRL;
 private:
 	Transform* tr_;
 	float speed, rotationSpeed;

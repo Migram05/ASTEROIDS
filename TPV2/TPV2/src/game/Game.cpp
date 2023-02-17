@@ -8,6 +8,7 @@ Game::Game() { //Constructora del juego, con la carga de texturas incluida
 	renderer = nullptr;
 	gameSettings(); //Carga el archivo de ajustes de juego, si encuentra el archivo
 	SDL_Init(SDL_INIT_EVERYTHING);
+	SDLUtils::init();
 	window = SDL_CreateWindow("ASTEROIDS", SDL_WINDOWPOS_CENTERED, //Creación de la ventana
 		SDL_WINDOWPOS_CENTERED, WIN_WIDTH, WIN_HEIGHT, SDL_WINDOW_SHOWN);
 	renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED); //Creación del render
@@ -20,7 +21,7 @@ Game::Game() { //Constructora del juego, con la carga de texturas incluida
 }
 void Game::gameSettings() { //Carga los datos del juego desde un archivo, si lo encuentra
 
-	ifstream readFile("gameData.txt");
+	ifstream readFile("../TPV2/src/game/gameData.txt");
 	if (readFile.is_open()) {
 		readFile >> WIN_WIDTH;
 		readFile >> WIN_HEIGHT;
@@ -28,7 +29,7 @@ void Game::gameSettings() { //Carga los datos del juego desde un archivo, si lo 
 		readFile.close();
 	}
 	else {
-		ofstream saveFile("gameData.txt"); //Si no encuentra el archivo, lo crea
+		ofstream saveFile("../TPV2/src/game/gameData.txt"); //Si no encuentra el archivo, lo crea
 		saveFile << WIN_WIDTH << endl;
 		saveFile << WIN_HEIGHT << endl;
 		saveFile << FRAME_RATE << endl;
@@ -56,13 +57,7 @@ void Game::InitGameObjects() { //Creación de la máquina de estados
 	gameStateMachine = new GameStateMachine();
 	gameStateMachine->changeState(new PlayState(this, WIN_WIDTH, WIN_HEIGHT));
 }
-Game::~Game() { //Destructora de la memoria dinámica creada
-	for (Texture* t : textures) delete t; //Se borran las texturas del juego
-	delete gameStateMachine; //Se borra la máquina
-	SDL_DestroyRenderer(renderer); //Se destruyen el renderer y la ventana
-	SDL_DestroyWindow(window);
-	SDL_Quit();
-}
+
 void Game::LoadTextures(SDL_Renderer* renderer) { //Cada valor del array de texturas recibe su información del array de descripciones
 	textures[GrayAsteroid] = new Texture(renderer, TEXT_DESCRIPT[GrayAsteroid].filename, 5, 6);
 	textures[GoldAsteroid] = new Texture(renderer, TEXT_DESCRIPT[GoldAsteroid].filename, 5, 6);
@@ -98,3 +93,11 @@ void Game::playerWins() { //Cambia al estado final tras pasar todos los niveles
 void Game::playerLoses() {
 	gameStateMachine->changeState(new EndState(this, WIN_WIDTH, WIN_HEIGHT, false));
 }*/
+
+Game::~Game() { //Destructora de la memoria dinámica creada
+	for (Texture* t : textures) delete t; //Se borran las texturas del juego
+	delete gameStateMachine; //Se borra la máquina
+	SDL_DestroyRenderer(renderer); //Se destruyen el renderer y la ventana
+	SDL_DestroyWindow(window);
+	SDL_Quit();
+}

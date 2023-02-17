@@ -43,21 +43,21 @@ void Manager::render()
 void Manager::spawnShot(Vector2D pos, Vector2D dir, float rot) {
     Entity* aux = addEntity();
     aux->setContext(this);
-    aux->addComponent<Transform>(ecs::_TRANSFORM, pos, 5, 30, dir, rot);
-    aux->addComponent<Image>(ecs::_IMAGE, game->getTexture(Fire));
-    aux->addComponent<DisableOnExit>(ecs::_DISABLEONEXIT, game->WIN_WIDTH, game->WIN_HEIGHT);
+    aux->addComponent<Transform>(pos, 5, 30, dir, rot);
+    aux->addComponent<Image>(game->getTexture(Fire));
+    aux->addComponent<DisableOnExit>(game->WIN_WIDTH, game->WIN_HEIGHT);
 }
 
 void Manager::createPlayer()
 {
     player = addEntity();
-    player->addComponent<Transform>(ecs::_TRANSFORM, game->WIN_WIDTH /2 -15, game->WIN_HEIGHT /2 -15, 30, 30);
-    player->addComponent<Image>(ecs::_IMAGE, game->getTexture(Fighter1));
-    player->addComponent<FighterControl>(ecs::_CTRL);
-    player->addComponent<DeAcceleration>(ecs::_DEACCELERATION);
-    player->addComponent<ShowOpposite>(ecs::_SHOWOPOSITE, game->WIN_WIDTH, game->WIN_HEIGHT);
-    player->addComponent<Health>(ecs::_HEALTH, game->getTexture(Heart), game->WIN_WIDTH, game->WIN_HEIGHT, 5);
-    player->addComponent<Gun>(ecs::_GUN);
+    player->addComponent<Transform>(game->WIN_WIDTH /2 -15, game->WIN_HEIGHT /2 -15, 30, 30);
+    player->addComponent<Image>( game->getTexture(Fighter1));
+    player->addComponent<FighterControl>();
+    player->addComponent<DeAcceleration>();
+    player->addComponent<ShowOpposite>(game->WIN_WIDTH, game->WIN_HEIGHT);
+    player->addComponent<Health>(game->getTexture(Heart), game->WIN_WIDTH, game->WIN_HEIGHT, 5);
+    player->addComponent<Gun>();
 }
 
 Texture* Manager::getTexture(int t)

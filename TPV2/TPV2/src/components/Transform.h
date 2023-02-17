@@ -19,7 +19,8 @@ public:
 	inline float& getRotation() { return rotation_; }
 	virtual void initComponent();
 	virtual void update();
-	virtual void render();
+	virtual void render(); 
+	constexpr static cmpId_type id = ecs::_TRANSFORM;
 private:
 	Vector2D position_;
 	Vector2D velocity_;

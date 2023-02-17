@@ -12,6 +12,7 @@ public:
 	virtual ~FramedImage();
 	void initComponent() override;
 	void render() override;
+	constexpr static cmpId_type id = ecs::_FRAMEDIMAGE;
 private:
 	Transform* tr_;
 	Texture* tex_;

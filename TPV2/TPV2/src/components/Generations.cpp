@@ -10,7 +10,7 @@ Generations::Generations(int n) : numGen(n)
 
 void Generations::initComponent()
 {
-	tr_ = ent_->getComponent<Transform>(ecs::_TRANSFORM);
+	tr_ = ent_->getComponent<Transform>();
 	float& w = tr_->getW();
 	float& h = tr_->getH();
 	w = w * numGen; h = h * numGen;

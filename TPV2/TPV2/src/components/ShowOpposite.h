@@ -10,6 +10,7 @@ public:
 	virtual ~ShowOpposite();
 	virtual void initComponent();
 	virtual void update();
+	constexpr static cmpId_type id = ecs::_SHOWOPOSITE;
 private:
 	Transform* tr_;
 	int winWidth_, winHeight_;

@@ -9,7 +9,7 @@ public:
 	Generations(int n);
 	inline int& GetGeneration() { return numGen; }
 	void initComponent() override;
-
+	constexpr static cmpId_type id = ecs::_GENERATIONS;
 private:
 	int numGen;
 	Transform* tr_;

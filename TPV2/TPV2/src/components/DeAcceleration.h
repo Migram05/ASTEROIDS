@@ -12,6 +12,7 @@ public:
 	virtual ~DeAcceleration();
 	virtual void initComponent();
 	virtual void update();
+	constexpr static cmpId_type id = ecs::_DEACCELERATION;
 private:
 	Transform* tr_;
 	float reduction, stopMargin = 0.001;

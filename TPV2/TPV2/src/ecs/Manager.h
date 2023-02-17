@@ -40,4 +40,3 @@ private:
 	Game* game;
 	enum ValoresArray { GrayAsteroid, GoldAsteroid, Fighter1, Fighter2, Fire, Heart };
 };
-

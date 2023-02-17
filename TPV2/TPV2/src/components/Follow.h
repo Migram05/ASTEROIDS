@@ -10,6 +10,7 @@ public:
 	virtual ~Follow();
 	virtual void initComponent();
 	virtual void update();
+	constexpr static cmpId_type id = ecs::_FOLLOW;
 private:
 	Transform* tr_;
 	Entity* objective_;

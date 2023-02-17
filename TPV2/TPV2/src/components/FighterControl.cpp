@@ -14,7 +14,7 @@ FighterControl::~FighterControl()
 
 void FighterControl::initComponent()
 {
-	tr_ = ent_->getComponent<Transform>(ecs::_TRANSFORM);
+	tr_ = ent_->getComponent<Transform>();
 }
 
 void FighterControl::update()
@@ -37,7 +37,7 @@ void FighterControl::update()
 			case SDLK_d: fRotation += rotationSpeed; if (fRotation > 360) fRotation = 0; break;
 			case SDLK_s: {
 				if (ent_->hasComponent(ecs::_GUN)) {
-					ent_->getComponent<Gun>(ecs::_GUN)->shoot(tr_->getPos(), tr_->getForward(), tr_->getRotation());
+					ent_->getComponent<Gun>()->shoot(tr_->getPos(), tr_->getForward(), tr_->getRotation());
 				}
 				break;
 			}

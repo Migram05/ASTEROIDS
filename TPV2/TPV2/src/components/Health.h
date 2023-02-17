@@ -13,6 +13,7 @@ public:
 	int getLives();
 	void damage();
 	void resetLives();
+	constexpr static cmpId_type id = ecs::_HEALTH;
 private:
 	Texture* tex_;
 	int numLives, initialLives;

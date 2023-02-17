@@ -14,8 +14,10 @@ public:
 	virtual ~Gun();
 	virtual void initComponent();
 	void shoot(Vector2D pos, Vector2D dir, float rot);
+	constexpr static cmpId_type id = ecs::_GUN;
 private:
 	float speed;
 	int lastShotTime, shootRate;
 };
+
 

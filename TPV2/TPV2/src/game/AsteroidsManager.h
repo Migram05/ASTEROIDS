@@ -12,15 +12,18 @@ public:
 	void destroyAllAsteroids();
 	void onCollision(Entity* e);
 	void createAsteroids(int n);
+	void addAsteroidFrequency();
+	inline void pauseTimer() { pause = true;  }
 
 private:
 	void createNormalAsteroid();
 	void createSeakingAsteroid();
 	void createSmallerAsteroids(int n, int g, Entity* e);
-	
-	int numAsteroids, maxAsteroids = 11, maxDivision = 3;
+	Vector2D borderSpawnLocation();
+	int numAsteroids = 0, maxAsteroids = 30, maxDivision = 3, AsteroidTime = 5, timer_ = 0, defaultNum = 10;
 	Manager* mngRef_;
 	Entity* player_;
 	enum ValoresArray { GrayAsteroid, GoldAsteroid, Fighter1, Fighter2, Fire, Heart };
+	bool pause = false;
 };
 

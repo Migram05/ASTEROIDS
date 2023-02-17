@@ -1,11 +1,11 @@
 #include "Gun.h"
 
-Gun::Gun() : speed (1), shootRate(500)
+Gun::Gun() : speed (1), shootRate(100)
 {
 	lastShotTime = -shootRate;
 }
 
-Gun::Gun(float s) : speed(s), shootRate(500)
+Gun::Gun(float s) : speed(s), shootRate(100)
 {
 	lastShotTime = -shootRate;
 }

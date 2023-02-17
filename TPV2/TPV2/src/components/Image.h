@@ -9,6 +9,7 @@ public:
 	virtual ~Image();
 	void initComponent() override;
 	void render() override;
+	constexpr static cmpId_type id = ecs::_IMAGE;
 private:
 	Transform* tr_;
 	Texture* tex_;

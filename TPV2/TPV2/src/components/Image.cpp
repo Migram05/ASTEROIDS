@@ -6,7 +6,7 @@ Image::Image(Texture* text) : tr_(nullptr), tex_(text), Component()
 
 void Image::initComponent()
 {
-	tr_ = ent_->getComponent<Transform>(ecs::_TRANSFORM);
+	tr_ = ent_->getComponent<Transform>();
 }
 
 void Image::render()

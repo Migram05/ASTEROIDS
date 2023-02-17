@@ -14,7 +14,7 @@ DeAcceleration::~DeAcceleration()
 
 void DeAcceleration::initComponent()
 {
-	tr_ = ent_->getComponent<Transform>(ecs::_TRANSFORM);
+	tr_ = ent_->getComponent<Transform>();
 }
 
 void DeAcceleration::update()

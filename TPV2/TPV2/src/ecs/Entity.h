@@ -25,25 +25,28 @@ public:
 	}
 	inline bool isAlive() { return alive_; }
 	inline void setAlive(bool alive) { alive_ = alive; }
-	inline void update(){
+	inline void update() {
 		auto n = currCmps_.size();
 		for (auto i = 0u; i < n; i++) currCmps_[i]->update();
 	}
-	inline void render(){
+	inline void render() {
 		auto n = currCmps_.size();
 		for (auto i = 0u; i < n; i++) currCmps_[i]->render();
 	}
 	template<typename T, typename ...Ts>
-	inline T* addComponent(cmpId_type cId, Ts&& ...args) {
+	inline T* addComponent(Ts&& ...args) {
+		constexpr cmpId_type cId = T::id;
 		T* c = new T(std::forward<Ts>(args)...);
-		removeComponent(cId);
+		removeComponent<T>();
 		currCmps_.push_back(c);
 		cmps_[cId] = c;
 		c->setContext(this, mngr_);
 		c->initComponent();
 		return c;
 	}
-	inline void removeComponent(cmpId_type cId) {
+	template<typename T>
+	inline void removeComponent() {
+		constexpr cmpId_type cId = T::id;
 		if (cmps_[cId] != nullptr) {
 			auto iter = find(currCmps_.begin(), currCmps_.end(), cmps_[cId]);
 			currCmps_.erase(iter);
@@ -52,7 +55,8 @@ public:
 		}
 	}
 	template<typename T>
-	inline T* getComponent(cmpId_type cId) {
+	inline T* getComponent() {
+		constexpr cmpId_type cId = T::id;
 		return static_cast<T*>(cmps_[cId]);
 	}
 	inline bool hasComponent(cmpId_type cId) {
