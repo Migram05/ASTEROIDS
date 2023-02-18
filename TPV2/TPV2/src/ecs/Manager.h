@@ -34,6 +34,7 @@ public:
 	const int getHeight();
 	void exitGame();
 	vector<Entity*>& getEntities();
+	bool isPlayerAlive();
 private:
 	Entity* player;
 	vector<Entity*> ents_;

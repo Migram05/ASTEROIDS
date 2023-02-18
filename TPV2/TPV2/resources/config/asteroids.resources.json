@@ -1,0 +1,29 @@
+{
+
+  "fonts" : [
+    { "id" : "ARIAL16", "file" : "resources/fonts/ARIAL.ttf", "size": 16 },
+    { "id" : "ARIAL24", "file" : "resources/fonts/ARIAL.ttf", "size": 24 },
+    { "id" : "ARIAL48", "file" : "resources/fonts/ARIAL.ttf", "size": 48 }
+  ],
+  
+  "images" : [
+    
+  ],
+  
+  "messages" : [
+    
+  ],
+  
+  "sounds" : [
+    
+    { "id" : "shot", "file" : "resources/sound/fire.wav" },
+    { "id" : "thrust", "file" : "resources/sound/thrust.wav" },
+    { "id" : "bang", "file" : "resources/sound/bangLarge.wav" },
+    { "id" : "explosion", "file" : "resources/sound/explosion.wav" }
+  ],
+
+  "musics" : [
+    { "id" : "theme", "file" : "resources/sound/theme.wav" }
+  ]
+
+}

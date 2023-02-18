@@ -1,2 +1,9 @@
 ﻿C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Microsoft\VC\v160\Microsoft.CppBuild.targets(499,5): warning MSB8004: El directorio Output no termina con una barra diagonal final. Esta instancia de compilación agregará la barra diagonal porque es necesaria para que se pueda evaluar correctamente el directorio Output.
+  PlayState.cpp
+C:\Users\Maestro Miguel\Desktop\Practica1_TPV2\TPV2\TPV2\src\ecs\Entity.h(3,10): warning C4067: símbolos (token) inesperados después de la directiva del preprocesador; se esperaba una nueva línea
+C:\Users\Maestro Miguel\Desktop\Practica1_TPV2\TPV2\TPV2\src\components\DeAcceleration.h(18,30): warning C4305: 'inicializando': truncamiento de 'double' a 'float'
+C:\Users\Maestro Miguel\Desktop\Practica1_TPV2\TPV2\TPV2\src\game\AsteroidsManager.h(26,22): warning C4305: 'inicializando': truncamiento de 'double' a 'float'
+C:\Users\Maestro Miguel\Desktop\Practica1_TPV2\TPV2\TPV2\src\sdlutils\SDLUtils.h(50,32): warning C4101: 'e': variable local sin referencia
+C:\Users\Maestro Miguel\Desktop\Practica1_TPV2\TPV2\TPV2\src\sdlutils\SDLUtils.h(47): message : al compilar la función del miembro clase plantilla "Music &SDLUtils::map_access_wrapper<Music>::at(std::string)"
+C:\Users\Maestro Miguel\Desktop\Practica1_TPV2\TPV2\TPV2\src\sdlutils\SDLUtils.h(195): message : Vea la referencia a la creación de una instancia de clase plantilla "SDLUtils::map_access_wrapper<Music>" que se está compilando
   TPV2.vcxproj -> C:\Users\Maestro Miguel\Desktop\Practica1_TPV2\TPV2\bin\TPV2Debug.exe

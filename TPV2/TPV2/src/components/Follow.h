@@ -6,7 +6,7 @@
 class Follow : public Component
 {
 public:
-	Follow(Entity* f);
+	Follow(Entity* f, float s);
 	virtual ~Follow();
 	virtual void initComponent();
 	virtual void update();
@@ -14,5 +14,6 @@ public:
 private:
 	Transform* tr_;
 	Entity* objective_;
+	float speed_;
 };
 

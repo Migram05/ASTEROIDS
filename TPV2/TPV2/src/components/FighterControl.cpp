@@ -1,6 +1,6 @@
 #include "FighterControl.h"
 
-FighterControl::FighterControl() : speed(0.4), rotationSpeed(5)
+FighterControl::FighterControl() : speed(1.2), rotationSpeed(5)
 {
 }
 
@@ -28,11 +28,12 @@ void FighterControl::update()
 	float s = sin(rad); 
 	forwardVector = Vector2D{ s, c };
 	SDL_Event event;
+	auto& sdl = *SDLUtils::instance();
 	while (SDL_PollEvent(&event)) {
 		if (event.type == SDL_KEYDOWN) {
 			switch (event.key.keysym.sym)
 			{
-			case SDLK_w: {lastForward = forwardVector; fVector = Vector2D{ lastForward.getX() * speed, lastForward.getY() * -speed }; break; }
+			case SDLK_w: {lastForward = forwardVector; fVector = Vector2D{ lastForward.getX() * speed, lastForward.getY() * -speed }; sdl.soundEffects().at("thrust").play(); break; }
 			case SDLK_a: fRotation -= rotationSpeed; if (fRotation < -360) fRotation = 0; break;
 			case SDLK_d: fRotation += rotationSpeed; if (fRotation > 360) fRotation = 0; break;
 			case SDLK_s: {

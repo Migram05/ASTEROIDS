@@ -57,7 +57,7 @@ void Manager::createPlayer()
     player->addComponent<DeAcceleration>();
     player->addComponent<ShowOpposite>(game->WIN_WIDTH, game->WIN_HEIGHT);
     player->addComponent<Health>(game->getTexture(Heart), game->WIN_WIDTH, game->WIN_HEIGHT, 5);
-    player->addComponent<Gun>();
+    player->addComponent<Gun>(10);
 }
 
 Texture* Manager::getTexture(int t)
@@ -83,6 +83,11 @@ void Manager::exitGame()
 vector<Entity*>& Manager::getEntities()
 {
     return ents_;
+}
+
+bool Manager::isPlayerAlive()
+{
+    return player->getComponent<Health>()->getLives() > 0;
 }
 
 Manager::~Manager()

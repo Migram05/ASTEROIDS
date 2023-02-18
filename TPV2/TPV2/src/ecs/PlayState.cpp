@@ -20,6 +20,9 @@ bool PlayState::onEnter() //Se inicializan los objetos
 	manager_ = new Manager(game);
 	manager_->createPlayer();
 	asteroidsManager_ = new AsteroidsManager(manager_, manager_->getPlayer(), 10);
+	auto& sdl = *SDLUtils::instance();
+	Music::setMusicVolume(8);
+	sdl.musics().at("theme").play();
 	return true;
 }
 
@@ -32,6 +35,7 @@ void PlayState::checkCollisions() {
 	vector<Entity*>& entities = manager_->getEntities();
 	bool reset = false;
 	auto it = entities.begin();
+	auto& sdl = *SDLUtils::instance();
 	while (it != entities.end() && !reset) {
 		Entity* e = *it;
 		if (e->hasComponent(ecs::_GENERATIONS)) {
@@ -42,6 +46,7 @@ void PlayState::checkCollisions() {
 				Transform* t2 = e2->getComponent<Transform>();
 				if (!e2->hasComponent(ecs::_GENERATIONS) && Collisions::collidesWithRotation(t1->getPos(), t1->getW(), t1->getH(), t1->getRotation(), t2->getPos(), t2->getW(), t2->getH(), t2->getRotation())) {
 					if (e2->hasComponent(ecs::_HEALTH)) {
+						sdl.soundEffects().at("explosion").play();
 						reset = true;
 						e2->getComponent<Health>()->damage();
 						t2->getPos() = Vector2D{ (float)WIN_WIDTH / 2, (float)WIN_HEIGHT / 2 };
@@ -50,6 +55,7 @@ void PlayState::checkCollisions() {
 						
 					}
 					else if (e2->hasComponent(ecs::_DISABLEONEXIT)) {
+						sdl.soundEffects().at("bang").play();
 						asteroidsManager_->onCollision(e);
 						e2->setAlive(false);
 					}
@@ -64,12 +70,17 @@ void PlayState::checkCollisions() {
 		asteroidsManager_->destroyAllAsteroids();
 		refresh();
 		asteroidsManager_->pauseTimer();
-		game->pauseGame();
+		if (manager_->isPlayerAlive()) game->pauseGame();
+		else {
+			game->playerLoses();
+			manager_->getPlayer()->getComponent<Health>()->resetLives();
+		}
 		asteroidsManager_->createAsteroids(10);
 	}
 }
 
 PlayState::~PlayState() {
+	Music::haltMusic();
 	delete manager_;
 	delete asteroidsManager_;
 }

@@ -16,8 +16,6 @@ public:
 	inline void pauseTimer() { pause = true;  }
 
 private:
-	void createNormalAsteroid();
-	void createSeakingAsteroid();
 	void createSmallerAsteroids(int n, int g, Entity* e);
 	Vector2D borderSpawnLocation();
 	int numAsteroids = 0, maxAsteroids = 30, maxDivision = 3, AsteroidTime = 5, timer_ = 0, defaultNum = 10;
@@ -25,5 +23,6 @@ private:
 	Entity* player_;
 	enum ValoresArray { GrayAsteroid, GoldAsteroid, Fighter1, Fighter2, Fire, Heart };
 	bool pause = false;
+	float asteroidSpeed = 0.4;
 };
 

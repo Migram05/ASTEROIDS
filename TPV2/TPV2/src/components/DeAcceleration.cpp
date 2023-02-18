@@ -1,6 +1,6 @@
 #include "DeAcceleration.h"
 
-DeAcceleration::DeAcceleration() : reduction(0.0005)
+DeAcceleration::DeAcceleration() : reduction(0.005)
 {
 }
 
