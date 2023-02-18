@@ -1,5 +1,6 @@
 #pragma once
 #include <vector>
+#include <array>
 #include "../utils/Vector2D.h"
 #include "../components/Transform.h"
 #include "../components/Image.h"
@@ -15,6 +16,7 @@
 #include "../game/Game.h"
 #include "../game/checkML.h"
 using namespace std;
+using grpId_type = uint8_t;
 class Entity;
 class Manager
 {
@@ -22,7 +24,7 @@ class Manager
 public:
 	Manager(Game* g);
 	virtual ~Manager();
-	Entity* addEntity();
+	Entity* addEntity(grpId_type gId);
 	void refresh();
 	void update();
 	void render();
@@ -33,11 +35,14 @@ public:
 	const int getWidth();
 	const int getHeight();
 	void exitGame();
-	vector<Entity*>& getEntities();
+	//inline auto& getEntities() { return ents_; }
 	bool isPlayerAlive();
+	const vector<Entity*>& getEntitiesByGroup(grpId_type gId);
+	void addToGroupList(grpId_type gId, Entity* e);
 private:
 	Entity* player;
-	vector<Entity*> ents_;
+	//vector<Entity*> ents_;
 	Game* game;
 	enum ValoresArray { GrayAsteroid, GoldAsteroid, Fighter1, Fighter2, Fire, Heart };
+	std::array<std::vector<Entity*>, ecs::maxGroupId> entsByGroup_;
 };

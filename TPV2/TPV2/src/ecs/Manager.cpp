@@ -1,22 +1,25 @@
 #include "Manager.h"
 #include "Entity.h"
-Manager::Manager(Game* g) : ents_(), game(g)
+Manager::Manager(Game* g) : entsByGroup_(), game(g)
 {
-    ents_.reserve(100);
+    
+    for (auto& groupEntities : entsByGroup_) {
+        groupEntities.reserve(100);
+    }
 }
 
-Entity* Manager::addEntity()
+Entity* Manager::addEntity(ecs::grpId_type gId = ecs::_grp_GENERAL)
 {
     Entity* e = new Entity();
     e->setAlive(true);
     e->setContext(this);
-    ents_.push_back(e);
+    entsByGroup_[gId].push_back(e);
     return e;
 }
 
 void Manager::refresh()
 {
-    ents_.erase(
+    /*ents_.erase(
         std::remove_if(ents_.begin(), ents_.end(), [](Entity* e) {
         if (e->isAlive()) {
             return false;
@@ -26,22 +29,42 @@ void Manager::refresh()
             return true;
         }
     }), 
-    ents_.end());
+    ents_.end());*/
+    for (ecs::grpId_type gId = 0; gId < ecs::maxGroupId; gId++) {
+        auto& grpEnts = entsByGroup_[gId];
+        grpEnts.erase(
+            std::remove_if(grpEnts.begin(), grpEnts.end(), [](Entity* e) {
+                    if (e->isAlive()) {
+                        return false;
+                    }
+                    else {
+                        delete e;
+                        return true;
+                    }
+            }),
+            grpEnts.end());
+    }
 }
 
 void Manager::update()
 {
-    auto n = ents_.size();
-    for (auto i = 0u; i < n; i++) ents_[i]->update();
+    for (auto& ents : entsByGroup_) {
+        auto n = ents.size();
+        for (auto i = 0u; i < n; i++)
+            ents[i]->update();
+    }
 }
 
 void Manager::render()
 {
-    auto n = ents_.size();
-    for (auto i = 0u; i < n; i++) ents_[i]->render();
+    for (auto& ents : entsByGroup_) {
+        auto n = ents.size();
+        for (auto i = 0u; i < n; i++)
+            ents[i]->render();
+    }
 }
 void Manager::spawnShot(Vector2D pos, Vector2D dir, float rot) {
-    Entity* aux = addEntity();
+    Entity* aux = addEntity(ecs::_grp_BULLETS);
     aux->setContext(this);
     aux->addComponent<Transform>(pos, 5, 30, dir, rot);
     aux->addComponent<Image>(game->getTexture(Fire));
@@ -50,7 +73,7 @@ void Manager::spawnShot(Vector2D pos, Vector2D dir, float rot) {
 
 void Manager::createPlayer()
 {
-    player = addEntity();
+    player = addEntity(ecs::_grp_PLAYER);
     player->addComponent<Transform>(game->WIN_WIDTH /2 -15, game->WIN_HEIGHT /2 -15, 30, 30);
     player->addComponent<Image>( game->getTexture(Fighter1));
     player->addComponent<FighterControl>();
@@ -80,19 +103,25 @@ void Manager::exitGame()
     game->exitGame();
 }
 
-vector<Entity*>& Manager::getEntities()
-{
-    return ents_;
-}
-
 bool Manager::isPlayerAlive()
 {
     return player->getComponent<Health>()->getLives() > 0;
 }
 
+const vector<Entity*>& Manager::getEntitiesByGroup(grpId_type gId = ecs::_grp_GENERAL)
+{
+    return entsByGroup_[gId];
+}
+
+void Manager::addToGroupList(grpId_type gId, Entity* e)
+{
+    entsByGroup_[gId].push_back(e);
+}
+
 Manager::~Manager()
 {
-    for (auto e : ents_) {
-        delete e;
+    for (auto& ents : entsByGroup_) {
+        for (auto e : ents)
+            delete e;
     }
 }

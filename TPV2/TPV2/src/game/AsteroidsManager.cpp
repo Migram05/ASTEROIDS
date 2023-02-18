@@ -14,9 +14,9 @@ AsteroidsManager::AsteroidsManager(Manager* m,Entity* p, int n) : mngRef_(m), pl
 
 void AsteroidsManager::destroyAllAsteroids()
 {
-    vector<Entity*>& entities = mngRef_->getEntities();
+    vector<Entity*> entities = mngRef_->getEntitiesByGroup(ecs::_grp_ASTEROIDS);
     for (Entity* e : entities) {
-        if (e->hasComponent(ecs::_GENERATIONS)) e->setAlive(false);
+        e->setAlive(false);
     }
     numAsteroids = 0;
 }
@@ -26,7 +26,7 @@ void AsteroidsManager::createAsteroids(int n)
     auto& sdl = *SDLUtils::instance();
 	for (int i = 0; i < n; ++i) {
         Vector2D spawnPos = borderSpawnLocation();
-        Entity* a = mngRef_->addEntity();
+        Entity* a = mngRef_->addEntity(ecs::_grp_ASTEROIDS);
         Vector2D dir = mngRef_->getPlayer()->getComponent<Transform>()->getPos() - spawnPos;
         dir = dir + Vector2D(sdl.rand().nextInt(-100, 100) , sdl.rand().nextInt(-100, 100));
         dir = dir.normalize() * asteroidSpeed;
@@ -52,7 +52,7 @@ void AsteroidsManager::createSmallerAsteroids(int n, int g, Entity* e) {
         auto r = sdlutils().rand().nextInt(0, 360);
         auto pos = tr->getPos() + tr->getVel().rotate(r) * 2 * std::max(tr->getW(), tr->getH());
         auto vel = tr->getVel().rotate(r) * 1.1f;
-        Entity* a = mngRef_->addEntity();
+        Entity* a = mngRef_->addEntity(ecs::_grp_ASTEROIDS);
         a->addComponent<Transform>(pos, 10, 10, vel);
         a->addComponent<ShowOpposite>(mngRef_->getWidth(), mngRef_->getHeight());
         a->addComponent<Generations>(g);

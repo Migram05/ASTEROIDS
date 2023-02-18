@@ -4,10 +4,11 @@
 #include "../components/Component.h"
 #include <array>
 #include <vector>
+#include <bitset>
 
 using namespace std;
 using cmpId_type = uint8_t;
-
+using grpId_type = uint8_t;
 class Entity
 {
 public:
@@ -62,10 +63,25 @@ public:
 	inline bool hasComponent(cmpId_type cId) {
 		return cmps_[cId] != nullptr;
 	}
+	/*inline void addToGroup(grpId_type gId) {
+		if (!groups_[gId]) {
+			groups_[gId] = true;
+			mngr_->addToGroupList(gId, this);
+		}
+	}
+	inline void removeFromGroupList(grpId_type gId) {
+		if (groups_[gId]) {
+			groups_[gId] = false;
+		}
+	}
+	inline bool hasGroup(grpId_type gId) {
+		return groups_[gId];
+	}*/
 private:
 	bool alive_;
 	Manager* mngr_;
 	vector<Component*> currCmps_;
 	array<Component*, ecs::maxComponentId> cmps_;
+	//std::bitset<ecs::maxGroupId> groups_;
 };
 

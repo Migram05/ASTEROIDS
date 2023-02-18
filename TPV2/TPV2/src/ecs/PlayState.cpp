@@ -32,42 +32,36 @@ void PlayState::refresh()
 }
 
 void PlayState::checkCollisions() {
-	vector<Entity*>& entities = manager_->getEntities();
+	vector<Entity*> asteroids = manager_->getEntitiesByGroup(ecs::_grp_ASTEROIDS);
+	vector<Entity*> bullets = manager_->getEntitiesByGroup(ecs::_grp_BULLETS);
+	vector<Entity*> player = manager_->getEntitiesByGroup(ecs::_grp_PLAYER);
 	bool reset = false;
-	auto it = entities.begin();
 	auto& sdl = *SDLUtils::instance();
-	while (it != entities.end() && !reset) {
-		Entity* e = *it;
-		if (e->hasComponent(ecs::_GENERATIONS)) {
-			Transform* t1 = e->getComponent<Transform>();
-			auto it2 = entities.begin();
-			while (it2 != entities.end() && !reset) {
-				Entity* e2 = *it2;
-				Transform* t2 = e2->getComponent<Transform>();
-				if (!e2->hasComponent(ecs::_GENERATIONS) && Collisions::collidesWithRotation(t1->getPos(), t1->getW(), t1->getH(), t1->getRotation(), t2->getPos(), t2->getW(), t2->getH(), t2->getRotation())) {
-					if (e2->hasComponent(ecs::_HEALTH)) {
-						sdl.soundEffects().at("explosion").play();
-						reset = true;
-						e2->getComponent<Health>()->damage();
-						t2->getPos() = Vector2D{ (float)WIN_WIDTH / 2, (float)WIN_HEIGHT / 2 };
-						t2->getRotation() = 0;
-						t2->getVel() = Vector2D{ 0,0 };
-						
-					}
-					else if (e2->hasComponent(ecs::_DISABLEONEXIT)) {
-						sdl.soundEffects().at("bang").play();
-						asteroidsManager_->onCollision(e);
-						e2->setAlive(false);
-					}
-				}
-				++it2;
+	auto it = asteroids.begin();
+	while (it!= asteroids.end() && !reset) {
+		Entity* a = *it;
+		Transform* t1 = a->getComponent<Transform>();
+		for (Entity* b : bullets) {
+			Transform* t2 = b->getComponent<Transform>();
+			if (Collisions::collidesWithRotation(t1->getPos(), t1->getW(), t1->getH(), t1->getRotation(), t2->getPos(), t2->getW(), t2->getH(), t2->getRotation())) {
+				sdl.soundEffects().at("bang").play();
+				asteroidsManager_->onCollision(a);
+				b->setAlive(false);
 			}
-			
+		}
+		for (Entity* p : player) {
+			Transform* t3 = p->getComponent<Transform>();
+			if (Collisions::collidesWithRotation(t1->getPos(), t1->getW(), t1->getH(), t1->getRotation(), t3->getPos(), t3->getW(), t3->getH(), t3->getRotation())) {
+				sdl.soundEffects().at("explosion").play();
+				p->getComponent<Health>()->damage();
+				t3->getPos() = Vector2D{ (float)WIN_WIDTH / 2, (float)WIN_HEIGHT / 2 }; t3->getRotation() = 0; t3->getVel() = Vector2D{ 0,0 };
+				asteroidsManager_->destroyAllAsteroids();
+				reset = true;
+			}
 		}
 		++it;
 	}
 	if (reset) {
-		asteroidsManager_->destroyAllAsteroids();
 		refresh();
 		asteroidsManager_->pauseTimer();
 		if (manager_->isPlayerAlive()) game->pauseGame();
