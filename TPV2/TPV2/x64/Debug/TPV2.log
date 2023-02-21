@@ -1,152 +1,27 @@
 ﻿C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Microsoft\VC\v160\Microsoft.CppBuild.targets(499,5): warning MSB8004: El directorio Output no termina con una barra diagonal final. Esta instancia de compilación agregará la barra diagonal porque es necesaria para que se pueda evaluar correctamente el directorio Output.
-  Component.cpp
-C:\Users\Maestro Miguel\Desktop\Practica1_TPV2\TPV2\TPV2\src\ecs\Entity.h(3,10): warning C4067: símbolos (token) inesperados después de la directiva del preprocesador; se esperaba una nueva línea
-C:\Users\Maestro Miguel\Desktop\Practica1_TPV2\TPV2\TPV2\src\components\DeAcceleration.h(18,30): warning C4305: 'inicializando': truncamiento de 'double' a 'float'
-C:\Users\Maestro Miguel\Desktop\Practica1_TPV2\TPV2\TPV2\src\game\AsteroidsManager.h(26,22): warning C4305: 'inicializando': truncamiento de 'double' a 'float'
-  DeAcceleration.cpp
-C:\Users\Maestro Miguel\Desktop\Practica1_TPV2\TPV2\TPV2\src\ecs\Entity.h(3,10): warning C4067: símbolos (token) inesperados después de la directiva del preprocesador; se esperaba una nueva línea
-C:\Users\Maestro Miguel\Desktop\Practica1_TPV2\TPV2\TPV2\src\game\AsteroidsManager.h(26,22): warning C4305: 'inicializando': truncamiento de 'double' a 'float'
-C:\Users\Maestro Miguel\Desktop\Practica1_TPV2\TPV2\TPV2\src\components\DeAcceleration.h(18,30): warning C4305: 'inicializando': truncamiento de 'double' a 'float'
-C:\Users\Maestro Miguel\Desktop\Practica1_TPV2\TPV2\TPV2\src\components\DeAcceleration.cpp(4,1): warning C4305: 'inicializando': truncamiento de 'double' a 'float'
-  DisableOnExit.cpp
-C:\Users\Maestro Miguel\Desktop\Practica1_TPV2\TPV2\TPV2\src\ecs\Entity.h(3,10): warning C4067: símbolos (token) inesperados después de la directiva del preprocesador; se esperaba una nueva línea
-C:\Users\Maestro Miguel\Desktop\Practica1_TPV2\TPV2\TPV2\src\components\DeAcceleration.h(18,30): warning C4305: 'inicializando': truncamiento de 'double' a 'float'
-C:\Users\Maestro Miguel\Desktop\Practica1_TPV2\TPV2\TPV2\src\game\AsteroidsManager.h(26,22): warning C4305: 'inicializando': truncamiento de 'double' a 'float'
-  FighterControl.cpp
-C:\Users\Maestro Miguel\Desktop\Practica1_TPV2\TPV2\TPV2\src\ecs\Entity.h(3,10): warning C4067: símbolos (token) inesperados después de la directiva del preprocesador; se esperaba una nueva línea
-C:\Users\Maestro Miguel\Desktop\Practica1_TPV2\TPV2\TPV2\src\components\DeAcceleration.h(18,30): warning C4305: 'inicializando': truncamiento de 'double' a 'float'
-C:\Users\Maestro Miguel\Desktop\Practica1_TPV2\TPV2\TPV2\src\game\AsteroidsManager.h(26,22): warning C4305: 'inicializando': truncamiento de 'double' a 'float'
-C:\Users\Maestro Miguel\Desktop\Practica1_TPV2\TPV2\TPV2\src\components\FighterControl.cpp(4,1): warning C4305: 'inicializando': truncamiento de 'double' a 'float'
-C:\Users\Maestro Miguel\Desktop\Practica1_TPV2\TPV2\TPV2\src\components\FighterControl.cpp(27,10): warning C4244: 'inicializando': conversión de 'double' a 'float'; posible pérdida de datos
-C:\Users\Maestro Miguel\Desktop\Practica1_TPV2\TPV2\TPV2\src\components\FighterControl.cpp(28,10): warning C4244: 'inicializando': conversión de 'double' a 'float'; posible pérdida de datos
-C:\Users\Maestro Miguel\Desktop\Practica1_TPV2\TPV2\TPV2\src\sdlutils\SDLUtils.h(50,32): warning C4101: 'e': variable local sin referencia
-C:\Users\Maestro Miguel\Desktop\Practica1_TPV2\TPV2\TPV2\src\sdlutils\SDLUtils.h(47): message : al compilar la función del miembro clase plantilla "SoundEffect &SDLUtils::map_access_wrapper<SoundEffect>::at(std::string)"
-C:\Users\Maestro Miguel\Desktop\Practica1_TPV2\TPV2\TPV2\src\sdlutils\SDLUtils.h(194): message : Vea la referencia a la creación de una instancia de clase plantilla "SDLUtils::map_access_wrapper<SoundEffect>" que se está compilando
-  Follow.cpp
-C:\Users\Maestro Miguel\Desktop\Practica1_TPV2\TPV2\TPV2\src\ecs\Entity.h(3,10): warning C4067: símbolos (token) inesperados después de la directiva del preprocesador; se esperaba una nueva línea
-C:\Users\Maestro Miguel\Desktop\Practica1_TPV2\TPV2\TPV2\src\components\DeAcceleration.h(18,30): warning C4305: 'inicializando': truncamiento de 'double' a 'float'
-C:\Users\Maestro Miguel\Desktop\Practica1_TPV2\TPV2\TPV2\src\game\AsteroidsManager.h(26,22): warning C4305: 'inicializando': truncamiento de 'double' a 'float'
-  FramedImage.cpp
-C:\Users\Maestro Miguel\Desktop\Practica1_TPV2\TPV2\TPV2\src\ecs\Entity.h(3,10): warning C4067: símbolos (token) inesperados después de la directiva del preprocesador; se esperaba una nueva línea
-C:\Users\Maestro Miguel\Desktop\Practica1_TPV2\TPV2\TPV2\src\components\DeAcceleration.h(18,30): warning C4305: 'inicializando': truncamiento de 'double' a 'float'
-C:\Users\Maestro Miguel\Desktop\Practica1_TPV2\TPV2\TPV2\src\game\AsteroidsManager.h(26,22): warning C4305: 'inicializando': truncamiento de 'double' a 'float'
-  Generations.cpp
-C:\Users\Maestro Miguel\Desktop\Practica1_TPV2\TPV2\TPV2\src\ecs\Entity.h(3,10): warning C4067: símbolos (token) inesperados después de la directiva del preprocesador; se esperaba una nueva línea
-C:\Users\Maestro Miguel\Desktop\Practica1_TPV2\TPV2\TPV2\src\components\DeAcceleration.h(18,30): warning C4305: 'inicializando': truncamiento de 'double' a 'float'
-C:\Users\Maestro Miguel\Desktop\Practica1_TPV2\TPV2\TPV2\src\game\AsteroidsManager.h(26,22): warning C4305: 'inicializando': truncamiento de 'double' a 'float'
-  Gun.cpp
-C:\Users\Maestro Miguel\Desktop\Practica1_TPV2\TPV2\TPV2\src\ecs\Entity.h(3,10): warning C4067: símbolos (token) inesperados después de la directiva del preprocesador; se esperaba una nueva línea
-C:\Users\Maestro Miguel\Desktop\Practica1_TPV2\TPV2\TPV2\src\components\DeAcceleration.h(18,30): warning C4305: 'inicializando': truncamiento de 'double' a 'float'
-C:\Users\Maestro Miguel\Desktop\Practica1_TPV2\TPV2\TPV2\src\game\AsteroidsManager.h(26,22): warning C4305: 'inicializando': truncamiento de 'double' a 'float'
-C:\Users\Maestro Miguel\Desktop\Practica1_TPV2\TPV2\TPV2\src\components\Gun.cpp(26,40): warning C4018: '>=': no coinciden signed/unsigned
-C:\Users\Maestro Miguel\Desktop\Practica1_TPV2\TPV2\TPV2\src\sdlutils\SDLUtils.h(50,32): warning C4101: 'e': variable local sin referencia
-C:\Users\Maestro Miguel\Desktop\Practica1_TPV2\TPV2\TPV2\src\sdlutils\SDLUtils.h(47): message : al compilar la función del miembro clase plantilla "SoundEffect &SDLUtils::map_access_wrapper<SoundEffect>::at(std::string)"
-C:\Users\Maestro Miguel\Desktop\Practica1_TPV2\TPV2\TPV2\src\sdlutils\SDLUtils.h(194): message : Vea la referencia a la creación de una instancia de clase plantilla "SDLUtils::map_access_wrapper<SoundEffect>" que se está compilando
-  Health.cpp
-C:\Users\Maestro Miguel\Desktop\Practica1_TPV2\TPV2\TPV2\src\ecs\Entity.h(3,10): warning C4067: símbolos (token) inesperados después de la directiva del preprocesador; se esperaba una nueva línea
-C:\Users\Maestro Miguel\Desktop\Practica1_TPV2\TPV2\TPV2\src\components\DeAcceleration.h(18,30): warning C4305: 'inicializando': truncamiento de 'double' a 'float'
-C:\Users\Maestro Miguel\Desktop\Practica1_TPV2\TPV2\TPV2\src\game\AsteroidsManager.h(26,22): warning C4305: 'inicializando': truncamiento de 'double' a 'float'
-C:\Users\Maestro Miguel\Desktop\Practica1_TPV2\TPV2\TPV2\src\components\Health.cpp(16,70): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
-C:\Users\Maestro Miguel\Desktop\Practica1_TPV2\TPV2\TPV2\src\components\Health.cpp(16,62): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
-C:\Users\Maestro Miguel\Desktop\Practica1_TPV2\TPV2\TPV2\src\components\Health.cpp(16,57): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
-C:\Users\Maestro Miguel\Desktop\Practica1_TPV2\TPV2\TPV2\src\components\Health.cpp(16,41): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
-  Image.cpp
-C:\Users\Maestro Miguel\Desktop\Practica1_TPV2\TPV2\TPV2\src\ecs\Entity.h(3,10): warning C4067: símbolos (token) inesperados después de la directiva del preprocesador; se esperaba una nueva línea
-C:\Users\Maestro Miguel\Desktop\Practica1_TPV2\TPV2\TPV2\src\components\DeAcceleration.h(18,30): warning C4305: 'inicializando': truncamiento de 'double' a 'float'
-C:\Users\Maestro Miguel\Desktop\Practica1_TPV2\TPV2\TPV2\src\game\AsteroidsManager.h(26,22): warning C4305: 'inicializando': truncamiento de 'double' a 'float'
-  ShowOpposite.cpp
-C:\Users\Maestro Miguel\Desktop\Practica1_TPV2\TPV2\TPV2\src\ecs\Entity.h(3,10): warning C4067: símbolos (token) inesperados después de la directiva del preprocesador; se esperaba una nueva línea
-C:\Users\Maestro Miguel\Desktop\Practica1_TPV2\TPV2\TPV2\src\components\DeAcceleration.h(18,30): warning C4305: 'inicializando': truncamiento de 'double' a 'float'
-C:\Users\Maestro Miguel\Desktop\Practica1_TPV2\TPV2\TPV2\src\game\AsteroidsManager.h(26,22): warning C4305: 'inicializando': truncamiento de 'double' a 'float'
-  GameState.cpp
-C:\Users\Maestro Miguel\Desktop\Practica1_TPV2\TPV2\TPV2\src\ecs\Entity.h(3,10): warning C4067: símbolos (token) inesperados después de la directiva del preprocesador; se esperaba una nueva línea
-C:\Users\Maestro Miguel\Desktop\Practica1_TPV2\TPV2\TPV2\src\components\DeAcceleration.h(18,30): warning C4305: 'inicializando': truncamiento de 'double' a 'float'
-C:\Users\Maestro Miguel\Desktop\Practica1_TPV2\TPV2\TPV2\src\game\AsteroidsManager.h(26,22): warning C4305: 'inicializando': truncamiento de 'double' a 'float'
-  Manager.cpp
-C:\Users\Maestro Miguel\Desktop\Practica1_TPV2\TPV2\TPV2\src\ecs\Entity.h(3,10): warning C4067: símbolos (token) inesperados después de la directiva del preprocesador; se esperaba una nueva línea
-C:\Users\Maestro Miguel\Desktop\Practica1_TPV2\TPV2\TPV2\src\components\DeAcceleration.h(18,30): warning C4305: 'inicializando': truncamiento de 'double' a 'float'
-C:\Users\Maestro Miguel\Desktop\Practica1_TPV2\TPV2\TPV2\src\game\AsteroidsManager.h(26,22): warning C4305: 'inicializando': truncamiento de 'double' a 'float'
-C:\Users\Maestro Miguel\Desktop\Practica1_TPV2\TPV2\TPV2\src\ecs\Manager.cpp(82,16): warning C4244: 'return': conversión de 'double' a 'const int'; posible pérdida de datos
-C:\Users\Maestro Miguel\Desktop\Practica1_TPV2\TPV2\TPV2\src\ecs\Manager.cpp(87,16): warning C4244: 'return': conversión de 'double' a 'const int'; posible pérdida de datos
-C:\Users\Maestro Miguel\Desktop\Practica1_TPV2\TPV2\TPV2\src\ecs\Entity.h(40,32): warning C4244: 'argumento': conversión de '_Ty' a 'float'; posible pérdida de datos
-          with
-          [
-              _Ty=int
-          ]
-C:\Users\Maestro Miguel\Desktop\Practica1_TPV2\TPV2\TPV2\src\ecs\Manager.cpp(58): message : Vea la referencia a la creación de una instancia de la función plantilla "T *Entity::addComponent<Transform,Vector2D&,int,int,Vector2D&,float&>(Vector2D &,int &&,int &&,Vector2D &,float &)" que se está compilando
-          with
-          [
-              T=Transform
-          ]
-C:\Users\Maestro Miguel\Desktop\Practica1_TPV2\TPV2\TPV2\src\ecs\Entity.h(40,32): warning C4244: 'argumento': conversión de 'double' a 'int'; posible pérdida de datos
-C:\Users\Maestro Miguel\Desktop\Practica1_TPV2\TPV2\TPV2\src\ecs\Manager.cpp(60): message : Vea la referencia a la creación de una instancia de la función plantilla "T *Entity::addComponent<DisableOnExit,double&,double&>(double &,double &)" que se está compilando
-          with
-          [
-              T=DisableOnExit
-          ]
-C:\Users\Maestro Miguel\Desktop\Practica1_TPV2\TPV2\TPV2\src\ecs\Entity.h(40,32): warning C4244: 'argumento': conversión de '_Ty' a 'float'; posible pérdida de datos
-          with
-          [
-              _Ty=double
-          ]
-  PauseState.cpp
-C:\Users\Maestro Miguel\Desktop\Practica1_TPV2\TPV2\TPV2\src\ecs\Entity.h(3,10): warning C4067: símbolos (token) inesperados después de la directiva del preprocesador; se esperaba una nueva línea
-C:\Users\Maestro Miguel\Desktop\Practica1_TPV2\TPV2\TPV2\src\components\DeAcceleration.h(18,30): warning C4305: 'inicializando': truncamiento de 'double' a 'float'
-C:\Users\Maestro Miguel\Desktop\Practica1_TPV2\TPV2\TPV2\src\game\AsteroidsManager.h(26,22): warning C4305: 'inicializando': truncamiento de 'double' a 'float'
-C:\Users\Maestro Miguel\Desktop\Practica1_TPV2\TPV2\TPV2\src\sdlutils\SDLUtils.h(50,32): warning C4101: 'e': variable local sin referencia
-C:\Users\Maestro Miguel\Desktop\Practica1_TPV2\TPV2\TPV2\src\sdlutils\SDLUtils.h(47): message : al compilar la función del miembro clase plantilla "Font &SDLUtils::map_access_wrapper<Font>::at(std::string)"
-C:\Users\Maestro Miguel\Desktop\Practica1_TPV2\TPV2\TPV2\src\sdlutils\SDLUtils.h(191): message : Vea la referencia a la creación de una instancia de clase plantilla "SDLUtils::map_access_wrapper<Font>" que se está compilando
-  PlayState.cpp
-C:\Users\Maestro Miguel\Desktop\Practica1_TPV2\TPV2\TPV2\src\ecs\Entity.h(3,10): warning C4067: símbolos (token) inesperados después de la directiva del preprocesador; se esperaba una nueva línea
-C:\Users\Maestro Miguel\Desktop\Practica1_TPV2\TPV2\TPV2\src\components\DeAcceleration.h(18,30): warning C4305: 'inicializando': truncamiento de 'double' a 'float'
-C:\Users\Maestro Miguel\Desktop\Practica1_TPV2\TPV2\TPV2\src\game\AsteroidsManager.h(26,22): warning C4305: 'inicializando': truncamiento de 'double' a 'float'
-C:\Users\Maestro Miguel\Desktop\Practica1_TPV2\TPV2\TPV2\src\sdlutils\SDLUtils.h(50,32): warning C4101: 'e': variable local sin referencia
-C:\Users\Maestro Miguel\Desktop\Practica1_TPV2\TPV2\TPV2\src\sdlutils\SDLUtils.h(47): message : al compilar la función del miembro clase plantilla "Music &SDLUtils::map_access_wrapper<Music>::at(std::string)"
-C:\Users\Maestro Miguel\Desktop\Practica1_TPV2\TPV2\TPV2\src\sdlutils\SDLUtils.h(195): message : Vea la referencia a la creación de una instancia de clase plantilla "SDLUtils::map_access_wrapper<Music>" que se está compilando
   AsteroidsManager.cpp
-C:\Users\Maestro Miguel\Desktop\Practica1_TPV2\TPV2\TPV2\src\game\AsteroidsManager.h(26,22): warning C4305: 'inicializando': truncamiento de 'double' a 'float'
-C:\Users\Maestro Miguel\Desktop\Practica1_TPV2\TPV2\TPV2\src\ecs\Entity.h(3,10): warning C4067: símbolos (token) inesperados después de la directiva del preprocesador; se esperaba una nueva línea
-C:\Users\Maestro Miguel\Desktop\Practica1_TPV2\TPV2\TPV2\src\components\DeAcceleration.h(18,30): warning C4305: 'inicializando': truncamiento de 'double' a 'float'
-C:\Users\Maestro Miguel\Desktop\Practica1_TPV2\TPV2\TPV2\src\game\AsteroidsManager.cpp(31,80): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
-C:\Users\Maestro Miguel\Desktop\Practica1_TPV2\TPV2\TPV2\src\game\AsteroidsManager.cpp(31,48): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
-C:\Users\Maestro Miguel\Desktop\Practica1_TPV2\TPV2\TPV2\src\game\AsteroidsManager.cpp(53,55): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
-C:\Users\Maestro Miguel\Desktop\Practica1_TPV2\TPV2\TPV2\src\game\AsteroidsManager.cpp(54,40): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
-C:\Users\Maestro Miguel\Desktop\Practica1_TPV2\TPV2\TPV2\src\game\AsteroidsManager.cpp(75,55): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
-C:\Users\Maestro Miguel\Desktop\Practica1_TPV2\TPV2\TPV2\src\game\AsteroidsManager.cpp(78,73): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
-C:\Users\Maestro Miguel\Desktop\Practica1_TPV2\TPV2\TPV2\src\game\AsteroidsManager.cpp(78,51): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
-C:\Users\Maestro Miguel\Desktop\Practica1_TPV2\TPV2\TPV2\src\game\AsteroidsManager.cpp(84,52): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
-C:\Users\Maestro Miguel\Desktop\Practica1_TPV2\TPV2\TPV2\src\game\AsteroidsManager.cpp(87,96): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
-C:\Users\Maestro Miguel\Desktop\Practica1_TPV2\TPV2\TPV2\src\game\AsteroidsManager.cpp(87,52): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
-C:\Users\Maestro Miguel\Desktop\Practica1_TPV2\TPV2\TPV2\src\game\AsteroidsManager.cpp(99,33): warning C4018: '>=': no coinciden signed/unsigned
-C:\Users\Maestro Miguel\Desktop\Practica1_TPV2\TPV2\TPV2\src\ecs\Entity.h(40,32): warning C4244: 'argumento': conversión de '_Ty' a 'float'; posible pérdida de datos
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\game\AsteroidsManager.h(26,22): warning C4305: 'inicializando': truncamiento de 'double' a 'float'
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\ecs\Entity.h(3,10): warning C4067: símbolos (token) inesperados después de la directiva del preprocesador; se esperaba una nueva línea
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\components\DeAcceleration.h(18,30): warning C4305: 'inicializando': truncamiento de 'double' a 'float'
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\game\AsteroidsManager.cpp(31,80): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\game\AsteroidsManager.cpp(31,48): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\game\AsteroidsManager.cpp(53,55): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\game\AsteroidsManager.cpp(54,40): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\game\AsteroidsManager.cpp(76,55): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\game\AsteroidsManager.cpp(79,73): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\game\AsteroidsManager.cpp(79,51): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\game\AsteroidsManager.cpp(85,52): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\game\AsteroidsManager.cpp(88,96): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\game\AsteroidsManager.cpp(88,52): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\game\AsteroidsManager.cpp(100,33): warning C4018: '>=': no coinciden signed/unsigned
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\ecs\Entity.h(36,32): warning C4244: 'argumento': conversión de '_Ty' a 'float'; posible pérdida de datos
           with
           [
               _Ty=int
           ]
-C:\Users\Maestro Miguel\Desktop\Practica1_TPV2\TPV2\TPV2\src\game\AsteroidsManager.cpp(33): message : Vea la referencia a la creación de una instancia de la función plantilla "T *Entity::addComponent<Transform,Vector2D&,int,int,Vector2D&>(Vector2D &,int &&,int &&,Vector2D &)" que se está compilando
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\game\AsteroidsManager.cpp(33): message : Vea la referencia a la creación de una instancia de la función plantilla "T *Entity::addComponent<Transform,Vector2D&,int,int,Vector2D&>(Vector2D &,int &&,int &&,Vector2D &)" que se está compilando
           with
           [
               T=Transform
           ]
-  Game.cpp
-C:\Users\Maestro Miguel\Desktop\Practica1_TPV2\TPV2\TPV2\src\ecs\Entity.h(3,10): warning C4067: símbolos (token) inesperados después de la directiva del preprocesador; se esperaba una nueva línea
-C:\Users\Maestro Miguel\Desktop\Practica1_TPV2\TPV2\TPV2\src\components\DeAcceleration.h(18,30): warning C4305: 'inicializando': truncamiento de 'double' a 'float'
-C:\Users\Maestro Miguel\Desktop\Practica1_TPV2\TPV2\TPV2\src\game\AsteroidsManager.h(26,22): warning C4305: 'inicializando': truncamiento de 'double' a 'float'
-C:\Users\Maestro Miguel\Desktop\Practica1_TPV2\TPV2\TPV2\src\utils\Singleton.h(57,44): warning C4244: 'argumento': conversión de 'double' a 'int'; posible pérdida de datos
-C:\Users\Maestro Miguel\Desktop\Practica1_TPV2\TPV2\TPV2\src\game\Game.cpp(11): message : Vea la referencia a la creación de una instancia de la función plantilla "T *Singleton<T>::init<const char(&)[10],double&,double&,const char(&)[50]>(const char (&)[10],double &,double &,const char (&)[50])" que se está compilando
-          with
-          [
-              T=SDLUtils
-          ]
-C:\Users\Maestro Miguel\Desktop\Practica1_TPV2\TPV2\TPV2\src\game\Game.cpp(11): message : Vea la referencia a la creación de una instancia de la función plantilla "T *Singleton<T>::init<const char(&)[10],double&,double&,const char(&)[50]>(const char (&)[10],double &,double &,const char (&)[50])" que se está compilando
-          with
-          [
-              T=SDLUtils
-          ]
-  main.cpp
-C:\Users\Maestro Miguel\Desktop\Practica1_TPV2\TPV2\TPV2\src\ecs\Entity.h(3,10): warning C4067: símbolos (token) inesperados después de la directiva del preprocesador; se esperaba una nueva línea
-C:\Users\Maestro Miguel\Desktop\Practica1_TPV2\TPV2\TPV2\src\components\DeAcceleration.h(18,30): warning C4305: 'inicializando': truncamiento de 'double' a 'float'
-C:\Users\Maestro Miguel\Desktop\Practica1_TPV2\TPV2\TPV2\src\game\AsteroidsManager.h(26,22): warning C4305: 'inicializando': truncamiento de 'double' a 'float'
-  Generando código...
-     Creando biblioteca C:\Users\Maestro Miguel\Desktop\Practica1_TPV2\TPV2\bin\TPV2Debug.lib y objeto C:\Users\Maestro Miguel\Desktop\Practica1_TPV2\TPV2\bin\TPV2Debug.exp
-  TPV2.vcxproj -> C:\Users\Maestro Miguel\Desktop\Practica1_TPV2\TPV2\bin\TPV2Debug.exe
+  TPV2.vcxproj -> C:\Users\admin\Desktop\Practica1_TPV2\TPV2\bin\TPV2Debug.exe

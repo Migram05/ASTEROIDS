@@ -32,7 +32,6 @@
     <ClInclude Include="src\components\ShowOpposite.h" />
     <ClInclude Include="src\components\Transform.h" />
     <ClInclude Include="src\ecs\Entity.h" />
-    <ClInclude Include="src\ecs\GameObject.h" />
     <ClInclude Include="src\ecs\GameState.h" />
     <ClInclude Include="src\ecs\GameStateMachine.h" />
     <ClInclude Include="src\ecs\Manager.h" />
@@ -74,7 +73,6 @@
     <ClCompile Include="src\components\Image.cpp" />
     <ClCompile Include="src\components\ShowOpposite.cpp" />
     <ClCompile Include="src\components\Transform.cpp" />
-    <ClCompile Include="src\ecs\GameObject.cpp" />
     <ClCompile Include="src\ecs\GameState.cpp" />
     <ClCompile Include="src\ecs\GameStateMachine.cpp" />
     <ClCompile Include="src\ecs\Manager.cpp" />
@@ -92,6 +90,9 @@
     <ClCompile Include="src\sdlutils\Texture.cpp" />
     <ClCompile Include="src\utils\Collisions.cpp" />
     <ClCompile Include="src\utils\Vector2D.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="src\game\gameData.txt" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>

@@ -1,6 +1,6 @@
 #pragma once
 #include <cstdint>
-class ecs
+class ecs //Class ecs, controla los grupos y tipos de componentes
 {
 public:
 	using cmpId_type = uint8_t;
@@ -27,6 +27,7 @@ public:
 		_grp_ASTEROIDS,
 		_grp_PLAYER,
 		_grp_BULLETS,
+		//Do not remove this
 		_LAST_GRP_ID
 	};
 	static constexpr grpId_type maxGroupId = _LAST_GRP_ID;

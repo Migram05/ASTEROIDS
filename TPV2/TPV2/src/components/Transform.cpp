@@ -1,10 +1,11 @@
 #include "Transform.h"
 
+//Constructoras por valor y por defecto
 Transform::Transform()
 {
 }
 
-Transform::Transform(Vector2D pos, float w, float h) : position_(pos), width_(w), height_(h)
+Transform::Transform(Vector2D pos, float w, float h) : position_(pos), width_(w), height_(h) //Constructora
 {
 	
 }
@@ -27,7 +28,7 @@ void Transform::initComponent()
 
 void Transform::update()
 {
-	position_ = position_ + velocity_;
+	position_ = position_ + velocity_; //Se ajusta la posición a la velocidad que lleva
 }
 
 void Transform::render()

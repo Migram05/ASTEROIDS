@@ -7,18 +7,13 @@ Game::Game() { //Constructora del juego, con la carga de texturas incluida
 	window = nullptr;
 	renderer = nullptr;
 	gameSettings(); //Carga el archivo de ajustes de juego, si encuentra el archivo
-	//SDL_Init(SDL_INIT_EVERYTHING);
-	SDLUtils::init("ASTEROIDS", WIN_WIDTH, WIN_HEIGHT, "../TPV2/resources/config/asteroids.resources.json");
+	SDLUtils::init("ASTEROIDS", WIN_WIDTH, WIN_HEIGHT, "../TPV2/resources/config/asteroids.resources.json"); //Inicializa SDLUtils
 	auto& sdl = *SDLUtils::instance();
-	window = sdl.window();
-	//window = SDL_CreateWindow("ASTEROIDS", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, WIN_WIDTH, WIN_HEIGHT, SDL_WINDOW_SHOWN);//Creación de la ventana
+	window = sdl.window(); //Ventana y render
 	renderer = sdl.renderer();	
-	//renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED); //Creación del render
-	//SDL_SetRenderDrawColor(renderer, 70,130,191, 255);
-	//SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
 	exit = false;
 	LoadTextures(renderer); //Se canrgan las texturas en el array
-	InitGameObjects();//Se crean los objetos del juego (paddle, ball, wall...)
+	InitGameObjects();//Se crean los estados del juego
 }
 void Game::gameSettings() { //Carga los datos del juego desde un archivo, si lo encuentra
 
@@ -42,18 +37,15 @@ void Game::Run() { //Bucle principal de juego
 	if (window == nullptr || renderer == nullptr) //Comprobación de ventana y render
 		throw exception("Error fatal SDL");
 	auto& sdl = *SDLUtils::instance();
-	startTime = sdl.currRealTime();
-	
+	startTime = sdl.currRealTime(); //Control del numero de frames/seg
 	while (!exit) { //Bucle de juego con condiciones de detención
 		frameTime = sdl.currRealTime() - startTime;
 		if (frameTime >= FRAME_RATE) { //Se comprueba el tiempo transcurrido entre el último update
-			gameStateMachine->currentState()->update();
+			gameStateMachine->currentState()->update(); //Update controlado
 			startTime = SDL_GetTicks();
 		}
 		sdl.clearRenderer();
-		//SDL_RenderClear(renderer);
-		gameStateMachine->render();
-		//SDL_RenderPresent(renderer);
+		gameStateMachine->render(); //Render
 		sdl.presentRenderer();
 		gameStateMachine->clearList(); //Se borran los estados que no se estén usando
 	}
@@ -67,7 +59,6 @@ void Game::LoadTextures(SDL_Renderer* renderer) { //Cada valor del array de text
 	textures[GrayAsteroid] = new Texture(renderer, TEXT_DESCRIPT[GrayAsteroid].filename, 5, 6);
 	textures[GoldAsteroid] = new Texture(renderer, TEXT_DESCRIPT[GoldAsteroid].filename, 5, 6);
 	textures[Fighter1] = new Texture(renderer, TEXT_DESCRIPT[Fighter1].filename);
-	//textures[Fighter2] = new Texture(renderer, TEXT_DESCRIPT[Fighter2].filename);
 	textures[Fire] = new Texture(renderer, TEXT_DESCRIPT[Fire].filename);
 	textures[Heart] = new Texture(renderer, TEXT_DESCRIPT[Heart].filename);
 }
@@ -86,26 +77,10 @@ void Game::resumeGame() { //Reanuda el juego
 void Game::playerLoses() {
 	gameStateMachine->pushState(new PauseState(this, WIN_WIDTH, WIN_HEIGHT, true));
 }
-/*
-void Game::startGameState() { //Pasa al estado de juego
-	gameStateMachine->changeState(new PlayState(this, false, WIN_WIDTH, WIN_HEIGHT));
-}
-
-void Game::mainMenu() { //Vuelve al menu principal
-	gameStateMachine->popState();
-	gameStateMachine->changeState(new MainMenuState(this, WIN_WIDTH, WIN_HEIGHT));
-}
-void Game::playerWins() { //Cambia al estado final tras pasar todos los niveles
-	gameStateMachine->changeState(new EndState(this, WIN_WIDTH, WIN_HEIGHT, true));
-}*/
-
 
 Game::~Game() { //Destructora de la memoria dinámica creada
 	for (Texture* t : textures) delete t; //Se borran las texturas del juego
 	delete gameStateMachine; //Se borra la máquina
-	//SDL_DestroyRenderer(renderer); //Se destruyen el renderer y la ventana
-	//SDL_DestroyWindow(window);
-	//SDL_Quit();
-	auto& sdl = *SDLUtils::instance();
+	auto& sdl = *SDLUtils::instance(); //Se borra la instancia de SDLUtils
 	sdl.close();
 }

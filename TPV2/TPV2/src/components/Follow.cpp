@@ -1,21 +1,21 @@
 #include "Follow.h"
 
-Follow::Follow(Entity* f, float s) : objective_(f), speed_(s)
+Follow::Follow(Entity* f, float s) : objective_(f), speed_(s) //Constructora, se guarda al objetivo a seguir
 {
 }
 
 void Follow::initComponent()
 {
-	tr_ = ent_->getComponent<Transform>();
+	tr_ = ent_->getComponent<Transform>(); //Inicializa el componente buscando el transform
 }
 
 void Follow::update()
 {
 	Vector2D& newDir = tr_->getVel();
+	//Calcula el nuevo vector dirección
 	Vector2D dir = objective_->getComponent<Transform>()->getPos() - tr_->getPos();
 	dir = dir.normalize() * speed_;
-	newDir = dir;
-	//newDir.rotate(newDir.angle(objective_->getComponent<Transform>(ecs::_TRANSFORM)->getPos() - tr_->getPos()) > 0 ? 1.0f : -1.0f);
+	newDir = dir; //Se aplica el vector dirección
 }
 
 Follow::~Follow()

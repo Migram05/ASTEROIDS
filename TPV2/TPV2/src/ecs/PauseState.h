@@ -17,6 +17,6 @@ public:
 private:
 	Game* game;
 	static const string s_pauseID;
-	bool lost;
+	bool lost; //Usada para saber si hay que renderizar la pantalla de derrota
 };
 

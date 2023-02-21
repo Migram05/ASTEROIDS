@@ -1,7 +1,5 @@
 #pragma once
 
-//#include "SDL.h"
-//#include "SDL_image.h"
 #include <SDL.h>
 #include <iostream>
 #include <fstream>
@@ -9,11 +7,9 @@
 #include "../utils/Vector2D.h"
 #include "../sdlutils/Texture.h"
 #include "../ecs/GameStateMachine.h"
-//#include "MainMenuState.h"
 #include "../ecs/PlayState.h"
 #include "../ecs/PauseState.h"
 #include "../sdlutils/SDLUtils.h"
-//#include "EndState.h"*/
 #include <list>
 #include <unordered_set>
 
@@ -30,10 +26,7 @@ public:
 	Texture* getTexture(int n);
 	void exitGame();
 	void pauseGame();
-	void startGameState();
 	void resumeGame();
-	void mainMenu();
-	void playerWins();
 	void playerLoses();
 
 private:
