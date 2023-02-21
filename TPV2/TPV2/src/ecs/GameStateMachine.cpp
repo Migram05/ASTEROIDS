@@ -53,10 +53,10 @@ void GameStateMachine::render() //Render de la pila
 }
 void GameStateMachine::clearList() { //Borra la lista de estados para borrar
 	stateStack.top()->refresh();
-	/*if (!toDeleteList.empty()) {
+	if (!toDeleteList.empty()) {
 		for (GameState* g : toDeleteList) delete g;
 		toDeleteList.clear();
-	}*/
+	}
 }
 GameStateMachine::~GameStateMachine() { //Borra todos los estados de la pila
 	while (!stateStack.empty()) {

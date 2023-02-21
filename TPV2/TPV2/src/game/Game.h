@@ -44,17 +44,17 @@ private:
 	unsigned int frameTime, startTime;
 	bool exit = false;
 	void gameSettings();
-	const static unsigned int NUM_TEXTURES = 6;
+	const static unsigned int NUM_TEXTURES = 5;
 	GameStateMachine* gameStateMachine;
 	Texture* textures[NUM_TEXTURES]; //Array de texturas del juego
-	enum ValoresArray { GrayAsteroid, GoldAsteroid, Fighter1, Fighter2, Fire, Heart};
+	enum ValoresArray { GrayAsteroid, GoldAsteroid, Fighter1, Fire, Heart};
 	
 	typedef struct {
 		string filename;
 		unsigned int hframes, wframes;
 	}TextureDescription;
 	const TextureDescription TEXT_DESCRIPT[NUM_TEXTURES]{ //Array con la información de los objetos (dirección, filas y cols)
-		{"resources/images/asteroid.png",5,6},{"resources/images/asteroid_gold.png",5,6},{"resources/images/fighter.png",1,1},{"resources/images/fighter2.png",1,1},{"resources/images/fire.png",1,1},{"resources/images/heart.png",1,1},
+		{"resources/images/asteroid.png",5,6},{"resources/images/asteroid_gold.png",5,6},{"resources/images/fighter.png",1,1},{"resources/images/fire.png",1,1},{"resources/images/heart.png",1,1},
 	};
 	void InitGameObjects();
 	void LoadTextures(SDL_Renderer* renderer);

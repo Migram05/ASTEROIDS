@@ -19,17 +19,6 @@ Entity* Manager::addEntity(ecs::grpId_type gId = ecs::_grp_GENERAL)
 
 void Manager::refresh()
 {
-    /*ents_.erase(
-        std::remove_if(ents_.begin(), ents_.end(), [](Entity* e) {
-        if (e->isAlive()) {
-            return false;
-        }
-        else {
-            delete e;
-            return true;
-        }
-    }), 
-    ents_.end());*/
     for (ecs::grpId_type gId = 0; gId < ecs::maxGroupId; gId++) {
         auto& grpEnts = entsByGroup_[gId];
         grpEnts.erase(

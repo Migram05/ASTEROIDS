@@ -35,14 +35,12 @@ public:
 	const int getWidth();
 	const int getHeight();
 	void exitGame();
-	//inline auto& getEntities() { return ents_; }
 	bool isPlayerAlive();
 	const vector<Entity*>& getEntitiesByGroup(grpId_type gId);
 	void addToGroupList(grpId_type gId, Entity* e);
 private:
 	Entity* player;
-	//vector<Entity*> ents_;
 	Game* game;
-	enum ValoresArray { GrayAsteroid, GoldAsteroid, Fighter1, Fighter2, Fire, Heart };
+	enum ValoresArray { GrayAsteroid, GoldAsteroid, Fighter1, Fire, Heart };
 	std::array<std::vector<Entity*>, ecs::maxGroupId> entsByGroup_;
 };

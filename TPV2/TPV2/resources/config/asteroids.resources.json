@@ -1,13 +1,16 @@
 {
 
   "fonts" : [
-    { "id" : "ARIAL16", "file" : "resources/fonts/ARIAL.ttf", "size": 16 },
-    { "id" : "ARIAL24", "file" : "resources/fonts/ARIAL.ttf", "size": 24 },
-    { "id" : "ARIAL48", "file" : "resources/fonts/ARIAL.ttf", "size": 48 }
+    { "id" : "ARIAL18", "file" : "resources/fonts/ARIAL.ttf", "size": 18 },
+    { "id" : "CAPTURE50", "file" : "resources/fonts/Capture_it.ttf", "size": 50 }
   ],
   
   "images" : [
-    
+    { "id" : "GrayAsteroids", "file" : "resources/images/asteroid.png" },
+    { "id" : "GoldAsteroids", "file" : "resources/images/asteroid_gold.png" },
+    { "id" : "Fighter", "file" : "resources/images/fighter.png" },
+    { "id" : "Fire", "file" : "resources/images/fire.png" },
+    { "id" : "Heart", "file" : "resources/images/heart.png" }
   ],
   
   "messages" : [

@@ -67,7 +67,7 @@ void Game::LoadTextures(SDL_Renderer* renderer) { //Cada valor del array de text
 	textures[GrayAsteroid] = new Texture(renderer, TEXT_DESCRIPT[GrayAsteroid].filename, 5, 6);
 	textures[GoldAsteroid] = new Texture(renderer, TEXT_DESCRIPT[GoldAsteroid].filename, 5, 6);
 	textures[Fighter1] = new Texture(renderer, TEXT_DESCRIPT[Fighter1].filename);
-	textures[Fighter2] = new Texture(renderer, TEXT_DESCRIPT[Fighter2].filename);
+	//textures[Fighter2] = new Texture(renderer, TEXT_DESCRIPT[Fighter2].filename);
 	textures[Fire] = new Texture(renderer, TEXT_DESCRIPT[Fire].filename);
 	textures[Heart] = new Texture(renderer, TEXT_DESCRIPT[Heart].filename);
 }

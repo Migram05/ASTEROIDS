@@ -43,7 +43,7 @@ void PlayState::checkCollisions() {
 		Transform* t1 = a->getComponent<Transform>();
 		for (Entity* b : bullets) {
 			Transform* t2 = b->getComponent<Transform>();
-			if (Collisions::collidesWithRotation(t1->getPos(), t1->getW(), t1->getH(), t1->getRotation(), t2->getPos(), t2->getW(), t2->getH(), t2->getRotation())) {
+			if (b->isAlive() && Collisions::collidesWithRotation(t1->getPos(), t1->getW(), t1->getH(), t1->getRotation(), t2->getPos(), t2->getW(), t2->getH(), t2->getRotation())) {
 				sdl.soundEffects().at("bang").play();
 				asteroidsManager_->onCollision(a);
 				b->setAlive(false);
