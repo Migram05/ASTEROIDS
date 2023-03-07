@@ -3,7 +3,7 @@
 #include "Transform.h"
 #include "../ecs/Entity.h"
 #include "../utils/Vector2D.h"
-class ShowOpposite : public Component
+struct ShowOpposite : public Component
 {
 public:
 	ShowOpposite(int w, int h);

@@ -2,7 +2,7 @@
 #include "Component.h"
 #include "Transform.h"
 #include "../ecs/Entity.h"
-class Generations : public Component
+struct Generations : public Component
 {
 public:
 	Generations();

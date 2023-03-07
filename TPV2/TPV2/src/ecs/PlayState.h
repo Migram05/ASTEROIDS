@@ -1,10 +1,10 @@
 #pragma once
 #include "GameState.h"
-#include "Manager.h"
+
 #include "../game/AsteroidsManager.h"
 #include "../utils/Collisions.h"
 using namespace std;
-
+class Manager;
 class PlayState : public GameState
 {
 public:

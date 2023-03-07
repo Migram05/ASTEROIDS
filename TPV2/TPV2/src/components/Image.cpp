@@ -1,12 +1,12 @@
 #include "Image.h"
-
+#include "../ecs/Manager.h"
 Image::Image(Texture* text) : tr_(nullptr), tex_(text), Component() //Constructora
 {
 }
 
 void Image::initComponent()
 {
-	tr_ = ent_->getComponent<Transform>(); //Busca el componente transform
+	tr_ = mngr_->getComponent<Transform>(ent_); //Busca el componente transform
 }
 
 void Image::render()

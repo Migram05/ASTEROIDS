@@ -1,27 +1,9 @@
 ﻿C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Microsoft\VC\v160\Microsoft.CppBuild.targets(499,5): warning MSB8004: El directorio Output no termina con una barra diagonal final. Esta instancia de compilación agregará la barra diagonal porque es necesaria para que se pueda evaluar correctamente el directorio Output.
-  AsteroidsManager.cpp
-C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\game\AsteroidsManager.h(26,22): warning C4305: 'inicializando': truncamiento de 'double' a 'float'
-C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\ecs\Entity.h(3,10): warning C4067: símbolos (token) inesperados después de la directiva del preprocesador; se esperaba una nueva línea
-C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\components\DeAcceleration.h(18,30): warning C4305: 'inicializando': truncamiento de 'double' a 'float'
-C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\game\AsteroidsManager.cpp(31,80): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
-C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\game\AsteroidsManager.cpp(31,48): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
-C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\game\AsteroidsManager.cpp(53,55): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
-C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\game\AsteroidsManager.cpp(54,40): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
-C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\game\AsteroidsManager.cpp(76,55): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
-C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\game\AsteroidsManager.cpp(79,73): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
-C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\game\AsteroidsManager.cpp(79,51): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
-C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\game\AsteroidsManager.cpp(85,52): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
-C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\game\AsteroidsManager.cpp(88,96): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
-C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\game\AsteroidsManager.cpp(88,52): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
-C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\game\AsteroidsManager.cpp(100,33): warning C4018: '>=': no coinciden signed/unsigned
-C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\ecs\Entity.h(36,32): warning C4244: 'argumento': conversión de '_Ty' a 'float'; posible pérdida de datos
-          with
-          [
-              _Ty=int
-          ]
-C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\game\AsteroidsManager.cpp(33): message : Vea la referencia a la creación de una instancia de la función plantilla "T *Entity::addComponent<Transform,Vector2D&,int,int,Vector2D&>(Vector2D &,int &&,int &&,Vector2D &)" que se está compilando
-          with
-          [
-              T=Transform
-          ]
-  TPV2.vcxproj -> C:\Users\admin\Desktop\Practica1_TPV2\TPV2\bin\TPV2Debug.exe
+  AsteroidsSystem.cpp
+  BulletsSystem.cpp
+  CollisionsSystem.cpp
+  FighterSystem.cpp
+  RenderSystem.cpp
+  Generando código...
+     Creando biblioteca C:\Users\Maestro Miguel\Desktop\Practica1_TPV2\TPV2\bin\TPV2Debug.lib y objeto C:\Users\Maestro Miguel\Desktop\Practica1_TPV2\TPV2\bin\TPV2Debug.exp
+  TPV2.vcxproj -> C:\Users\Maestro Miguel\Desktop\Practica1_TPV2\TPV2\bin\TPV2Debug.exe

@@ -2,7 +2,7 @@
 #include "Component.h"
 #include "../utils/Vector2D.h"
 #include <iostream>
-class Transform : public Component {
+struct Transform : public Component {
 public:
 	Transform();
 	Transform(Vector2D pos, float w, float h);

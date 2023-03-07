@@ -5,7 +5,7 @@
 #include <iostream>
 #include "../utils/Vector2D.h"
 #include "../sdlutils/SDLUtils.h"
-class Gun : public Component
+struct Gun : public Component
 {
 public:
 	Gun();

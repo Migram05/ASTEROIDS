@@ -1,5 +1,5 @@
 #include "PlayState.h"
-
+#include "Manager.h"
 PlayState::PlayState(Game* g, double w, double h) : GameState(w,h){ // Constructora
 	game = g;
 }
@@ -23,6 +23,7 @@ bool PlayState::onEnter() //Se inicializan los objetos
 	auto& sdl = *SDLUtils::instance();
 	Music::setMusicVolume(8); //Musica de fondo y volumen
 	sdl.musics().at("theme").play();
+	SoundEffect::setChannelVolume(25);
 	return true;
 }
 
@@ -40,20 +41,20 @@ void PlayState::checkCollisions() { //Chequeo de colisiones
 	auto it = asteroids.begin();
 	while (it!= asteroids.end() && !reset) { //Se recorren los asteroides
 		Entity* a = *it;
-		Transform* t1 = a->getComponent<Transform>();
+		Transform* t1 = manager_->getComponent<Transform>(a);
 		for (Entity* b : bullets) { //Primero comprueba sus colisiones con las balas
-			Transform* t2 = b->getComponent<Transform>();
-			if (b->isAlive() && Collisions::collidesWithRotation(t1->getPos(), t1->getW(), t1->getH(), t1->getRotation(), t2->getPos(), t2->getW(), t2->getH(), t2->getRotation())) {
+			Transform* t2 = manager_->getComponent<Transform>(b);
+			if (manager_->isAlive(b) && Collisions::collidesWithRotation(t1->getPos(), t1->getW(), t1->getH(), t1->getRotation(), t2->getPos(), t2->getW(), t2->getH(), t2->getRotation())) {
 				sdl.soundEffects().at("bang").play(); //Efecto de sonido
 				asteroidsManager_->onCollision(a); //Llama al AM para destruir el asteroide
-				b->setAlive(false);
+				manager_->setAlive(b,false);
 			}
 		}
 		for (Entity* p : player) { //Comprueba la colisión con el jugador
-			Transform* t3 = p->getComponent<Transform>();//Si colisiona
+			Transform* t3 = manager_->getComponent<Transform>(p);//Si colisiona
 			if (Collisions::collidesWithRotation(t1->getPos(), t1->getW(), t1->getH(), t1->getRotation(), t3->getPos(), t3->getW(), t3->getH(), t3->getRotation())) {
 				sdl.soundEffects().at("explosion").play();
-				p->getComponent<Health>()->damage();//Se le hace daño
+				manager_->getComponent<Health>(p)->damage();//Se le hace daño
 				t3->getPos() = Vector2D{ (float)WIN_WIDTH / 2, (float)WIN_HEIGHT / 2 }; t3->getRotation() = 0; t3->getVel() = Vector2D{ 0,0 };
 				asteroidsManager_->destroyAllAsteroids(); // Se borran los asteroides
 				reset = true; //Variable que termina el bucle y resetea el juego
@@ -67,11 +68,11 @@ void PlayState::checkCollisions() { //Chequeo de colisiones
 void PlayState::resetGame() //Reset del juego
 {
 	refresh();
-	asteroidsManager_->pauseTimer();
 	if (manager_->isPlayerAlive()) game->pauseGame(); //En caso de tener vidas, se pausa el juego
 	else { //Sino, se lanza la pantalla de derrota
 		game->playerLoses();
-		manager_->getPlayer()->getComponent<Health>()->resetLives();
+		Entity* p = manager_->getPlayer();
+		manager_->getComponent<Health>(p)->resetLives();
 	}
 	asteroidsManager_->createAsteroids(10); //Se crean asteroides
 }

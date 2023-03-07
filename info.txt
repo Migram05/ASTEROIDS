@@ -1,0 +1,8 @@
+Miguel Ramírez Castrillo (entrega en solitario)
+Práctica 1 TPV2
+El juego funciona correctamente y no deja ningún tipo de basura.
+
+Implementación adicional:
+	-Musica de fondo en todo el juego
+	-Carga de recursos mediante archivo json
+	-Configuración del juego mediante archivos

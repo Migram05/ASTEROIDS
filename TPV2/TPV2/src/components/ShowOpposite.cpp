@@ -1,12 +1,12 @@
 #include "ShowOpposite.h"
-
+#include "../ecs/Manager.h"
 ShowOpposite::ShowOpposite(int w, int h) : winWidth_(w), winHeight_(h) //Constructora 
 {
 }
 
 void ShowOpposite::initComponent()
 {
-	tr_ = ent_->getComponent<Transform>(); //Búsqueda del transform
+	tr_ = mngr_->getComponent<Transform>(ent_); //Búsqueda del transform
 }
 
 void ShowOpposite::update()

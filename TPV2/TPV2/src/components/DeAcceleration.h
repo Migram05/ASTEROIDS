@@ -3,8 +3,9 @@
 #include "Transform.h"
 #include "../ecs/Entity.h"
 #include "../utils/Vector2D.h"
+
 #include <iostream>
-class DeAcceleration : public Component
+struct DeAcceleration : public Component
 {
 public:
 	DeAcceleration();

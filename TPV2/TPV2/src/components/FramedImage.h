@@ -4,7 +4,7 @@
 #include "Transform.h"
 #include "../ecs/Entity.h"
 #include <SDL.h>
-class FramedImage : public Component
+struct FramedImage : public Component
 {
 public:
 	FramedImage(Texture* text, int r, int c);

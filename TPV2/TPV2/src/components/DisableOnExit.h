@@ -3,7 +3,7 @@
 #include "Transform.h"
 #include "../ecs/Entity.h"
 #include "../utils/Vector2D.h"
-class DisableOnExit : public Component
+struct DisableOnExit : public Component
 {
 public:
 	DisableOnExit(int w, int h);

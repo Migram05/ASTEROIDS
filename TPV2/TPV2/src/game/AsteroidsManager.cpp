@@ -16,7 +16,7 @@ void AsteroidsManager::destroyAllAsteroids() //Destruye todos los asteroides
 {
     vector<Entity*> entities = mngRef_->getEntitiesByGroup(ecs::_grp_ASTEROIDS); //Busca en el grupo asteroids
     for (Entity* e : entities) {
-        e->setAlive(false);
+        mngRef_->setAlive(e, false);
     }
     numAsteroids = 0;
 }
@@ -27,20 +27,21 @@ void AsteroidsManager::createAsteroids(int n) //Crea un número de asteroides n
 	for (int i = 0; i < n; ++i) {
         Vector2D spawnPos = borderSpawnLocation(); //Busca una posición en los bordes
         Entity* a = mngRef_->addEntity(ecs::_grp_ASTEROIDS); //Añade la entidad
-        Vector2D dir = mngRef_->getPlayer()->getComponent<Transform>()->getPos() - spawnPos; //Crea una dirección aleatoria
+        Entity* p = mngRef_->getPlayer();
+        Vector2D dir = mngRef_->getComponent<Transform>(p)->getPos() - spawnPos; //Crea una dirección aleatoria
         dir = dir + Vector2D(sdl.rand().nextInt(-100, 100) , sdl.rand().nextInt(-100, 100));
         dir = dir.normalize() * asteroidSpeed;
-        a->addComponent<Transform>(spawnPos, 10, 10, dir); //Añade componentes
-        a->addComponent<ShowOpposite>(mngRef_->getWidth(), mngRef_->getHeight());
+        mngRef_->addComponent<Transform>(a, spawnPos, 10, 10, dir); //Añade componentes
+        mngRef_->addComponent<ShowOpposite>(a, mngRef_->getWidth(), mngRef_->getHeight());
         int g = sdl.rand().nextInt(2, 4); //Generación aleatoria entre (2 y 3)
-        a->addComponent<Generations>(g);
+        mngRef_->addComponent<Generations>(a, g);
         int type = sdl.rand().nextInt(0, 100); //Decide si será asteroide dorado o no
         if (type < 70) {
-            a->addComponent<FramedImage>(mngRef_->getTexture(GrayAsteroid), 5, 6, 200);
+            mngRef_->addComponent<FramedImage>(a, mngRef_->getTexture(GrayAsteroid), 5, 6, 200);
         }
         else {
-            a->addComponent<FramedImage>(mngRef_->getTexture(GoldAsteroid), 5, 6, 200);
-            a->addComponent<Follow>(player_, asteroidSpeed); //Componente exclusivo del dorado
+            mngRef_->addComponent<FramedImage>(a, mngRef_->getTexture(GoldAsteroid), 5, 6, 200);
+            mngRef_->addComponent<Follow>(a, player_, asteroidSpeed); //Componente exclusivo del dorado
         }
         numAsteroids++;
 	}
@@ -48,20 +49,20 @@ void AsteroidsManager::createAsteroids(int n) //Crea un número de asteroides n
 
 void AsteroidsManager::createSmallerAsteroids(int n, int g, Entity* e) { //Creación de un asteroide más pequeño
     for (int i = 0; i < n; ++i) {
-        Transform* tr = e->getComponent<Transform>();
+        Transform* tr = mngRef_->getComponent<Transform>(e);
         auto r = sdlutils().rand().nextInt(0, 360);
         auto pos = tr->getPos() + tr->getVel().rotate(r) * 2 * std::max(tr->getW(), tr->getH());
         auto vel = tr->getVel().rotate(r) * 1.1f;
         Entity* a = mngRef_->addEntity(ecs::_grp_ASTEROIDS);
-        a->addComponent<Transform>(pos, 10, 10, vel);
-        a->addComponent<ShowOpposite>(mngRef_->getWidth(), mngRef_->getHeight());
-        a->addComponent<Generations>(g);
+        mngRef_->addComponent<Transform>(a, pos, 10, 10, vel);
+        mngRef_->addComponent<ShowOpposite>(a, mngRef_->getWidth(), mngRef_->getHeight());
+        mngRef_->addComponent<Generations>(a, g);
         //Si el asteroide originario era de oro, sus "hijos" tambien lo serán
-        if (e->hasComponent(ecs::_FOLLOW)) {
-            a->addComponent<FramedImage>( mngRef_->getTexture(GoldAsteroid), 5, 6, 200);
-            a->addComponent<Follow>(player_, asteroidSpeed);
+        if (mngRef_->hasComponent<Follow>(e)) {
+            mngRef_->addComponent<FramedImage>(a, mngRef_->getTexture(GoldAsteroid), 5, 6, 200);
+            mngRef_->addComponent<Follow>(a, player_, asteroidSpeed);
         }
-        else a->addComponent<FramedImage>(mngRef_->getTexture(GrayAsteroid), 5, 6, 200);
+        else mngRef_->addComponent<FramedImage>(a, mngRef_->getTexture(GrayAsteroid), 5, 6, 200);
     }
 }
 
@@ -93,11 +94,8 @@ Vector2D AsteroidsManager::borderSpawnLocation() //Busca una posición en los bor
 
 void AsteroidsManager::addAsteroidFrequency() //Crea un asteroide cada cierto tiempo
 {
-    if (pause) { //Solo se ejecuta si no está en pausa
-        pause = false;
-        timer_ = SDL_GetTicks();
-    }
-    if (SDL_GetTicks() - timer_ >= AsteroidTime * 1000 && numAsteroids < maxAsteroids) {
+    if (SDL_GetTicks() - timer_ >= AsteroidTime * 2000) timer_ = SDL_GetTicks(); //Comprobación para saber si estamos en pausa o no
+    else if (SDL_GetTicks() - timer_ >= AsteroidTime * 1000 && numAsteroids < maxAsteroids) {
         //Crea un asteroide más si es posible
         createAsteroids(1);
         timer_ += AsteroidTime * 1000;
@@ -106,8 +104,8 @@ void AsteroidsManager::addAsteroidFrequency() //Crea un asteroide cada cierto ti
 
 void AsteroidsManager::onCollision(Entity* e) //En caso de haber una colisión
 {
-    e->setAlive(false); //Se desactiva el asteroide
-    int gen = e->getComponent<Generations>()->GetGeneration(); 
+    mngRef_->setAlive(e, false); //Se desactiva el asteroide
+    int gen = mngRef_->getComponent<Generations>(e)->GetGeneration(); 
     --gen; //Se reduce su generación
     numAsteroids--;
     if (gen > 0) { //En caso de poder dividirse

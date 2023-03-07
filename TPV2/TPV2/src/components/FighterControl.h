@@ -7,7 +7,7 @@
 #include "../utils/Vector2D.h"
 #include "../game/ecs.h"
 #include "Gun.h"
-class FighterControl : public Component
+struct FighterControl : public Component
 {
 public:
 	FighterControl();

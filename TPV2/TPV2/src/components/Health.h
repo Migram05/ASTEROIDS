@@ -3,7 +3,7 @@
 #include "../sdlutils/Texture.h"
 #include "Transform.h"
 #include "../ecs/Entity.h"
-class Health : public Component
+struct Health : public Component
 {
 public:
 	Health(Texture* text, int w, int h);

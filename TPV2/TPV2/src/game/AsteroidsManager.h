@@ -13,7 +13,6 @@ public:
 	void onCollision(Entity* e);
 	void createAsteroids(int n);
 	void addAsteroidFrequency();
-	inline void pauseTimer() { pause = true;  }
 
 private:
 	void createSmallerAsteroids(int n, int g, Entity* e);
@@ -22,7 +21,6 @@ private:
 	Manager* mngRef_;
 	Entity* player_;
 	enum ValoresArray { GrayAsteroid, GoldAsteroid, Fighter1, Fighter2, Fire, Heart };
-	bool pause = false;
 	float asteroidSpeed = 0.4;
 };
 

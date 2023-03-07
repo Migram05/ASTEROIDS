@@ -1,5 +1,5 @@
 #include "DeAcceleration.h"
-
+#include "../ecs/Manager.h"
 DeAcceleration::DeAcceleration() : reduction(0.005) //Constructora por defecto
 {
 }
@@ -11,7 +11,7 @@ DeAcceleration::DeAcceleration(float r) : reduction(r) //Constructora por valor
 
 void DeAcceleration::initComponent() //Se inicializa
 {
-	tr_ = ent_->getComponent<Transform>(); //Obtiene el transform
+	tr_ = mngr_->getComponent<Transform>(ent_); //Obtiene el transform
 }
 
 void DeAcceleration::update()

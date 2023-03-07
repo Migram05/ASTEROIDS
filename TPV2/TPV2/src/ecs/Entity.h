@@ -1,6 +1,6 @@
 #pragma once
-#include "../game/ecs.h"
-#include "Manager.h"/
+//#include "../game/ecs.h"
+//#include "Manager.h"/
 #include "../components/Component.h"
 #include <array>
 #include <vector>
@@ -9,17 +9,15 @@
 using namespace std;
 using cmpId_type = uint8_t;
 using grpId_type = uint8_t;
+class Manager;
 class Entity
 {
 public:
-	Entity() : mngr_(nullptr), cmps_(), currCmps_(), alive_() //Constructora
-	{
-		currCmps_.reserve(ecs::maxComponentId); //Reserva espacio
-	}
-
-	inline void setContext(Manager* mngr) { //Asigna el manager
-		mngr_ = mngr;
-	}
+	Entity();
+	Entity(const Entity&) = delete;
+	Entity& operator=(const Entity&) = delete;
+	void setContext(Manager* mngr);
+	/*
 	inline bool isAlive() { return alive_; } //Devuelve el estado de la entidad
 	inline void setAlive(bool alive) { alive_ = alive; } //Ajusta su valor
 	inline void update() { //Update de todos los componentes
@@ -59,15 +57,19 @@ public:
 	inline bool hasComponent(cmpId_type cId) { //Devuekve si hay un componente X
 		return cmps_[cId] != nullptr;
 	}
+	*/
+	
 	virtual ~Entity() { //Destructora, borra todos los componentes
 		for (auto c : currCmps_) {
 			delete c;
 		}
 	}
 private:
+	friend Manager;
 	bool alive_; //Variable que marca a la entidad como pendiente para borrar
 	Manager* mngr_;
 	vector<Component*> currCmps_;
 	array<Component*, ecs::maxComponentId> cmps_;
+	grpId_type gId_;
 };
 

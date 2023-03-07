@@ -1,10 +1,11 @@
 #pragma once
 #include <cstdint>
-class ecs //Class ecs, controla los grupos y tipos de componentes
+class ecs //Class ecs, controla los grupos, tipos de componentes y tipos de sistemas
 {
 public:
 	using cmpId_type = uint8_t;
 	using grpId_type = uint8_t;
+	using sysId_type = uint8_t;
 	enum cmpId : cmpId_type {
 		_TRANSFORM,
 		_DEACCELERATION,
@@ -31,5 +32,14 @@ public:
 		_LAST_GRP_ID
 	};
 	static constexpr grpId_type maxGroupId = _LAST_GRP_ID;
+
+	enum sysId : sysId_type {
+		_sys_ASTEROIDS,
+		_sys_COLLISION,
+
+		//Do not remove this
+		_LAST_SYS_ID
+	};
+	static constexpr sysId_type maxSystemId = _LAST_SYS_ID;
 };
 

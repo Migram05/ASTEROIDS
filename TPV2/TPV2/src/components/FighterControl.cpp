@@ -1,5 +1,5 @@
 #include "FighterControl.h"
-
+#include "../ecs/Manager.h"
 FighterControl::FighterControl() : speed(1.2), rotationSpeed(5) //Constructora por defecto
 {
 }
@@ -10,7 +10,7 @@ FighterControl::FighterControl(float s, float rS) : speed(s), rotationSpeed(rS) 
 
 void FighterControl::initComponent() //Inicializa
 {
-	tr_ = ent_->getComponent<Transform>(); //Obtiene el transform
+	tr_ = mngr_->getComponent<Transform>(ent_); //Obtiene el transform
 }
 
 void FighterControl::update() 
@@ -33,12 +33,13 @@ void FighterControl::update()
 			case SDLK_a: fRotation -= rotationSpeed; if (fRotation < -360) fRotation = 0; break; //Rotación
 			case SDLK_d: fRotation += rotationSpeed; if (fRotation > 360) fRotation = 0; break;
 			case SDLK_s: { //Dispara las armas
-				if (ent_->hasComponent(ecs::_GUN)) {
-					ent_->getComponent<Gun>()->shoot(tr_->getPos(), tr_->getForward(), tr_->getRotation());
+				if (mngr_->hasComponent<Gun>(ent_)) {
+					mngr_->getComponent<Gun>(ent_)->shoot(tr_->getPos(), tr_->getForward(), tr_->getRotation());
 				}
 				break;
 			}
 			case SDLK_ESCAPE: mngr_->exitGame(); break; //(Adicional) Sale del juego
+			case SDLK_SPACE: mngr_->pauseGame(); break;
 			default:
 				break;
 			}

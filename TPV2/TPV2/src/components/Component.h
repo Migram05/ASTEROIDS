@@ -5,7 +5,7 @@ class Manager;
 class Entity;
 using cmpId_type = uint8_t;
 
-class Component //Clase Padre
+struct Component //Clase Padre
 {
 public:
 	Component();

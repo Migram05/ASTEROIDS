@@ -1,5 +1,5 @@
 #include "Gun.h"
-
+#include "../ecs/Manager.h"
 Gun::Gun() : speed (1), shootRate(300) //Constructora por defecto
 {
 	lastShotTime = -shootRate; //Se ajusta el tiempo de la última vez disparado para poder disparar nada más entrar

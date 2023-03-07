@@ -3,7 +3,7 @@
 #include "Transform.h"
 #include "../ecs/Entity.h"
 #include "../utils/Vector2D.h"
-class Follow : public Component
+struct Follow : public Component
 {
 public:
 	Follow(Entity* f, float s);

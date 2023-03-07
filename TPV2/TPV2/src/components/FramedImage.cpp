@@ -1,5 +1,5 @@
 #include "FramedImage.h"
-
+#include "../ecs/Manager.h"
 FramedImage::FramedImage(Texture* text, int r, int c) : tex_(text), numRows_(r), numCols_(c), tPerFrame(500) 
 {
 	//Constructora por defecto
@@ -12,7 +12,7 @@ FramedImage::FramedImage(Texture* text, int r, int c, int f) : tex_(text), numRo
 
 void FramedImage::initComponent()
 {
-	tr_ = ent_->getComponent<Transform>(); //Inicializa el componente, buscando el componente transform
+	tr_ = mngr_->getComponent<Transform>(ent_); //Inicializa el componente, buscando el componente transform
 }
 
 void FramedImage::render() //Render de la imagen con frames
