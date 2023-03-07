@@ -12,6 +12,7 @@ public:
 		// como en la práctica 1, etc. Tiene que enviar mensajes correspondientes cuando
 		// empieza una ronda o cuando empieza una nueva partida.
 	void update() override;
+	constexpr static ecs::sysId_type id = ecs::_sys_GAMECTRL; //Identificador del tipo de sistema
 private:
 	// Para gestionar el mensaje de que ha habido un choque entre el fighter y un
 	// un asteroide. Tiene que avisar que ha acabado la ronda, quitar una vida

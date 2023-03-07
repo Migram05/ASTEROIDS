@@ -12,6 +12,8 @@ public:
 	virtual ~FramedImage();
 	void initComponent() override;
 	void render() override;
+	inline int getNRows() { return numRows_; }
+	inline int getNCols() { return numCols_; }
 	constexpr static cmpId_type id = ecs::_FRAMEDIMAGE;
 private:
 	Transform* tr_;

@@ -1,5 +1,11 @@
 #include "PlayState.h"
 #include "Manager.h"
+#include "../systems/AsteroidsSystem.h"
+#include "../systems/BulletsSystem.h"
+#include "../systems/CollisionsSystem.h"
+#include "../systems/FighterSystem.h"
+#include "../systems/GameCtrlSystem.h"
+#include "../systems/RenderSystem.h"
 PlayState::PlayState(Game* g, double w, double h) : GameState(w,h){ // Constructora
 	game = g;
 }
@@ -7,19 +13,45 @@ const std::string PlayState::s_playID = "PLAY";//ID del estado
 
 void PlayState::update() //Se actualizan los objetos de la lista
 {
-	manager_->update(); //Llamada al manager
+	/*manager_->update(); //Llamada al manager
 	asteroidsManager_->addAsteroidFrequency(); //Se chequea el tiempo para generar o no un asteroide
-	checkCollisions(); //Colisiones
+	checkCollisions(); //Colisiones*/
+	gameCtrlSys_->update();
+	fighterSys_->update();
+	bulletSys_->update();
+	asteroidSys_->update();
+	collisionSys_->update();
 }
 void PlayState::render() //Renderizado del juego
 {
-	manager_->render();
+	//manager_->render();
+	renderSys_->update();
 }
 bool PlayState::onEnter() //Se inicializan los objetos
 {
 	manager_ = new Manager(game);
 	manager_->createPlayer();
 	asteroidsManager_ = new AsteroidsManager(manager_, manager_->getPlayer(), 10);
+
+	asteroidSys_ = new AsteroidsSystem();
+	asteroidSys_->setContext(manager_);
+	asteroidSys_->initSystem();
+	bulletSys_ = new BulletsSystem();
+	bulletSys_->setContext(manager_);
+	bulletSys_->initSystem();
+	collisionSys_ = new CollisionsSystem();
+	collisionSys_->setContext(manager_);
+	collisionSys_->initSystem();
+	fighterSys_ = new FighterSystem();
+	fighterSys_->setContext(manager_);
+	fighterSys_->initSystem();
+	gameCtrlSys_ = new GameCtrlSystem();
+	gameCtrlSys_->setContext(manager_);
+	gameCtrlSys_->initSystem();
+	renderSys_ = new RenderSystem();
+	renderSys_->setContext(manager_);
+	renderSys_->initSystem();
+
 	auto& sdl = *SDLUtils::instance();
 	Music::setMusicVolume(8); //Musica de fondo y volumen
 	sdl.musics().at("theme").play();

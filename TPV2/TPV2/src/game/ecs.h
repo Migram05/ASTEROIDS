@@ -35,7 +35,11 @@ public:
 
 	enum sysId : sysId_type {
 		_sys_ASTEROIDS,
+		_sys_BULLET,
 		_sys_COLLISION,
+		_sys_FIGHTER,
+		_sys_GAMECTRL,
+		_sys_RENDER,
 
 		//Do not remove this
 		_LAST_SYS_ID

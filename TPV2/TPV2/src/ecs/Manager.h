@@ -100,7 +100,7 @@ public:
 
 	//Devuelve las entidades de un grupo
 	const vector<Entity*>& getEntitiesByGroup(grpId_type gId = ecs::_grp_GENERAL) { return entsByGroup_[gId]; }
-
+	const array<std::vector<Entity*>, ecs::maxGroupId>& getAllEntities() { return entsByGroup_; }
 	//Añade entidad a un grupo
 	void addToGroupList(grpId_type gId, Entity* e) { entsByGroup_[gId].push_back(e); }
 

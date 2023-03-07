@@ -13,6 +13,7 @@ public:
 		// - Dibujar los mensajes correspondientes: si el juego está parado, etc (como en
 		// la práctica 1)
 	void update() override;
+	constexpr static ecs::sysId_type id = ecs::_sys_RENDER; //Identificador del tipo de sistema
 private:
 	// Para gestionar los mensajes correspondientes y actualizar los atributos
 	// winner_ y state_. 

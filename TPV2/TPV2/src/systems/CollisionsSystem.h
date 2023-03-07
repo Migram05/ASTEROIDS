@@ -10,6 +10,7 @@ public:
 		// Si el juego está parado no hacer nada, en otro caso comprobar colisiones como
 		// en la práctica 1 y enviar mensajes correspondientes.
 	void update() override;
+	constexpr static ecs::sysId_type id = ecs::_sys_COLLISION; //Identificador del tipo de sistema
 private:
 	// Para gestionar el mensaje de que ha acabado una ronda. Desactivar el sistema.
 	void onRoundOver();
