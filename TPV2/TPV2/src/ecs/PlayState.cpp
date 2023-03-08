@@ -30,27 +30,35 @@ void PlayState::render() //Renderizado del juego
 bool PlayState::onEnter() //Se inicializan los objetos
 {
 	manager_ = new Manager(game);
-	manager_->createPlayer();
-	asteroidsManager_ = new AsteroidsManager(manager_, manager_->getPlayer(), 10);
+	//manager_->createPlayer();
+	
+	gameCtrlSys_ = manager_->addSystem<GameCtrlSystem>();
+	//gameCtrlSys_ = new GameCtrlSystem();
+	//gameCtrlSys_->setContext(manager_);
+	//gameCtrlSys_->initSystem();
+	asteroidSys_ = manager_->addSystem<AsteroidsSystem>();
+	//asteroidSys_ = new AsteroidsSystem();
+	//asteroidSys_->setContext(manager_);
+	//asteroidSys_->initSystem();
+	bulletSys_ = manager_->addSystem<BulletsSystem>();
+	//bulletSys_ = new BulletsSystem();
+	//bulletSys_->setContext(manager_);
+	//bulletSys_->initSystem();
+	collisionSys_ = manager_->addSystem<CollisionsSystem>();
+	//collisionSys_ = new CollisionsSystem();
+	//collisionSys_->setContext(manager_);
+	//collisionSys_->initSystem();
+	fighterSys_ = manager_->addSystem<FighterSystem>();
+	//fighterSys_ = new FighterSystem();
+	//fighterSys_->setContext(manager_);
+	//fighterSys_->initSystem();
+	renderSys_ = manager_->addSystem<RenderSystem>();
+	//renderSys_ = new RenderSystem();
+	//renderSys_->setContext(manager_);
+	//renderSys_->initSystem();
 
-	asteroidSys_ = new AsteroidsSystem();
-	asteroidSys_->setContext(manager_);
-	asteroidSys_->initSystem();
-	bulletSys_ = new BulletsSystem();
-	bulletSys_->setContext(manager_);
-	bulletSys_->initSystem();
-	collisionSys_ = new CollisionsSystem();
-	collisionSys_->setContext(manager_);
-	collisionSys_->initSystem();
-	fighterSys_ = new FighterSystem();
-	fighterSys_->setContext(manager_);
-	fighterSys_->initSystem();
-	gameCtrlSys_ = new GameCtrlSystem();
-	gameCtrlSys_->setContext(manager_);
-	gameCtrlSys_->initSystem();
-	renderSys_ = new RenderSystem();
-	renderSys_->setContext(manager_);
-	renderSys_->initSystem();
+	//Quitar
+	asteroidsManager_ = new AsteroidsManager(manager_, manager_->getPlayer(), 10);
 
 	auto& sdl = *SDLUtils::instance();
 	Music::setMusicVolume(8); //Musica de fondo y volumen

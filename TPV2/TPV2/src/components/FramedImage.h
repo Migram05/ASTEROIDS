@@ -14,6 +14,10 @@ public:
 	void render() override;
 	inline int getNRows() { return numRows_; }
 	inline int getNCols() { return numCols_; }
+	inline Texture* getTexture() { return tex_; }
+	inline int& getCol() { return col; }
+	inline int& getRow() { return row; }
+	inline int getTPerFrame() { return tPerFrame; }
 	constexpr static cmpId_type id = ecs::_FRAMEDIMAGE;
 private:
 	Transform* tr_;

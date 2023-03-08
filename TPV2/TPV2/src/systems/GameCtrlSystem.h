@@ -12,7 +12,7 @@ public:
 		// como en la práctica 1, etc. Tiene que enviar mensajes correspondientes cuando
 		// empieza una ronda o cuando empieza una nueva partida.
 	void update() override;
-	constexpr static ecs::sysId_type id = ecs::_sys_GAMECTRL; //Identificador del tipo de sistema
+	constexpr static sysId_type id = ecs::_sys_GAMECTRL; //Identificador del tipo de sistema
 private:
 	// Para gestionar el mensaje de que ha habido un choque entre el fighter y un
 	// un asteroide. Tiene que avisar que ha acabado la ronda, quitar una vida
@@ -22,6 +22,10 @@ private:
 		// Para gestionar el mensaje de que no hay más asteroides. Tiene que avisar que
 		// ha acabado la ronda y además que ha acabado el juego (y quien es el ganador)
 	void onAsteroidsExtinction();
+
+	void pauseGame();
+
+	void exitGame();
 	Uint8 winner_; // 0 - None, 1 - Asteroids, 2- Fighter
 	Uint8 state_; // El estado actual del juego (en lugar del componente State)
 };

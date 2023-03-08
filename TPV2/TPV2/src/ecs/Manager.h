@@ -25,7 +25,7 @@ using sysId_type = uint8_t;
 class Manager
 {
 public:
-	Manager(Game* g) : entsByGroup_(), game(g) //Constructora
+	Manager(Game* g) : entsByGroup_(),sys_(), game(g) //Constructora
 	{
 		for (auto& groupEntities : entsByGroup_) { //Se reserva memoria
 			groupEntities.reserve(100);
@@ -110,6 +110,9 @@ public:
 	//Sale del juego
 	void exitGame() { game->exitGame(); }
 
+	//El jugador pierde
+	void playerLost() { game->playerLoses(); }
+
 	Entity* addEntity(grpId_type gId = ecs::_grp_GENERAL)//Añade una entidad a su grupo correspondiente
 	{
 		Entity* e = new Entity();
@@ -164,9 +167,9 @@ public:
 	}
 	template<typename T, typename ...Ts>
 	inline T* addSystem(Ts &&... args) { //Añade un sistema
+		System* s = new T(std::forward<Ts>(args)...);
 		constexpr sysId_type sId = T::id;
 		removeSystem<T>();
-		System* s = new T(std::forward<Ts>(args)...);
 		s->setContext(this);
 		s->initSystem();
 		sys_[sId] = s;
