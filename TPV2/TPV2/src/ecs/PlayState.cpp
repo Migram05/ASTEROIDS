@@ -21,6 +21,7 @@ void PlayState::update() //Se actualizan los objetos de la lista
 	bulletSys_->update();
 	asteroidSys_->update();
 	collisionSys_->update();
+	manager_->flushMessages();
 }
 void PlayState::render() //Renderizado del juego
 {
@@ -33,32 +34,19 @@ bool PlayState::onEnter() //Se inicializan los objetos
 	//manager_->createPlayer();
 	
 	gameCtrlSys_ = manager_->addSystem<GameCtrlSystem>();
-	//gameCtrlSys_ = new GameCtrlSystem();
-	//gameCtrlSys_->setContext(manager_);
-	//gameCtrlSys_->initSystem();
+
 	asteroidSys_ = manager_->addSystem<AsteroidsSystem>();
-	//asteroidSys_ = new AsteroidsSystem();
-	//asteroidSys_->setContext(manager_);
-	//asteroidSys_->initSystem();
+
 	bulletSys_ = manager_->addSystem<BulletsSystem>();
-	//bulletSys_ = new BulletsSystem();
-	//bulletSys_->setContext(manager_);
-	//bulletSys_->initSystem();
+
 	collisionSys_ = manager_->addSystem<CollisionsSystem>();
-	//collisionSys_ = new CollisionsSystem();
-	//collisionSys_->setContext(manager_);
-	//collisionSys_->initSystem();
+
 	fighterSys_ = manager_->addSystem<FighterSystem>();
-	//fighterSys_ = new FighterSystem();
-	//fighterSys_->setContext(manager_);
-	//fighterSys_->initSystem();
+
 	renderSys_ = manager_->addSystem<RenderSystem>();
-	//renderSys_ = new RenderSystem();
-	//renderSys_->setContext(manager_);
-	//renderSys_->initSystem();
 
 	//Quitar
-	asteroidsManager_ = new AsteroidsManager(manager_, manager_->getPlayer(), 10);
+	//asteroidsManager_ = new AsteroidsManager(manager_, manager_->getPlayer(), 10);
 
 	auto& sdl = *SDLUtils::instance();
 	Music::setMusicVolume(8); //Musica de fondo y volumen
@@ -73,7 +61,7 @@ void PlayState::refresh()//Se refresca el manager para borrar entidades muertas
 }
 
 void PlayState::checkCollisions() { //Chequeo de colisiones
-	vector<Entity*> asteroids = manager_->getEntitiesByGroup(ecs::_grp_ASTEROIDS); //Se guardan las distintas entidades
+	/*vector<Entity*> asteroids = manager_->getEntitiesByGroup(ecs::_grp_ASTEROIDS); //Se guardan las distintas entidades
 	vector<Entity*> bullets = manager_->getEntitiesByGroup(ecs::_grp_BULLETS);
 	vector<Entity*> player = manager_->getEntitiesByGroup(ecs::_grp_PLAYER);
 	bool reset = false;
@@ -102,7 +90,7 @@ void PlayState::checkCollisions() { //Chequeo de colisiones
 		}
 		++it;
 	}
-	if (reset) resetGame(); //Reset del juego
+	if (reset) resetGame(); //Reset del juego*/
 }
 
 void PlayState::resetGame() //Reset del juego

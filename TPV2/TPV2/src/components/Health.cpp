@@ -20,10 +20,6 @@ void Health::render()
 	}
 }
 
-int Health::getLives() //Devuelve las vidas
-{
-	return numLives;
-}
 
 void Health::damage() //Método de daño
 {

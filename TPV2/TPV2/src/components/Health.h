@@ -10,9 +10,9 @@ public:
 	Health(Texture* text, int w, int h, int n);
 	virtual ~Health();
 	void render() override;
-	int getLives();
 	void damage();
 	void resetLives();
+	inline int& getLives() { return numLives; }
 	constexpr static cmpId_type id = ecs::_HEALTH;
 private:
 	Texture* tex_;

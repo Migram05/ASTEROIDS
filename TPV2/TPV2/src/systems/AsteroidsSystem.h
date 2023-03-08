@@ -33,7 +33,7 @@ private:
 	Vector2D borderSpawnLocation();
 		// El número actual de asteroides en el juego (recuerda que no puede superar un
 		// límite)
-	Uint8 numAsteroids_ = 0, maxNum = 30, defaultSpawnNum = 10;
+	int numAsteroids_ = 0, maxNum = 30, defaultSpawnNum = 10, maxDivision = 3;
 	float asteroidSpeed = 0.4;
 	enum ValoresArray { GrayAsteroid, GoldAsteroid, Fighter1, Fighter2, Fire, Heart };
 	// Indica si el sistema está activo o no (modificar el valor en onRoundOver y

@@ -28,6 +28,7 @@ struct Message { //Clase de los mensajes
 	} shot_data;
 	struct {
 		Entity* b_;
+		Entity* a_;
 	} bulletCollision_data;
 };
 
