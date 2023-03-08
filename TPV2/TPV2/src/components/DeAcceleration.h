@@ -11,6 +11,8 @@ public:
 	DeAcceleration();
 	DeAcceleration(float r);
 	virtual ~DeAcceleration();
+	inline float getReduction() { return reduction; }
+	inline float getStopMargin() { return stopMargin; }
 	virtual void initComponent();
 	virtual void update();
 	constexpr static cmpId_type id = ecs::_DEACCELERATION;

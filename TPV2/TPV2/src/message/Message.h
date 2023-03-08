@@ -1,5 +1,6 @@
 #pragma once
 #include "../ecs/Entity.h"
+#include "../utils/Vector2D.h"
 using msgId_type = uint8_t;
 enum msgId : msgId_type { //Identificadores de los mensajes
 	_m_PAUSEGAME,
@@ -7,6 +8,8 @@ enum msgId : msgId_type { //Identificadores de los mensajes
 	_m_PLAYERWINS,
 	_m_EXIT,
 	_m_NEWGAME,
+	_m_SHOOT,
+	_m_BULLETCOLLIDES,
 };
 struct Message { //Clase de los mensajes
 	msgId_type id;
@@ -18,6 +21,13 @@ struct Message { //Clase de los mensajes
 	struct {
 		unsigned int n;
 	} add_stars_data;
-
+	struct {
+		Vector2D pos_;
+		Vector2D dir_;
+		float r_;
+	} shot_data;
+	struct {
+		Entity* b_;
+	} bulletCollision_data;
 };
 

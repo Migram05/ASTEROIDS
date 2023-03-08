@@ -516,7 +516,7 @@ typedef struct SDL_SysWMEvent
 {
     Uint32 type;        /**< ::SDL_SYSWMEVENT */
     Uint32 timestamp;   /**< In milliseconds, populated using SDL_GetTicks() */
-    SDL_SysWMmsg *msg;  /**< driver dependent data, defined in SDL_syswm.h */
+    SDL_SysWMmsg *msgP;  /**< driver dependent data, defined in SDL_syswm.h */
 } SDL_SysWMEvent;
 
 /**

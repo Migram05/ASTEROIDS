@@ -11,6 +11,7 @@ FighterControl::FighterControl(float s, float rS) : speed(s), rotationSpeed(rS) 
 void FighterControl::initComponent() //Inicializa
 {
 	tr_ = mngr_->getComponent<Transform>(ent_); //Obtiene el transform
+
 }
 
 void FighterControl::update() 
@@ -46,6 +47,7 @@ void FighterControl::update()
 			
 		}
 	}
+
 }
 
 FighterControl::~FighterControl() //Destructora

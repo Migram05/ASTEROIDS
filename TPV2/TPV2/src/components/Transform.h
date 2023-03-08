@@ -28,6 +28,6 @@ private:
 	Vector2D lastForward_ = { 0, -1 };
 	float width_;
 	float height_;
-	float rotation_;
+	float rotation_ = 0;
 };
 

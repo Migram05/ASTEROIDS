@@ -17,7 +17,6 @@ void GameCtrlSystem::initSystem()
 	Message msg;
 	msg.id = _m_NEWGAME;
 	mngr_->send(msg);
-	mngr_->createPlayer();
 }
 
 void GameCtrlSystem::update()
