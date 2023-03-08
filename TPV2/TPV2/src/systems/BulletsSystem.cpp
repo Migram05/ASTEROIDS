@@ -22,6 +22,8 @@ void BulletsSystem::update()
 		auto& position = tr_->getPos(); 
 		auto velocity = tr_->getVel();
 		position = position + velocity;
+		//Si sale de la pantalla, se desactiva
+		if (position.getX() + tr_->getW() < 0 || position.getX() > mngr_->getWidth() || position.getY() + tr_->getH() < 0 || position.getY() > mngr_->getHeight()) mngr_->setAlive(e, false);
 	}
 }
 

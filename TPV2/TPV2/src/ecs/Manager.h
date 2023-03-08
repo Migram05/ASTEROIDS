@@ -36,6 +36,7 @@ public:
 			for (auto e : ents)
 				delete e;
 		}
+		for (auto syst : sys_) delete syst;
 	}
 	void refresh() {
 		//Borra todas las entidades muertas

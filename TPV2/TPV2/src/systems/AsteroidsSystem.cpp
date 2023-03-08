@@ -16,7 +16,23 @@ void AsteroidsSystem::initSystem()
 
 void AsteroidsSystem::update()
 {
+    for (auto e : mngr_->getEntitiesByGroup(ecs::_grp_ASTEROIDS)) {
+        Entity* p = mngr_->getPlayer();
+        auto tr_ = mngr_->getComponent<Transform>(e);
+        auto& position_ = tr_->getPos(); auto& velocity_ = tr_->getVel();
+        if (mngr_->hasComponent<Follow>(e)) { //Se comprueba si el asteroide es de oro, y por lo tanto tiene que seguir al jugador
+            Vector2D dir = mngr_->getComponent<Transform>(p)->getPos() - tr_->getPos();
+            dir = dir.normalize() * asteroidSpeed;
+            velocity_ = dir; //Se aplica el vector dirección
+        }
+        position_ = position_ + velocity_; //Se ajusta la posición del asteroide según su dirección
 
+        if (position_.getX() + tr_->getW() < 0) position_ = Vector2D{ (float)mngr_->getWidth() , position_.getY() };
+        else if (position_.getX() > mngr_->getWidth()) position_ = Vector2D{ 0 , position_.getY() };
+
+        if (position_.getY() + tr_->getH() < 0) position_ = Vector2D{ position_.getX() ,(float)mngr_->getHeight() };
+        else if (position_.getY() > mngr_->getHeight()) position_ = Vector2D{ position_.getX() , 0 };
+    }
 }
 
 void AsteroidsSystem::onCollision_AsteroidBullet(Entity* a)
