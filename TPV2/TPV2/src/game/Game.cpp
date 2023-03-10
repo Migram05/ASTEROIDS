@@ -71,8 +71,11 @@ void Game::exitGame() { //Activa la salida
 void Game::pauseGame() { //Pausa el juego
 	gameStateMachine->pushState(new PauseState(this, WIN_WIDTH, WIN_HEIGHT, false));
 }
-void Game::resumeGame() { //Reanuda el juego
+void Game::resumeGame(bool lost) { //Reanuda el juego
 	gameStateMachine->popState();
+	if (PlayState* p = dynamic_cast<PlayState*>(gameStateMachine->currentState())) {
+		if(lost) p->resetGame();
+	}
 }
 void Game::playerLoses() {
 	gameStateMachine->pushState(new PauseState(this, WIN_WIDTH, WIN_HEIGHT, true));

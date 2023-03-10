@@ -19,11 +19,11 @@ public:
 	virtual void render();
 	virtual bool onEnter();
 	virtual void refresh();
-
+	void resetGame();
 	virtual std::string getStateID() const { return s_playID; }
 private:
 	void checkCollisions();
-	void resetGame();
+	
 	bool exit = false, gameOver = false, win = false, renderTime = false, startGame = false;
 	static const string s_playID;
 	Manager* manager_;

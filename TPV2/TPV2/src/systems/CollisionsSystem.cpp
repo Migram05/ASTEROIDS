@@ -33,6 +33,7 @@ void CollisionsSystem::update()
 				sdl.soundEffects().at("explosion").play();
 				int& lives = mngr_->getComponent<Health>(p)->getLives();
 				lives--;
+				if (lives <= 0) lives = mngr_->getComponent<Health>(p)->getInitialLives();
 				Message msg; msg.id = _m_PLAYERLOST;
 				mngr_->send(msg);
 				//t3->getPos() = Vector2D{ (float)WIN_WIDTH / 2, (float)WIN_HEIGHT / 2 }; t3->getRotation() = 0; t3->getVel() = Vector2D{ 0,0 };

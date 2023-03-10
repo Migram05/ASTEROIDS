@@ -9,12 +9,16 @@ void Image::initComponent()
 	tr_ = mngr_->getComponent<Transform>(ent_); //Busca el componente transform
 }
 
-void Image::render()
-{ 
-	SDL_Rect dest = build_sdlrect(tr_->getPos(), tr_->getW(), tr_->getH()); //Crea el rectángulo destino
-	tex_->render(dest, tr_->getRotation()); //Renderiza la textura
-}
 
 Image::~Image()
 {
 }
+
+#ifdef COMPS
+void Image::render()
+{
+	SDL_Rect dest = build_sdlrect(tr_->getPos(), tr_->getW(), tr_->getH()); //Crea el rectángulo destino
+	tex_->render(dest, tr_->getRotation()); //Renderiza la textura
+}
+#endif // COMPS
+

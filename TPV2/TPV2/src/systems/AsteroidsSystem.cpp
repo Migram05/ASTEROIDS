@@ -13,7 +13,7 @@ void AsteroidsSystem::receive(const Message& m)
 
 void AsteroidsSystem::initSystem()
 {
-    numAsteroids_ = 0; maxNum = 30; defaultSpawnNum = 10; maxDivision = 3;
+    
 }
 
 void AsteroidsSystem::update()
@@ -34,6 +34,14 @@ void AsteroidsSystem::update()
 
         if (position_.getY() + tr_->getH() < 0) position_ = Vector2D{ position_.getX() ,(float)mngr_->getHeight() };
         else if (position_.getY() > mngr_->getHeight()) position_ = Vector2D{ position_.getX() , 0 };
+    }
+    if (SDL_GetTicks() - timer_ >= AsteroidTime * 2000) {
+        timer_ = SDL_GetTicks(); //Comprobación para saber si estamos en pausa o no
+    }
+    else if (SDL_GetTicks() - timer_ >= AsteroidTime * 1000 && numAsteroids_ < maxNum) {
+        //Crea un asteroide más si es posible
+        createAsteroids(1);
+        timer_ += AsteroidTime * 1000;
     }
 }
 
@@ -61,9 +69,10 @@ void AsteroidsSystem::onCollision_AsteroidBullet(Entity* e)
                 mngr_->addComponent<Follow>(a, mngr_->getPlayer(), asteroidSpeed);
             }
             else mngr_->addComponent<FramedImage>(a, mngr_->getTexture(GrayAsteroid), 5, 6, 200);
+            numAsteroids_++;
         }
     }
-    else if (numAsteroids_ <= 0) {
+    if (numAsteroids_ <= 0) {
         Message msg; msg.id = _m_PLAYERWINS;
         mngr_->send(msg);
     }

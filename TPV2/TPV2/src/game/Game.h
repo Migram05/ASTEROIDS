@@ -26,7 +26,7 @@ public:
 	Texture* getTexture(int n);
 	void exitGame();
 	void pauseGame();
-	void resumeGame();
+	void resumeGame(bool l);
 	void playerLoses();
 
 private:

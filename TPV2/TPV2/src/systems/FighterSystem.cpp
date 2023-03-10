@@ -5,6 +5,7 @@ void FighterSystem::receive(const Message& m)
 	switch (m.id)
 	{
 	case _m_PLAYERLOST: onCollision_FighterAsteroid(); break;
+	case _m_PLAYERWINS: onCollision_FighterAsteroid(); break;
 	default: break;
 	}
 }

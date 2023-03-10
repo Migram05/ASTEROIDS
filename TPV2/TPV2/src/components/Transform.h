@@ -18,9 +18,13 @@ public:
 	inline float& getH() { return height_; }
 	inline float& getRotation() { return rotation_; }
 	virtual void initComponent();
-	virtual void update();
-	virtual void render(); 
 	constexpr static cmpId_type id = ecs::_TRANSFORM;
+
+#ifdef COMPS
+	virtual void update();
+	virtual void render();
+#endif // COMPS
+
 private:
 	Vector2D position_;
 	Vector2D velocity_;

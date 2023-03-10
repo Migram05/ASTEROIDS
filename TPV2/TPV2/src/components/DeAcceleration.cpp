@@ -14,6 +14,11 @@ void DeAcceleration::initComponent() //Se inicializa
 	tr_ = mngr_->getComponent<Transform>(ent_); //Obtiene el transform
 }
 
+DeAcceleration::~DeAcceleration() //Destructora
+{
+}
+
+#ifdef COMPS
 void DeAcceleration::update()
 {
 	Vector2D& v = tr_->getVel(); //Se obtiene la velocidad
@@ -22,7 +27,7 @@ void DeAcceleration::update()
 		v = v + Vector2D{ f.getX() * -reduction, f.getY() * reduction };
 	else v = { 0,0 }; //En caso de ser menor al margen, se detiene la nave
 }
+#endif // COMPS
 
-DeAcceleration::~DeAcceleration() //Destructora
-{
-}
+
+

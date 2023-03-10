@@ -26,6 +26,13 @@ void Transform::initComponent()
 {
 }
 
+Transform::~Transform()
+{
+
+}
+
+#ifdef COMPS
+
 void Transform::update()
 {
 	position_ = position_ + velocity_; //Se ajusta la posición a la velocidad que lleva
@@ -34,8 +41,4 @@ void Transform::update()
 void Transform::render()
 {
 }
-
-Transform::~Transform()
-{
-
-}
+#endif // COMPS

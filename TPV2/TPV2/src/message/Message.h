@@ -10,6 +10,7 @@ enum msgId : msgId_type { //Identificadores de los mensajes
 	_m_NEWGAME,
 	_m_SHOOT,
 	_m_BULLETCOLLIDES,
+	_m_RESUME,
 };
 struct Message { //Clase de los mensajes
 	msgId_type id;

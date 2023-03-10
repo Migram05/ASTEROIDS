@@ -9,6 +9,12 @@ void Follow::initComponent()
 	tr_ = mngr_->getComponent<Transform>(ent_); //Inicializa el componente buscando el transform
 }
 
+Follow::~Follow()
+{
+}
+
+
+#ifdef COMPS
 void Follow::update()
 {
 	Vector2D& newDir = tr_->getVel();
@@ -17,7 +23,7 @@ void Follow::update()
 	dir = dir.normalize() * speed_;
 	newDir = dir; //Se aplica el vector dirección
 }
+#endif // COMPS
 
-Follow::~Follow()
-{
-}
+
+

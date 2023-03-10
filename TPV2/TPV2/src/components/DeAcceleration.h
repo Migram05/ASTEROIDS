@@ -14,8 +14,11 @@ public:
 	inline float getReduction() { return reduction; }
 	inline float getStopMargin() { return stopMargin; }
 	virtual void initComponent();
-	virtual void update();
 	constexpr static cmpId_type id = ecs::_DEACCELERATION;
+
+#ifdef COMPS
+	virtual void update();
+#endif // COMPS
 private:
 	Transform* tr_;
 	float reduction, stopMargin = 0.001;

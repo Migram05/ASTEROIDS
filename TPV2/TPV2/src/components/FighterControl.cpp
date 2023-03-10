@@ -14,15 +14,22 @@ void FighterControl::initComponent() //Inicializa
 
 }
 
-void FighterControl::update() 
+FighterControl::~FighterControl() //Destructora
+{
+
+}
+
+
+#ifdef COMPS
+void FighterControl::update()
 {
 	Vector2D& fVector = tr_->getVel(); //Obtiene velocidad
 	float& fRotation = tr_->getRotation(); //Rotacion del caza
 	Vector2D& forwardVector = tr_->getForward(); //Vector forward actual
 	Vector2D& lastForward = tr_->getLastForward(); //Ultimo vector forward
 	double rad = (fRotation) * (M_PI / 180);
-	float c = cos(rad); 
-	float s = sin(rad); 
+	float c = cos(rad);
+	float s = sin(rad);
 	forwardVector = Vector2D{ s, c }; //Se actualiza el vector forward según su rotación
 	SDL_Event event;
 	auto& sdl = *SDLUtils::instance();
@@ -44,12 +51,11 @@ void FighterControl::update()
 			default:
 				break;
 			}
-			
+
 		}
 	}
 
 }
+#endif // COMPS
 
-FighterControl::~FighterControl() //Destructora
-{
-}
+

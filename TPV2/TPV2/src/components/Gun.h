@@ -17,8 +17,11 @@ public:
 	inline int getLastShotTime() { return lastShotTime; }
 	inline int getShootRate() { return shootRate; }
 	inline void setLastShoot(int lS) { lastShotTime = lS; }
-	void shoot(Vector2D pos, Vector2D dir, float rot);
 	constexpr static cmpId_type id = ecs::_GUN;
+#ifdef COMPS
+	void shoot(Vector2D pos, Vector2D dir, float rot);
+#endif // COMPS
+
 private:
 	float speed;
 	int lastShotTime, shootRate;

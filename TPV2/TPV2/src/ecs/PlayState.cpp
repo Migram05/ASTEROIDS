@@ -1,3 +1,6 @@
+//Para activar el sistema de componentes descomentar la siguiente línea de código:
+//#define COMPS
+
 #include "PlayState.h"
 #include "Manager.h"
 #include "../systems/AsteroidsSystem.h"
@@ -13,26 +16,42 @@ const std::string PlayState::s_playID = "PLAY";//ID del estado
 
 void PlayState::update() //Se actualizan los objetos de la lista
 {
-	/*manager_->update(); //Llamada al manager
+#ifdef COMPS
+	
+	manager_->update(); //Llamada al manager
 	asteroidsManager_->addAsteroidFrequency(); //Se chequea el tiempo para generar o no un asteroide
-	checkCollisions(); //Colisiones*/
+	checkCollisions(); //Colisiones
+#endif // COMPS
+#ifndef COMPS
+	
 	gameCtrlSys_->update();
 	fighterSys_->update();
 	bulletSys_->update();
 	asteroidSys_->update();
 	collisionSys_->update();
 	manager_->flushMessages();
+#endif // !COMPS
 }
 void PlayState::render() //Renderizado del juego
 {
-	//manager_->render();
+#ifdef COMPS
+	manager_->render();
+#endif // COMPS
+#ifndef COMPS
 	renderSys_->update();
+#endif // !COMPS
 }
 bool PlayState::onEnter() //Se inicializan los objetos
 {
 	manager_ = new Manager(game);
-	//manager_->createPlayer();
-	
+#ifdef COMPS
+	cout << "Sistema de componentes en uso" << endl;
+	manager_->createPlayer();
+	asteroidsManager_ = new AsteroidsManager(manager_, manager_->getPlayer(), 10);
+#endif // COMPS
+
+#ifndef COMPS
+	cout << "Sistema de sistemas en uso" << endl;
 	gameCtrlSys_ = manager_->addSystem<GameCtrlSystem>();
 
 	asteroidSys_ = manager_->addSystem<AsteroidsSystem>();
@@ -44,10 +63,7 @@ bool PlayState::onEnter() //Se inicializan los objetos
 	fighterSys_ = manager_->addSystem<FighterSystem>();
 
 	renderSys_ = manager_->addSystem<RenderSystem>();
-
-	//Quitar
-	//asteroidsManager_ = new AsteroidsManager(manager_, manager_->getPlayer(), 10);
-
+#endif // !COMPS
 	auto& sdl = *SDLUtils::instance();
 	Music::setMusicVolume(8); //Musica de fondo y volumen
 	sdl.musics().at("theme").play();
@@ -61,13 +77,14 @@ void PlayState::refresh()//Se refresca el manager para borrar entidades muertas
 }
 
 void PlayState::checkCollisions() { //Chequeo de colisiones
-	/*vector<Entity*> asteroids = manager_->getEntitiesByGroup(ecs::_grp_ASTEROIDS); //Se guardan las distintas entidades
+#ifdef COMPS
+	vector<Entity*> asteroids = manager_->getEntitiesByGroup(ecs::_grp_ASTEROIDS); //Se guardan las distintas entidades
 	vector<Entity*> bullets = manager_->getEntitiesByGroup(ecs::_grp_BULLETS);
 	vector<Entity*> player = manager_->getEntitiesByGroup(ecs::_grp_PLAYER);
 	bool reset = false;
 	auto& sdl = *SDLUtils::instance();
 	auto it = asteroids.begin();
-	while (it!= asteroids.end() && !reset) { //Se recorren los asteroides
+	while (it != asteroids.end() && !reset) { //Se recorren los asteroides
 		Entity* a = *it;
 		Transform* t1 = manager_->getComponent<Transform>(a);
 		for (Entity* b : bullets) { //Primero comprueba sus colisiones con las balas
@@ -75,7 +92,7 @@ void PlayState::checkCollisions() { //Chequeo de colisiones
 			if (manager_->isAlive(b) && Collisions::collidesWithRotation(t1->getPos(), t1->getW(), t1->getH(), t1->getRotation(), t2->getPos(), t2->getW(), t2->getH(), t2->getRotation())) {
 				sdl.soundEffects().at("bang").play(); //Efecto de sonido
 				asteroidsManager_->onCollision(a); //Llama al AM para destruir el asteroide
-				manager_->setAlive(b,false);
+				manager_->setAlive(b, false);
 			}
 		}
 		for (Entity* p : player) { //Comprueba la colisión con el jugador
@@ -90,11 +107,13 @@ void PlayState::checkCollisions() { //Chequeo de colisiones
 		}
 		++it;
 	}
-	if (reset) resetGame(); //Reset del juego*/
+	if (reset) resetGame(); //Reset del juego
+#endif // COMPS
 }
 
 void PlayState::resetGame() //Reset del juego
 {
+#ifdef COMPS
 	refresh();
 	if (manager_->isPlayerAlive()) game->pauseGame(); //En caso de tener vidas, se pausa el juego
 	else { //Sino, se lanza la pantalla de derrota
@@ -103,10 +122,17 @@ void PlayState::resetGame() //Reset del juego
 		manager_->getComponent<Health>(p)->resetLives();
 	}
 	asteroidsManager_->createAsteroids(10); //Se crean asteroides
+#endif // COMPS
+#ifndef COMPS
+	Message msg; msg.id = _m_NEWGAME;
+	manager_->send(msg);
+#endif // !COMPS
 }
 
 PlayState::~PlayState() { //Destructora
 	Music::haltMusic();
 	delete manager_;
+#ifdef COMPS
 	delete asteroidsManager_;
+#endif // COMPS
 }

@@ -11,7 +11,6 @@ public:
 	FramedImage(Texture* text, int r, int c, int f);
 	virtual ~FramedImage();
 	void initComponent() override;
-	void render() override;
 	inline int getNRows() { return numRows_; }
 	inline int getNCols() { return numCols_; }
 	inline Texture* getTexture() { return tex_; }
@@ -19,6 +18,13 @@ public:
 	inline int& getRow() { return row; }
 	inline int getTPerFrame() { return tPerFrame; }
 	constexpr static cmpId_type id = ecs::_FRAMEDIMAGE;
+
+#ifdef COMPS
+	void render() override;
+#endif // COMPS
+
+	
+	
 private:
 	Transform* tr_;
 	Texture* tex_;

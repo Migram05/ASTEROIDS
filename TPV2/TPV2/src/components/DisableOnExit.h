@@ -9,8 +9,10 @@ public:
 	DisableOnExit(int w, int h);
 	virtual ~DisableOnExit();
 	virtual void initComponent();
-	virtual void update();
 	constexpr static cmpId_type id = ecs::_DISABLEONEXIT;
+#ifdef COMPS
+	virtual void update();
+#endif // COMPS
 private:
 	Transform* tr_;
 	int winWidth_, winHeight_;

@@ -11,6 +11,10 @@ void Component::initComponent()
 {
 }
 
+Component::~Component()
+{
+}
+#ifdef COMPS
 void Component::update()
 {
 }
@@ -18,6 +22,7 @@ void Component::update()
 void Component::render()
 {
 }
-Component::~Component()
-{
-}
+#endif // COMPS
+
+
+

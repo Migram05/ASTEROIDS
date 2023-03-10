@@ -35,6 +35,14 @@ void RenderSystem::update()
 		SDL_Rect dest = build_sdlrect(tr_->getPos(), tr_->getW(), tr_->getH()); //Crea el rectángulo destino
 		tex_->render(dest, tr_->getRotation()); //Renderiza la textura
 	}
+	Health* playerHealth =  mngr_->getComponent<Health>(mngr_->getPlayer());
+	int nLives = playerHealth->getLives();
+	int hWidth = playerHealth->getWidth(), hHeight = playerHealth->getHeight();
+	Texture* tex_ = playerHealth->getTexture();
+	for (int i = 0; i < nLives; ++i) {
+		SDL_Rect dest = build_sdlrect(hWidth * i, mngr_->getHeight() / 90, hWidth, hHeight);
+		tex_->render(dest);
+	}
 }
 
 void RenderSystem::onRoundStart()

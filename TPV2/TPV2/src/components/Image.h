@@ -8,9 +8,13 @@ public:
 	Image(Texture* text);
 	virtual ~Image();
 	void initComponent() override;
-	void render() override;
 	inline Texture* getTexture() { return tex_; }
 	constexpr static cmpId_type id = ecs::_IMAGE;
+
+#ifdef COMPS
+	void render() override;
+#endif // COMPS
+
 private:
 	Transform* tr_;
 	Texture* tex_;

@@ -20,9 +20,14 @@ void Gun::initComponent()
 
 }
 
+Gun::~Gun()
+{
+}
+
+#ifdef COMPS
 void Gun::shoot(Vector2D pos, Vector2D dir, float rot) //Método de disparo (llamada desde el componente de control)
 {
-	auto& sdl = *SDLUtils::instance(); 
+	auto& sdl = *SDLUtils::instance();
 	if (sdl.currRealTime() - lastShotTime >= shootRate) { //Se comprueba la cadencia
 		sdl.soundEffects().at("shot").play(); //Efecto de sonido
 		mngr_->spawnShot(pos, Vector2D{ dir.getX() * speed, dir.getY() * -speed }, rot);
@@ -30,6 +35,4 @@ void Gun::shoot(Vector2D pos, Vector2D dir, float rot) //Método de disparo (llam
 	}
 }
 
-Gun::~Gun()
-{
-}
+#endif // COMPS

@@ -12,7 +12,7 @@ void PauseState::update() //Se detecta si hay entrada para cambiar de estado o s
 		if (event.type == SDL_KEYDOWN) {
 			switch (event.key.keysym.sym)
 			{
-			case SDLK_SPACE: game->resumeGame(); break; //Al pulsar espacio se sale de la pausa
+			case SDLK_SPACE: game->resumeGame(lost); break; //Al pulsar espacio se sale de la pausa
 			case SDLK_ESCAPE: game->exitGame(); break; //Al pulsar Escape, se sale del juego
 			default: break;
 			}

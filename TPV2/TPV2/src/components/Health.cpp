@@ -12,10 +12,16 @@ Health::Health(Texture* text,int w, int h, int n) : tex_(text), numLives(n), ini
 	width_ = height_ = Totwidth_ / proportion;
 }
 
+Health::~Health() //Destructora
+{
+}
+
+#ifdef COMPS
+
 void Health::render()
 {
 	for (int i = 0; i < numLives; ++i) { //Se renderizan las vidas
-		SDL_Rect dest = build_sdlrect( width_ * i, Totheight_ /90, width_, height_);
+		SDL_Rect dest = build_sdlrect(width_ * i, Totheight_ / 90, width_, height_);
 		tex_->render(dest);
 	}
 }
@@ -30,6 +36,4 @@ void Health::resetLives() //Reset de la vidas
 {
 	numLives = initialLives;
 }
-Health::~Health() //Destructora
-{
-}
+#endif // COMPS
