@@ -1,5 +1,7 @@
 #pragma once
 #include "../game/ecs.h"
+//Si no se comenta, se ejecuta el juego por componentes en vez de sistemas
+//#define COMPS
 
 class Manager;
 class Entity;

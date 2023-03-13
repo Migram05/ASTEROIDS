@@ -1,5 +1,6 @@
 #pragma once
 #include "../ecs/System.h"
+#include "../sdlutils/Texture.h"
 using Uint8 = uint8_t;
 class RenderSystem : public System
 {
@@ -23,5 +24,6 @@ private:
 	void onGameOver();
 	Uint8 winner_; // 0 - None, 1 - Asteroid, 2- Fighter
 	Uint8 state_; // El estado actual de juego (como en GameCtrlSystem
+	Texture* tex_;
 };
 

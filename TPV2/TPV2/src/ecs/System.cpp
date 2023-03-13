@@ -4,23 +4,24 @@ System::System()
 {
 }
 
-System::~System()
-{
-}
 
-void System::setContext(Manager* mngr)
+void System::setContext(Manager* mngr) //Obtiene la referencia del manager actual
 {
 	mngr_ = mngr;
 }
 
-void System::initSystem()
+void System::initSystem() //Inicializa el sistema
 {
 }
 
-void System::update()
+void System::update() //Actualiza entidades, también usado para el render
 {
 }
 
-void System::receive(const Message& m)
+void System::receive(const Message& m) //Método para recibir mensajes
+{
+}
+
+System::~System()
 {
 }

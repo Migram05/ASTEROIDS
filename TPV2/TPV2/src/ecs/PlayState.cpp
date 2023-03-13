@@ -1,5 +1,4 @@
 //Para activar el sistema de componentes descomentar la siguiente línea de código:
-//#define COMPS
 
 #include "PlayState.h"
 #include "Manager.h"

@@ -1,6 +1,6 @@
 #include "CollisionsSystem.h"
 #include "../ecs/Manager.h"
-void CollisionsSystem::receive(const Message& m)
+void CollisionsSystem::receive(const Message& m) //No recibe mensajes, solo envía
 {
 }
 
@@ -8,7 +8,7 @@ void CollisionsSystem::initSystem()
 {
 }
 
-void CollisionsSystem::update()
+void CollisionsSystem::update() //Comprueba colisiones
 {
 	vector<Entity*> asteroids = mngr_->getEntitiesByGroup(ecs::_grp_ASTEROIDS); //Se guardan las distintas entidades
 	vector<Entity*> bullets = mngr_->getEntitiesByGroup(ecs::_grp_BULLETS);
@@ -23,7 +23,7 @@ void CollisionsSystem::update()
 			Transform* t2 = mngr_->getComponent<Transform>(b);
 			if (mngr_->isAlive(b) && Collisions::collidesWithRotation(t1->getPos(), t1->getW(), t1->getH(), t1->getRotation(), t2->getPos(), t2->getW(), t2->getH(), t2->getRotation())) {
 				sdl.soundEffects().at("bang").play(); //Efecto de sonido
-				Message msg; msg.id = _m_BULLETCOLLIDES; msg.bulletCollision_data.b_ = b; msg.bulletCollision_data.a_ = a;
+				Message msg; msg.id = _m_BULLETCOLLIDES; msg.bulletCollision_data.b_ = b; msg.bulletCollision_data.a_ = a; //Mensaje de colisión bala/asteroide
 				mngr_->send(msg);
 			}
 		}
@@ -34,16 +34,12 @@ void CollisionsSystem::update()
 				int& lives = mngr_->getComponent<Health>(p)->getLives();
 				lives--;
 				if (lives <= 0) lives = mngr_->getComponent<Health>(p)->getInitialLives();
-				Message msg; msg.id = _m_PLAYERLOST;
+				Message msg; msg.id = _m_PLAYERLOST; //Colisión jugador/asteroide, fin de la partida
 				mngr_->send(msg);
-				//t3->getPos() = Vector2D{ (float)WIN_WIDTH / 2, (float)WIN_HEIGHT / 2 }; t3->getRotation() = 0; t3->getVel() = Vector2D{ 0,0 };
-				//asteroidsManager_->destroyAllAsteroids(); // Se borran los asteroides
-				//reset = true; //Variable que termina el bucle y resetea el juego
 			}
 		}
 		++it;
 	}
-	//if (reset) resetGame(); //Reset del juego
 }
 
 void CollisionsSystem::onRoundOver()

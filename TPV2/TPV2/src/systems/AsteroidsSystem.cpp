@@ -1,12 +1,12 @@
 #include "AsteroidsSystem.h"
 #include "../ecs/Manager.h"
-void AsteroidsSystem::receive(const Message& m)
+void AsteroidsSystem::receive(const Message& m) 
 {
 	switch (m.id)
 	{
-    case _m_NEWGAME: onRoundStart(); break;
-	case (_m_PLAYERLOST ||_m_PLAYERWINS): onRoundOver(); break;
-    case _m_BULLETCOLLIDES: onCollision_AsteroidBullet(m.bulletCollision_data.a_); break;
+    case _m_NEWGAME: onRoundStart(); break; //Cuando se empueza una partida nueva, se crean asteroides
+	case (_m_PLAYERLOST ||_m_PLAYERWINS): onRoundOver(); break; //Al perder se destruyen los asteroides
+    case _m_BULLETCOLLIDES: onCollision_AsteroidBullet(m.bulletCollision_data.a_); break; //Al colisionar con una bala, se destruye el asteroide
 	default: break;
 	}
 }
@@ -16,7 +16,7 @@ void AsteroidsSystem::initSystem()
     
 }
 
-void AsteroidsSystem::update()
+void AsteroidsSystem::update() //Se actualizan los asteroides
 {
     for (auto e : mngr_->getEntitiesByGroup(ecs::_grp_ASTEROIDS)) {
         Entity* p = mngr_->getPlayer();
@@ -29,16 +29,17 @@ void AsteroidsSystem::update()
         }
         position_ = position_ + velocity_; //Se ajusta la posición del asteroide según su dirección
 
+        //Efecto toroidal, en caso de salir de la pantalla, se muestra por el lado opuesto
         if (position_.getX() + tr_->getW() < 0) position_ = Vector2D{ (float)mngr_->getWidth() , position_.getY() };
         else if (position_.getX() > mngr_->getWidth()) position_ = Vector2D{ 0 , position_.getY() };
 
         if (position_.getY() + tr_->getH() < 0) position_ = Vector2D{ position_.getX() ,(float)mngr_->getHeight() };
         else if (position_.getY() > mngr_->getHeight()) position_ = Vector2D{ position_.getX() , 0 };
     }
-    if (SDL_GetTicks() - timer_ >= AsteroidTime * 2000) {
-        timer_ = SDL_GetTicks(); //Comprobación para saber si estamos en pausa o no
+    if (SDL_GetTicks() - timer_ >= AsteroidTime * 2000) { //Comprobación para saber si estamos en pausa o no
+        timer_ = SDL_GetTicks(); 
     }
-    else if (SDL_GetTicks() - timer_ >= AsteroidTime * 1000 && numAsteroids_ < maxNum) {
+    else if (SDL_GetTicks() - timer_ >= AsteroidTime * 1000 && numAsteroids_ < maxNum) { //Crea un asteroide dada la frecuencia
         //Crea un asteroide más si es posible
         createAsteroids(1);
         timer_ += AsteroidTime * 1000;
@@ -51,10 +52,10 @@ void AsteroidsSystem::onCollision_AsteroidBullet(Entity* e)
     int gen = mngr_->getComponent<Generations>(e)->GetGeneration();
     --gen; //Se reduce su generación
     numAsteroids_--;
-    if (gen > 0) {
+    if (gen > 0) { //Si pude generar más asteroides, se divide
         int n = maxNum - numAsteroids_;
-        if (n > maxDivision) n = maxDivision;
-        for (int i = 0; i < n; ++i) {
+        if (n > maxDivision) n = maxDivision; //Número de asteroides, según el máximo de división y el número máximo de asteroides
+        for (int i = 0; i < n; ++i) { //Crea asteroides
             Transform* tr = mngr_->getComponent<Transform>(e);
             auto r = sdlutils().rand().nextInt(0, 360);
             auto pos = tr->getPos() + tr->getVel().rotate(r) * 2 * std::max(tr->getW(), tr->getH());
@@ -72,13 +73,13 @@ void AsteroidsSystem::onCollision_AsteroidBullet(Entity* e)
             numAsteroids_++;
         }
     }
-    if (numAsteroids_ <= 0) {
+    if (numAsteroids_ <= 0) { //En caso de que no pueda crear más asteroides, comprueba el número de asteroides, si es 0, gana el jugador
         Message msg; msg.id = _m_PLAYERWINS;
         mngr_->send(msg);
     }
 }
 
-void AsteroidsSystem::onRoundOver()
+void AsteroidsSystem::onRoundOver() //Destruye todos los asteroides
 {
     vector<Entity*> entities = mngr_->getEntitiesByGroup(ecs::_grp_ASTEROIDS); //Busca en el grupo asteroids
     for (Entity* e : entities) {
@@ -87,12 +88,12 @@ void AsteroidsSystem::onRoundOver()
     numAsteroids_ = 0;
 }
 
-void AsteroidsSystem::onRoundStart()
+void AsteroidsSystem::onRoundStart() //Crea un número por defecto de asteroides
 {
 	createAsteroids(defaultSpawnNum);
 }
 
-void AsteroidsSystem::createAsteroids(int n)
+void AsteroidsSystem::createAsteroids(int n) //Crea asteroides
 {
     auto& sdl = *SDLUtils::instance();
     for (int i = 0; i < n; ++i) {

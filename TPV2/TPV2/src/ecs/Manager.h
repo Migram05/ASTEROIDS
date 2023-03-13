@@ -21,6 +21,7 @@
 using namespace std;
 using grpId_type = uint8_t;
 using sysId_type = uint8_t;
+enum ValoresArray { GrayAsteroid, GoldAsteroid, Fighter1, Fire, Heart };
 //class Entity;
 class Manager
 {
@@ -55,21 +56,27 @@ public:
 				grpEnts.end());
 		}
 	}
+
+
 	void update() //Se actualizan todas las entidades
 	{
+#ifdef COMPS
 		for (auto& ents : entsByGroup_) {
 			auto n = ents.size();
-			for (auto i = 0u; i < n; i++);
-				//ents[i]->update();
-		}
+			for (auto i = 0u; i < n; i++)
+				ents[i]->update();
+	}
+#endif // COMPS
 	}
 	void render() //Se renderizan todas las entidades
 	{
+#ifdef COMPS
 		for (auto& ents : entsByGroup_) {
 			auto n = ents.size();
-			for (auto i = 0u; i < n; i++);
-				//ents[i]->render();
-		}
+			for (auto i = 0u; i < n; i++)
+				ents[i]->render();
+	}
+#endif // COMPS
 	}
 	void spawnShot(Vector2D pos, Vector2D dir, float rot) //Creación de un disparo
 	{
@@ -213,7 +220,7 @@ public:
 private:
 	Entity* player;
 	Game* game;
-	enum ValoresArray { GrayAsteroid, GoldAsteroid, Fighter1, Fire, Heart };
+	
 	//Entidades
 	std::array<std::vector<Entity*>, ecs::maxGroupId> entsByGroup_;
 	//Sistemas

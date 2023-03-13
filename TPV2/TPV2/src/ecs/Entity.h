@@ -17,7 +17,13 @@ public:
 	Entity(const Entity&) = delete;
 	Entity& operator=(const Entity&) = delete;
 	void setContext(Manager* mngr);
-	/*
+	virtual ~Entity() { //Destructora, borra todos los componentes
+		for (auto c : currCmps_) {
+			delete c;
+		}
+	}
+#ifdef COMPS
+	
 	inline bool isAlive() { return alive_; } //Devuelve el estado de la entidad
 	inline void setAlive(bool alive) { alive_ = alive; } //Ajusta su valor
 	inline void update() { //Update de todos los componentes
@@ -50,20 +56,16 @@ public:
 		}
 	}
 	template<typename T>
-	inline T* getComponent() { //Devuelve el componente del tipo 
+	inline T* getComponent() { //Devuelve el componente del tipo
 		constexpr cmpId_type cId = T::id;
 		return static_cast<T*>(cmps_[cId]);
 	}
 	inline bool hasComponent(cmpId_type cId) { //Devuekve si hay un componente X
 		return cmps_[cId] != nullptr;
 	}
-	*/
 	
-	virtual ~Entity() { //Destructora, borra todos los componentes
-		for (auto c : currCmps_) {
-			delete c;
-		}
-	}
+#endif // COMPS
+	
 private:
 	friend Manager;
 	bool alive_; //Variable que marca a la entidad como pendiente para borrar
