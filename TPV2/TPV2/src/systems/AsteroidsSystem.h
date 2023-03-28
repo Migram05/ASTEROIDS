@@ -36,9 +36,5 @@ private:
 	int numAsteroids_ = 0, maxNum = 30, defaultSpawnNum = 10, maxDivision = 3, AsteroidTime = 5, timer_ = 0;
 	float asteroidSpeed = 0.4;
 	enum ValoresArray { GrayAsteroid, GoldAsteroid, Fighter1, Fighter2, Fire, Heart };
-	// Indica si el sistema está activo o no (modificar el valor en onRoundOver y
-	// onRoundStart, y en update no hacer nada si no está activo)
-	bool active_;
-
 };
 

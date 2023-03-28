@@ -13,11 +13,10 @@ void CollisionsSystem::update() //Comprueba colisiones
 	vector<Entity*> asteroids = mngr_->getEntitiesByGroup(ecs::_grp_ASTEROIDS); //Se guardan las distintas entidades
 	vector<Entity*> bullets = mngr_->getEntitiesByGroup(ecs::_grp_BULLETS);
 	vector<Entity*> player = mngr_->getEntitiesByGroup(ecs::_grp_PLAYER);
-	bool reset = false;
 	auto& sdl = *SDLUtils::instance();
 	auto it = asteroids.begin();
-	while (it != asteroids.end() && !reset) { //Se recorren los asteroides
-		Entity* a = *it;
+	for (Entity* a : asteroids)
+	{
 		Transform* t1 = mngr_->getComponent<Transform>(a);
 		for (Entity* b : bullets) { //Primero comprueba sus colisiones con las balas
 			Transform* t2 = mngr_->getComponent<Transform>(b);
@@ -38,14 +37,6 @@ void CollisionsSystem::update() //Comprueba colisiones
 				mngr_->send(msg);
 			}
 		}
-		++it;
 	}
 }
 
-void CollisionsSystem::onRoundOver()
-{
-}
-
-void CollisionsSystem::onRoundStart()
-{
-}

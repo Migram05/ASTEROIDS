@@ -100,12 +100,4 @@ void FighterSystem::onCollision_FighterAsteroid() //En caso de colisión con un a
 	vel = Vector2D(0, 0); //Velocidad nula
 }
 
-void FighterSystem::onRoundOver()
-{
-}
-
-void FighterSystem::onRoundStart()
-{
-}
-
 

@@ -41,7 +41,7 @@ void Game::Run() { //Bucle principal de juego
 	while (!exit) { //Bucle de juego con condiciones de detención
 		frameTime = sdl.currRealTime() - startTime;
 		if (frameTime >= FRAME_RATE) { //Se comprueba el tiempo transcurrido entre el último update
-			gameStateMachine->currentState()->update(); //Update controlado
+			gameStateMachine->update(); //Update controlado
 			startTime = SDL_GetTicks();
 		}
 		sdl.clearRenderer();

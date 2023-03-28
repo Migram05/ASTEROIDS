@@ -42,6 +42,3 @@ void BulletsSystem::onRoundOver() //Desactiva todas las balas al final de la par
 	for (auto e : mngr_->getEntitiesByGroup(ecs::_grp_BULLETS)) mngr_->setAlive(e, false);
 }
 
-void BulletsSystem::onRoundStart()
-{
-}

@@ -28,7 +28,9 @@ void PlayState::update() //Se actualizan los objetos de la lista
 	bulletSys_->update();
 	asteroidSys_->update();
 	collisionSys_->update();
+
 	manager_->flushMessages();
+	//El refresh es un método propio de Game State
 #endif // !COMPS
 }
 void PlayState::render() //Renderizado del juego
@@ -44,13 +46,13 @@ bool PlayState::onEnter() //Se inicializan los objetos
 {
 	manager_ = new Manager(game);
 #ifdef COMPS
-	cout << "Sistema de componentes en uso" << endl;
+	cout << "Using components" << endl;
 	manager_->createPlayer();
 	asteroidsManager_ = new AsteroidsManager(manager_, manager_->getPlayer(), 10);
 #endif // COMPS
 
 #ifndef COMPS
-	cout << "Sistema de sistemas en uso" << endl;
+	cout << "Using systems" << endl;
 	gameCtrlSys_ = manager_->addSystem<GameCtrlSystem>();
 
 	asteroidSys_ = manager_->addSystem<AsteroidsSystem>();

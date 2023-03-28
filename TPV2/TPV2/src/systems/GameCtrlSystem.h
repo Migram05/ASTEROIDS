@@ -26,7 +26,5 @@ private:
 	void pauseGame();
 
 	void exitGame();
-	Uint8 winner_; // 0 - None, 1 - Asteroids, 2- Fighter
-	Uint8 state_; // El estado actual del juego (en lugar del componente State)
 };
 

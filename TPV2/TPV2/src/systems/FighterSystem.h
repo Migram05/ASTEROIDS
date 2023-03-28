@@ -20,16 +20,9 @@ private:
 	// un asteroide. Poner el caza en el centro con velocidad (0,0) y rotación 0. No
 	// hace falta desactivar la entidad (no dibujarla si el juego está parado).
 	void onCollision_FighterAsteroid();
-		// Para gestionar el mensaje de que ha acabado una ronda. Desactivar el sistema.
-	void onRoundOver();
-		// Para gestionar el mensaje de que ha empezado una ronda. Activar el sistema.
-	void onRoundStart();
-		// Indica si el sistema está activo o no (modificar el valor en onRoundOver y
-		// onRoundStart, y en update no hacer nada si no está activo)
 	void updatePosition();
 	void speedReduction();
 	void screenPositionCheck();
-	bool active_;
 	//Variables del caza
 	float speed = 1.2, rotationSpeed = 5;
 	Entity* p;

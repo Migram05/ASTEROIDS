@@ -83,7 +83,6 @@
     <ClCompile Include="src\components\Transform.cpp" />
     <ClCompile Include="src\ecs\GameState.cpp" />
     <ClCompile Include="src\ecs\GameStateMachine.cpp" />
-    <ClCompile Include="src\ecs\Manager.cpp" />
     <ClCompile Include="src\ecs\PauseState.cpp" />
     <ClCompile Include="src\ecs\PlayState.cpp" />
     <ClCompile Include="src\ecs\Entity.cpp" />

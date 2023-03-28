@@ -16,14 +16,7 @@ public:
 	void update() override;
 	constexpr static sysId_type id = ecs::_sys_RENDER; //Identificador del tipo de sistema
 private:
-	// Para gestionar los mensajes correspondientes y actualizar los atributos
-	// winner_ y state_. 
-	void onRoundStart();
-	void onRoundOver();
-	void onGameStart();
-	void onGameOver();
-	Uint8 winner_; // 0 - None, 1 - Asteroid, 2- Fighter
-	Uint8 state_; // El estado actual de juego (como en GameCtrlSystem
+
 	Texture* tex_;
 };
 

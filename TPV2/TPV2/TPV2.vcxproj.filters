@@ -221,9 +221,6 @@
     <ClCompile Include="src\ecs\PlayState.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\ecs\Manager.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="src\components\Component.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>

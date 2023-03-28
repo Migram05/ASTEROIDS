@@ -22,11 +22,6 @@ private:
 	// Para gestionar el mensaje de que ha acabado la ronda. Desactivar todas las
 	// balas, y desactivar el sistema.
 	void onRoundOver();
-	// Para gestionar el mensaje de que ha empezado una ronda. Activar el sistema.
-	void onRoundStart();
-	// Indica si el sistema está activo o no (modificar el valor en onRoundOver y
-	// onRoundStart, y en update no hacer nada si no está activo)
-	bool active_;
 };
 
 

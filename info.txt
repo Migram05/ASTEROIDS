@@ -1,6 +1,12 @@
 Miguel Ramírez Castrillo (entrega en solitario)
-Práctica 1 TPV2
+Práctica 2 TPV2
 El juego funciona correctamente y no deja ningún tipo de basura.
+
+El juego puede ejecutarse con componentes o sistemas a gusto del usuario.
+Para cambiar de sistemas a componentes descomentar el #DEFINE COMPS en el archivo component.h
+
+Los métodos de los sistemas encargados de activar/desactivar estos, han sido eliminados.
+No eran necesarios con una máquina de estados en uso.
 
 Implementación adicional:
 	-Musica de fondo en todo el juego
