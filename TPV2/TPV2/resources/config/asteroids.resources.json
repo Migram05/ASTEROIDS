@@ -10,7 +10,10 @@
     { "id" : "GoldAsteroids", "file" : "resources/images/asteroid_gold.png" },
     { "id" : "Fighter", "file" : "resources/images/fighter.png" },
     { "id" : "Fire", "file" : "resources/images/fire.png" },
-    { "id" : "Heart", "file" : "resources/images/heart.png" }
+    { "id" : "Heart", "file" : "resources/images/heart.png" },
+    { "id" : "singleB", "file" : "resources/images/single.png" },
+    { "id" : "multiB", "file" : "resources/images/multi.png" },
+    { "id" : "exitB", "file" : "resources/images/exit.png" }
   ],
   
   "messages" : [

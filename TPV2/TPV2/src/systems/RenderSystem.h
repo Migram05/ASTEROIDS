@@ -18,5 +18,6 @@ public:
 private:
 
 	Texture* tex_;
+	Texture* hTex_;
 };
 

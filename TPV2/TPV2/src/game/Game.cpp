@@ -52,7 +52,7 @@ void Game::Run() { //Bucle principal de juego
 }
 void Game::InitGameObjects() { //Creación de la máquina de estados
 	gameStateMachine = new GameStateMachine();
-	gameStateMachine->changeState(new PlayState(this, WIN_WIDTH, WIN_HEIGHT));
+	gameStateMachine->changeState(new MainMenuState(this, WIN_WIDTH, WIN_HEIGHT));
 }
 
 void Game::LoadTextures(SDL_Renderer* renderer) { //Cada valor del array de texturas recibe su información del array de descripciones
@@ -61,6 +61,9 @@ void Game::LoadTextures(SDL_Renderer* renderer) { //Cada valor del array de text
 	textures[Fighter1] = new Texture(renderer, TEXT_DESCRIPT[Fighter1].filename);
 	textures[Fire] = new Texture(renderer, TEXT_DESCRIPT[Fire].filename);
 	textures[Heart] = new Texture(renderer, TEXT_DESCRIPT[Heart].filename);
+	textures[OnePlayer] = new Texture(renderer, TEXT_DESCRIPT[OnePlayer].filename);
+	textures[Multiplayer] = new Texture(renderer, TEXT_DESCRIPT[Multiplayer].filename);
+	textures[Exit] = new Texture(renderer, TEXT_DESCRIPT[Exit].filename);
 }
 Texture* Game::getTexture(int x) { //Devuelve una textura del vector
 	return textures[x];

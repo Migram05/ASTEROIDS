@@ -25,10 +25,22 @@ void RenderSystem::update()
 		row = (SDL_GetTicks() / tPerFrame) % numRows_; col = (SDL_GetTicks() / tPerFrame) % numCols_;
 	}
 	tex_ = mngr_->getTexture(Fighter1);
+	hTex_ = mngr_->getTexture(Heart);
+	int nP = 0;
 	for (auto e : mngr_->getEntitiesByGroup(ecs::_grp_PLAYER)) {
 		auto tr_ = mngr_->getComponent<Transform>(e);
 		SDL_Rect dest = build_sdlrect(tr_->getPos(), tr_->getW(), tr_->getH()); //Crea el rectángulo destino
 		tex_->render(dest, tr_->getRotation()); //Renderiza la textura
+
+		Health* playerHealth = mngr_->getComponent<Health>(mngr_->getPlayer());
+		int nLives = playerHealth->getLives();
+		int hWidth = playerHealth->getWidth(), hHeight = playerHealth->getHeight();
+		
+		for (int i = 0; i < nLives; ++i) {
+			SDL_Rect dest = build_sdlrect(hWidth * i, (mngr_->getHeight() / 90) + hHeight*nP, hWidth, hHeight);
+			hTex_->render(dest);
+		}
+		nP++;
 	}
 	auto tex_ = mngr_->getTexture(Fire);
 	for (auto e : mngr_->getEntitiesByGroup(ecs::_grp_BULLETS)) {
@@ -37,13 +49,6 @@ void RenderSystem::update()
 		SDL_Rect dest = build_sdlrect(tr_->getPos(), tr_->getW(), tr_->getH()); //Crea el rectángulo destino
 		tex_->render(dest, tr_->getRotation()); //Renderiza la textura
 	}
-	Health* playerHealth =  mngr_->getComponent<Health>(mngr_->getPlayer());
-	int nLives = playerHealth->getLives();
-	int hWidth = playerHealth->getWidth(), hHeight = playerHealth->getHeight();
-	tex_ = mngr_->getTexture(Heart);
-	for (int i = 0; i < nLives; ++i) {
-		SDL_Rect dest = build_sdlrect(hWidth * i, mngr_->getHeight() / 90, hWidth, hHeight);
-		tex_->render(dest);
-	}
+	
 }
 
