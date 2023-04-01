@@ -1,15 +1,32 @@
 ﻿C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Microsoft\VC\v160\Microsoft.CppBuild.targets(499,5): warning MSB8004: El directorio Output no termina con una barra diagonal final. Esta instancia de compilación agregará la barra diagonal porque es necesaria para que se pueda evaluar correctamente el directorio Output.
-  Game.cpp
+  MenuControlSystem.cpp
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\components\Transform.h(24,25): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\components\Transform.h(24,51): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\components\Transform.h(24,63): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\components\Transform.h(24,79): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\components\DeAcceleration.h(24,30): warning C4305: 'inicializando': truncamiento de 'double' a 'float'
 C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\game\AsteroidsManager.h(24,22): warning C4305: 'inicializando': truncamiento de 'double' a 'float'
-C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\utils\Singleton.h(57,44): warning C4244: 'argumento': conversión de 'double' a 'int'; posible pérdida de datos
-C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\game\Game.cpp(10): message : Vea la referencia a la creación de una instancia de la función plantilla "T *Singleton<T>::init<const char(&)[10],double&,double&,const char(&)[50]>(const char (&)[10],double &,double &,const char (&)[50])" que se está compilando
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\ecs\Manager.h(104,36): warning C4244: 'return': conversión de 'double' a 'const int'; posible pérdida de datos
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\ecs\Manager.h(105,37): warning C4244: 'return': conversión de 'double' a 'const int'; posible pérdida de datos
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\ecs\Manager.h(136,32): warning C4244: 'argumento': conversión de '_Ty' a 'float'; posible pérdida de datos
           with
           [
-              T=SDLUtils
+              _Ty=int
           ]
-C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\game\Game.cpp(10): message : Vea la referencia a la creación de una instancia de la función plantilla "T *Singleton<T>::init<const char(&)[10],double&,double&,const char(&)[50]>(const char (&)[10],double &,double &,const char (&)[50])" que se está compilando
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\ecs\Manager.h(86): message : Vea la referencia a la creación de una instancia de la función plantilla "T *Manager::addComponent<Transform,Vector2D&,int,int,Vector2D&,float&>(Entity *,Vector2D &,int &&,int &&,Vector2D &,float &)" que se está compilando
           with
           [
-              T=SDLUtils
+              T=Transform
+          ]
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\ecs\Manager.h(136,32): warning C4244: 'argumento': conversión de 'double' a 'int'; posible pérdida de datos
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\ecs\Manager.h(88): message : Vea la referencia a la creación de una instancia de la función plantilla "T *Manager::addComponent<DisableOnExit,double&,double&>(Entity *,double &,double &)" que se está compilando
+          with
+          [
+              T=DisableOnExit
+          ]
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\ecs\Manager.h(136,32): warning C4244: 'argumento': conversión de '_Ty' a 'float'; posible pérdida de datos
+          with
+          [
+              _Ty=double
           ]
   TPV2.vcxproj -> C:\Users\admin\Desktop\Practica1_TPV2\TPV2\bin\TPV2Debug.exe

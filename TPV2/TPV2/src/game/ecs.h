@@ -18,6 +18,7 @@ public:
 		_GENERATIONS,
 		_FOLLOW,
 		_DISABLEONEXIT,
+		_BUTTON,
 		// do not remove this
 		_LAST_CMP_ID
 	};
@@ -28,6 +29,7 @@ public:
 		_grp_ASTEROIDS,
 		_grp_PLAYER,
 		_grp_BULLETS,
+		_grp_UI,
 		//Do not remove this
 		_LAST_GRP_ID
 	};
@@ -40,7 +42,7 @@ public:
 		_sys_FIGHTER,
 		_sys_GAMECTRL,
 		_sys_RENDER,
-
+		_sys_MENUCONTROL,
 		//Do not remove this
 		_LAST_SYS_ID
 	};

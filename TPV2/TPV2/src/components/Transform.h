@@ -2,6 +2,7 @@
 #include "Component.h"
 #include "../utils/Vector2D.h"
 #include <iostream>
+#include <SDL.h>
 struct Transform : public Component {
 public:
 	Transform();
@@ -18,6 +19,11 @@ public:
 	inline float& getH() { return height_; }
 	inline float& getRotation() { return rotation_; }
 	virtual void initComponent();
+	inline SDL_Rect getRect() {
+		SDL_Rect aux;
+		aux.x = position_.getX(); aux.y = position_.getY(); aux.w = width_; aux.h = height_;
+		return aux;
+	}
 	constexpr static cmpId_type id = ecs::_TRANSFORM;
 
 #ifdef COMPS

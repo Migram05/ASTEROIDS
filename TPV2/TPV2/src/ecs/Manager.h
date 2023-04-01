@@ -13,6 +13,7 @@
 #include "../components/FramedImage.h"
 #include "../components/Follow.h"
 #include "../components/Generations.h"
+#include "../components/Button.h"
 #include "../game/Game.h"
 #include "../game/checkML.h"
 #include "Entity.h"
@@ -21,7 +22,7 @@
 using namespace std;
 using grpId_type = uint8_t;
 using sysId_type = uint8_t;
-enum ValoresArray { GrayAsteroid, GoldAsteroid, Fighter1, Fire, Heart };
+enum ValoresArray { GrayAsteroid, GoldAsteroid, Fighter1, Fire, Heart, OnePlayer, Multiplayer, Exit };
 //class Entity;
 class Manager
 {
@@ -65,7 +66,7 @@ public:
 			auto n = ents.size();
 			for (auto i = 0u; i < n; i++)
 				ents[i]->update();
-	}
+		}
 #endif // COMPS
 	}
 	void render() //Se renderizan todas las entidades
@@ -75,7 +76,7 @@ public:
 			auto n = ents.size();
 			for (auto i = 0u; i < n; i++)
 				ents[i]->render();
-	}
+		}
 #endif // COMPS
 	}
 	void spawnShot(Vector2D pos, Vector2D dir, float rot) //Creación de un disparo
@@ -217,6 +218,7 @@ public:
 		}
 		aux_msgs_.clear(); //Se borra la lista auxiliar
 	}
+	inline Game* getGame() { return game; }
 private:
 	Entity* player;
 	Game* game;

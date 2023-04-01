@@ -180,6 +180,12 @@
     <ClInclude Include="src\ecs\MainMenuState.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="src\components\Button.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\systems\MenuControlSystem.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\json\JSONValue.cpp">
@@ -294,6 +300,12 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="src\ecs\MainMenuState.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\components\Button.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\systems\MenuControlSystem.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

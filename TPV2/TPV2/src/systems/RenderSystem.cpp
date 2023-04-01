@@ -42,13 +42,18 @@ void RenderSystem::update()
 		}
 		nP++;
 	}
-	auto tex_ = mngr_->getTexture(Fire);
+	tex_ = mngr_->getTexture(Fire);
 	for (auto e : mngr_->getEntitiesByGroup(ecs::_grp_BULLETS)) {
 		auto tr_ = mngr_->getComponent<Transform>(e);
-		
 		SDL_Rect dest = build_sdlrect(tr_->getPos(), tr_->getW(), tr_->getH()); //Crea el rectángulo destino
 		tex_->render(dest, tr_->getRotation()); //Renderiza la textura
 	}
 	
+	for (auto e : mngr_->getEntitiesByGroup(ecs::_grp_UI)) {
+		tex_ = mngr_->getComponent<Image>(e)->getTexture();
+		auto tr_ = mngr_->getComponent<Transform>(e);
+		SDL_Rect dest = build_sdlrect(tr_->getPos(), tr_->getW(), tr_->getH()); //Crea el rectángulo destino
+		tex_->render(dest, tr_->getRotation()); //Renderiza la textura
+	}
 }
 

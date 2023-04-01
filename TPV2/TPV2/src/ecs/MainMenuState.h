@@ -3,6 +3,7 @@
 using namespace std;
 class Manager;
 class RenderSystem;
+class MenuControlSystem;
 class MainMenuState : public GameState
 {
 public:
@@ -15,9 +16,15 @@ public:
 
 	virtual std::string getStateID() const { return s_mainMID; }
 private:
+	void createButtons();
+	static void startSingleplayer(Game* g);
+	static void startMultiplayer(Game* g);
+	static void exitGame(Game* g);
 	bool exit = false;
 	static const string s_mainMID;
+	float buttonW, buttonH;
 	Manager* manager_;
 	RenderSystem* renderSys_;
+	MenuControlSystem* menuCtrlSys_;
 };
 

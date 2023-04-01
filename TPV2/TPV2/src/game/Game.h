@@ -29,7 +29,8 @@ public:
 	void pauseGame();
 	void resumeGame(bool l);
 	void playerLoses();
-
+	void playSingleplayer();
+	void playMultiplayer();
 private:
 
 	SDL_Window* window;

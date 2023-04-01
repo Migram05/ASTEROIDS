@@ -14,6 +14,7 @@ Game::Game() { //Constructora del juego, con la carga de texturas incluida
 	exit = false;
 	LoadTextures(renderer); //Se canrgan las texturas en el array
 	InitGameObjects();//Se crean los estados del juego
+	SDL_ShowCursor(1);//Se muestra el cursor
 }
 void Game::gameSettings() { //Carga los datos del juego desde un archivo, si lo encuentra
 
@@ -82,6 +83,16 @@ void Game::resumeGame(bool lost) { //Reanuda el juego
 }
 void Game::playerLoses() {
 	gameStateMachine->pushState(new PauseState(this, WIN_WIDTH, WIN_HEIGHT, true));
+}
+
+void Game::playSingleplayer()
+{
+	gameStateMachine->changeState(new PlayState(this, WIN_WIDTH, WIN_HEIGHT));
+}
+
+void Game::playMultiplayer()
+{
+	gameStateMachine->changeState(new PlayState(this, WIN_WIDTH, WIN_HEIGHT));
 }
 
 Game::~Game() { //Destructora de la memoria dinámica creada

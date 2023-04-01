@@ -19,6 +19,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\components\Button.h" />
     <ClInclude Include="src\components\Component.h" />
     <ClInclude Include="src\components\DeAcceleration.h" />
     <ClInclude Include="src\components\DisableOnExit.h" />
@@ -63,6 +64,7 @@
     <ClInclude Include="src\systems\CollisionsSystem.h" />
     <ClInclude Include="src\systems\FighterSystem.h" />
     <ClInclude Include="src\systems\GameCtrlSystem.h" />
+    <ClInclude Include="src\systems\MenuControlSystem.h" />
     <ClInclude Include="src\systems\RenderSystem.h" />
     <ClInclude Include="src\utils\Collisions.h" />
     <ClInclude Include="src\utils\mpl.h" />
@@ -70,6 +72,7 @@
     <ClInclude Include="src\utils\Vector2D.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\components\Button.cpp" />
     <ClCompile Include="src\components\Component.cpp" />
     <ClCompile Include="src\components\DeAcceleration.cpp" />
     <ClCompile Include="src\components\DisableOnExit.cpp" />
@@ -105,6 +108,7 @@
     <ClCompile Include="src\systems\CollisionsSystem.cpp" />
     <ClCompile Include="src\systems\FighterSystem.cpp" />
     <ClCompile Include="src\systems\GameCtrlSystem.cpp" />
+    <ClCompile Include="src\systems\MenuControlSystem.cpp" />
     <ClCompile Include="src\systems\RenderSystem.cpp" />
     <ClCompile Include="src\utils\Collisions.cpp" />
     <ClCompile Include="src\utils\Vector2D.cpp" />
