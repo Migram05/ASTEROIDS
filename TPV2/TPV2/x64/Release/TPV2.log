@@ -1,168 +1,835 @@
 ﻿C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Microsoft\VC\v160\Microsoft.CppBuild.targets(499,5): warning MSB8004: El directorio Output no termina con una barra diagonal final. Esta instancia de compilación agregará la barra diagonal porque es necesaria para que se pueda evaluar correctamente el directorio Output.
-  Component.cpp
-C:\Users\Maestro Miguel\Desktop\Practica1_TPV2\TPV2\TPV2\src\ecs\Entity.h(3,10): warning C4067: símbolos (token) inesperados después de la directiva del preprocesador; se esperaba una nueva línea
-C:\Users\Maestro Miguel\Desktop\Practica1_TPV2\TPV2\TPV2\src\components\DeAcceleration.h(18,30): warning C4305: 'inicializando': truncamiento de 'double' a 'float'
-C:\Users\Maestro Miguel\Desktop\Practica1_TPV2\TPV2\TPV2\src\game\AsteroidsManager.h(26,22): warning C4305: 'inicializando': truncamiento de 'double' a 'float'
-  DeAcceleration.cpp
-C:\Users\Maestro Miguel\Desktop\Practica1_TPV2\TPV2\TPV2\src\ecs\Entity.h(3,10): warning C4067: símbolos (token) inesperados después de la directiva del preprocesador; se esperaba una nueva línea
-C:\Users\Maestro Miguel\Desktop\Practica1_TPV2\TPV2\TPV2\src\game\AsteroidsManager.h(26,22): warning C4305: 'inicializando': truncamiento de 'double' a 'float'
-C:\Users\Maestro Miguel\Desktop\Practica1_TPV2\TPV2\TPV2\src\components\DeAcceleration.h(18,30): warning C4305: 'inicializando': truncamiento de 'double' a 'float'
-C:\Users\Maestro Miguel\Desktop\Practica1_TPV2\TPV2\TPV2\src\components\DeAcceleration.cpp(4,1): warning C4305: 'inicializando': truncamiento de 'double' a 'float'
-  DisableOnExit.cpp
-C:\Users\Maestro Miguel\Desktop\Practica1_TPV2\TPV2\TPV2\src\ecs\Entity.h(3,10): warning C4067: símbolos (token) inesperados después de la directiva del preprocesador; se esperaba una nueva línea
-C:\Users\Maestro Miguel\Desktop\Practica1_TPV2\TPV2\TPV2\src\components\DeAcceleration.h(18,30): warning C4305: 'inicializando': truncamiento de 'double' a 'float'
-C:\Users\Maestro Miguel\Desktop\Practica1_TPV2\TPV2\TPV2\src\game\AsteroidsManager.h(26,22): warning C4305: 'inicializando': truncamiento de 'double' a 'float'
-  FighterControl.cpp
-C:\Users\Maestro Miguel\Desktop\Practica1_TPV2\TPV2\TPV2\src\ecs\Entity.h(3,10): warning C4067: símbolos (token) inesperados después de la directiva del preprocesador; se esperaba una nueva línea
-C:\Users\Maestro Miguel\Desktop\Practica1_TPV2\TPV2\TPV2\src\components\DeAcceleration.h(18,30): warning C4305: 'inicializando': truncamiento de 'double' a 'float'
-C:\Users\Maestro Miguel\Desktop\Practica1_TPV2\TPV2\TPV2\src\game\AsteroidsManager.h(26,22): warning C4305: 'inicializando': truncamiento de 'double' a 'float'
-C:\Users\Maestro Miguel\Desktop\Practica1_TPV2\TPV2\TPV2\src\components\FighterControl.cpp(4,1): warning C4305: 'inicializando': truncamiento de 'double' a 'float'
-C:\Users\Maestro Miguel\Desktop\Practica1_TPV2\TPV2\TPV2\src\components\FighterControl.cpp(27,10): warning C4244: 'inicializando': conversión de 'double' a 'float'; posible pérdida de datos
-C:\Users\Maestro Miguel\Desktop\Practica1_TPV2\TPV2\TPV2\src\components\FighterControl.cpp(28,10): warning C4244: 'inicializando': conversión de 'double' a 'float'; posible pérdida de datos
-C:\Users\Maestro Miguel\Desktop\Practica1_TPV2\TPV2\TPV2\src\sdlutils\SDLUtils.h(50,32): warning C4101: 'e': variable local sin referencia
-C:\Users\Maestro Miguel\Desktop\Practica1_TPV2\TPV2\TPV2\src\sdlutils\SDLUtils.h(47): message : al compilar la función del miembro clase plantilla "SoundEffect &SDLUtils::map_access_wrapper<SoundEffect>::at(std::string)"
-C:\Users\Maestro Miguel\Desktop\Practica1_TPV2\TPV2\TPV2\src\sdlutils\SDLUtils.h(194): message : Vea la referencia a la creación de una instancia de clase plantilla "SDLUtils::map_access_wrapper<SoundEffect>" que se está compilando
-  Follow.cpp
-C:\Users\Maestro Miguel\Desktop\Practica1_TPV2\TPV2\TPV2\src\ecs\Entity.h(3,10): warning C4067: símbolos (token) inesperados después de la directiva del preprocesador; se esperaba una nueva línea
-C:\Users\Maestro Miguel\Desktop\Practica1_TPV2\TPV2\TPV2\src\components\DeAcceleration.h(18,30): warning C4305: 'inicializando': truncamiento de 'double' a 'float'
-C:\Users\Maestro Miguel\Desktop\Practica1_TPV2\TPV2\TPV2\src\game\AsteroidsManager.h(26,22): warning C4305: 'inicializando': truncamiento de 'double' a 'float'
-  FramedImage.cpp
-C:\Users\Maestro Miguel\Desktop\Practica1_TPV2\TPV2\TPV2\src\ecs\Entity.h(3,10): warning C4067: símbolos (token) inesperados después de la directiva del preprocesador; se esperaba una nueva línea
-C:\Users\Maestro Miguel\Desktop\Practica1_TPV2\TPV2\TPV2\src\components\DeAcceleration.h(18,30): warning C4305: 'inicializando': truncamiento de 'double' a 'float'
-C:\Users\Maestro Miguel\Desktop\Practica1_TPV2\TPV2\TPV2\src\game\AsteroidsManager.h(26,22): warning C4305: 'inicializando': truncamiento de 'double' a 'float'
-  Generations.cpp
-C:\Users\Maestro Miguel\Desktop\Practica1_TPV2\TPV2\TPV2\src\ecs\Entity.h(3,10): warning C4067: símbolos (token) inesperados después de la directiva del preprocesador; se esperaba una nueva línea
-C:\Users\Maestro Miguel\Desktop\Practica1_TPV2\TPV2\TPV2\src\components\DeAcceleration.h(18,30): warning C4305: 'inicializando': truncamiento de 'double' a 'float'
-C:\Users\Maestro Miguel\Desktop\Practica1_TPV2\TPV2\TPV2\src\game\AsteroidsManager.h(26,22): warning C4305: 'inicializando': truncamiento de 'double' a 'float'
-  Gun.cpp
-C:\Users\Maestro Miguel\Desktop\Practica1_TPV2\TPV2\TPV2\src\ecs\Entity.h(3,10): warning C4067: símbolos (token) inesperados después de la directiva del preprocesador; se esperaba una nueva línea
-C:\Users\Maestro Miguel\Desktop\Practica1_TPV2\TPV2\TPV2\src\components\DeAcceleration.h(18,30): warning C4305: 'inicializando': truncamiento de 'double' a 'float'
-C:\Users\Maestro Miguel\Desktop\Practica1_TPV2\TPV2\TPV2\src\game\AsteroidsManager.h(26,22): warning C4305: 'inicializando': truncamiento de 'double' a 'float'
-C:\Users\Maestro Miguel\Desktop\Practica1_TPV2\TPV2\TPV2\src\components\Gun.cpp(26,40): warning C4018: '>=': no coinciden signed/unsigned
-C:\Users\Maestro Miguel\Desktop\Practica1_TPV2\TPV2\TPV2\src\sdlutils\SDLUtils.h(50,32): warning C4101: 'e': variable local sin referencia
-C:\Users\Maestro Miguel\Desktop\Practica1_TPV2\TPV2\TPV2\src\sdlutils\SDLUtils.h(47): message : al compilar la función del miembro clase plantilla "SoundEffect &SDLUtils::map_access_wrapper<SoundEffect>::at(std::string)"
-C:\Users\Maestro Miguel\Desktop\Practica1_TPV2\TPV2\TPV2\src\sdlutils\SDLUtils.h(194): message : Vea la referencia a la creación de una instancia de clase plantilla "SDLUtils::map_access_wrapper<SoundEffect>" que se está compilando
-  Health.cpp
-C:\Users\Maestro Miguel\Desktop\Practica1_TPV2\TPV2\TPV2\src\ecs\Entity.h(3,10): warning C4067: símbolos (token) inesperados después de la directiva del preprocesador; se esperaba una nueva línea
-C:\Users\Maestro Miguel\Desktop\Practica1_TPV2\TPV2\TPV2\src\components\DeAcceleration.h(18,30): warning C4305: 'inicializando': truncamiento de 'double' a 'float'
-C:\Users\Maestro Miguel\Desktop\Practica1_TPV2\TPV2\TPV2\src\game\AsteroidsManager.h(26,22): warning C4305: 'inicializando': truncamiento de 'double' a 'float'
-C:\Users\Maestro Miguel\Desktop\Practica1_TPV2\TPV2\TPV2\src\components\Health.cpp(16,70): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
-C:\Users\Maestro Miguel\Desktop\Practica1_TPV2\TPV2\TPV2\src\components\Health.cpp(16,62): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
-C:\Users\Maestro Miguel\Desktop\Practica1_TPV2\TPV2\TPV2\src\components\Health.cpp(16,57): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
-C:\Users\Maestro Miguel\Desktop\Practica1_TPV2\TPV2\TPV2\src\components\Health.cpp(16,41): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
-  Image.cpp
-C:\Users\Maestro Miguel\Desktop\Practica1_TPV2\TPV2\TPV2\src\ecs\Entity.h(3,10): warning C4067: símbolos (token) inesperados después de la directiva del preprocesador; se esperaba una nueva línea
-C:\Users\Maestro Miguel\Desktop\Practica1_TPV2\TPV2\TPV2\src\components\DeAcceleration.h(18,30): warning C4305: 'inicializando': truncamiento de 'double' a 'float'
-C:\Users\Maestro Miguel\Desktop\Practica1_TPV2\TPV2\TPV2\src\game\AsteroidsManager.h(26,22): warning C4305: 'inicializando': truncamiento de 'double' a 'float'
-  ShowOpposite.cpp
-C:\Users\Maestro Miguel\Desktop\Practica1_TPV2\TPV2\TPV2\src\ecs\Entity.h(3,10): warning C4067: símbolos (token) inesperados después de la directiva del preprocesador; se esperaba una nueva línea
-C:\Users\Maestro Miguel\Desktop\Practica1_TPV2\TPV2\TPV2\src\components\DeAcceleration.h(18,30): warning C4305: 'inicializando': truncamiento de 'double' a 'float'
-C:\Users\Maestro Miguel\Desktop\Practica1_TPV2\TPV2\TPV2\src\game\AsteroidsManager.h(26,22): warning C4305: 'inicializando': truncamiento de 'double' a 'float'
-  Transform.cpp
-  GameObject.cpp
-  GameState.cpp
-C:\Users\Maestro Miguel\Desktop\Practica1_TPV2\TPV2\TPV2\src\ecs\Entity.h(3,10): warning C4067: símbolos (token) inesperados después de la directiva del preprocesador; se esperaba una nueva línea
-C:\Users\Maestro Miguel\Desktop\Practica1_TPV2\TPV2\TPV2\src\components\DeAcceleration.h(18,30): warning C4305: 'inicializando': truncamiento de 'double' a 'float'
-C:\Users\Maestro Miguel\Desktop\Practica1_TPV2\TPV2\TPV2\src\game\AsteroidsManager.h(26,22): warning C4305: 'inicializando': truncamiento de 'double' a 'float'
-  GameStateMachine.cpp
-  Manager.cpp
-C:\Users\Maestro Miguel\Desktop\Practica1_TPV2\TPV2\TPV2\src\ecs\Entity.h(3,10): warning C4067: símbolos (token) inesperados después de la directiva del preprocesador; se esperaba una nueva línea
-C:\Users\Maestro Miguel\Desktop\Practica1_TPV2\TPV2\TPV2\src\components\DeAcceleration.h(18,30): warning C4305: 'inicializando': truncamiento de 'double' a 'float'
-C:\Users\Maestro Miguel\Desktop\Practica1_TPV2\TPV2\TPV2\src\game\AsteroidsManager.h(26,22): warning C4305: 'inicializando': truncamiento de 'double' a 'float'
-C:\Users\Maestro Miguel\Desktop\Practica1_TPV2\TPV2\TPV2\src\ecs\Manager.cpp(93,16): warning C4244: 'return': conversión de 'double' a 'const int'; posible pérdida de datos
-C:\Users\Maestro Miguel\Desktop\Practica1_TPV2\TPV2\TPV2\src\ecs\Manager.cpp(98,16): warning C4244: 'return': conversión de 'double' a 'const int'; posible pérdida de datos
-C:\Users\Maestro Miguel\Desktop\Practica1_TPV2\TPV2\TPV2\src\ecs\Entity.h(40,32): warning C4244: 'argumento': conversión de '_Ty' a 'float'; posible pérdida de datos
+  Button.cpp
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\components\Transform.h(24,25): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\components\Transform.h(24,51): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\components\Transform.h(24,63): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\components\Transform.h(24,79): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\game\AsteroidsManager.h(24,22): warning C4305: 'inicializando': truncamiento de 'double' a 'float'
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\components\DeAcceleration.h(24,30): warning C4305: 'inicializando': truncamiento de 'double' a 'float'
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\ecs\Manager.h(104,36): warning C4244: 'return': conversión de 'double' a 'const int'; posible pérdida de datos
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\ecs\Manager.h(105,37): warning C4244: 'return': conversión de 'double' a 'const int'; posible pérdida de datos
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\ecs\Manager.h(136,32): warning C4244: 'argumento': conversión de '_Ty' a 'float'; posible pérdida de datos
           with
           [
               _Ty=int
           ]
-C:\Users\Maestro Miguel\Desktop\Practica1_TPV2\TPV2\TPV2\src\ecs\Manager.cpp(69): message : Vea la referencia a la creación de una instancia de la función plantilla "T *Entity::addComponent<Transform,Vector2D&,int,int,Vector2D&,float&>(Vector2D &,int &&,int &&,Vector2D &,float &)" que se está compilando
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\ecs\Manager.h(86): message : Vea la referencia a la creación de una instancia de la función plantilla "T *Manager::addComponent<Transform,Vector2D&,int,int,Vector2D&,float&>(Entity *,Vector2D &,int &&,int &&,Vector2D &,float &)" que se está compilando
           with
           [
               T=Transform
           ]
-C:\Users\Maestro Miguel\Desktop\Practica1_TPV2\TPV2\TPV2\src\ecs\Entity.h(40,32): warning C4244: 'argumento': conversión de 'double' a 'int'; posible pérdida de datos
-C:\Users\Maestro Miguel\Desktop\Practica1_TPV2\TPV2\TPV2\src\ecs\Manager.cpp(71): message : Vea la referencia a la creación de una instancia de la función plantilla "T *Entity::addComponent<DisableOnExit,double&,double&>(double &,double &)" que se está compilando
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\ecs\Manager.h(136,32): warning C4244: 'argumento': conversión de 'double' a 'int'; posible pérdida de datos
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\ecs\Manager.h(88): message : Vea la referencia a la creación de una instancia de la función plantilla "T *Manager::addComponent<DisableOnExit,double&,double&>(Entity *,double &,double &)" que se está compilando
           with
           [
               T=DisableOnExit
           ]
-C:\Users\Maestro Miguel\Desktop\Practica1_TPV2\TPV2\TPV2\src\ecs\Entity.h(40,32): warning C4244: 'argumento': conversión de '_Ty' a 'float'; posible pérdida de datos
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\ecs\Manager.h(136,32): warning C4244: 'argumento': conversión de '_Ty' a 'float'; posible pérdida de datos
+          with
+          [
+              _Ty=double
+          ]
+  Component.cpp
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\components\Transform.h(24,25): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\components\Transform.h(24,51): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\components\Transform.h(24,63): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\components\Transform.h(24,79): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\components\DeAcceleration.h(24,30): warning C4305: 'inicializando': truncamiento de 'double' a 'float'
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\game\AsteroidsManager.h(24,22): warning C4305: 'inicializando': truncamiento de 'double' a 'float'
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\ecs\Manager.h(104,36): warning C4244: 'return': conversión de 'double' a 'const int'; posible pérdida de datos
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\ecs\Manager.h(105,37): warning C4244: 'return': conversión de 'double' a 'const int'; posible pérdida de datos
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\ecs\Manager.h(136,32): warning C4244: 'argumento': conversión de '_Ty' a 'float'; posible pérdida de datos
+          with
+          [
+              _Ty=int
+          ]
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\ecs\Manager.h(86): message : Vea la referencia a la creación de una instancia de la función plantilla "T *Manager::addComponent<Transform,Vector2D&,int,int,Vector2D&,float&>(Entity *,Vector2D &,int &&,int &&,Vector2D &,float &)" que se está compilando
+          with
+          [
+              T=Transform
+          ]
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\ecs\Manager.h(136,32): warning C4244: 'argumento': conversión de 'double' a 'int'; posible pérdida de datos
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\ecs\Manager.h(88): message : Vea la referencia a la creación de una instancia de la función plantilla "T *Manager::addComponent<DisableOnExit,double&,double&>(Entity *,double &,double &)" que se está compilando
+          with
+          [
+              T=DisableOnExit
+          ]
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\ecs\Manager.h(136,32): warning C4244: 'argumento': conversión de '_Ty' a 'float'; posible pérdida de datos
+          with
+          [
+              _Ty=double
+          ]
+  DeAcceleration.cpp
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\components\Transform.h(24,25): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\components\Transform.h(24,51): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\components\Transform.h(24,63): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\components\Transform.h(24,79): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\components\DeAcceleration.h(24,30): warning C4305: 'inicializando': truncamiento de 'double' a 'float'
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\game\AsteroidsManager.h(24,22): warning C4305: 'inicializando': truncamiento de 'double' a 'float'
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\ecs\Manager.h(104,36): warning C4244: 'return': conversión de 'double' a 'const int'; posible pérdida de datos
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\ecs\Manager.h(105,37): warning C4244: 'return': conversión de 'double' a 'const int'; posible pérdida de datos
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\components\DeAcceleration.cpp(4,1): warning C4305: 'inicializando': truncamiento de 'double' a 'float'
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\ecs\Manager.h(136,32): warning C4244: 'argumento': conversión de '_Ty' a 'float'; posible pérdida de datos
+          with
+          [
+              _Ty=int
+          ]
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\ecs\Manager.h(86): message : Vea la referencia a la creación de una instancia de la función plantilla "T *Manager::addComponent<Transform,Vector2D&,int,int,Vector2D&,float&>(Entity *,Vector2D &,int &&,int &&,Vector2D &,float &)" que se está compilando
+          with
+          [
+              T=Transform
+          ]
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\ecs\Manager.h(136,32): warning C4244: 'argumento': conversión de 'double' a 'int'; posible pérdida de datos
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\ecs\Manager.h(88): message : Vea la referencia a la creación de una instancia de la función plantilla "T *Manager::addComponent<DisableOnExit,double&,double&>(Entity *,double &,double &)" que se está compilando
+          with
+          [
+              T=DisableOnExit
+          ]
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\ecs\Manager.h(136,32): warning C4244: 'argumento': conversión de '_Ty' a 'float'; posible pérdida de datos
+          with
+          [
+              _Ty=double
+          ]
+  DisableOnExit.cpp
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\components\Transform.h(24,25): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\components\Transform.h(24,51): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\components\Transform.h(24,63): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\components\Transform.h(24,79): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\components\DeAcceleration.h(24,30): warning C4305: 'inicializando': truncamiento de 'double' a 'float'
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\game\AsteroidsManager.h(24,22): warning C4305: 'inicializando': truncamiento de 'double' a 'float'
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\ecs\Manager.h(104,36): warning C4244: 'return': conversión de 'double' a 'const int'; posible pérdida de datos
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\ecs\Manager.h(105,37): warning C4244: 'return': conversión de 'double' a 'const int'; posible pérdida de datos
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\ecs\Manager.h(136,32): warning C4244: 'argumento': conversión de '_Ty' a 'float'; posible pérdida de datos
+          with
+          [
+              _Ty=int
+          ]
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\ecs\Manager.h(86): message : Vea la referencia a la creación de una instancia de la función plantilla "T *Manager::addComponent<Transform,Vector2D&,int,int,Vector2D&,float&>(Entity *,Vector2D &,int &&,int &&,Vector2D &,float &)" que se está compilando
+          with
+          [
+              T=Transform
+          ]
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\ecs\Manager.h(136,32): warning C4244: 'argumento': conversión de 'double' a 'int'; posible pérdida de datos
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\ecs\Manager.h(88): message : Vea la referencia a la creación de una instancia de la función plantilla "T *Manager::addComponent<DisableOnExit,double&,double&>(Entity *,double &,double &)" que se está compilando
+          with
+          [
+              T=DisableOnExit
+          ]
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\ecs\Manager.h(136,32): warning C4244: 'argumento': conversión de '_Ty' a 'float'; posible pérdida de datos
+          with
+          [
+              _Ty=double
+          ]
+  FighterControl.cpp
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\components\Transform.h(24,25): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\components\Transform.h(24,51): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\components\Transform.h(24,63): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\components\Transform.h(24,79): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\components\DeAcceleration.h(24,30): warning C4305: 'inicializando': truncamiento de 'double' a 'float'
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\game\AsteroidsManager.h(24,22): warning C4305: 'inicializando': truncamiento de 'double' a 'float'
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\ecs\Manager.h(104,36): warning C4244: 'return': conversión de 'double' a 'const int'; posible pérdida de datos
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\ecs\Manager.h(105,37): warning C4244: 'return': conversión de 'double' a 'const int'; posible pérdida de datos
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\components\FighterControl.cpp(4,1): warning C4305: 'inicializando': truncamiento de 'double' a 'float'
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\ecs\Manager.h(136,32): warning C4244: 'argumento': conversión de '_Ty' a 'float'; posible pérdida de datos
+          with
+          [
+              _Ty=int
+          ]
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\ecs\Manager.h(86): message : Vea la referencia a la creación de una instancia de la función plantilla "T *Manager::addComponent<Transform,Vector2D&,int,int,Vector2D&,float&>(Entity *,Vector2D &,int &&,int &&,Vector2D &,float &)" que se está compilando
+          with
+          [
+              T=Transform
+          ]
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\ecs\Manager.h(136,32): warning C4244: 'argumento': conversión de 'double' a 'int'; posible pérdida de datos
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\ecs\Manager.h(88): message : Vea la referencia a la creación de una instancia de la función plantilla "T *Manager::addComponent<DisableOnExit,double&,double&>(Entity *,double &,double &)" que se está compilando
+          with
+          [
+              T=DisableOnExit
+          ]
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\ecs\Manager.h(136,32): warning C4244: 'argumento': conversión de '_Ty' a 'float'; posible pérdida de datos
+          with
+          [
+              _Ty=double
+          ]
+  Follow.cpp
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\components\Transform.h(24,25): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\components\Transform.h(24,51): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\components\Transform.h(24,63): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\components\Transform.h(24,79): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\components\DeAcceleration.h(24,30): warning C4305: 'inicializando': truncamiento de 'double' a 'float'
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\game\AsteroidsManager.h(24,22): warning C4305: 'inicializando': truncamiento de 'double' a 'float'
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\ecs\Manager.h(104,36): warning C4244: 'return': conversión de 'double' a 'const int'; posible pérdida de datos
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\ecs\Manager.h(105,37): warning C4244: 'return': conversión de 'double' a 'const int'; posible pérdida de datos
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\ecs\Manager.h(136,32): warning C4244: 'argumento': conversión de '_Ty' a 'float'; posible pérdida de datos
+          with
+          [
+              _Ty=int
+          ]
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\ecs\Manager.h(86): message : Vea la referencia a la creación de una instancia de la función plantilla "T *Manager::addComponent<Transform,Vector2D&,int,int,Vector2D&,float&>(Entity *,Vector2D &,int &&,int &&,Vector2D &,float &)" que se está compilando
+          with
+          [
+              T=Transform
+          ]
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\ecs\Manager.h(136,32): warning C4244: 'argumento': conversión de 'double' a 'int'; posible pérdida de datos
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\ecs\Manager.h(88): message : Vea la referencia a la creación de una instancia de la función plantilla "T *Manager::addComponent<DisableOnExit,double&,double&>(Entity *,double &,double &)" que se está compilando
+          with
+          [
+              T=DisableOnExit
+          ]
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\ecs\Manager.h(136,32): warning C4244: 'argumento': conversión de '_Ty' a 'float'; posible pérdida de datos
+          with
+          [
+              _Ty=double
+          ]
+  FramedImage.cpp
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\components\Transform.h(24,25): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\components\Transform.h(24,51): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\components\Transform.h(24,63): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\components\Transform.h(24,79): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\components\DeAcceleration.h(24,30): warning C4305: 'inicializando': truncamiento de 'double' a 'float'
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\game\AsteroidsManager.h(24,22): warning C4305: 'inicializando': truncamiento de 'double' a 'float'
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\ecs\Manager.h(104,36): warning C4244: 'return': conversión de 'double' a 'const int'; posible pérdida de datos
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\ecs\Manager.h(105,37): warning C4244: 'return': conversión de 'double' a 'const int'; posible pérdida de datos
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\ecs\Manager.h(136,32): warning C4244: 'argumento': conversión de '_Ty' a 'float'; posible pérdida de datos
+          with
+          [
+              _Ty=int
+          ]
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\ecs\Manager.h(86): message : Vea la referencia a la creación de una instancia de la función plantilla "T *Manager::addComponent<Transform,Vector2D&,int,int,Vector2D&,float&>(Entity *,Vector2D &,int &&,int &&,Vector2D &,float &)" que se está compilando
+          with
+          [
+              T=Transform
+          ]
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\ecs\Manager.h(136,32): warning C4244: 'argumento': conversión de 'double' a 'int'; posible pérdida de datos
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\ecs\Manager.h(88): message : Vea la referencia a la creación de una instancia de la función plantilla "T *Manager::addComponent<DisableOnExit,double&,double&>(Entity *,double &,double &)" que se está compilando
+          with
+          [
+              T=DisableOnExit
+          ]
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\ecs\Manager.h(136,32): warning C4244: 'argumento': conversión de '_Ty' a 'float'; posible pérdida de datos
+          with
+          [
+              _Ty=double
+          ]
+  Generations.cpp
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\components\Transform.h(24,25): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\components\Transform.h(24,51): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\components\Transform.h(24,63): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\components\Transform.h(24,79): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\components\DeAcceleration.h(24,30): warning C4305: 'inicializando': truncamiento de 'double' a 'float'
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\game\AsteroidsManager.h(24,22): warning C4305: 'inicializando': truncamiento de 'double' a 'float'
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\ecs\Manager.h(104,36): warning C4244: 'return': conversión de 'double' a 'const int'; posible pérdida de datos
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\ecs\Manager.h(105,37): warning C4244: 'return': conversión de 'double' a 'const int'; posible pérdida de datos
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\ecs\Manager.h(136,32): warning C4244: 'argumento': conversión de '_Ty' a 'float'; posible pérdida de datos
+          with
+          [
+              _Ty=int
+          ]
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\ecs\Manager.h(86): message : Vea la referencia a la creación de una instancia de la función plantilla "T *Manager::addComponent<Transform,Vector2D&,int,int,Vector2D&,float&>(Entity *,Vector2D &,int &&,int &&,Vector2D &,float &)" que se está compilando
+          with
+          [
+              T=Transform
+          ]
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\ecs\Manager.h(136,32): warning C4244: 'argumento': conversión de 'double' a 'int'; posible pérdida de datos
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\ecs\Manager.h(88): message : Vea la referencia a la creación de una instancia de la función plantilla "T *Manager::addComponent<DisableOnExit,double&,double&>(Entity *,double &,double &)" que se está compilando
+          with
+          [
+              T=DisableOnExit
+          ]
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\ecs\Manager.h(136,32): warning C4244: 'argumento': conversión de '_Ty' a 'float'; posible pérdida de datos
+          with
+          [
+              _Ty=double
+          ]
+  Gun.cpp
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\components\Transform.h(24,25): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\components\Transform.h(24,51): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\components\Transform.h(24,63): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\components\Transform.h(24,79): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\components\DeAcceleration.h(24,30): warning C4305: 'inicializando': truncamiento de 'double' a 'float'
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\game\AsteroidsManager.h(24,22): warning C4305: 'inicializando': truncamiento de 'double' a 'float'
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\ecs\Manager.h(104,36): warning C4244: 'return': conversión de 'double' a 'const int'; posible pérdida de datos
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\ecs\Manager.h(105,37): warning C4244: 'return': conversión de 'double' a 'const int'; posible pérdida de datos
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\ecs\Manager.h(136,32): warning C4244: 'argumento': conversión de '_Ty' a 'float'; posible pérdida de datos
+          with
+          [
+              _Ty=int
+          ]
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\ecs\Manager.h(86): message : Vea la referencia a la creación de una instancia de la función plantilla "T *Manager::addComponent<Transform,Vector2D&,int,int,Vector2D&,float&>(Entity *,Vector2D &,int &&,int &&,Vector2D &,float &)" que se está compilando
+          with
+          [
+              T=Transform
+          ]
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\ecs\Manager.h(136,32): warning C4244: 'argumento': conversión de 'double' a 'int'; posible pérdida de datos
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\ecs\Manager.h(88): message : Vea la referencia a la creación de una instancia de la función plantilla "T *Manager::addComponent<DisableOnExit,double&,double&>(Entity *,double &,double &)" que se está compilando
+          with
+          [
+              T=DisableOnExit
+          ]
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\ecs\Manager.h(136,32): warning C4244: 'argumento': conversión de '_Ty' a 'float'; posible pérdida de datos
+          with
+          [
+              _Ty=double
+          ]
+  Health.cpp
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\components\Transform.h(24,25): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\components\Transform.h(24,51): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\components\Transform.h(24,63): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\components\Transform.h(24,79): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+  Image.cpp
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\components\Transform.h(24,25): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\components\Transform.h(24,51): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\components\Transform.h(24,63): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\components\Transform.h(24,79): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\components\DeAcceleration.h(24,30): warning C4305: 'inicializando': truncamiento de 'double' a 'float'
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\game\AsteroidsManager.h(24,22): warning C4305: 'inicializando': truncamiento de 'double' a 'float'
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\ecs\Manager.h(104,36): warning C4244: 'return': conversión de 'double' a 'const int'; posible pérdida de datos
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\ecs\Manager.h(105,37): warning C4244: 'return': conversión de 'double' a 'const int'; posible pérdida de datos
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\ecs\Manager.h(136,32): warning C4244: 'argumento': conversión de '_Ty' a 'float'; posible pérdida de datos
+          with
+          [
+              _Ty=int
+          ]
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\ecs\Manager.h(86): message : Vea la referencia a la creación de una instancia de la función plantilla "T *Manager::addComponent<Transform,Vector2D&,int,int,Vector2D&,float&>(Entity *,Vector2D &,int &&,int &&,Vector2D &,float &)" que se está compilando
+          with
+          [
+              T=Transform
+          ]
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\ecs\Manager.h(136,32): warning C4244: 'argumento': conversión de 'double' a 'int'; posible pérdida de datos
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\ecs\Manager.h(88): message : Vea la referencia a la creación de una instancia de la función plantilla "T *Manager::addComponent<DisableOnExit,double&,double&>(Entity *,double &,double &)" que se está compilando
+          with
+          [
+              T=DisableOnExit
+          ]
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\ecs\Manager.h(136,32): warning C4244: 'argumento': conversión de '_Ty' a 'float'; posible pérdida de datos
+          with
+          [
+              _Ty=double
+          ]
+  ShowOpposite.cpp
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\components\Transform.h(24,25): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\components\Transform.h(24,51): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\components\Transform.h(24,63): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\components\Transform.h(24,79): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\components\DeAcceleration.h(24,30): warning C4305: 'inicializando': truncamiento de 'double' a 'float'
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\game\AsteroidsManager.h(24,22): warning C4305: 'inicializando': truncamiento de 'double' a 'float'
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\ecs\Manager.h(104,36): warning C4244: 'return': conversión de 'double' a 'const int'; posible pérdida de datos
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\ecs\Manager.h(105,37): warning C4244: 'return': conversión de 'double' a 'const int'; posible pérdida de datos
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\ecs\Manager.h(136,32): warning C4244: 'argumento': conversión de '_Ty' a 'float'; posible pérdida de datos
+          with
+          [
+              _Ty=int
+          ]
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\ecs\Manager.h(86): message : Vea la referencia a la creación de una instancia de la función plantilla "T *Manager::addComponent<Transform,Vector2D&,int,int,Vector2D&,float&>(Entity *,Vector2D &,int &&,int &&,Vector2D &,float &)" que se está compilando
+          with
+          [
+              T=Transform
+          ]
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\ecs\Manager.h(136,32): warning C4244: 'argumento': conversión de 'double' a 'int'; posible pérdida de datos
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\ecs\Manager.h(88): message : Vea la referencia a la creación de una instancia de la función plantilla "T *Manager::addComponent<DisableOnExit,double&,double&>(Entity *,double &,double &)" que se está compilando
+          with
+          [
+              T=DisableOnExit
+          ]
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\ecs\Manager.h(136,32): warning C4244: 'argumento': conversión de '_Ty' a 'float'; posible pérdida de datos
+          with
+          [
+              _Ty=double
+          ]
+  Transform.cpp
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\components\Transform.h(24,25): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\components\Transform.h(24,51): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\components\Transform.h(24,63): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\components\Transform.h(24,79): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+  GameState.cpp
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\game\AsteroidsManager.h(24,22): warning C4305: 'inicializando': truncamiento de 'double' a 'float'
+  GameStateMachine.cpp
+  MainMenuState.cpp
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\components\Transform.h(24,25): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\components\Transform.h(24,51): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\components\Transform.h(24,63): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\components\Transform.h(24,79): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\components\DeAcceleration.h(24,30): warning C4305: 'inicializando': truncamiento de 'double' a 'float'
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\game\AsteroidsManager.h(24,22): warning C4305: 'inicializando': truncamiento de 'double' a 'float'
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\ecs\Manager.h(104,36): warning C4244: 'return': conversión de 'double' a 'const int'; posible pérdida de datos
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\ecs\Manager.h(105,37): warning C4244: 'return': conversión de 'double' a 'const int'; posible pérdida de datos
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\ecs\MainMenuState.cpp(7,14): warning C4244: '=': conversión de 'double' a 'float'; posible pérdida de datos
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\ecs\MainMenuState.cpp(8,14): warning C4244: '=': conversión de 'double' a 'float'; posible pérdida de datos
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\ecs\MainMenuState.cpp(61,93): warning C4244: 'argumento': conversión de 'double' a 'float'; posible pérdida de datos
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\ecs\MainMenuState.cpp(61,63): warning C4244: 'argumento': conversión de 'double' a 'float'; posible pérdida de datos
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\ecs\MainMenuState.cpp(67,93): warning C4244: 'argumento': conversión de 'double' a 'float'; posible pérdida de datos
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\ecs\MainMenuState.cpp(67,63): warning C4244: 'argumento': conversión de 'double' a 'float'; posible pérdida de datos
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\ecs\MainMenuState.cpp(73,96): warning C4244: 'argumento': conversión de 'double' a 'float'; posible pérdida de datos
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\ecs\MainMenuState.cpp(73,66): warning C4244: 'argumento': conversión de 'double' a 'float'; posible pérdida de datos
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\ecs\Manager.h(136,32): warning C4244: 'argumento': conversión de '_Ty' a 'float'; posible pérdida de datos
+          with
+          [
+              _Ty=int
+          ]
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\ecs\Manager.h(86): message : Vea la referencia a la creación de una instancia de la función plantilla "T *Manager::addComponent<Transform,Vector2D&,int,int,Vector2D&,float&>(Entity *,Vector2D &,int &&,int &&,Vector2D &,float &)" que se está compilando
+          with
+          [
+              T=Transform
+          ]
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\ecs\Manager.h(136,32): warning C4244: 'argumento': conversión de 'double' a 'int'; posible pérdida de datos
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\ecs\Manager.h(88): message : Vea la referencia a la creación de una instancia de la función plantilla "T *Manager::addComponent<DisableOnExit,double&,double&>(Entity *,double &,double &)" que se está compilando
+          with
+          [
+              T=DisableOnExit
+          ]
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\ecs\Manager.h(136,32): warning C4244: 'argumento': conversión de '_Ty' a 'float'; posible pérdida de datos
+          with
+          [
+              _Ty=double
+          ]
+  MultiplayerState.cpp
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\components\Transform.h(24,25): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\components\Transform.h(24,51): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\components\Transform.h(24,63): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\components\Transform.h(24,79): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\components\DeAcceleration.h(24,30): warning C4305: 'inicializando': truncamiento de 'double' a 'float'
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\game\AsteroidsManager.h(24,22): warning C4305: 'inicializando': truncamiento de 'double' a 'float'
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\ecs\Manager.h(104,36): warning C4244: 'return': conversión de 'double' a 'const int'; posible pérdida de datos
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\ecs\Manager.h(105,37): warning C4244: 'return': conversión de 'double' a 'const int'; posible pérdida de datos
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\systems\FighterSystem.h(27,14): warning C4305: 'inicializando': truncamiento de 'double' a 'float'
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\sdlutils\SDLUtils.h(50,32): warning C4101: 'e': variable local sin referencia
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\sdlutils\SDLUtils.h(47): message : al compilar la función del miembro clase plantilla "Music &SDLUtils::map_access_wrapper<Music>::at(std::string)"
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\sdlutils\SDLUtils.h(195): message : Vea la referencia a la creación de una instancia de clase plantilla "SDLUtils::map_access_wrapper<Music>" que se está compilando
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\ecs\Manager.h(136,32): warning C4244: 'argumento': conversión de '_Ty' a 'float'; posible pérdida de datos
+          with
+          [
+              _Ty=int
+          ]
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\ecs\Manager.h(86): message : Vea la referencia a la creación de una instancia de la función plantilla "T *Manager::addComponent<Transform,Vector2D&,int,int,Vector2D&,float&>(Entity *,Vector2D &,int &&,int &&,Vector2D &,float &)" que se está compilando
+          with
+          [
+              T=Transform
+          ]
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\ecs\Manager.h(136,32): warning C4244: 'argumento': conversión de 'double' a 'int'; posible pérdida de datos
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\ecs\Manager.h(88): message : Vea la referencia a la creación de una instancia de la función plantilla "T *Manager::addComponent<DisableOnExit,double&,double&>(Entity *,double &,double &)" que se está compilando
+          with
+          [
+              T=DisableOnExit
+          ]
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\ecs\Manager.h(136,32): warning C4244: 'argumento': conversión de '_Ty' a 'float'; posible pérdida de datos
           with
           [
               _Ty=double
           ]
   PauseState.cpp
-C:\Users\Maestro Miguel\Desktop\Practica1_TPV2\TPV2\TPV2\src\ecs\Entity.h(3,10): warning C4067: símbolos (token) inesperados después de la directiva del preprocesador; se esperaba una nueva línea
-C:\Users\Maestro Miguel\Desktop\Practica1_TPV2\TPV2\TPV2\src\components\DeAcceleration.h(18,30): warning C4305: 'inicializando': truncamiento de 'double' a 'float'
-C:\Users\Maestro Miguel\Desktop\Practica1_TPV2\TPV2\TPV2\src\game\AsteroidsManager.h(26,22): warning C4305: 'inicializando': truncamiento de 'double' a 'float'
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\game\AsteroidsManager.h(24,22): warning C4305: 'inicializando': truncamiento de 'double' a 'float'
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\sdlutils\SDLUtils.h(50,32): warning C4101: 'e': variable local sin referencia
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\sdlutils\SDLUtils.h(47): message : al compilar la función del miembro clase plantilla "Font &SDLUtils::map_access_wrapper<Font>::at(std::string)"
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\sdlutils\SDLUtils.h(191): message : Vea la referencia a la creación de una instancia de clase plantilla "SDLUtils::map_access_wrapper<Font>" que se está compilando
   PlayState.cpp
-C:\Users\Maestro Miguel\Desktop\Practica1_TPV2\TPV2\TPV2\src\ecs\Entity.h(3,10): warning C4067: símbolos (token) inesperados después de la directiva del preprocesador; se esperaba una nueva línea
-C:\Users\Maestro Miguel\Desktop\Practica1_TPV2\TPV2\TPV2\src\components\DeAcceleration.h(18,30): warning C4305: 'inicializando': truncamiento de 'double' a 'float'
-C:\Users\Maestro Miguel\Desktop\Practica1_TPV2\TPV2\TPV2\src\game\AsteroidsManager.h(26,22): warning C4305: 'inicializando': truncamiento de 'double' a 'float'
-C:\Users\Maestro Miguel\Desktop\Practica1_TPV2\TPV2\TPV2\src\sdlutils\SDLUtils.h(50,32): warning C4101: 'e': variable local sin referencia
-C:\Users\Maestro Miguel\Desktop\Practica1_TPV2\TPV2\TPV2\src\sdlutils\SDLUtils.h(47): message : al compilar la función del miembro clase plantilla "Music &SDLUtils::map_access_wrapper<Music>::at(std::string)"
-C:\Users\Maestro Miguel\Desktop\Practica1_TPV2\TPV2\TPV2\src\sdlutils\SDLUtils.h(195): message : Vea la referencia a la creación de una instancia de clase plantilla "SDLUtils::map_access_wrapper<Music>" que se está compilando
-  AsteroidsManager.cpp
-C:\Users\Maestro Miguel\Desktop\Practica1_TPV2\TPV2\TPV2\src\game\AsteroidsManager.h(26,22): warning C4305: 'inicializando': truncamiento de 'double' a 'float'
-C:\Users\Maestro Miguel\Desktop\Practica1_TPV2\TPV2\TPV2\src\ecs\Entity.h(3,10): warning C4067: símbolos (token) inesperados después de la directiva del preprocesador; se esperaba una nueva línea
-C:\Users\Maestro Miguel\Desktop\Practica1_TPV2\TPV2\TPV2\src\components\DeAcceleration.h(18,30): warning C4305: 'inicializando': truncamiento de 'double' a 'float'
-C:\Users\Maestro Miguel\Desktop\Practica1_TPV2\TPV2\TPV2\src\game\AsteroidsManager.cpp(31,80): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
-C:\Users\Maestro Miguel\Desktop\Practica1_TPV2\TPV2\TPV2\src\game\AsteroidsManager.cpp(31,48): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
-C:\Users\Maestro Miguel\Desktop\Practica1_TPV2\TPV2\TPV2\src\game\AsteroidsManager.cpp(53,55): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
-C:\Users\Maestro Miguel\Desktop\Practica1_TPV2\TPV2\TPV2\src\game\AsteroidsManager.cpp(54,40): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
-C:\Users\Maestro Miguel\Desktop\Practica1_TPV2\TPV2\TPV2\src\game\AsteroidsManager.cpp(75,55): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
-C:\Users\Maestro Miguel\Desktop\Practica1_TPV2\TPV2\TPV2\src\game\AsteroidsManager.cpp(78,73): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
-C:\Users\Maestro Miguel\Desktop\Practica1_TPV2\TPV2\TPV2\src\game\AsteroidsManager.cpp(78,51): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
-C:\Users\Maestro Miguel\Desktop\Practica1_TPV2\TPV2\TPV2\src\game\AsteroidsManager.cpp(84,52): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
-C:\Users\Maestro Miguel\Desktop\Practica1_TPV2\TPV2\TPV2\src\game\AsteroidsManager.cpp(87,96): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
-C:\Users\Maestro Miguel\Desktop\Practica1_TPV2\TPV2\TPV2\src\game\AsteroidsManager.cpp(87,52): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
-C:\Users\Maestro Miguel\Desktop\Practica1_TPV2\TPV2\TPV2\src\game\AsteroidsManager.cpp(99,33): warning C4018: '>=': no coinciden signed/unsigned
-C:\Users\Maestro Miguel\Desktop\Practica1_TPV2\TPV2\TPV2\src\ecs\Entity.h(40,32): warning C4244: 'argumento': conversión de '_Ty' a 'float'; posible pérdida de datos
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\game\AsteroidsManager.h(24,22): warning C4305: 'inicializando': truncamiento de 'double' a 'float'
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\components\Transform.h(24,25): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\components\Transform.h(24,51): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\components\Transform.h(24,63): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\components\Transform.h(24,79): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\components\DeAcceleration.h(24,30): warning C4305: 'inicializando': truncamiento de 'double' a 'float'
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\ecs\Manager.h(104,36): warning C4244: 'return': conversión de 'double' a 'const int'; posible pérdida de datos
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\ecs\Manager.h(105,37): warning C4244: 'return': conversión de 'double' a 'const int'; posible pérdida de datos
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\systems\AsteroidsSystem.h(37,22): warning C4305: 'inicializando': truncamiento de 'double' a 'float'
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\systems\FighterSystem.h(27,14): warning C4305: 'inicializando': truncamiento de 'double' a 'float'
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\sdlutils\SDLUtils.h(50,32): warning C4101: 'e': variable local sin referencia
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\sdlutils\SDLUtils.h(47): message : al compilar la función del miembro clase plantilla "Music &SDLUtils::map_access_wrapper<Music>::at(std::string)"
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\sdlutils\SDLUtils.h(195): message : Vea la referencia a la creación de una instancia de clase plantilla "SDLUtils::map_access_wrapper<Music>" que se está compilando
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\ecs\Manager.h(136,32): warning C4244: 'argumento': conversión de '_Ty' a 'float'; posible pérdida de datos
           with
           [
               _Ty=int
           ]
-C:\Users\Maestro Miguel\Desktop\Practica1_TPV2\TPV2\TPV2\src\game\AsteroidsManager.cpp(33): message : Vea la referencia a la creación de una instancia de la función plantilla "T *Entity::addComponent<Transform,Vector2D&,int,int,Vector2D&>(Vector2D &,int &&,int &&,Vector2D &)" que se está compilando
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\ecs\Manager.h(86): message : Vea la referencia a la creación de una instancia de la función plantilla "T *Manager::addComponent<Transform,Vector2D&,int,int,Vector2D&,float&>(Entity *,Vector2D &,int &&,int &&,Vector2D &,float &)" que se está compilando
           with
           [
               T=Transform
           ]
-  Game.cpp
-C:\Users\Maestro Miguel\Desktop\Practica1_TPV2\TPV2\TPV2\src\ecs\Entity.h(3,10): warning C4067: símbolos (token) inesperados después de la directiva del preprocesador; se esperaba una nueva línea
-C:\Users\Maestro Miguel\Desktop\Practica1_TPV2\TPV2\TPV2\src\components\DeAcceleration.h(18,30): warning C4305: 'inicializando': truncamiento de 'double' a 'float'
-C:\Users\Maestro Miguel\Desktop\Practica1_TPV2\TPV2\TPV2\src\game\AsteroidsManager.h(26,22): warning C4305: 'inicializando': truncamiento de 'double' a 'float'
-C:\Users\Maestro Miguel\Desktop\Practica1_TPV2\TPV2\TPV2\src\utils\Singleton.h(57,44): warning C4244: 'argumento': conversión de 'double' a 'int'; posible pérdida de datos
-C:\Users\Maestro Miguel\Desktop\Practica1_TPV2\TPV2\TPV2\src\game\Game.cpp(11): message : Vea la referencia a la creación de una instancia de la función plantilla "T *Singleton<T>::init<const char(&)[10],double&,double&,const char(&)[50]>(const char (&)[10],double &,double &,const char (&)[50])" que se está compilando
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\ecs\Manager.h(136,32): warning C4244: 'argumento': conversión de 'double' a 'int'; posible pérdida de datos
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\ecs\Manager.h(88): message : Vea la referencia a la creación de una instancia de la función plantilla "T *Manager::addComponent<DisableOnExit,double&,double&>(Entity *,double &,double &)" que se está compilando
           with
           [
-              T=SDLUtils
+              T=DisableOnExit
           ]
-C:\Users\Maestro Miguel\Desktop\Practica1_TPV2\TPV2\TPV2\src\game\Game.cpp(11): message : Vea la referencia a la creación de una instancia de la función plantilla "T *Singleton<T>::init<const char(&)[10],double&,double&,const char(&)[50]>(const char (&)[10],double &,double &,const char (&)[50])" que se está compilando
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\ecs\Manager.h(136,32): warning C4244: 'argumento': conversión de '_Ty' a 'float'; posible pérdida de datos
           with
           [
-              T=SDLUtils
+              _Ty=double
+          ]
+  Entity.cpp
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\components\Transform.h(24,25): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\components\Transform.h(24,51): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\components\Transform.h(24,63): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\components\Transform.h(24,79): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\components\DeAcceleration.h(24,30): warning C4305: 'inicializando': truncamiento de 'double' a 'float'
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\game\AsteroidsManager.h(24,22): warning C4305: 'inicializando': truncamiento de 'double' a 'float'
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\ecs\Manager.h(104,36): warning C4244: 'return': conversión de 'double' a 'const int'; posible pérdida de datos
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\ecs\Manager.h(105,37): warning C4244: 'return': conversión de 'double' a 'const int'; posible pérdida de datos
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\ecs\Manager.h(136,32): warning C4244: 'argumento': conversión de '_Ty' a 'float'; posible pérdida de datos
+          with
+          [
+              _Ty=int
+          ]
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\ecs\Manager.h(86): message : Vea la referencia a la creación de una instancia de la función plantilla "T *Manager::addComponent<Transform,Vector2D&,int,int,Vector2D&,float&>(Entity *,Vector2D &,int &&,int &&,Vector2D &,float &)" que se está compilando
+          with
+          [
+              T=Transform
+          ]
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\ecs\Manager.h(136,32): warning C4244: 'argumento': conversión de 'double' a 'int'; posible pérdida de datos
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\ecs\Manager.h(88): message : Vea la referencia a la creación de una instancia de la función plantilla "T *Manager::addComponent<DisableOnExit,double&,double&>(Entity *,double &,double &)" que se está compilando
+          with
+          [
+              T=DisableOnExit
+          ]
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\ecs\Manager.h(136,32): warning C4244: 'argumento': conversión de '_Ty' a 'float'; posible pérdida de datos
+          with
+          [
+              _Ty=double
           ]
   Compilando...
+  System.cpp
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\components\Transform.h(24,25): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\components\Transform.h(24,51): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\components\Transform.h(24,63): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\components\Transform.h(24,79): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\components\DeAcceleration.h(24,30): warning C4305: 'inicializando': truncamiento de 'double' a 'float'
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\game\AsteroidsManager.h(24,22): warning C4305: 'inicializando': truncamiento de 'double' a 'float'
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\ecs\Manager.h(104,36): warning C4244: 'return': conversión de 'double' a 'const int'; posible pérdida de datos
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\ecs\Manager.h(105,37): warning C4244: 'return': conversión de 'double' a 'const int'; posible pérdida de datos
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\ecs\Manager.h(136,32): warning C4244: 'argumento': conversión de '_Ty' a 'float'; posible pérdida de datos
+          with
+          [
+              _Ty=int
+          ]
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\ecs\Manager.h(86): message : Vea la referencia a la creación de una instancia de la función plantilla "T *Manager::addComponent<Transform,Vector2D&,int,int,Vector2D&,float&>(Entity *,Vector2D &,int &&,int &&,Vector2D &,float &)" que se está compilando
+          with
+          [
+              T=Transform
+          ]
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\ecs\Manager.h(136,32): warning C4244: 'argumento': conversión de 'double' a 'int'; posible pérdida de datos
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\ecs\Manager.h(88): message : Vea la referencia a la creación de una instancia de la función plantilla "T *Manager::addComponent<DisableOnExit,double&,double&>(Entity *,double &,double &)" que se está compilando
+          with
+          [
+              T=DisableOnExit
+          ]
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\ecs\Manager.h(136,32): warning C4244: 'argumento': conversión de '_Ty' a 'float'; posible pérdida de datos
+          with
+          [
+              _Ty=double
+          ]
+  AsteroidsManager.cpp
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\game\AsteroidsManager.h(24,22): warning C4305: 'inicializando': truncamiento de 'double' a 'float'
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\components\Transform.h(24,25): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\components\Transform.h(24,51): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\components\Transform.h(24,63): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\components\Transform.h(24,79): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\components\DeAcceleration.h(24,30): warning C4305: 'inicializando': truncamiento de 'double' a 'float'
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\ecs\Manager.h(104,36): warning C4244: 'return': conversión de 'double' a 'const int'; posible pérdida de datos
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\ecs\Manager.h(105,37): warning C4244: 'return': conversión de 'double' a 'const int'; posible pérdida de datos
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\game\AsteroidsManager.cpp(32,80): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\game\AsteroidsManager.cpp(32,48): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\game\AsteroidsManager.cpp(54,55): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\game\AsteroidsManager.cpp(55,40): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\game\AsteroidsManager.cpp(77,55): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\game\AsteroidsManager.cpp(80,73): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\game\AsteroidsManager.cpp(80,51): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\game\AsteroidsManager.cpp(86,52): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\game\AsteroidsManager.cpp(89,96): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\game\AsteroidsManager.cpp(89,52): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\game\AsteroidsManager.cpp(97,33): warning C4018: '>=': no coinciden signed/unsigned
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\game\AsteroidsManager.cpp(98,38): warning C4018: '>=': no coinciden signed/unsigned
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\ecs\Manager.h(136,32): warning C4244: 'argumento': conversión de '_Ty' a 'float'; posible pérdida de datos
+          with
+          [
+              _Ty=int
+          ]
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\ecs\Manager.h(86): message : Vea la referencia a la creación de una instancia de la función plantilla "T *Manager::addComponent<Transform,Vector2D&,int,int,Vector2D&,float&>(Entity *,Vector2D &,int &&,int &&,Vector2D &,float &)" que se está compilando
+          with
+          [
+              T=Transform
+          ]
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\ecs\Manager.h(136,32): warning C4244: 'argumento': conversión de 'double' a 'int'; posible pérdida de datos
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\ecs\Manager.h(88): message : Vea la referencia a la creación de una instancia de la función plantilla "T *Manager::addComponent<DisableOnExit,double&,double&>(Entity *,double &,double &)" que se está compilando
+          with
+          [
+              T=DisableOnExit
+          ]
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\ecs\Manager.h(136,32): warning C4244: 'argumento': conversión de '_Ty' a 'float'; posible pérdida de datos
+          with
+          [
+              _Ty=double
+          ]
+  Game.cpp
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\game\AsteroidsManager.h(24,22): warning C4305: 'inicializando': truncamiento de 'double' a 'float'
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\utils\Singleton.h(57,44): warning C4244: 'argumento': conversión de 'double' a 'int'; posible pérdida de datos
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\game\Game.cpp(10): message : Vea la referencia a la creación de una instancia de la función plantilla "T *Singleton<T>::init<const char(&)[10],double&,double&,const char(&)[50]>(const char (&)[10],double &,double &,const char (&)[50])" que se está compilando
+          with
+          [
+              T=SDLUtils
+          ]
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\game\Game.cpp(10): message : Vea la referencia a la creación de una instancia de la función plantilla "T *Singleton<T>::init<const char(&)[10],double&,double&,const char(&)[50]>(const char (&)[10],double &,double &,const char (&)[50])" que se está compilando
+          with
+          [
+              T=SDLUtils
+          ]
   JSON.cpp
   JSONValue.cpp
   json_demo.cpp
   main.cpp
-C:\Users\Maestro Miguel\Desktop\Practica1_TPV2\TPV2\TPV2\src\ecs\Entity.h(3,10): warning C4067: símbolos (token) inesperados después de la directiva del preprocesador; se esperaba una nueva línea
-C:\Users\Maestro Miguel\Desktop\Practica1_TPV2\TPV2\TPV2\src\components\DeAcceleration.h(18,30): warning C4305: 'inicializando': truncamiento de 'double' a 'float'
-C:\Users\Maestro Miguel\Desktop\Practica1_TPV2\TPV2\TPV2\src\game\AsteroidsManager.h(26,22): warning C4305: 'inicializando': truncamiento de 'double' a 'float'
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\game\AsteroidsManager.h(24,22): warning C4305: 'inicializando': truncamiento de 'double' a 'float'
+  Message.cpp
   SDLUtils.cpp
   sdlutils_demo.cpp
-C:\Users\Maestro Miguel\Desktop\Practica1_TPV2\TPV2\TPV2\src\sdlutils\SDLUtils.h(50,32): warning C4101: 'e': variable local sin referencia
-C:\Users\Maestro Miguel\Desktop\Practica1_TPV2\TPV2\TPV2\src\sdlutils\SDLUtils.h(47): message : al compilar la función del miembro clase plantilla "Texture &SDLUtils::map_access_wrapper<Texture>::at(std::string)"
-C:\Users\Maestro Miguel\Desktop\Practica1_TPV2\TPV2\TPV2\src\sdlutils\SDLUtils.h(192): message : Vea la referencia a la creación de una instancia de clase plantilla "SDLUtils::map_access_wrapper<Texture>" que se está compilando
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\sdlutils\SDLUtils.h(50,32): warning C4101: 'e': variable local sin referencia
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\sdlutils\SDLUtils.h(47): message : al compilar la función del miembro clase plantilla "Texture &SDLUtils::map_access_wrapper<Texture>::at(std::string)"
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\sdlutils\SDLUtils.h(192): message : Vea la referencia a la creación de una instancia de clase plantilla "SDLUtils::map_access_wrapper<Texture>" que se está compilando
   SoundEffect.cpp
   Texture.cpp
+  AsteroidsSystem.cpp
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\systems\AsteroidsSystem.h(37,22): warning C4305: 'inicializando': truncamiento de 'double' a 'float'
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\components\Transform.h(24,25): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\components\Transform.h(24,51): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\components\Transform.h(24,63): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\components\Transform.h(24,79): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\components\DeAcceleration.h(24,30): warning C4305: 'inicializando': truncamiento de 'double' a 'float'
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\game\AsteroidsManager.h(24,22): warning C4305: 'inicializando': truncamiento de 'double' a 'float'
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\ecs\Manager.h(104,36): warning C4244: 'return': conversión de 'double' a 'const int'; posible pérdida de datos
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\ecs\Manager.h(105,37): warning C4244: 'return': conversión de 'double' a 'const int'; posible pérdida de datos
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\systems\AsteroidsSystem.cpp(39,33): warning C4018: '>=': no coinciden signed/unsigned
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\systems\AsteroidsSystem.cpp(42,38): warning C4018: '>=': no coinciden signed/unsigned
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\systems\AsteroidsSystem.cpp(61,59): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\systems\AsteroidsSystem.cpp(62,44): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\systems\AsteroidsSystem.cpp(104,79): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\systems\AsteroidsSystem.cpp(104,48): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\systems\AsteroidsSystem.cpp(129,55): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\systems\AsteroidsSystem.cpp(132,71): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\systems\AsteroidsSystem.cpp(132,49): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\systems\AsteroidsSystem.cpp(138,52): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\systems\AsteroidsSystem.cpp(141,92): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\systems\AsteroidsSystem.cpp(141,52): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\ecs\Manager.h(136,32): warning C4244: 'argumento': conversión de '_Ty' a 'float'; posible pérdida de datos
+          with
+          [
+              _Ty=int
+          ]
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\ecs\Manager.h(86): message : Vea la referencia a la creación de una instancia de la función plantilla "T *Manager::addComponent<Transform,Vector2D&,int,int,Vector2D&,float&>(Entity *,Vector2D &,int &&,int &&,Vector2D &,float &)" que se está compilando
+          with
+          [
+              T=Transform
+          ]
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\ecs\Manager.h(136,32): warning C4244: 'argumento': conversión de 'double' a 'int'; posible pérdida de datos
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\ecs\Manager.h(88): message : Vea la referencia a la creación de una instancia de la función plantilla "T *Manager::addComponent<DisableOnExit,double&,double&>(Entity *,double &,double &)" que se está compilando
+          with
+          [
+              T=DisableOnExit
+          ]
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\ecs\Manager.h(136,32): warning C4244: 'argumento': conversión de '_Ty' a 'float'; posible pérdida de datos
+          with
+          [
+              _Ty=double
+          ]
+  BulletsSystem.cpp
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\components\Transform.h(24,25): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\components\Transform.h(24,51): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\components\Transform.h(24,63): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\components\Transform.h(24,79): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\components\DeAcceleration.h(24,30): warning C4305: 'inicializando': truncamiento de 'double' a 'float'
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\game\AsteroidsManager.h(24,22): warning C4305: 'inicializando': truncamiento de 'double' a 'float'
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\ecs\Manager.h(104,36): warning C4244: 'return': conversión de 'double' a 'const int'; posible pérdida de datos
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\ecs\Manager.h(105,37): warning C4244: 'return': conversión de 'double' a 'const int'; posible pérdida de datos
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\ecs\Manager.h(136,32): warning C4244: 'argumento': conversión de '_Ty' a 'float'; posible pérdida de datos
+          with
+          [
+              _Ty=int
+          ]
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\ecs\Manager.h(86): message : Vea la referencia a la creación de una instancia de la función plantilla "T *Manager::addComponent<Transform,Vector2D&,int,int,Vector2D&,float&>(Entity *,Vector2D &,int &&,int &&,Vector2D &,float &)" que se está compilando
+          with
+          [
+              T=Transform
+          ]
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\ecs\Manager.h(136,32): warning C4244: 'argumento': conversión de 'double' a 'int'; posible pérdida de datos
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\ecs\Manager.h(88): message : Vea la referencia a la creación de una instancia de la función plantilla "T *Manager::addComponent<DisableOnExit,double&,double&>(Entity *,double &,double &)" que se está compilando
+          with
+          [
+              T=DisableOnExit
+          ]
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\ecs\Manager.h(136,32): warning C4244: 'argumento': conversión de '_Ty' a 'float'; posible pérdida de datos
+          with
+          [
+              _Ty=double
+          ]
+  CollisionsSystem.cpp
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\components\Transform.h(24,25): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\components\Transform.h(24,51): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\components\Transform.h(24,63): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\components\Transform.h(24,79): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\components\DeAcceleration.h(24,30): warning C4305: 'inicializando': truncamiento de 'double' a 'float'
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\game\AsteroidsManager.h(24,22): warning C4305: 'inicializando': truncamiento de 'double' a 'float'
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\ecs\Manager.h(104,36): warning C4244: 'return': conversión de 'double' a 'const int'; posible pérdida de datos
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\ecs\Manager.h(105,37): warning C4244: 'return': conversión de 'double' a 'const int'; posible pérdida de datos
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\sdlutils\SDLUtils.h(50,32): warning C4101: 'e': variable local sin referencia
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\sdlutils\SDLUtils.h(47): message : al compilar la función del miembro clase plantilla "SoundEffect &SDLUtils::map_access_wrapper<SoundEffect>::at(std::string)"
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\sdlutils\SDLUtils.h(194): message : Vea la referencia a la creación de una instancia de clase plantilla "SDLUtils::map_access_wrapper<SoundEffect>" que se está compilando
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\ecs\Manager.h(136,32): warning C4244: 'argumento': conversión de '_Ty' a 'float'; posible pérdida de datos
+          with
+          [
+              _Ty=int
+          ]
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\ecs\Manager.h(86): message : Vea la referencia a la creación de una instancia de la función plantilla "T *Manager::addComponent<Transform,Vector2D&,int,int,Vector2D&,float&>(Entity *,Vector2D &,int &&,int &&,Vector2D &,float &)" que se está compilando
+          with
+          [
+              T=Transform
+          ]
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\ecs\Manager.h(136,32): warning C4244: 'argumento': conversión de 'double' a 'int'; posible pérdida de datos
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\ecs\Manager.h(88): message : Vea la referencia a la creación de una instancia de la función plantilla "T *Manager::addComponent<DisableOnExit,double&,double&>(Entity *,double &,double &)" que se está compilando
+          with
+          [
+              T=DisableOnExit
+          ]
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\ecs\Manager.h(136,32): warning C4244: 'argumento': conversión de '_Ty' a 'float'; posible pérdida de datos
+          with
+          [
+              _Ty=double
+          ]
+  FighterSystem.cpp
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\systems\FighterSystem.h(27,14): warning C4305: 'inicializando': truncamiento de 'double' a 'float'
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\components\Transform.h(24,25): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\components\Transform.h(24,51): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\components\Transform.h(24,63): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\components\Transform.h(24,79): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\components\DeAcceleration.h(24,30): warning C4305: 'inicializando': truncamiento de 'double' a 'float'
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\game\AsteroidsManager.h(24,22): warning C4305: 'inicializando': truncamiento de 'double' a 'float'
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\ecs\Manager.h(104,36): warning C4244: 'return': conversión de 'double' a 'const int'; posible pérdida de datos
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\ecs\Manager.h(105,37): warning C4244: 'return': conversión de 'double' a 'const int'; posible pérdida de datos
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\systems\FighterSystem.cpp(35,10): warning C4244: 'inicializando': conversión de 'double' a 'float'; posible pérdida de datos
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\systems\FighterSystem.cpp(35,24): warning C4244: 'inicializando': conversión de 'double' a 'float'; posible pérdida de datos
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\sdlutils\SDLUtils.h(50,32): warning C4101: 'e': variable local sin referencia
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\sdlutils\SDLUtils.h(47): message : al compilar la función del miembro clase plantilla "SoundEffect &SDLUtils::map_access_wrapper<SoundEffect>::at(std::string)"
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\sdlutils\SDLUtils.h(194): message : Vea la referencia a la creación de una instancia de clase plantilla "SDLUtils::map_access_wrapper<SoundEffect>" que se está compilando
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\systems\FighterSystem.cpp(49,54): warning C4018: '>=': no coinciden signed/unsigned
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\systems\FighterSystem.cpp(99,59): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\systems\FighterSystem.cpp(99,35): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\ecs\Manager.h(136,32): warning C4244: 'argumento': conversión de '_Ty' a 'float'; posible pérdida de datos
+          with
+          [
+              _Ty=int
+          ]
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\ecs\Manager.h(86): message : Vea la referencia a la creación de una instancia de la función plantilla "T *Manager::addComponent<Transform,Vector2D&,int,int,Vector2D&,float&>(Entity *,Vector2D &,int &&,int &&,Vector2D &,float &)" que se está compilando
+          with
+          [
+              T=Transform
+          ]
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\ecs\Manager.h(136,32): warning C4244: 'argumento': conversión de 'double' a 'int'; posible pérdida de datos
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\ecs\Manager.h(88): message : Vea la referencia a la creación de una instancia de la función plantilla "T *Manager::addComponent<DisableOnExit,double&,double&>(Entity *,double &,double &)" que se está compilando
+          with
+          [
+              T=DisableOnExit
+          ]
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\ecs\Manager.h(136,32): warning C4244: 'argumento': conversión de '_Ty' a 'float'; posible pérdida de datos
+          with
+          [
+              _Ty=double
+          ]
+  GameCtrlSystem.cpp
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\components\Transform.h(24,25): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\components\Transform.h(24,51): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\components\Transform.h(24,63): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\components\Transform.h(24,79): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\components\DeAcceleration.h(24,30): warning C4305: 'inicializando': truncamiento de 'double' a 'float'
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\game\AsteroidsManager.h(24,22): warning C4305: 'inicializando': truncamiento de 'double' a 'float'
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\ecs\Manager.h(104,36): warning C4244: 'return': conversión de 'double' a 'const int'; posible pérdida de datos
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\ecs\Manager.h(105,37): warning C4244: 'return': conversión de 'double' a 'const int'; posible pérdida de datos
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\ecs\Manager.h(136,32): warning C4244: 'argumento': conversión de '_Ty' a 'float'; posible pérdida de datos
+          with
+          [
+              _Ty=int
+          ]
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\ecs\Manager.h(86): message : Vea la referencia a la creación de una instancia de la función plantilla "T *Manager::addComponent<Transform,Vector2D&,int,int,Vector2D&,float&>(Entity *,Vector2D &,int &&,int &&,Vector2D &,float &)" que se está compilando
+          with
+          [
+              T=Transform
+          ]
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\ecs\Manager.h(136,32): warning C4244: 'argumento': conversión de 'double' a 'int'; posible pérdida de datos
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\ecs\Manager.h(88): message : Vea la referencia a la creación de una instancia de la función plantilla "T *Manager::addComponent<DisableOnExit,double&,double&>(Entity *,double &,double &)" que se está compilando
+          with
+          [
+              T=DisableOnExit
+          ]
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\ecs\Manager.h(136,32): warning C4244: 'argumento': conversión de '_Ty' a 'float'; posible pérdida de datos
+          with
+          [
+              _Ty=double
+          ]
+  MenuControlSystem.cpp
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\components\Transform.h(24,25): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\components\Transform.h(24,51): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\components\Transform.h(24,63): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\components\Transform.h(24,79): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\components\DeAcceleration.h(24,30): warning C4305: 'inicializando': truncamiento de 'double' a 'float'
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\game\AsteroidsManager.h(24,22): warning C4305: 'inicializando': truncamiento de 'double' a 'float'
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\ecs\Manager.h(104,36): warning C4244: 'return': conversión de 'double' a 'const int'; posible pérdida de datos
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\ecs\Manager.h(105,37): warning C4244: 'return': conversión de 'double' a 'const int'; posible pérdida de datos
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\ecs\Manager.h(136,32): warning C4244: 'argumento': conversión de '_Ty' a 'float'; posible pérdida de datos
+          with
+          [
+              _Ty=int
+          ]
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\ecs\Manager.h(86): message : Vea la referencia a la creación de una instancia de la función plantilla "T *Manager::addComponent<Transform,Vector2D&,int,int,Vector2D&,float&>(Entity *,Vector2D &,int &&,int &&,Vector2D &,float &)" que se está compilando
+          with
+          [
+              T=Transform
+          ]
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\ecs\Manager.h(136,32): warning C4244: 'argumento': conversión de 'double' a 'int'; posible pérdida de datos
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\ecs\Manager.h(88): message : Vea la referencia a la creación de una instancia de la función plantilla "T *Manager::addComponent<DisableOnExit,double&,double&>(Entity *,double &,double &)" que se está compilando
+          with
+          [
+              T=DisableOnExit
+          ]
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\ecs\Manager.h(136,32): warning C4244: 'argumento': conversión de '_Ty' a 'float'; posible pérdida de datos
+          with
+          [
+              _Ty=double
+          ]
+  RenderSystem.cpp
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\components\Transform.h(24,25): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\components\Transform.h(24,51): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\components\Transform.h(24,63): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\components\Transform.h(24,79): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\components\DeAcceleration.h(24,30): warning C4305: 'inicializando': truncamiento de 'double' a 'float'
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\game\AsteroidsManager.h(24,22): warning C4305: 'inicializando': truncamiento de 'double' a 'float'
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\ecs\Manager.h(104,36): warning C4244: 'return': conversión de 'double' a 'const int'; posible pérdida de datos
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\ecs\Manager.h(105,37): warning C4244: 'return': conversión de 'double' a 'const int'; posible pérdida de datos
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\systems\RenderSystem.cpp(40,94): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\systems\RenderSystem.cpp(40,86): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\systems\RenderSystem.cpp(40,72): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\systems\RenderSystem.cpp(40,41): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\ecs\Manager.h(136,32): warning C4244: 'argumento': conversión de '_Ty' a 'float'; posible pérdida de datos
+          with
+          [
+              _Ty=int
+          ]
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\ecs\Manager.h(86): message : Vea la referencia a la creación de una instancia de la función plantilla "T *Manager::addComponent<Transform,Vector2D&,int,int,Vector2D&,float&>(Entity *,Vector2D &,int &&,int &&,Vector2D &,float &)" que se está compilando
+          with
+          [
+              T=Transform
+          ]
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\ecs\Manager.h(136,32): warning C4244: 'argumento': conversión de 'double' a 'int'; posible pérdida de datos
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\ecs\Manager.h(88): message : Vea la referencia a la creación de una instancia de la función plantilla "T *Manager::addComponent<DisableOnExit,double&,double&>(Entity *,double &,double &)" que se está compilando
+          with
+          [
+              T=DisableOnExit
+          ]
+C:\Users\admin\Desktop\Practica1_TPV2\TPV2\TPV2\src\ecs\Manager.h(136,32): warning C4244: 'argumento': conversión de '_Ty' a 'float'; posible pérdida de datos
+          with
+          [
+              _Ty=double
+          ]
   Collisions.cpp
+  Compilando...
   Vector2D.cpp
-     Creando biblioteca C:\Users\Maestro Miguel\Desktop\Practica1_TPV2\TPV2\bin\TPV2Release.lib y objeto C:\Users\Maestro Miguel\Desktop\Practica1_TPV2\TPV2\bin\TPV2Release.exp
+     Creando biblioteca C:\Users\admin\Desktop\Practica1_TPV2\TPV2\bin\TPV2Release.lib y objeto C:\Users\admin\Desktop\Practica1_TPV2\TPV2\bin\TPV2Release.exp
   Generando código
   Previous IPDB not found, fall back to full compilation.
-  All 1709 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
+  All 1874 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
   Generación de código finalizada
-  TPV2.vcxproj -> C:\Users\Maestro Miguel\Desktop\Practica1_TPV2\TPV2\bin\TPV2Release.exe
+  TPV2.vcxproj -> C:\Users\admin\Desktop\Practica1_TPV2\TPV2\bin\TPV2Release.exe

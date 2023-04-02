@@ -37,6 +37,7 @@
     <ClInclude Include="src\ecs\GameStateMachine.h" />
     <ClInclude Include="src\ecs\MainMenuState.h" />
     <ClInclude Include="src\ecs\Manager.h" />
+    <ClInclude Include="src\ecs\MultiplayerState.h" />
     <ClInclude Include="src\ecs\PauseState.h" />
     <ClInclude Include="src\ecs\PlayState.h" />
     <ClInclude Include="src\ecs\System.h" />
@@ -88,6 +89,7 @@
     <ClCompile Include="src\ecs\GameState.cpp" />
     <ClCompile Include="src\ecs\GameStateMachine.cpp" />
     <ClCompile Include="src\ecs\MainMenuState.cpp" />
+    <ClCompile Include="src\ecs\MultiplayerState.cpp" />
     <ClCompile Include="src\ecs\PauseState.cpp" />
     <ClCompile Include="src\ecs\PlayState.cpp" />
     <ClCompile Include="src\ecs\Entity.cpp" />

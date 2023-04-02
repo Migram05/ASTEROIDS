@@ -10,6 +10,7 @@
 #include "../ecs/PlayState.h"
 #include "../ecs/MainMenuState.h"
 #include "../ecs/PauseState.h"
+#include "../ecs/MultiplayerState.h"
 #include "../sdlutils/SDLUtils.h"
 #include <list>
 #include <unordered_set>

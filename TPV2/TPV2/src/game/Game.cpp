@@ -92,7 +92,7 @@ void Game::playSingleplayer()
 
 void Game::playMultiplayer()
 {
-	gameStateMachine->changeState(new PlayState(this, WIN_WIDTH, WIN_HEIGHT));
+	gameStateMachine->changeState(new MultiplayerState(this, WIN_WIDTH, WIN_HEIGHT));
 }
 
 Game::~Game() { //Destructora de la memoria dinámica creada
