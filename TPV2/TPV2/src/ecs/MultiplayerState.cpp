@@ -6,6 +6,7 @@
 #include "../systems/GameCtrlSystem.h"
 #include "../systems/RenderSystem.h"
 
+
 MultiplayerState::MultiplayerState(Game* g, double w, double h, bool c) : GameState(w, h), isClient(c) // Constructora
 {
 	game = g;
@@ -14,6 +15,12 @@ const std::string MultiplayerState::s_playID = "MULTIPLAY";//ID del estado
 
 void MultiplayerState::update()
 {
+	if (!isClient) {
+		// Espera una conexión entrante
+		client = SDLNet_TCP_Accept(server);
+		if (!client) return;
+		else cout << "cliente conectado" << endl;
+	}
 #ifdef COMPS
 
 	manager_->update(); //Llamada al manager
@@ -44,7 +51,10 @@ void MultiplayerState::render()
 
 bool MultiplayerState::onEnter()
 {
-
+	if (SDLNet_Init() < 0) { 
+		game->exitGame();
+		cout << "Conection error" << endl;
+	}
 	/*if (SDLNet_Init() < 0) {
 		game->exitGame();
 		cout << "Conection error" << endl;
@@ -69,65 +79,19 @@ bool MultiplayerState::onEnter()
 
 	if (!isClient) {
 		//Si es el servidor
-		
-		
+
+		// Crea una dirección IP
+		SDLNet_ResolveHost(&ip, NULL, port);
+		// Crea un socket para escuchar las conexiones entrantes
+		server = SDLNet_TCP_Open(&ip);
 	}
 	else {
 		//Cliente
-		
+		SDLNet_ResolveHost(&ip, "localhost", port);
+
+		// Crea un socket para conectarse al servidor
+		client = SDLNet_TCP_Open(&ip);
 	}
-	///* Main loop */
-	//quit = 0;
-	//while (!quit) { /* Wait a packet. UDP_Recv returns != 0 if a packet is coming */
-	//	if (SDLNet_UDP_Recv(sd, p)) {
-	//		printf("UDP Packet incoming\n");
-	//		printf("\tChan: %d\n", p->channel);
-	//		printf("\tData: %s\n", (char*)p->data);
-	//		printf("\tLen: %d\n", p->len);
-	//		printf("\tMaxlen: %d\n", p->maxlen);
-	//		printf("\tStatus: %d\n", p->status);
-	//		printf("\tAddress: %x %x\n", p->address.host, p->address.port);
-
-	//		/* Quit if packet contains "quit" */
-	//		if (!strcmp((char*)p->data, "quit")) quit = 1;
-	//	}
-	//}
-
-	////CLIENTE
-
-	//UDPsocket sd; IPaddress srvadd; UDPpacket* p; int quit;
-
-	/////* Check for parameters */ if (argc < 3) { fprintf(stderr, "Usage: %s host port\n", argv[0]); exit(EXIT_FAILURE); }
-
-	///* Initialize SDL_net */
-	//if (SDLNet_Init() < 0) { fprintf(stderr, "SDLNet_Init: %s\n", SDLNet_GetError()); }
-
-	///* Open a socket on random port */
-	//if (!(sd = SDLNet_UDP_Open(0))) { fprintf(stderr, "SDLNet_UDP_Open: %s\n", SDLNet_GetError()); }
-
-	///* Resolve server name */
-	////if (SDLNet_ResolveHost(&srvadd, argv[1], atoi(argv[2]))) { fprintf(stderr, "SDLNet_ResolveHost(%s %d): %s\n", argv[1], atoi(argv[2]), SDLNet_GetError()); }
-
-	///* Allocate memory for the packet */
-	//if (!(p = SDLNet_AllocPacket(512))) { fprintf(stderr, "SDLNet_AllocPacket: %s\n", SDLNet_GetError()); }
-
-	///* Main loop */
-	//quit = 0;
-	//while (!quit) {
-	//	printf("Fill the buffer\n>");
-	//	scanf("%s", (char*)p->data);
-
-	//	p->address.host = srvadd.host; /* Set the destination host */
-	//	p->address.port = srvadd.port; /* And destination port */
-
-	//	p->len = strlen((char*)p->data) + 1;
-	//	SDLNet_UDP_Send(sd, -1, p); /* This sets the p->channel */
-
-	//	/* Quit if packet contains "quit" */
-	//	if (!strcmp((char*)p->data, "quit")) quit = 1;
-	//}
-	////SDLNet_FreePacket(p);
-	
 
 	manager_ = new Manager(game);
 
@@ -175,6 +139,11 @@ MultiplayerState::~MultiplayerState()
 	Music::haltMusic();
 	delete manager_;
 
+	// Cerrar sockets
+	SDLNet_TCP_Close(client);
+	SDLNet_TCP_Close(server);
+
+	// Cierra SDL_net
 	SDLNet_Quit();
 }
 

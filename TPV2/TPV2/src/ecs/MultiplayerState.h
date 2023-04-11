@@ -27,8 +27,10 @@ private:
 	bool exit = false, gameOver = false, win = false, renderTime = false, startGame = false, isClient;
 	static const string s_playID;
 	Manager* manager_;
-
-
+	IPaddress ip;
+	int port = 5555;
+	TCPsocket server;
+	TCPsocket client;
 
 	BulletsSystem* bulletSys_;
 	CollisionsSystem* collisionSys_;
