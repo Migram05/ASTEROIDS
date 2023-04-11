@@ -29,8 +29,9 @@ private:
 	Manager* manager_;
 	IPaddress ip;
 	int port = 5555;
-	TCPsocket server;
-	TCPsocket client;
+	TCPsocket master_socket;
+	TCPsocket client = NULL;
+	SDLNet_SocketSet socketSet = SDLNet_AllocSocketSet(2);
 
 	BulletsSystem* bulletSys_;
 	CollisionsSystem* collisionSys_;

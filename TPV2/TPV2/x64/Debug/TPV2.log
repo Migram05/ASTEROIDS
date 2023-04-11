@@ -1,2 +1,1 @@
-﻿C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Microsoft\VC\v160\Microsoft.CppBuild.targets(499,5): warning MSB8004: El directorio Output no termina con una barra diagonal final. Esta instancia de compilación agregará la barra diagonal porque es necesaria para que se pueda evaluar correctamente el directorio Output.
-  TPV2.vcxproj -> C:\Users\Maestro Miguel\Desktop\Practica1_TPV2\TPV2\bin\TPV2Debug.exe
+﻿

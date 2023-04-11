@@ -16,11 +16,35 @@ const std::string MultiplayerState::s_playID = "MULTIPLAY";//ID del estado
 void MultiplayerState::update()
 {
 	if (!isClient) {
-		// Espera una conexión entrante
-		client = SDLNet_TCP_Accept(server);
-		if (!client) return;
-		else cout << "cliente conectado" << endl;
+		if (SDLNet_CheckSockets(socketSet, 0) > 0) {
+			// Espera una conexión entrante
+			client = SDLNet_TCP_Accept(master_socket);
+			if (client) {
+				cout << "cliente conectado" << endl;
+				SDLNet_TCP_AddSocket(socketSet, client);
+			}
+		}
 	}
+	else {
+		// Mensaje a enviar al servidor
+		const char* message = "Hola, servidor!";
+		int result = SDLNet_TCP_Send(client, message, strlen(message) + 1);
+		if (result < strlen(message) + 1) {
+			std::cerr << "Error al enviar el mensaje al servidor: " << SDLNet_GetError() << std::endl;
+		}
+	}
+	if (client != NULL && SDLNet_CheckSockets(socketSet, 0) > 0) {
+		// Buffer para almacenar los datos recibidos
+		const int BUFFER_SIZE = 1024;
+		char buffer[BUFFER_SIZE];
+		memset(buffer, 0, BUFFER_SIZE);
+		int result = SDLNet_TCP_Recv(client, buffer, BUFFER_SIZE);
+		if (result > 0) {
+			cout << buffer << endl;
+		}
+		else cout << "error al recibir mensaje" << endl;
+	}
+
 #ifdef COMPS
 
 	manager_->update(); //Llamada al manager
@@ -81,16 +105,29 @@ bool MultiplayerState::onEnter()
 		//Si es el servidor
 
 		// Crea una dirección IP
-		SDLNet_ResolveHost(&ip, NULL, port);
+		if (SDLNet_ResolveHost(&ip, NULL, port) < 0) {
+			throw("Error resolviendo host servidor");
+		}
 		// Crea un socket para escuchar las conexiones entrantes
-		server = SDLNet_TCP_Open(&ip);
+		master_socket = SDLNet_TCP_Open(&ip);
+		if (!master_socket) {
+			throw("Error creando el socket maestro");
+		}
+		
+		SDLNet_TCP_AddSocket(socketSet, master_socket);
 	}
 	else {
 		//Cliente
-		SDLNet_ResolveHost(&ip, "localhost", port);
+		if (SDLNet_ResolveHost(&ip, "localhost", port) < 0) {
+			throw("Error descifrando IP en el cliente");
+		}
 
 		// Crea un socket para conectarse al servidor
 		client = SDLNet_TCP_Open(&ip);
+		if (!client) {
+			throw("Error conectandose al servidor");
+		}
+		SDLNet_TCP_AddSocket(socketSet, client);
 	}
 
 	manager_ = new Manager(game);
@@ -140,9 +177,11 @@ MultiplayerState::~MultiplayerState()
 	delete manager_;
 
 	// Cerrar sockets
-	SDLNet_TCP_Close(client);
-	SDLNet_TCP_Close(server);
-
+	if(client) SDLNet_TCP_Close(client);
+	if (!isClient) {
+		SDLNet_TCP_Close(master_socket);
+		SDLNet_FreeSocketSet(socketSet);
+	}
 	// Cierra SDL_net
 	SDLNet_Quit();
 }
