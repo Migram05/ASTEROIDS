@@ -87,25 +87,37 @@ public:
 		addComponent<Image>(aux,game->getTexture(Fire));
 		addComponent<DisableOnExit>(aux, game->WIN_WIDTH, game->WIN_HEIGHT);
 	}
-	void createPlayer() //Se crea al jugador
+	void createPlayer(int n = 1) //Se crea al jugador
 	{
-		//EN este caso se guarda en una variable para poder referenciarla facilmente
-		player = addEntity(ecs::_grp_PLAYER);
-		addComponent<Transform>(player, game->WIN_WIDTH / 2 - 15, game->WIN_HEIGHT / 2 - 15, 30, 30);
-		addComponent<Image>(player, game->getTexture(Fighter1));
-		addComponent<FighterControl>(player);
-		addComponent<DeAcceleration>(player);
-		addComponent<ShowOpposite>(player, game->WIN_WIDTH, game->WIN_HEIGHT);
-		addComponent<Health>(player, game->getTexture(Heart), game->WIN_WIDTH, game->WIN_HEIGHT, 5);
-		addComponent<Gun>(player, 10);
+		for (int x = 0; x < n; ++x) {
+			//En este caso se guarda en una variable para poder referenciarla facilmente
+			Entity* player = addEntity(ecs::_grp_PLAYER);
+			//Escoge una posición según el número de jugadores
+			switch (x)
+			{
+			case 0: addComponent<Transform>(player, game->WIN_WIDTH / 2 - 15, game->WIN_HEIGHT *0.9, 30, 30); break;
+			case 1: addComponent<Transform>(player, game->WIN_WIDTH / 2 - 15, game->WIN_HEIGHT *0.1, 30, 30); break;
+			case 2: addComponent<Transform>(player, game->WIN_WIDTH *0.1, game->WIN_HEIGHT / 2 - 15, 30, 30); break;
+			case 3: addComponent<Transform>(player, game->WIN_WIDTH *0.9, game->WIN_HEIGHT / 2 - 15, 30, 30); break;
+			default: addComponent<Transform>(player, game->WIN_WIDTH + x, game->WIN_HEIGHT + x, 30, 30); break; //A partir de 4 jugadores las posiciones son según su índice
+			}
+			
+			addComponent<Image>(player, game->getTexture(Fighter1));
+			addComponent<FighterControl>(player);
+			addComponent<DeAcceleration>(player);
+			addComponent<ShowOpposite>(player, game->WIN_WIDTH, game->WIN_HEIGHT);
+			addComponent<Health>(player, game->getTexture(Heart), game->WIN_WIDTH, game->WIN_HEIGHT, 5);
+			addComponent<Gun>(player, 10);
+			players.push_back(player);
+		}
 	}
-	inline Entity* getPlayer() { return player; }
+	inline Entity* getPlayer(int x = 0) { return players[x];}
 	Texture* getTexture(int t) { return game->getTexture(t); }
 	const int getWidth() { return game->WIN_WIDTH; }
 	const int getHeight() { return game->WIN_HEIGHT; }
 
 	//Devuelve el estado del jugador
-	bool isPlayerAlive() { return getComponent<Health>(player)->getLives() > 0; }
+	bool isPlayerAlive(int n = 0) { return getComponent<Health>(players[n])->getLives() > 0; }
 
 	//Devuelve las entidades de un grupo
 	const vector<Entity*>& getEntitiesByGroup(grpId_type gId = ecs::_grp_GENERAL) { return entsByGroup_[gId]; }
@@ -219,8 +231,12 @@ public:
 		aux_msgs_.clear(); //Se borra la lista auxiliar
 	}
 	inline Game* getGame() { return game; }
+	inline void setPlayerIndex(int i) { playerIndex = i; }
+	inline int getPlayerIndex() { return playerIndex; }
 private:
-	Entity* player;
+	//Vector que almacena a los jugadores
+	std::vector<Entity*> players ;
+	int playerIndex = 0;
 	Game* game;
 	
 	//Entidades

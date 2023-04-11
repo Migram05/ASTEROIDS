@@ -1,29 +1,31 @@
-#include "FighterSystem.h"
+#include "FighterSystemOnline.h"
 #include "../ecs/Manager.h"
-void FighterSystem::receive(const Message& m)
+void FighterSystemOnline::receive(const Message& m)
 {
 	switch (m.id)
 	{
 	case _m_PLAYERLOST: onCollision_FighterAsteroid(); break; //Ambos eventos colocan al caza en el centro de la pantalla
 	case _m_PLAYERWINS: onCollision_FighterAsteroid(); break;
+	case _m_CHANGEINDEX: p = mngr_->getPlayer(mngr_->getPlayerIndex()); break;
 	default: break;
 	}
 }
 
-void FighterSystem::initSystem() //Al crear el sistema, se crea el jugador
+void FighterSystemOnline::initSystem() //Al crear el sistema, se crea el jugador
 {
 
-	mngr_->createPlayer();
-	p = mngr_->getPlayer();
+	mngr_->createPlayer(2);
+	p = mngr_->getPlayer(mngr_->getPlayerIndex());
 }
 
-void FighterSystem::update() //Afctualiza la posición del jugador
+void FighterSystemOnline::update() //Afctualiza la posición del jugador
 {
 	updatePosition();
 	speedReduction();
 	screenPositionCheck();
 }
-void FighterSystem::updatePosition() //Mueve al caza
+
+void FighterSystemOnline::updatePosition() //Mueve al caza
 {
 	auto tr_ = mngr_->getComponent<Transform>(p);
 	auto gun_ = mngr_->getComponent<Gun>(p);
@@ -67,7 +69,7 @@ void FighterSystem::updatePosition() //Mueve al caza
 	position_ = position_ + v; //Actualiza la posición
 }
 
-void FighterSystem::speedReduction() //Reduce la velocidad del caza
+void FighterSystemOnline::speedReduction() //Reduce la velocidad del caza
 {
 	auto tr_ = mngr_->getComponent<Transform>(p);
 	Vector2D& v = tr_->getVel(); //Obtiene velocidad
@@ -81,7 +83,7 @@ void FighterSystem::speedReduction() //Reduce la velocidad del caza
 	else v = { 0,0 }; //En caso de ser menor al margen, se detiene la nave
 }
 
-void FighterSystem::screenPositionCheck() //Movimiento toroidal
+void FighterSystemOnline::screenPositionCheck() //Movimiento toroidal
 {
 	auto tr_ = mngr_->getComponent<Transform>(p);
 	auto& position_ = tr_->getPos();
@@ -92,7 +94,7 @@ void FighterSystem::screenPositionCheck() //Movimiento toroidal
 	if (position_.getY() + tr_->getH() < 0) position_ = Vector2D{ position_.getX() ,(float)mngr_->getHeight() };
 	else if (position_.getY() > mngr_->getHeight()) position_ = Vector2D{ position_.getX() , 0 };
 }
-void FighterSystem::onCollision_FighterAsteroid() //En caso de colisión con un asteroide
+void FighterSystemOnline::onCollision_FighterAsteroid() //En caso de colisión con un asteroide
 {
 	Entity* p = mngr_->getPlayer();
 	auto tr_ = mngr_->getComponent<Transform>(p);
@@ -100,5 +102,3 @@ void FighterSystem::onCollision_FighterAsteroid() //En caso de colisión con un a
 	pos = Vector2D(mngr_->getWidth() / 2, mngr_->getHeight() / 2); //Coloca al caza en el centro
 	vel = Vector2D(0, 0); //Velocidad nula
 }
-
-

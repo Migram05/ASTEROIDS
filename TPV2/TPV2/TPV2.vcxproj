@@ -64,6 +64,7 @@
     <ClInclude Include="src\systems\BulletsSystem.h" />
     <ClInclude Include="src\systems\CollisionsSystem.h" />
     <ClInclude Include="src\systems\FighterSystem.h" />
+    <ClInclude Include="src\systems\FighterSystemOnline.h" />
     <ClInclude Include="src\systems\GameCtrlSystem.h" />
     <ClInclude Include="src\systems\MenuControlSystem.h" />
     <ClInclude Include="src\systems\RenderSystem.h" />
@@ -109,6 +110,7 @@
     <ClCompile Include="src\systems\BulletsSystem.cpp" />
     <ClCompile Include="src\systems\CollisionsSystem.cpp" />
     <ClCompile Include="src\systems\FighterSystem.cpp" />
+    <ClCompile Include="src\systems\FighterSystemOnline.cpp" />
     <ClCompile Include="src\systems\GameCtrlSystem.cpp" />
     <ClCompile Include="src\systems\MenuControlSystem.cpp" />
     <ClCompile Include="src\systems\RenderSystem.cpp" />

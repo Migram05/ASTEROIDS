@@ -2,7 +2,7 @@
 #include "Manager.h"
 #include "../systems/BulletsSystem.h"
 #include "../systems/CollisionsSystem.h"
-#include "../systems/FighterSystem.h"
+#include "../systems/FighterSystemOnline.h"
 #include "../systems/GameCtrlSystem.h"
 #include "../systems/RenderSystem.h"
 
@@ -20,18 +20,23 @@ void MultiplayerState::update()
 			// Espera una conexión entrante
 			client = SDLNet_TCP_Accept(master_socket);
 			if (client) {
+				playerIndex++;
 				cout << "cliente conectado" << endl;
 				SDLNet_TCP_AddSocket(socketSet, client);
+
+				// Mensaje a enviar al servidor
+				string str = "IndxSet" + to_string(playerIndex);
+				cout << str << endl;
+				const char* message = str.c_str();
+				int result = SDLNet_TCP_Send(client, message, strlen(message) + 1);
+				if (result < strlen(message) + 1) {
+					std::cerr << "Error al enviar el mensaje al cliente: " << SDLNet_GetError() << std::endl;
+				}
 			}
 		}
 	}
 	else {
-		// Mensaje a enviar al servidor
-		const char* message = "Hola, servidor!";
-		int result = SDLNet_TCP_Send(client, message, strlen(message) + 1);
-		if (result < strlen(message) + 1) {
-			std::cerr << "Error al enviar el mensaje al servidor: " << SDLNet_GetError() << std::endl;
-		}
+		
 	}
 	if (client != NULL && SDLNet_CheckSockets(socketSet, 0) > 0) {
 		// Buffer para almacenar los datos recibidos
@@ -40,7 +45,7 @@ void MultiplayerState::update()
 		memset(buffer, 0, BUFFER_SIZE);
 		int result = SDLNet_TCP_Recv(client, buffer, BUFFER_SIZE);
 		if (result > 0) {
-			cout << buffer << endl;
+			onRecieveMessage(buffer);
 		}
 		else cout << "error al recibir mensaje" << endl;
 	}
@@ -48,7 +53,6 @@ void MultiplayerState::update()
 #ifdef COMPS
 
 	manager_->update(); //Llamada al manager
-	asteroidsManager_->addAsteroidFrequency(); //Se chequea el tiempo para generar o no un asteroide
 	checkCollisions(); //Colisiones
 #endif // COMPS
 #ifndef COMPS
@@ -61,6 +65,25 @@ void MultiplayerState::update()
 	manager_->flushMessages();
 	//El refresh es un método propio de Game State
 #endif // !COMPS
+}
+
+void MultiplayerState::onRecieveMessage(char* m)
+{
+	cout << m << endl;
+	cout << sizeof(m) << endl;
+	if (strncmp(m, "IndxSet", 7) == 0) {
+		// Los contenidos de las cadenas son iguales
+		cout << "cambio de index" << endl;
+		cout << m[7] - 48 << endl;
+		manager_->setPlayerIndex(m[7]-48);
+		Message m; m.id = _m_CHANGEINDEX;
+		manager_->send(m, true);
+	}
+	else {
+		// Los contenidos de las cadenas son diferentes
+		cout << "mensaje raro" << endl;
+	}
+
 }
 
 void MultiplayerState::render()
@@ -79,27 +102,6 @@ bool MultiplayerState::onEnter()
 		game->exitGame();
 		cout << "Conection error" << endl;
 	}
-	/*if (SDLNet_Init() < 0) {
-		game->exitGame();
-		cout << "Conection error" << endl;
-	}
-	IPaddress ip; //Struct con la ip y el puerto
-	Uint16 port = 0; char* host = nullptr;
-	if (SDLNet_ResolveHost(&ip, host, port) < 0) { //Le asigna los valores de "host" y "port" a la ip del destinatario
-		cout << "Host/Port error" << endl;
-	}
-	UDPsocket sock = SDLNet_UDP_Open(port);
-	if (!sock) {
-		cout << "Error de socket" << endl;
-	}
-	UDPpacket* p = SDLNet_AllocPacket(512); // hasta 512
-	if (!p) { cout << "Error de paquete" << endl; }
-	p->address = ip;
-	Uint8* lol = new Uint8 (10);
-	p->data = lol;
-	if (SDLNet_UDP_Send(sock, -1, p) <= 0) {
-		cout << "Error al enviar el datapack" << endl;
-	}*/
 
 	if (!isClient) {
 		//Si es el servidor
@@ -131,10 +133,9 @@ bool MultiplayerState::onEnter()
 	}
 
 	manager_ = new Manager(game);
-
 #ifdef COMPS
 	cout << "Using components" << endl;
-	manager_->createPlayer();
+	manager_->createPlayer(2);
 #endif // COMPS
 
 #ifndef COMPS
@@ -145,7 +146,7 @@ bool MultiplayerState::onEnter()
 
 	collisionSys_ = manager_->addSystem<CollisionsSystem>();
 
-	fighterSys_ = manager_->addSystem<FighterSystem>();
+	fighterSys_ = manager_->addSystem<FighterSystemOnline>();
 
 	renderSys_ = manager_->addSystem<RenderSystem>();
 #endif // !COMPS
@@ -170,6 +171,8 @@ void MultiplayerState::checkCollisions()
 {
 	//TO DO
 }
+
+
 
 MultiplayerState::~MultiplayerState()
 {

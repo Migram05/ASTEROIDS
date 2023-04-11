@@ -5,7 +5,7 @@
 
 class BulletsSystem;
 class CollisionsSystem;
-class FighterSystem;
+class FighterSystemOnline;
 class GameCtrlSystem;
 class RenderSystem;
 class Manager;
@@ -23,19 +23,20 @@ public:
 	virtual std::string getStateID() const { return s_playID; }
 private:
 	void checkCollisions();
-
+	void onRecieveMessage(char* m);
 	bool exit = false, gameOver = false, win = false, renderTime = false, startGame = false, isClient;
 	static const string s_playID;
 	Manager* manager_;
 	IPaddress ip;
 	int port = 5555;
+	int playerIndex = 0;
 	TCPsocket master_socket;
 	TCPsocket client = NULL;
 	SDLNet_SocketSet socketSet = SDLNet_AllocSocketSet(2);
 
 	BulletsSystem* bulletSys_;
 	CollisionsSystem* collisionSys_;
-	FighterSystem* fighterSys_;
+	FighterSystemOnline* fighterSys_;
 	GameCtrlSystem* gameCtrlSys_;
 	RenderSystem* renderSys_;
 };
