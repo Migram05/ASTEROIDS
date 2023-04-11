@@ -92,7 +92,15 @@ void Game::playSingleplayer()
 
 void Game::playMultiplayer()
 {
-	gameStateMachine->changeState(new MultiplayerState(this, WIN_WIDTH, WIN_HEIGHT));
+	bool cont = false;
+	char c = ' ';
+	cout << "Jugar como host o cliente? h/c" << endl;
+	while (!cont) {
+		cin >> c;
+		if (c == 'h' || c == 'c') cont = true;
+	}
+	cont = (c == 'c'); //Determina si es cliente o host
+	gameStateMachine->changeState(new MultiplayerState(this, WIN_WIDTH, WIN_HEIGHT, cont));
 }
 
 Game::~Game() { //Destructora de la memoria dinámica creada

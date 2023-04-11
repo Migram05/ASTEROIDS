@@ -13,7 +13,7 @@ using namespace std;
 class MultiplayerState : public GameState
 {
 public:
-	MultiplayerState(Game* g, double w, double h);
+	MultiplayerState(Game* g, double w, double h, bool c);
 	~MultiplayerState();
 	virtual void update();
 	virtual void render();
@@ -24,9 +24,11 @@ public:
 private:
 	void checkCollisions();
 
-	bool exit = false, gameOver = false, win = false, renderTime = false, startGame = false;
+	bool exit = false, gameOver = false, win = false, renderTime = false, startGame = false, isClient;
 	static const string s_playID;
 	Manager* manager_;
+
+
 
 	BulletsSystem* bulletSys_;
 	CollisionsSystem* collisionSys_;
