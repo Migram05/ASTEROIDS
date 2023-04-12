@@ -124,14 +124,20 @@ void FighterSystemOnline::speedReduction() //Reduce la velocidad del caza
 
 void FighterSystemOnline::screenPositionCheck() //Movimiento toroidal
 {
-	auto tr_ = mngr_->getComponent<Transform>(p);
-	auto& position_ = tr_->getPos();
-	//Movimiento toroidal
-	if (position_.getX() + tr_->getW() < 0) position_ = Vector2D{ (float)mngr_->getWidth() , position_.getY() };
-	else if (position_.getX() > mngr_->getWidth()) position_ = Vector2D{ 0 , position_.getY() };
+	//Comprueba que ningún caza se sale de la pantalla
+	for (int x = 0; x < nPlayers; ++x) {
+		auto mP = mngr_->getPlayer(x);
 
-	if (position_.getY() + tr_->getH() < 0) position_ = Vector2D{ position_.getX() ,(float)mngr_->getHeight() };
-	else if (position_.getY() > mngr_->getHeight()) position_ = Vector2D{ position_.getX() , 0 };
+		auto tr_ = mngr_->getComponent<Transform>(mP);
+		auto& position_ = tr_->getPos();
+		//Movimiento toroidal
+		if (position_.getX() + tr_->getW() < 0) position_ = Vector2D{ (float)mngr_->getWidth() , position_.getY() };
+		else if (position_.getX() > mngr_->getWidth()) position_ = Vector2D{ 0 , position_.getY() };
+
+		if (position_.getY() + tr_->getH() < 0) position_ = Vector2D{ position_.getX() ,(float)mngr_->getHeight() };
+		else if (position_.getY() > mngr_->getHeight()) position_ = Vector2D{ position_.getX() , 0 };
+	}
+	
 }
 void FighterSystemOnline::onCollision_FighterAsteroid() //En caso de colisión con un asteroide
 {

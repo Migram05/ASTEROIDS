@@ -15,37 +15,56 @@ const std::string MultiplayerState::s_playID = "MULTIPLAY";//ID del estado
 
 void MultiplayerState::update()
 {
-	if (!isClient) {
+	if (!isClient) { //Comprueba si hay mensajes
 		if (SDLNet_CheckSockets(socketSet, 0) > 0) {
-			// Espera una conexión entrante
-			client = SDLNet_TCP_Accept(master_socket);
-			if (client) {
-				playerIndex++;
-				cout << "cliente conectado" << endl;
-				SDLNet_TCP_AddSocket(socketSet, client);
+			if (SDLNet_SocketReady(master_socket)) {
+				// Espera una conexión entrante
+				client = SDLNet_TCP_Accept(master_socket);
+				if (client) {
+					playerIndex++;
+					cout << "cliente conectado" << endl;
+					SDLNet_TCP_AddSocket(socketSet, client);
 
-				// Mensaje a enviar al servidor
-				string str = "IndxSet" + to_string(playerIndex);
-				const char* message = str.c_str();
-				int result = SDLNet_TCP_Send(client, message, strlen(message) + 1);
-				if (result < strlen(message) + 1) {
-					std::cerr << "Error al enviar el mensaje al cliente: " << SDLNet_GetError() << std::endl;
+					// Mensaje a enviar al servidor
+					string str = "IndxSet" + to_string(playerIndex);
+					const char* message = str.c_str();
+					int result = SDLNet_TCP_Send(client, message, strlen(message) + 1);
+					if (result < strlen(message) + 1) {
+						std::cerr << "Error al enviar el mensaje al cliente: " << SDLNet_GetError() << std::endl;
+					}
 				}
 			}
+			if (client && SDLNet_SocketReady(client)) {
+				// Buffer para almacenar los datos recibidos
+				const int BUFFER_SIZE = 1024;
+				char buffer[BUFFER_SIZE];
+				memset(buffer, 0, BUFFER_SIZE);
+				int result = SDLNet_TCP_Recv(client, buffer, BUFFER_SIZE);
+				if (result > 0) {
+					onRecieveMessage(buffer);
+				}
+				else cout << "error al recibir mensaje" << endl;
+			}
+			
 		}
 	}
+	else {
+		if (client != NULL && SDLNet_CheckSockets(socketSet, 0) > 0) {
+			if (SDLNet_SocketReady(client)) {
+				// Buffer para almacenar los datos recibidos
+				const int BUFFER_SIZE = 1024;
+				char buffer[BUFFER_SIZE];
+				memset(buffer, 0, BUFFER_SIZE);
+				int result = SDLNet_TCP_Recv(client, buffer, BUFFER_SIZE);
+				if (result > 0) {
+					onRecieveMessage(buffer);
+				}
+				else cout << "error al recibir mensaje" << endl;
+			}
 
-	if (client != NULL && SDLNet_CheckSockets(socketSet, 0) > 0) {
-		// Buffer para almacenar los datos recibidos
-		const int BUFFER_SIZE = 1024;
-		char buffer[BUFFER_SIZE];
-		memset(buffer, 0, BUFFER_SIZE);
-		int result = SDLNet_TCP_Recv(client, buffer, BUFFER_SIZE);
-		if (result > 0) {
-			onRecieveMessage(buffer);
 		}
-		else cout << "error al recibir mensaje" << endl;
 	}
+	cout << (client != NULL) << endl;
 
 #ifdef COMPS
 
