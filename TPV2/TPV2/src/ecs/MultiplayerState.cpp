@@ -11,7 +11,7 @@ MultiplayerState::MultiplayerState(Game* g, double w, double h, bool c) : GameSt
 {
 	game = g;
 }
-const std::string MultiplayerState::s_playID = "MULTIPLAY";//ID del estado
+const std::string MultiplayerState::s_playID = "MULTIPLAYER";//ID del estado
 
 void MultiplayerState::update()
 {
@@ -66,7 +66,6 @@ void MultiplayerState::update()
 	}
 
 #ifdef COMPS
-
 	manager_->update(); //Llamada al manager
 	checkCollisions(); //Colisiones
 #endif // COMPS
@@ -183,9 +182,9 @@ bool MultiplayerState::onEnter()
 
 	bulletSys_ = manager_->addSystem<BulletsSystem>();
 
-	collisionSys_ = manager_->addSystem<CollisionsSystem>();
-
 	fighterSys_ = manager_->addSystem<FighterSystemOnline>();
+
+	collisionSys_ = manager_->addSystem<CollisionsSystem>();
 
 	renderSys_ = manager_->addSystem<RenderSystem>();
 #endif // !COMPS

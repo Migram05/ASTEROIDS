@@ -19,7 +19,6 @@ void FighterSystemOnline::initSystem() //Al crear el sistema, se crea el jugador
 	mngr_->createPlayer(2);
 	p = mngr_->getPlayer(mngr_->getPlayerIndex());
 	currentState = static_cast<MultiplayerState*>(mngr_->getGame()->getState());
-	
 }
 
 void FighterSystemOnline::update() //Afctualiza la posición del jugador
@@ -100,7 +99,8 @@ void FighterSystemOnline::updatePosition() //Mueve al caza
 				if (sdl.currRealTime() - gun_->getLastShotTime() >= gun_->getShootRate()) { //Se comprueba la cadencia
 					sdl.soundEffects().at("shot").play(); //Efecto de sonido
 					gun_->setLastShoot(SDL_GetTicks());
-					msg.id = _m_SHOOT; msg.shot_data.pos_ = position_; msg.shot_data.dir_ = Vector2D{ forwardVector.getX() * gun_->getSpeed(), forwardVector.getY() * -gun_->getSpeed() }; msg.shot_data.r_ = fRotation;
+					Vector2D dir = Vector2D{ forwardVector.getX() * gun_->getSpeed(), forwardVector.getY() * -gun_->getSpeed() };
+					msg.id = _m_SHOOT; msg.shot_data.pos_ = (position_ + (dir * 3)); msg.shot_data.dir_ = dir; msg.shot_data.r_ = fRotation;
 					mngr_->send(msg);
 					currentState->sendMessage("Shoot" + to_string(mngr_->getPlayerIndex()));
 				} break;

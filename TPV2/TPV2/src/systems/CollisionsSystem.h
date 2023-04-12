@@ -11,5 +11,7 @@ public:
 		// en la práctica 1 y enviar mensajes correspondientes.
 	void update() override;
 	constexpr static sysId_type id = ecs::_sys_COLLISION; //Identificador del tipo de sistema
+private:
+	bool isMultiplayer;
 };
 
