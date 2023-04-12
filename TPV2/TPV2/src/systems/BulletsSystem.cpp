@@ -7,6 +7,7 @@ void BulletsSystem::receive(const Message& m)
 	case _m_SHOOT: shoot(m.shot_data.pos_, m.shot_data.dir_, m.shot_data.r_); break; //Crea una bala
 	case _m_BULLETCOLLIDES: onCollision_BulletAsteroid(m.bulletCollision_data.b_); break; //Destruye la bala si colisiona
 	case (_m_PLAYERLOST || _m_PLAYERWINS): onRoundOver(); break; //Destuye las balas
+	case _m_SHIPSHOOT: spawnShotAtPlayer(m.shipShoot_data.indx); break;
 	default: break;
 	}
 }
@@ -40,5 +41,17 @@ void BulletsSystem::onCollision_BulletAsteroid(Entity* b) //Al colisionar desact
 void BulletsSystem::onRoundOver() //Desactiva todas las balas al final de la partida
 {
 	for (auto e : mngr_->getEntitiesByGroup(ecs::_grp_BULLETS)) mngr_->setAlive(e, false);
+}
+
+void BulletsSystem::spawnShotAtPlayer(int index) //Crea un disparo en el jugador que lo solicita
+{
+	auto shootP = mngr_->getPlayer(index);
+	auto tr_ = mngr_->getComponent<Transform>(shootP);
+	auto gun_ = mngr_->getComponent<Gun>(shootP);
+	auto& position_ = tr_->getPos();
+	float& fRotation = tr_->getRotation(); //Rotacion del caza
+	Vector2D& forwardVector = tr_->getForward(); //Vector forward actual
+	Vector2D dir = Vector2D{ forwardVector.getX() * gun_->getSpeed(), forwardVector.getY() * -gun_->getSpeed() }; 
+	mngr_->spawnShot(position_, dir, fRotation);
 }
 

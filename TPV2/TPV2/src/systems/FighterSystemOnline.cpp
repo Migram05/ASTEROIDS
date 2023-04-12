@@ -9,6 +9,7 @@ void FighterSystemOnline::receive(const Message& m)
 	case _m_PLAYERWINS: onCollision_FighterAsteroid(); break;
 	case _m_CHANGEINDEX: p = mngr_->getPlayer(mngr_->getPlayerIndex()); break;
 	case _m_MOVESHIP: movePlayer(m.moveShip_data.indx); break;
+	case _m_ROTATESHIP: rotatePlayer(m.rotateShip_data.indx, m.rotateShip_data.proportion); break;
 	default: break;
 	}
 }
@@ -29,9 +30,9 @@ void FighterSystemOnline::update() //Afctualiza la posición del jugador
 	moveAllPlayers();
 }
 
-void FighterSystemOnline::movePlayer(int index)
+void FighterSystemOnline::movePlayer(int index) //Mueve a un jugador remoto
 {
-	auto pMove = mngr_->getPlayer(index);
+	auto pMove = mngr_->getPlayer(index); //Con el index recibido en el mensaje, se obtiene el jugador correspondiente
 	auto& sdl = *SDLUtils::instance();
 
 	auto tr_ = mngr_->getComponent<Transform>(pMove);
@@ -49,7 +50,16 @@ void FighterSystemOnline::movePlayer(int index)
 	
 }
 
-void FighterSystemOnline::moveAllPlayers()
+void FighterSystemOnline::rotatePlayer(int index, int proportion) //Rota a un jugador remoto
+{
+	auto pRotate = mngr_->getPlayer(index); //Se obtiene el jugador que corresponde al index
+	auto tr_ = mngr_->getComponent<Transform>(pRotate);
+	float& fRotation = tr_->getRotation(); //Rotacion del caza
+	fRotation += (rotationSpeed * proportion); 
+	if (fRotation < -360 ||fRotation > 360) fRotation = 0;
+}
+
+void FighterSystemOnline::moveAllPlayers() //Ahora el movimiento de todas las naves lo gestiona este método
 {
 	for (int x = 0; x < nPlayers; ++x) {
 		auto mP = mngr_->getPlayer(x);
@@ -59,6 +69,7 @@ void FighterSystemOnline::moveAllPlayers()
 		position_ = position_ + v; //Actualiza la posición
 	}
 }
+
 
 void FighterSystemOnline::updatePosition() //Mueve al caza
 {
@@ -82,8 +93,8 @@ void FighterSystemOnline::updatePosition() //Mueve al caza
 			case SDLK_w: {lastForward = forwardVector; v = Vector2D{ lastForward.getX() * speed, lastForward.getY() * -speed }; sdl.soundEffects().at("thrust").play(); 
 				currentState->sendMessage("Move" + to_string(mngr_->getPlayerIndex()));
 				break; } //Avanza
-			case SDLK_a: fRotation -= rotationSpeed; if (fRotation < -360) fRotation = 0; break; //Rotación
-			case SDLK_d: fRotation += rotationSpeed; if (fRotation > 360) fRotation = 0; break;
+			case SDLK_a: fRotation -= rotationSpeed; if (fRotation < -360) fRotation = 0; currentState->sendMessage("RotateI" + to_string(mngr_->getPlayerIndex())); break; //Rotación
+			case SDLK_d: fRotation += rotationSpeed; if (fRotation > 360) fRotation = 0; currentState->sendMessage("RotateD" + to_string(mngr_->getPlayerIndex())); break;
 			case SDLK_s: { //Dispara las armas
 				auto& sdl = *SDLUtils::instance();
 				if (sdl.currRealTime() - gun_->getLastShotTime() >= gun_->getShootRate()) { //Se comprueba la cadencia
@@ -91,13 +102,11 @@ void FighterSystemOnline::updatePosition() //Mueve al caza
 					gun_->setLastShoot(SDL_GetTicks());
 					msg.id = _m_SHOOT; msg.shot_data.pos_ = position_; msg.shot_data.dir_ = Vector2D{ forwardVector.getX() * gun_->getSpeed(), forwardVector.getY() * -gun_->getSpeed() }; msg.shot_data.r_ = fRotation;
 					mngr_->send(msg);
+					currentState->sendMessage("Shoot" + to_string(mngr_->getPlayerIndex()));
 				} break;
 			}
 			case SDLK_ESCAPE: { //mensaje de salida
 				msg.id = _m_EXIT;  mngr_->send(msg); break;
-			}
-			case SDLK_SPACE: { //Mensaje de pausa
-				msg.id = _m_PAUSEGAME; mngr_->send(msg); break;
 			}
 			default: break;
 			}

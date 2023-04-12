@@ -13,6 +13,8 @@ enum msgId : msgId_type { //Identificadores de los mensajes
 	_m_RESUME,
 	_m_CHANGEINDEX,
 	_m_MOVESHIP,
+	_m_ROTATESHIP,
+	_m_SHIPSHOOT,
 };
 struct Message { //Clase de los mensajes
 	msgId_type id;
@@ -36,5 +38,12 @@ struct Message { //Clase de los mensajes
 	struct {
 		int indx;
 	} moveShip_data;
+	struct {
+		int indx;
+		int proportion;
+	} rotateShip_data;
+	struct {
+		int indx;
+	} shipShoot_data;
 };
 

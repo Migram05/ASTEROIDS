@@ -64,7 +64,6 @@ void MultiplayerState::update()
 
 		}
 	}
-	cout << (client != NULL) << endl;
 
 #ifdef COMPS
 
@@ -91,7 +90,7 @@ void MultiplayerState::onRecieveMessage(char* m)
 		// Los contenidos de las cadenas son iguales
 		cout << "cambio de index" << endl;
 		cout << m[7] - 48 << endl;
-		manager_->setPlayerIndex(m[7]-48);
+		manager_->setPlayerIndex(m[7]-48); //Calculo para obtener el índice a partir de un char
 		Message msg; msg.id = _m_CHANGEINDEX;
 		manager_->send(msg, true);
 	}
@@ -100,7 +99,16 @@ void MultiplayerState::onRecieveMessage(char* m)
 		Message msg; msg.id = _m_MOVESHIP; msg.moveShip_data.indx = (m[4] - 48);
 		manager_->send(msg, true);
 	}
-
+	else if (strncmp(m, "Rotate", 6) == 0) {
+		Message msg; msg.id = _m_ROTATESHIP; msg.rotateShip_data.indx = (m[7] - 48);
+		if (m[6] == 'I') msg.rotateShip_data.proportion = -1;
+		else msg.rotateShip_data.proportion = 1;
+		manager_->send(msg, true);
+	}
+	else if (strncmp(m, "Shoot", 5) == 0) {
+		Message msg; msg.id = _m_SHIPSHOOT; msg.shipShoot_data.indx = (m[5] - 48);
+		manager_->send(msg, true);
+	}
 	else {
 		// Los contenidos de las cadenas son diferentes
 		cout << "mensaje desconocido" << endl;

@@ -16,8 +16,9 @@ public:
 	// mensaje con las características físicas de la bala. Recuerda que se puede disparar
 	// sólo una bala cada 0.25sec.
 	void update() override;
-	void movePlayer(int index);
+
 	void moveAllPlayers();
+
 	constexpr static sysId_type id = ecs::_sys_FIGHTER; //Identificador del tipo de sistema
 private:
 	// Para reaccionar al mensaje de que ha habido un choque entre el fighter y un
@@ -27,6 +28,9 @@ private:
 	void updatePosition();
 	void speedReduction();
 	void screenPositionCheck();
+
+	void movePlayer(int index);
+	void rotatePlayer(int index, int proportion);
 	//Variables del caza
 	float speed = 1.2, rotationSpeed = 5;
 	int nPlayers = 2;

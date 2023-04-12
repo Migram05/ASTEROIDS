@@ -22,6 +22,7 @@ private:
 	// Para gestionar el mensaje de que ha acabado la ronda. Desactivar todas las
 	// balas, y desactivar el sistema.
 	void onRoundOver();
+	void spawnShotAtPlayer(int index);
 };
 
 
