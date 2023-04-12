@@ -1,6 +1,7 @@
 #pragma once
 #pragma once
 #include "../ecs/System.h"
+class MultiplayerState;
 class FighterSystemOnline : public System
 {
 public:
@@ -15,7 +16,8 @@ public:
 	// mensaje con las características físicas de la bala. Recuerda que se puede disparar
 	// sólo una bala cada 0.25sec.
 	void update() override;
-	
+	void movePlayer(int index);
+	void moveAllPlayers();
 	constexpr static sysId_type id = ecs::_sys_FIGHTER; //Identificador del tipo de sistema
 private:
 	// Para reaccionar al mensaje de que ha habido un choque entre el fighter y un
@@ -27,5 +29,7 @@ private:
 	void screenPositionCheck();
 	//Variables del caza
 	float speed = 1.2, rotationSpeed = 5;
+	int nPlayers = 2;
 	Entity* p;
+	MultiplayerState* currentState;
 };

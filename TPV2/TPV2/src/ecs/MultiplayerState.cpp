@@ -26,7 +26,6 @@ void MultiplayerState::update()
 
 				// Mensaje a enviar al servidor
 				string str = "IndxSet" + to_string(playerIndex);
-				cout << str << endl;
 				const char* message = str.c_str();
 				int result = SDLNet_TCP_Send(client, message, strlen(message) + 1);
 				if (result < strlen(message) + 1) {
@@ -35,9 +34,7 @@ void MultiplayerState::update()
 			}
 		}
 	}
-	else {
-		
-	}
+
 	if (client != NULL && SDLNet_CheckSockets(socketSet, 0) > 0) {
 		// Buffer para almacenar los datos recibidos
 		const int BUFFER_SIZE = 1024;
@@ -76,14 +73,29 @@ void MultiplayerState::onRecieveMessage(char* m)
 		cout << "cambio de index" << endl;
 		cout << m[7] - 48 << endl;
 		manager_->setPlayerIndex(m[7]-48);
-		Message m; m.id = _m_CHANGEINDEX;
-		manager_->send(m, true);
+		Message msg; msg.id = _m_CHANGEINDEX;
+		manager_->send(msg, true);
 	}
-	else {
-		// Los contenidos de las cadenas son diferentes
-		cout << "mensaje raro" << endl;
+	else if (strncmp(m, "Move", 4) == 0) {
+		cout << "la nave se mueve" << endl;
+		Message msg; msg.id = _m_MOVESHIP; msg.moveShip_data.indx = (m[4] - 48);
+		manager_->send(msg, true);
 	}
 
+	else {
+		// Los contenidos de las cadenas son diferentes
+		cout << "mensaje desconocido" << endl;
+	}
+
+}
+//Envia mensajes al otro jugador
+void MultiplayerState::sendMessage(string m)
+{
+	const char* message = m.c_str();
+	int result = SDLNet_TCP_Send(client, message, strlen(message) + 1);
+	if (result < strlen(message) + 1) {
+		std::cerr << "Error al enviar el mensaje al cliente: " << SDLNet_GetError() << std::endl;
+	}
 }
 
 void MultiplayerState::render()
@@ -151,9 +163,9 @@ bool MultiplayerState::onEnter()
 	renderSys_ = manager_->addSystem<RenderSystem>();
 #endif // !COMPS
 	auto& sdl = *SDLUtils::instance();
-	Music::setMusicVolume(8); //Musica de fondo y volumen
+	Music::setMusicVolume(0); //Musica de fondo y volumen (8)
 	sdl.musics().at("theme").play();
-	SoundEffect::setChannelVolume(25);
+	SoundEffect::setChannelVolume(0); //(25)
 	return true;
 }
 

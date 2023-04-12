@@ -32,6 +32,7 @@ public:
 	void playerLoses();
 	void playSingleplayer();
 	void playMultiplayer();
+	inline GameState* getState() { return gameStateMachine->currentState(); }
 private:
 
 	SDL_Window* window;

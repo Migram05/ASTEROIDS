@@ -20,6 +20,7 @@ public:
 	virtual bool onEnter();
 	virtual void refresh();
 	void resetGame();
+	void sendMessage(string m);
 	virtual std::string getStateID() const { return s_playID; }
 private:
 	void checkCollisions();

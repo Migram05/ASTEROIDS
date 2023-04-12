@@ -20,7 +20,6 @@ c:\users\maestro miguel\desktop\practica1_tpv2\tpv2\tpv2\x64\debug\disableonexit
 c:\users\maestro miguel\desktop\practica1_tpv2\tpv2\tpv2\x64\debug\deacceleration.obj
 c:\users\maestro miguel\desktop\practica1_tpv2\tpv2\tpv2\x64\debug\component.obj
 c:\users\maestro miguel\desktop\practica1_tpv2\tpv2\tpv2\x64\debug\button.obj
-c:\users\maestro miguel\desktop\practica1_tpv2\tpv2\tpv2\x64\debug\collisions.obj
 c:\users\maestro miguel\desktop\practica1_tpv2\tpv2\tpv2\x64\debug\rendersystem.obj
 c:\users\maestro miguel\desktop\practica1_tpv2\tpv2\tpv2\x64\debug\menucontrolsystem.obj
 c:\users\maestro miguel\desktop\practica1_tpv2\tpv2\tpv2\x64\debug\gamectrlsystem.obj
@@ -41,6 +40,7 @@ c:\users\maestro miguel\desktop\practica1_tpv2\tpv2\tpv2\x64\debug\game.obj
 c:\users\maestro miguel\desktop\practica1_tpv2\tpv2\tpv2\x64\debug\asteroidsmanager.obj
 c:\users\maestro miguel\desktop\practica1_tpv2\tpv2\tpv2\x64\debug\system.obj
 c:\users\maestro miguel\desktop\practica1_tpv2\tpv2\tpv2\x64\debug\vector2d.obj
+c:\users\maestro miguel\desktop\practica1_tpv2\tpv2\tpv2\x64\debug\collisions.obj
 c:\users\maestro miguel\desktop\practica1_tpv2\tpv2\tpv2\x64\debug\fightersystemonline.obj
 c:\users\maestro miguel\desktop\practica1_tpv2\tpv2\bin\tpv2debug.exe
 c:\users\maestro miguel\desktop\practica1_tpv2\tpv2\tpv2\x64\debug\tpv2debug.ilk

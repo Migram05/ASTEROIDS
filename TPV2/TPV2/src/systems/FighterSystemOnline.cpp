@@ -1,5 +1,6 @@
 #include "FighterSystemOnline.h"
 #include "../ecs/Manager.h"
+#include "../ecs/MultiplayerState.h"
 void FighterSystemOnline::receive(const Message& m)
 {
 	switch (m.id)
@@ -7,15 +8,17 @@ void FighterSystemOnline::receive(const Message& m)
 	case _m_PLAYERLOST: onCollision_FighterAsteroid(); break; //Ambos eventos colocan al caza en el centro de la pantalla
 	case _m_PLAYERWINS: onCollision_FighterAsteroid(); break;
 	case _m_CHANGEINDEX: p = mngr_->getPlayer(mngr_->getPlayerIndex()); break;
+	case _m_MOVESHIP: movePlayer(m.moveShip_data.indx); break;
 	default: break;
 	}
 }
 
 void FighterSystemOnline::initSystem() //Al crear el sistema, se crea el jugador
 {
-
 	mngr_->createPlayer(2);
 	p = mngr_->getPlayer(mngr_->getPlayerIndex());
+	currentState = static_cast<MultiplayerState*>(mngr_->getGame()->getState());
+	
 }
 
 void FighterSystemOnline::update() //Afctualiza la posición del jugador
@@ -23,6 +26,38 @@ void FighterSystemOnline::update() //Afctualiza la posición del jugador
 	updatePosition();
 	speedReduction();
 	screenPositionCheck();
+	moveAllPlayers();
+}
+
+void FighterSystemOnline::movePlayer(int index)
+{
+	auto pMove = mngr_->getPlayer(index);
+	auto& sdl = *SDLUtils::instance();
+
+	auto tr_ = mngr_->getComponent<Transform>(pMove);
+	auto& position_ = tr_->getPos();
+	Vector2D& v = tr_->getVel(); //Obtiene velocidad
+	float& fRotation = tr_->getRotation(); //Rotacion del caza
+	Vector2D& forwardVector = tr_->getForward(); //Vector forward actual
+	Vector2D& lastForward = tr_->getLastForward(); //Ultimo vector forward
+	double rad = (fRotation) * (M_PI / 180);
+	float c = cos(rad), s = sin(rad);
+	forwardVector = Vector2D{ s, c }; //Se actualiza el vector forward según su rotación
+	lastForward = forwardVector; 
+	v = Vector2D{ lastForward.getX() * speed, lastForward.getY() * -speed }; 
+	sdl.soundEffects().at("thrust").play();
+	
+}
+
+void FighterSystemOnline::moveAllPlayers()
+{
+	for (int x = 0; x < nPlayers; ++x) {
+		auto mP = mngr_->getPlayer(x);
+		auto tr_ = mngr_->getComponent<Transform>(mP);
+		auto& position_ = tr_->getPos();
+		Vector2D& v = tr_->getVel(); //Obtiene velocidad
+		position_ = position_ + v; //Actualiza la posición
+	}
 }
 
 void FighterSystemOnline::updatePosition() //Mueve al caza
@@ -44,7 +79,9 @@ void FighterSystemOnline::updatePosition() //Mueve al caza
 		if (event.type == SDL_KEYDOWN) {
 			switch (event.key.keysym.sym)
 			{
-			case SDLK_w: {lastForward = forwardVector; v = Vector2D{ lastForward.getX() * speed, lastForward.getY() * -speed }; sdl.soundEffects().at("thrust").play(); break; } //Avanza
+			case SDLK_w: {lastForward = forwardVector; v = Vector2D{ lastForward.getX() * speed, lastForward.getY() * -speed }; sdl.soundEffects().at("thrust").play(); 
+				currentState->sendMessage("Move" + to_string(mngr_->getPlayerIndex()));
+				break; } //Avanza
 			case SDLK_a: fRotation -= rotationSpeed; if (fRotation < -360) fRotation = 0; break; //Rotación
 			case SDLK_d: fRotation += rotationSpeed; if (fRotation > 360) fRotation = 0; break;
 			case SDLK_s: { //Dispara las armas
@@ -66,21 +103,23 @@ void FighterSystemOnline::updatePosition() //Mueve al caza
 			}
 		}
 	}
-	position_ = position_ + v; //Actualiza la posición
 }
 
 void FighterSystemOnline::speedReduction() //Reduce la velocidad del caza
 {
-	auto tr_ = mngr_->getComponent<Transform>(p);
-	Vector2D& v = tr_->getVel(); //Obtiene velocidad
-	Vector2D& lastForward = tr_->getLastForward(); //Ultimo vector forward
-	//Reducción del caza
-	auto dAcceel_ = mngr_->getComponent<DeAcceleration>(p);
-	auto stopMargin = dAcceel_->getStopMargin();
-	auto reduction = dAcceel_->getReduction();
-	if (abs(v.getX()) > stopMargin || abs(v.getY()) > stopMargin) //En caso de que la velocidad sea superior al margen se reduce
-		v = v + Vector2D{ lastForward.getX() * -reduction, lastForward.getY() * reduction };
-	else v = { 0,0 }; //En caso de ser menor al margen, se detiene la nave
+	for (int x = 0; x < nPlayers; ++x) {
+		auto mP = mngr_->getPlayer(x);
+		auto tr_ = mngr_->getComponent<Transform>(mP);
+		Vector2D& v = tr_->getVel(); //Obtiene velocidad
+		Vector2D& lastForward = tr_->getLastForward(); //Ultimo vector forward
+		//Reducción del caza
+		auto dAcceel_ = mngr_->getComponent<DeAcceleration>(mP);
+		auto stopMargin = dAcceel_->getStopMargin();
+		auto reduction = dAcceel_->getReduction();
+		if (abs(v.getX()) > stopMargin || abs(v.getY()) > stopMargin) //En caso de que la velocidad sea superior al margen se reduce
+			v = v + Vector2D{ lastForward.getX() * -reduction, lastForward.getY() * reduction };
+		else v = { 0,0 }; //En caso de ser menor al margen, se detiene la nave
+	}
 }
 
 void FighterSystemOnline::screenPositionCheck() //Movimiento toroidal
