@@ -1,6 +1,6 @@
 #include "Entity.h"
 #include "Manager.h"
-Entity::Entity() : mngr_(nullptr), cmps_(), currCmps_(), alive_() //Constructora
+Entity::Entity(bool v) : mngr_(nullptr), cmps_(), currCmps_(), alive_(), visible(v) //Constructora
 {
 	currCmps_.reserve(ecs::maxComponentId); //Reserva espacio
 }

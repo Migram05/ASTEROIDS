@@ -66,13 +66,25 @@ void MainMenuState::createButtons()
 	auto p2 = manager_->addEntity(ecs::_grp_UI);
 	manager_->addComponent<Transform>(p2, Vector2D(WIN_WIDTH / 2 - buttonW / 2, WIN_HEIGHT / 2 - buttonH / 2), buttonW, buttonH);
 	manager_->addComponent<Image>(p2, manager_->getTexture(Multiplayer));
-	manager_->addComponent<Button>(p2, startMultiplayer, game);
+	manager_->addComponent<Button>(p2, showButtonsClbck, game);
 
 	//Botón de salida
 	auto exitB = manager_->addEntity(ecs::_grp_UI);
 	manager_->addComponent<Transform>(exitB, Vector2D(WIN_WIDTH / 2 - buttonW / 2, WIN_HEIGHT / 2 + buttonH * 2), buttonW, buttonH);
 	manager_->addComponent<Image>(exitB, manager_->getTexture(Exit));
 	manager_->addComponent<Button>(exitB, exitGame, game);
+
+	//Botón de crear partida
+	auto hB = manager_->addEntity(ecs::_grp_UI, false);
+	manager_->addComponent<Transform>(hB, Vector2D(WIN_WIDTH / 2 + buttonW , WIN_HEIGHT / 2 - buttonH), buttonW, buttonH);
+	manager_->addComponent<Image>(hB, manager_->getTexture(Host));
+	manager_->addComponent<Button>(hB, startMultiplayer, game);
+
+	//Botón de unirse a partida
+	auto jB = manager_->addEntity(ecs::_grp_UI, false);
+	manager_->addComponent<Transform>(jB, Vector2D(WIN_WIDTH / 2 + buttonW , WIN_HEIGHT / 2 + buttonH/2), buttonW, buttonH);
+	manager_->addComponent<Image>(jB, manager_->getTexture(Join));
+	manager_->addComponent<Button>(jB, startMultiplayer, game);
 }
 
 void MainMenuState::startSingleplayer(Game* g)
@@ -90,6 +102,17 @@ void MainMenuState::exitGame(Game* g)
 	g->exitGame();
 }
 
+void MainMenuState::showButtonsClbck(Game* g)
+{
+	static_cast<MainMenuState*>(g->getState())->showButtons();
+}
+
+void MainMenuState::showButtons()
+{
+	for (Entity* e : manager_->getEntitiesByGroup(ecs::_grp_UI)) {
+		if (!e->isVisible()) e->setVisibility(true);
+	}
+}
 
 MainMenuState::~MainMenuState()
 {

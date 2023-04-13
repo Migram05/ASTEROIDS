@@ -13,7 +13,7 @@ class Manager;
 class Entity
 {
 public:
-	Entity();
+	Entity(bool v);
 	Entity(const Entity&) = delete;
 	Entity& operator=(const Entity&) = delete;
 	void setContext(Manager* mngr);
@@ -22,6 +22,8 @@ public:
 			delete c;
 		}
 	}
+	inline bool isVisible() { return visible; }
+	inline void setVisibility(bool v) { visible = v; }
 #ifdef COMPS
 	
 	inline bool isAlive() { return alive_; } //Devuelve el estado de la entidad
@@ -69,6 +71,7 @@ public:
 private:
 	friend Manager;
 	bool alive_; //Variable que marca a la entidad como pendiente para borrar
+	bool visible;
 	Manager* mngr_;
 	vector<Component*> currCmps_;
 	array<Component*, ecs::maxComponentId> cmps_;

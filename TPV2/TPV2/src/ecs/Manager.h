@@ -22,7 +22,7 @@
 using namespace std;
 using grpId_type = uint8_t;
 using sysId_type = uint8_t;
-enum ValoresArray { GrayAsteroid, GoldAsteroid, Fighter1, Fire, Heart, OnePlayer, Multiplayer, Exit };
+enum ValoresArray { GrayAsteroid, GoldAsteroid, Fighter1, Fire, Heart, OnePlayer, Multiplayer, Exit, Host, Join };
 //class Entity;
 class Manager
 {
@@ -136,9 +136,9 @@ public:
 	//El jugador pierde
 	void playerLost() { game->playerLoses(); }
 
-	Entity* addEntity(grpId_type gId = ecs::_grp_GENERAL)//Añade una entidad a su grupo correspondiente
+	Entity* addEntity(grpId_type gId = ecs::_grp_GENERAL, bool vis = true)//Añade una entidad a su grupo correspondiente
 	{
-		Entity* e = new Entity();
+		Entity* e = new Entity(vis);
 		e->alive_ = true;
 		e->setContext(this);
 		e->gId_ = gId;

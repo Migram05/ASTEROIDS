@@ -65,6 +65,8 @@ void Game::LoadTextures(SDL_Renderer* renderer) { //Cada valor del array de text
 	textures[OnePlayer] = new Texture(renderer, TEXT_DESCRIPT[OnePlayer].filename);
 	textures[Multiplayer] = new Texture(renderer, TEXT_DESCRIPT[Multiplayer].filename);
 	textures[Exit] = new Texture(renderer, TEXT_DESCRIPT[Exit].filename);
+	textures[Host] = new Texture(renderer, TEXT_DESCRIPT[Host].filename);
+	textures[Join] = new Texture(renderer, TEXT_DESCRIPT[Join].filename);
 }
 Texture* Game::getTexture(int x) { //Devuelve una textura del vector
 	return textures[x];

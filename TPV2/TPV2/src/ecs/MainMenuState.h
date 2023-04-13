@@ -20,6 +20,8 @@ private:
 	static void startSingleplayer(Game* g);
 	static void startMultiplayer(Game* g);
 	static void exitGame(Game* g);
+	static void showButtonsClbck(Game* g);
+	void showButtons();
 	bool exit = false;
 	static const string s_mainMID;
 	float buttonW, buttonH;

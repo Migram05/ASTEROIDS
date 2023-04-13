@@ -4,10 +4,12 @@
 #include "Transform.h"
 #include "../ecs/Entity.h"
 class Game;
+class MainMenuState;
 class Button : public Component
 {
 public:
 	Button(void (*callback)(Game* g), Game* g);
+
 	virtual ~Button();
 	void initComponent() override;
 	auto getEvent() { return buttonCallback; } //Devuelve el evento del botón

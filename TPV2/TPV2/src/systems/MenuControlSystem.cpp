@@ -23,12 +23,12 @@ void MenuControlSystem::update()
 			for (auto e : mngr_->getEntitiesByGroup(ecs::_grp_UI)) { //Busca entre todos los elementos de la UI
 				SDL_Rect destRect = mngr_->getComponent<Transform>(e)->getRect();
 				auto but_ = mngr_->getComponent<Button>(e);
-				if (SDL_PointInRect(&mPoint, &destRect)) { //Si ha hecho clic en un botón:
+				if (e->isVisible() && SDL_PointInRect(&mPoint, &destRect)) { //Si ha hecho clic en un botón:
 					buttonCallback = but_->getEvent();
 					buttonCallback(mngr_->getGame()); //Ejecuta la acción
 					stop = true; //Para la búsqueda
 				}
-				else SDL_PushEvent(&event);
+				//else SDL_PushEvent(&event);
 			}
 		}
 	}

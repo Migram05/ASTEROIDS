@@ -43,7 +43,7 @@ void MultiplayerState::update()
 				if (result > 0) {
 					onRecieveMessage(buffer);
 				}
-				else cout << "error al recibir mensaje" << endl;
+				else client = nullptr;
 			}
 			
 		}
@@ -59,11 +59,12 @@ void MultiplayerState::update()
 				if (result > 0) {
 					onRecieveMessage(buffer);
 				}
-				else cout << "error al recibir mensaje" << endl;
+				else manager_->exitGame();
 			}
 
 		}
 	}
+	if (!client) return; //Si no hay otro jugador, no se comienza la partida
 
 #ifdef COMPS
 	manager_->update(); //Llamada al manager
@@ -132,6 +133,11 @@ void MultiplayerState::render()
 #ifndef COMPS
 	renderSys_->update();
 #endif // !COMPS
+	if (!client) {
+		auto& sdl = *SDLUtils::instance();
+		Texture lostText(sdl.renderer(), "ESPERANDO JUGADORES", sdl.fonts().at("CAPTURE50"), build_sdlcolor(0x112233ff));
+		lostText.render(sdl.width() / 2 - 270, sdl.height() / 2 - 50);
+	}
 }
 
 bool MultiplayerState::onEnter()
