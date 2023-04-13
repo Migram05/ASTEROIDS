@@ -131,7 +131,7 @@ public:
 	void pauseGame() { game->pauseGame(); }
 
 	//Sale del juego
-	void exitGame() { game->exitGame(); }
+	void exitGame() { game->exitToMenu(); }
 
 	//El jugador pierde
 	void playerLost() { game->playerLoses(); }

@@ -15,7 +15,6 @@ void CollisionsSystem::update() //Comprueba colisiones
 	vector<Entity*> bullets = mngr_->getEntitiesByGroup(ecs::_grp_BULLETS);
 	vector<Entity*> player = mngr_->getEntitiesByGroup(ecs::_grp_PLAYER);
 	auto& sdl = *SDLUtils::instance();
-	cout << isMultiplayer << endl;
 	if (isMultiplayer) //Si hay más de un jugador las colisiones serán ajustadas para el multijugador
 	{
 		for (Entity* e : player) {
@@ -28,6 +27,8 @@ void CollisionsSystem::update() //Comprueba colisiones
 					mngr_->setAlive(b, false);
 					int& lives = mngr_->getComponent<Health>(e)->getLives();
 					lives--;
+					Message msg; msg.id = _m_RESETPLAYERS; //Colisión jugador/asteroide, fin de la partida
+					mngr_->send(msg);
 				}
 			}
 			for (Entity* p : player) { //Comprueba la colisión con el jugador
@@ -39,6 +40,8 @@ void CollisionsSystem::update() //Comprueba colisiones
 					lives--;
 					int& lives2 = mngr_->getComponent<Health>(p)->getLives();
 					lives2--;
+					Message msg; msg.id = _m_RESETPLAYERS; //Colisión jugador/asteroide, fin de la partida
+					mngr_->send(msg);
 				}
 			}
 		}

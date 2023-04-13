@@ -27,6 +27,7 @@ public:
 
 	Texture* getTexture(int n);
 	void exitGame();
+	void exitToMenu();
 	void pauseGame();
 	void resumeGame(bool l);
 	void playerLoses();

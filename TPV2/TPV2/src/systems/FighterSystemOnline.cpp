@@ -5,7 +5,7 @@ void FighterSystemOnline::receive(const Message& m)
 {
 	switch (m.id)
 	{
-	case _m_PLAYERLOST: onCollision_FighterAsteroid(); break; //Ambos eventos colocan al caza en el centro de la pantalla
+	case _m_RESETPLAYERS: onCollision_FighterAsteroid(); break; //Ambos eventos colocan al caza en el centro de la pantalla
 	case _m_PLAYERWINS: onCollision_FighterAsteroid(); break;
 	case _m_CHANGEINDEX: p = mngr_->getPlayer(mngr_->getPlayerIndex()); break;
 	case _m_MOVESHIP: movePlayer(m.moveShip_data.indx); break;
@@ -150,9 +150,19 @@ void FighterSystemOnline::screenPositionCheck() //Movimiento toroidal
 }
 void FighterSystemOnline::onCollision_FighterAsteroid() //En caso de colisión con un asteroide
 {
-	Entity* p = mngr_->getPlayer();
-	auto tr_ = mngr_->getComponent<Transform>(p);
-	auto& pos = tr_->getPos(); auto& vel = tr_->getVel();
-	pos = Vector2D(mngr_->getWidth() / 2, mngr_->getHeight() / 2); //Coloca al caza en el centro
-	vel = Vector2D(0, 0); //Velocidad nula
+	for (int x = 0; x < nPlayers; ++x) {
+		auto mP = mngr_->getPlayer(x);
+		auto tr_ = mngr_->getComponent<Transform>(mP);
+		auto& pos = tr_->getPos();
+		Vector2D& v = tr_->getVel(); //Obtiene velocidad
+		v = Vector2D(0, 0); //Velocidad nula
+		switch (x)
+		{
+		case 0: pos = Vector2D(mngr_->getWidth() / 2 - 15, mngr_->getHeight() * 0.9); break;
+		case 1: pos = Vector2D(mngr_->getWidth() / 2 - 15, mngr_->getHeight() * 0.1); break;
+		case 2: pos = Vector2D(mngr_->getWidth() * 0.1, mngr_->getHeight() / 2 - 15); break;
+		case 3: pos = Vector2D(mngr_->getWidth() * 0.9, mngr_->getHeight() / 2 - 15); break;
+		default: pos = Vector2D(mngr_->getWidth() + x, mngr_->getHeight() + x); break; //A partir de 4 jugadores las posiciones son según su índice
+		}
+	}
 }

@@ -15,6 +15,7 @@ enum msgId : msgId_type { //Identificadores de los mensajes
 	_m_MOVESHIP,
 	_m_ROTATESHIP,
 	_m_SHIPSHOOT,
+	_m_RESETPLAYERS,
 };
 struct Message { //Clase de los mensajes
 	msgId_type id;
