@@ -51,7 +51,10 @@ void BulletsSystem::spawnShotAtPlayer(int index) //Crea un disparo en el jugador
 	auto& position_ = tr_->getPos();
 	float& fRotation = tr_->getRotation(); //Rotacion del caza
 	Vector2D& forwardVector = tr_->getForward(); //Vector forward actual
+	double rad = (fRotation) * (M_PI / 180);
+	float c = cos(rad), s = sin(rad);
+	forwardVector = Vector2D{ s, c }; //Se actualiza el vector forward según su rotación
 	Vector2D dir = Vector2D{ forwardVector.getX() * gun_->getSpeed(), forwardVector.getY() * -gun_->getSpeed() }; 
-	mngr_->spawnShot(position_ + (dir * 3), dir, fRotation);
+	mngr_->spawnShot(position_ + (dir * 4), dir, fRotation);
 }
 

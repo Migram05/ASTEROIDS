@@ -100,7 +100,7 @@ void FighterSystemOnline::updatePosition() //Mueve al caza
 					sdl.soundEffects().at("shot").play(); //Efecto de sonido
 					gun_->setLastShoot(SDL_GetTicks());
 					Vector2D dir = Vector2D{ forwardVector.getX() * gun_->getSpeed(), forwardVector.getY() * -gun_->getSpeed() };
-					msg.id = _m_SHOOT; msg.shot_data.pos_ = (position_ + (dir * 3)); msg.shot_data.dir_ = dir; msg.shot_data.r_ = fRotation;
+					msg.id = _m_SHOOT; msg.shot_data.pos_ = (position_ + (dir * 4)); msg.shot_data.dir_ = dir; msg.shot_data.r_ = fRotation;
 					mngr_->send(msg);
 					currentState->sendMessage("Shoot" + to_string(mngr_->getPlayerIndex()));
 				} break;

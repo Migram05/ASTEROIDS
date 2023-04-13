@@ -189,9 +189,9 @@ bool MultiplayerState::onEnter()
 	renderSys_ = manager_->addSystem<RenderSystem>();
 #endif // !COMPS
 	auto& sdl = *SDLUtils::instance();
-	Music::setMusicVolume(0); //Musica de fondo y volumen (8)
+	Music::setMusicVolume(8); //Musica de fondo y volumen (8)
 	sdl.musics().at("theme").play();
-	SoundEffect::setChannelVolume(0); //(25)
+	SoundEffect::setChannelVolume(25); //(25)
 	return true;
 }
 

@@ -15,7 +15,7 @@ void CollisionsSystem::update() //Comprueba colisiones
 	vector<Entity*> bullets = mngr_->getEntitiesByGroup(ecs::_grp_BULLETS);
 	vector<Entity*> player = mngr_->getEntitiesByGroup(ecs::_grp_PLAYER);
 	auto& sdl = *SDLUtils::instance();
-	cout << mngr_->getPlayerIndex() << endl;
+	cout << isMultiplayer << endl;
 	if (isMultiplayer) //Si hay más de un jugador las colisiones serán ajustadas para el multijugador
 	{
 		for (Entity* e : player) {
@@ -24,13 +24,21 @@ void CollisionsSystem::update() //Comprueba colisiones
 				Transform* t2 = mngr_->getComponent<Transform>(b);
 				if ( mngr_->isAlive(b) && Collisions::collidesWithRotation(t1->getPos(), t1->getW(), t1->getH(), t1->getRotation(), t2->getPos(), t2->getW(), t2->getH(), t2->getRotation())) {
 					cout << "colision nave/bala" << endl;
+					sdl.soundEffects().at("explosion").play();
 					mngr_->setAlive(b, false);
+					int& lives = mngr_->getComponent<Health>(e)->getLives();
+					lives--;
 				}
 			}
 			for (Entity* p : player) { //Comprueba la colisión con el jugador
 				Transform* t3 = mngr_->getComponent<Transform>(p);//Si colisiona
 				if (e!=p && Collisions::collidesWithRotation(t1->getPos(), t1->getW(), t1->getH(), t1->getRotation(), t3->getPos(), t3->getW(), t3->getH(), t3->getRotation())) {
 					cout << "colision nave/nave" << endl;
+					sdl.soundEffects().at("explosion").play();
+					int& lives = mngr_->getComponent<Health>(e)->getLives();
+					lives--;
+					int& lives2 = mngr_->getComponent<Health>(p)->getLives();
+					lives2--;
 				}
 			}
 		}
