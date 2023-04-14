@@ -18,7 +18,8 @@ public:
 private:
 	void createButtons();
 	static void startSingleplayer(Game* g);
-	static void startMultiplayer(Game* g);
+	static void hostMultiplayer(Game* g);
+	static void searchMultiplayer(Game* g);
 	static void exitGame(Game* g);
 	static void showButtonsClbck(Game* g);
 	void showButtons();

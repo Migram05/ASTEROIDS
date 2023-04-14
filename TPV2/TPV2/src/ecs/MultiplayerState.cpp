@@ -7,7 +7,7 @@
 #include "../systems/RenderSystem.h"
 
 
-MultiplayerState::MultiplayerState(Game* g, double w, double h, bool c) : GameState(w, h), isClient(c) // Constructora
+MultiplayerState::MultiplayerState(Game* g, double w, double h, bool c, string ipDirection) : GameState(w, h), isClient(c), ipDir(ipDirection) // Constructora
 {
 	game = g;
 }
@@ -142,6 +142,7 @@ void MultiplayerState::render()
 
 bool MultiplayerState::onEnter()
 {
+
 	if (SDLNet_Init() < 0) { 
 		game->exitGame();
 		cout << "Conection error" << endl;
@@ -164,14 +165,15 @@ bool MultiplayerState::onEnter()
 	}
 	else {
 		//Cliente
-		if (SDLNet_ResolveHost(&ip, "localhost", port) < 0) {
+		if (SDLNet_ResolveHost(&ip, ipDir.c_str(), port) < 0) {
 			throw("Error descifrando IP en el cliente");
 		}
 
 		// Crea un socket para conectarse al servidor
 		client = SDLNet_TCP_Open(&ip);
 		if (!client) {
-			throw("Error conectandose al servidor");
+			cout << "Error conectandose al servidor" << endl;
+			game->exitToMenu(); //Si no hay una partida hosteada, devuelve al cliente al menú
 		}
 		SDLNet_TCP_AddSocket(socketSet, client);
 	}

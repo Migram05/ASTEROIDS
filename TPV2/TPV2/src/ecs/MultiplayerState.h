@@ -13,7 +13,7 @@ using namespace std;
 class MultiplayerState : public GameState
 {
 public:
-	MultiplayerState(Game* g, double w, double h, bool c);
+	MultiplayerState(Game* g, double w, double h, bool c, string ipDir = "localhost");
 	~MultiplayerState();
 	virtual void update();
 	virtual void render();
@@ -26,6 +26,7 @@ private:
 	void checkCollisions();
 	void onRecieveMessage(char* m);
 	bool exit = false, gameOver = false, win = false, renderTime = false, startGame = false, isClient;
+	string ipDir;
 	static const string s_playID;
 	Manager* manager_;
 	IPaddress ip;

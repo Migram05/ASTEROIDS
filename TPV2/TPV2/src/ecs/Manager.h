@@ -22,7 +22,7 @@
 using namespace std;
 using grpId_type = uint8_t;
 using sysId_type = uint8_t;
-enum ValoresArray { GrayAsteroid, GoldAsteroid, Fighter1, Fire, Heart, OnePlayer, Multiplayer, Exit, Host, Join };
+enum ValoresArray { GrayAsteroid, GoldAsteroid, Fighter1, Fire, Heart, OnePlayer, Multiplayer, Exit, Host, Join, TextBox };
 //class Entity;
 class Manager
 {

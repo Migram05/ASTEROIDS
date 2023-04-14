@@ -78,13 +78,13 @@ void MainMenuState::createButtons()
 	auto hB = manager_->addEntity(ecs::_grp_UI, false);
 	manager_->addComponent<Transform>(hB, Vector2D(WIN_WIDTH / 2 + buttonW , WIN_HEIGHT / 2 - buttonH), buttonW, buttonH);
 	manager_->addComponent<Image>(hB, manager_->getTexture(Host));
-	manager_->addComponent<Button>(hB, startMultiplayer, game);
+	manager_->addComponent<Button>(hB, hostMultiplayer, game);
 
 	//Botón de unirse a partida
 	auto jB = manager_->addEntity(ecs::_grp_UI, false);
 	manager_->addComponent<Transform>(jB, Vector2D(WIN_WIDTH / 2 + buttonW , WIN_HEIGHT / 2 + buttonH/2), buttonW, buttonH);
 	manager_->addComponent<Image>(jB, manager_->getTexture(Join));
-	manager_->addComponent<Button>(jB, startMultiplayer, game);
+	manager_->addComponent<Button>(jB, searchMultiplayer, game);
 }
 
 void MainMenuState::startSingleplayer(Game* g)
@@ -92,9 +92,14 @@ void MainMenuState::startSingleplayer(Game* g)
 	g->playSingleplayer();
 }
 
-void MainMenuState::startMultiplayer(Game* g)
+void MainMenuState::hostMultiplayer(Game* g)
 {
-	g->playMultiplayer();
+	g->playMultiplayer(false);
+}
+
+void MainMenuState::searchMultiplayer(Game* g)
+{
+	g->playMultiplayer(true);
 }
 
 void MainMenuState::exitGame(Game* g)

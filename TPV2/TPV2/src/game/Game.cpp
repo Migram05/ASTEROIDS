@@ -67,6 +67,7 @@ void Game::LoadTextures(SDL_Renderer* renderer) { //Cada valor del array de text
 	textures[Exit] = new Texture(renderer, TEXT_DESCRIPT[Exit].filename);
 	textures[Host] = new Texture(renderer, TEXT_DESCRIPT[Host].filename);
 	textures[Join] = new Texture(renderer, TEXT_DESCRIPT[Join].filename);
+	textures[TextBox] = new Texture(renderer, TEXT_DESCRIPT[TextBox].filename);
 }
 Texture* Game::getTexture(int x) { //Devuelve una textura del vector
 	return textures[x];
@@ -96,17 +97,17 @@ void Game::playSingleplayer()
 	gameStateMachine->changeState(new PlayState(this, WIN_WIDTH, WIN_HEIGHT));
 }
 
-void Game::playMultiplayer()
+void Game::playMultiplayer(bool client)
 {
-	bool cont = false;
-	char c = ' ';
-	cout << "Jugar como host o cliente? h/c" << endl;
-	while (!cont) {
-		cin >> c;
-		if (c == 'h' || c == 'c') cont = true;
+	string dir = "localhost";
+	if (client) {
+		string auxDir = "";
+		cout << "Dirección del servidor" << endl;
+		cin >> auxDir;
+		if (auxDir == "local" ||auxDir=="LOCAL") cout << "No hay dirección proporcionada, jugando en local" << endl;
+		
 	}
-	cont = (c == 'c'); //Determina si es cliente o host
-	gameStateMachine->changeState(new MultiplayerState(this, WIN_WIDTH, WIN_HEIGHT, cont));
+	gameStateMachine->changeState(new MultiplayerState(this, WIN_WIDTH, WIN_HEIGHT, client, dir));
 }
 
 Game::~Game() { //Destructora de la memoria dinámica creada
