@@ -23,7 +23,10 @@ private:
 	static void exitGame(Game* g);
 	static void showButtonsClbck(Game* g);
 	void showButtons();
-	bool exit = false;
+	void readKeys();
+	inline void startRead() { keysRead = ""; readingKeys = true; }
+	string keysRead = "";
+	bool exit = false, readingKeys = false;
 	static const string s_mainMID;
 	float buttonW, buttonH;
 	Manager* manager_;

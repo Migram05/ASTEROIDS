@@ -20,6 +20,9 @@ void MainMenuState::update()
 	menuCtrlSys_->update();
 	//El refresh es un método propio de Game State
 #endif // !COMPS
+	if (readingKeys) {
+		readKeys();
+	}
 }
 
 void MainMenuState::render()
@@ -30,6 +33,9 @@ void MainMenuState::render()
 #ifndef COMPS
 	renderSys_->update();
 #endif // !COMPS
+	if (readingKeys) {
+		manager_->getTexture(TextBox)->render(WIN_WIDTH/2 -225 , WIN_HEIGHT * 0.8);
+	}
 }
 
 bool MainMenuState::onEnter()
@@ -99,7 +105,7 @@ void MainMenuState::hostMultiplayer(Game* g)
 
 void MainMenuState::searchMultiplayer(Game* g)
 {
-	g->playMultiplayer(true);
+	static_cast<MainMenuState*>(g->getState())->startRead();
 }
 
 void MainMenuState::exitGame(Game* g)
@@ -117,6 +123,32 @@ void MainMenuState::showButtons()
 	for (Entity* e : manager_->getEntitiesByGroup(ecs::_grp_UI)) {
 		if (!e->isVisible()) e->setVisibility(true);
 	}
+}
+
+void MainMenuState::readKeys()
+{
+	SDL_Event event;
+	auto& sdl = *SDLUtils::instance();
+	bool exit = false;
+	while (!exit) {
+		while (SDL_PollEvent(&event)) { //Controla la entrada
+			if (event.type == SDL_KEYDOWN) {
+				char c = event.key.keysym.sym;
+				if (event.key.keysym.sym == SDLK_SPACE) {
+					readingKeys = false;
+					game->playMultiplayer(true, keysRead);
+				}
+				if (event.key.keysym.sym == SDLK_BACKSPACE && !keysRead.empty()) {
+					auto it = keysRead.end(); --it;
+					keysRead.erase(it);
+				}
+				keysRead += c;
+				exit = true;
+				cout << keysRead << endl;
+			}
+		}
+	}
+	
 }
 
 MainMenuState::~MainMenuState()

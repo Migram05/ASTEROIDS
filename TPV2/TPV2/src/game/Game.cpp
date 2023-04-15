@@ -97,18 +97,11 @@ void Game::playSingleplayer()
 	gameStateMachine->changeState(new PlayState(this, WIN_WIDTH, WIN_HEIGHT));
 }
 
-void Game::playMultiplayer(bool client)
+void Game::playMultiplayer(bool client, string dir)
 {
-	string dir = "localhost";
-	if (client) {
-		string auxDir = "";
-		cout << "Dirección del servidor" << endl;
-		cin >> auxDir;
-		if (auxDir == "local" ||auxDir=="LOCAL") cout << "No hay dirección proporcionada, jugando en local" << endl;
-		
-	}
 	gameStateMachine->changeState(new MultiplayerState(this, WIN_WIDTH, WIN_HEIGHT, client, dir));
 }
+
 
 Game::~Game() { //Destructora de la memoria dinámica creada
 	for (Texture* t : textures) delete t; //Se borran las texturas del juego

@@ -32,10 +32,9 @@ public:
 	void resumeGame(bool l);
 	void playerLoses();
 	void playSingleplayer();
-	void playMultiplayer(bool client);
+	void playMultiplayer(bool client, string dir = "localhost");
 	inline GameState* getState() { return gameStateMachine->currentState(); }
 private:
-
 	SDL_Window* window;
 	SDL_Renderer* renderer;
 	unsigned int FRAME_RATE = 3;

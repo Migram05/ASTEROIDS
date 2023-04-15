@@ -142,9 +142,8 @@ void MultiplayerState::render()
 
 bool MultiplayerState::onEnter()
 {
+	if (SDLNet_Init() < 0) {
 
-	if (SDLNet_Init() < 0) { 
-		game->exitGame();
 		cout << "Conection error" << endl;
 	}
 
@@ -160,7 +159,7 @@ bool MultiplayerState::onEnter()
 		if (!master_socket) {
 			throw("Error creando el socket maestro");
 		}
-		
+
 		SDLNet_TCP_AddSocket(socketSet, master_socket);
 	}
 	else {
@@ -172,7 +171,7 @@ bool MultiplayerState::onEnter()
 		// Crea un socket para conectarse al servidor
 		client = SDLNet_TCP_Open(&ip);
 		if (!client) {
-			cout << "Error conectandose al servidor" << endl;
+			throw("Error conectandose al servidor");
 			game->exitToMenu(); //Si no hay una partida hosteada, devuelve al cliente al menú
 		}
 		SDLNet_TCP_AddSocket(socketSet, client);
