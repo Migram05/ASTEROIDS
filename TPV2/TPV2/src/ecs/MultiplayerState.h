@@ -19,12 +19,11 @@ public:
 	virtual void render();
 	virtual bool onEnter();
 	virtual void refresh();
-	void resetGame();
 	void sendMessage(string m);
 	virtual std::string getStateID() const { return s_playID; }
 private:
-	void checkCollisions();
 	void onRecieveMessage(char* m);
+	void checkExit();
 	bool exit = false, gameOver = false, win = false, renderTime = false, startGame = false, isClient;
 	string ipDir;
 	static const string s_playID;

@@ -6,6 +6,8 @@ MainMenuState::MainMenuState(Game* g, double w, double h) : GameState(w, h) { //
 	game = g;
 	buttonW = w / 10;
 	buttonH = h / 15;
+	txtBoxH = 1.2 * buttonH;
+	txtBoxW = 5 * buttonW;
 }
 const std::string MainMenuState::s_mainMID = "MAINMENU";//ID del estado
 
@@ -20,9 +22,6 @@ void MainMenuState::update()
 	menuCtrlSys_->update();
 	//El refresh es un método propio de Game State
 #endif // !COMPS
-	if (readingKeys) {
-		readKeys();
-	}
 }
 
 void MainMenuState::render()
@@ -33,9 +32,6 @@ void MainMenuState::render()
 #ifndef COMPS
 	renderSys_->update();
 #endif // !COMPS
-	if (readingKeys) {
-		manager_->getTexture(TextBox)->render(WIN_WIDTH/2 -225 , WIN_HEIGHT * 0.8);
-	}
 }
 
 bool MainMenuState::onEnter()
@@ -108,6 +104,12 @@ void MainMenuState::searchMultiplayer(Game* g)
 	static_cast<MainMenuState*>(g->getState())->startRead();
 }
 
+void MainMenuState::startMultiplayer(string dir)
+{
+	if (dir == "") dir = "localhost";
+	game->playMultiplayer(true, dir);
+}
+
 void MainMenuState::exitGame(Game* g)
 {
 	g->exitGame();
@@ -125,30 +127,13 @@ void MainMenuState::showButtons()
 	}
 }
 
-void MainMenuState::readKeys()
+void MainMenuState::startRead()
 {
-	SDL_Event event;
-	auto& sdl = *SDLUtils::instance();
-	bool exit = false;
-	while (!exit) {
-		while (SDL_PollEvent(&event)) { //Controla la entrada
-			if (event.type == SDL_KEYDOWN) {
-				char c = event.key.keysym.sym;
-				if (event.key.keysym.sym == SDLK_SPACE) {
-					readingKeys = false;
-					game->playMultiplayer(true, keysRead);
-				}
-				if (event.key.keysym.sym == SDLK_BACKSPACE && !keysRead.empty()) {
-					auto it = keysRead.end(); --it;
-					keysRead.erase(it);
-				}
-				keysRead += c;
-				exit = true;
-				cout << keysRead << endl;
-			}
-		}
-	}
-	
+	//Cuadro de texto
+	textBoxEnt = manager_->addEntity(ecs::_grp_UI);
+	manager_->addComponent<Transform>(textBoxEnt, Vector2D((WIN_WIDTH / 2) - (txtBoxW/2), WIN_HEIGHT * 0.8), txtBoxW, txtBoxH);
+	manager_->addComponent<Image>(textBoxEnt, manager_->getTexture(TextBox));
+	manager_->addComponent<TextBoxComponent>(textBoxEnt, this, Vector2D(((WIN_WIDTH / 2) - (txtBoxW / 2))*1.1, (WIN_HEIGHT * 0.8) + txtBoxH/2));
 }
 
 MainMenuState::~MainMenuState()

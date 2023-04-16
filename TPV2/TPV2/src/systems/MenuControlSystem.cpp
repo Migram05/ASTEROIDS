@@ -1,5 +1,6 @@
 #include "MenuControlSystem.h"
 #include "../ecs/Manager.h"
+#include "../ecs/MainMenuState.h"
 void MenuControlSystem::receive(const Message& m)
 {
 
@@ -10,6 +11,7 @@ void MenuControlSystem::initSystem() //Al crear envía un mensaje de comienzo de 
 	Message msg;
 	msg.id = _m_NEWGAME;
 	mngr_->send(msg, true);
+	currentState = static_cast<MainMenuState*>(mngr_->getGame()->getState());
 }
 
 void MenuControlSystem::update()
@@ -28,8 +30,21 @@ void MenuControlSystem::update()
 					buttonCallback(mngr_->getGame()); //Ejecuta la acción
 					stop = true; //Para la búsqueda
 				}
-				//else SDL_PushEvent(&event);
 			}
+		}
+		else if (event.type == SDL_KEYDOWN) { //Para el elemento de textBox
+			auto entity = currentState->getTextBox(); //Obtiene la textBox del menú
+			if (!entity) return;
+			string& text = mngr_->getComponent<TextBoxComponent>(entity)->getText();
+			char c = event.key.keysym.sym;
+			if (event.key.keysym.sym - 13 == 0) { //Cálculo para saber si es la tecla ENTER
+				currentState->startMultiplayer(text);
+			}
+			if (event.key.keysym.sym == SDLK_BACKSPACE && !text.empty()) {
+				auto it = text.end(); --it;
+				text.erase(it);
+			}
+			if (isdigit(c) || c == '.') text += c; //Solo si es un número se añade
 		}
 	}
 }

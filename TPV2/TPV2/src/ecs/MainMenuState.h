@@ -2,6 +2,7 @@
 #include "GameState.h"
 using namespace std;
 class Manager;
+class Entity;
 class RenderSystem;
 class MenuControlSystem;
 class MainMenuState : public GameState
@@ -13,22 +14,23 @@ public:
 	virtual void render();
 	virtual bool onEnter();
 	virtual void refresh();
-
+	void startMultiplayer(string dir);
+	inline Entity* getTextBox() { return textBoxEnt; }
 	virtual std::string getStateID() const { return s_mainMID; }
 private:
 	void createButtons();
 	static void startSingleplayer(Game* g);
 	static void hostMultiplayer(Game* g);
 	static void searchMultiplayer(Game* g);
+	
 	static void exitGame(Game* g);
 	static void showButtonsClbck(Game* g);
 	void showButtons();
-	void readKeys();
-	inline void startRead() { keysRead = ""; readingKeys = true; }
-	string keysRead = "";
-	bool exit = false, readingKeys = false;
+	void startRead();
+	bool exit = false;
 	static const string s_mainMID;
-	float buttonW, buttonH;
+	float buttonW, buttonH, txtBoxW, txtBoxH;
+	Entity* textBoxEnt = nullptr;
 	Manager* manager_;
 	RenderSystem* renderSys_;
 	MenuControlSystem* menuCtrlSys_;

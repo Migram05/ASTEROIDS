@@ -19,6 +19,7 @@ public:
 		_FOLLOW,
 		_DISABLEONEXIT,
 		_BUTTON,
+		_TEXTBOX,
 		// do not remove this
 		_LAST_CMP_ID
 	};

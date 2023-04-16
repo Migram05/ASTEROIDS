@@ -31,6 +31,7 @@
     <ClInclude Include="src\components\Health.h" />
     <ClInclude Include="src\components\Image.h" />
     <ClInclude Include="src\components\ShowOpposite.h" />
+    <ClInclude Include="src\components\TextBoxComponent.h" />
     <ClInclude Include="src\components\Transform.h" />
     <ClInclude Include="src\ecs\Entity.h" />
     <ClInclude Include="src\ecs\GameState.h" />
@@ -86,6 +87,7 @@
     <ClCompile Include="src\components\Health.cpp" />
     <ClCompile Include="src\components\Image.cpp" />
     <ClCompile Include="src\components\ShowOpposite.cpp" />
+    <ClCompile Include="src\components\TextBoxComponent.cpp" />
     <ClCompile Include="src\components\Transform.cpp" />
     <ClCompile Include="src\ecs\GameState.cpp" />
     <ClCompile Include="src\ecs\GameStateMachine.cpp" />

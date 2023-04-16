@@ -14,6 +14,7 @@
 #include "../components/Follow.h"
 #include "../components/Generations.h"
 #include "../components/Button.h"
+#include "../components/TextBoxComponent.h"
 #include "../game/Game.h"
 #include "../game/checkML.h"
 #include "Entity.h"

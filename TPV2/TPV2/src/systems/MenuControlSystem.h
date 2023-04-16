@@ -2,6 +2,7 @@
 #include "../ecs/System.h"
 using Uint8 = uint8_t;
 class Game;
+class MainMenuState;
 class MenuControlSystem : public System
 {
 public:
@@ -16,4 +17,5 @@ public:
 	constexpr static sysId_type id = ecs::_sys_GAMECTRL; //Identificador del tipo de sistema
 private:
 	void (*buttonCallback)(Game* g);
+	MainMenuState* currentState;
 };

@@ -1,5 +1,6 @@
 #include "RenderSystem.h"
 #include "../ecs/Manager.h"
+#include "../sdlutils/SDLUtils.h"
 void RenderSystem::receive(const Message& m)
 {
 }
@@ -10,10 +11,13 @@ void RenderSystem::initSystem()
 
 void RenderSystem::update()
 {
+	auto& sdl = *SDLUtils::instance();
 	for (auto e : mngr_->getEntitiesByGroup(ecs::_grp_ASTEROIDS)) {
 		if (e->isVisible()) {
 			auto tr_ = mngr_->getComponent<Transform>(e);
 			auto fImg_ = mngr_->getComponent<FramedImage>(e);
+			//tex_ = &sdl.images().at("GrayAsteroids");
+			//tex_ = &sdlutils().images().at("GrayAsteroids");
 			tex_ = mngr_->getTexture(GrayAsteroid);
 			if (mngr_->hasComponent<Follow>(e)) tex_ = mngr_->getTexture(GoldAsteroid);
 			SDL_Rect dest = build_sdlrect(tr_->getPos(), tr_->getW(), tr_->getH()); //Crea el rectángulo de destino
@@ -60,6 +64,17 @@ void RenderSystem::update()
 			auto tr_ = mngr_->getComponent<Transform>(e);
 			SDL_Rect dest = build_sdlrect(tr_->getPos(), tr_->getW(), tr_->getH()); //Crea el rectángulo destino
 			tex_->render(dest, tr_->getRotation()); //Renderiza la textura
+			if (mngr_->hasComponent<TextBoxComponent>(e)) {
+				auto& sdl = *SDLUtils::instance();
+				auto component = mngr_->getComponent<TextBoxComponent>(e);
+				Vector2D pos_ = component->getPos();
+				string text = component->getText();
+				string display;
+				if (text == "") display = "ESCRIBA LA DIRECCION IP"; //En caso de no haber texto, escribe esto por defecto
+				else display = text;
+				Texture ipDirText(sdl.renderer(), display, sdl.fonts().at("ARIAL18"), build_sdlcolor(0x112233ff), build_sdlcolor(0xffffffff)); //Dibujado de textura
+				ipDirText.render(pos_.getX(), pos_.getY());
+			}
 		}
 	}
 }

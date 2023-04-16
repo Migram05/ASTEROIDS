@@ -64,7 +64,10 @@ void MultiplayerState::update()
 
 		}
 	}
-	if (!client) return; //Si no hay otro jugador, no se comienza la partida
+	if (!client) {
+		checkExit();
+		return;
+	}
 
 #ifdef COMPS
 	manager_->update(); //Llamada al manager
@@ -115,6 +118,15 @@ void MultiplayerState::onRecieveMessage(char* m)
 	}
 
 }
+void MultiplayerState::checkExit() //Comprueba que no se quiera salir de la partida
+{
+	SDL_Event event;
+	while (SDL_PollEvent(&event)) { //Controla la entrada
+		if (event.type == SDL_KEYDOWN && event.key.keysym.sym == SDLK_ESCAPE) { //Devuelve al host a menú principal
+			manager_->exitGame();
+		}
+	}
+}
 //Envia mensajes al otro jugador
 void MultiplayerState::sendMessage(string m)
 {
@@ -143,7 +155,6 @@ void MultiplayerState::render()
 bool MultiplayerState::onEnter()
 {
 	if (SDLNet_Init() < 0) {
-
 		cout << "Conection error" << endl;
 	}
 
@@ -165,13 +176,14 @@ bool MultiplayerState::onEnter()
 	else {
 		//Cliente
 		if (SDLNet_ResolveHost(&ip, ipDir.c_str(), port) < 0) {
-			throw("Error descifrando IP en el cliente");
+			//throw("Error descifrando IP en el cliente");
+			game->exitToMenu(); //Si no hay una partida hosteada, devuelve al cliente al menú
 		}
 
 		// Crea un socket para conectarse al servidor
 		client = SDLNet_TCP_Open(&ip);
 		if (!client) {
-			throw("Error conectandose al servidor");
+			//throw("Error conectandose al servidor");
 			game->exitToMenu(); //Si no hay una partida hosteada, devuelve al cliente al menú
 		}
 		SDLNet_TCP_AddSocket(socketSet, client);
@@ -206,18 +218,6 @@ void MultiplayerState::refresh()
 {
 	manager_->refresh();
 }
-
-void MultiplayerState::resetGame()
-{
-	//TO DO
-}
-
-void MultiplayerState::checkCollisions()
-{
-	//TO DO
-}
-
-
 
 MultiplayerState::~MultiplayerState()
 {
