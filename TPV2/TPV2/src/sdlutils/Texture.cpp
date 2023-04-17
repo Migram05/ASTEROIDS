@@ -23,7 +23,7 @@ Texture::Texture(Texture &&other) noexcept {
 	height_ = other.height_;
 }
 
-Texture::Texture(SDL_Renderer *renderer, const std::string &fileName) {
+Texture::Texture(SDL_Renderer *renderer, const std::string &fileName, uint32_t nRows, uint32_t nCols) {
 
 	assert(renderer != nullptr);
 
@@ -36,27 +36,17 @@ Texture::Texture(SDL_Renderer *renderer, const std::string &fileName) {
 		SDL_FreeSurface(surface);
 		throw "Couldn't convert surface to texture for image: " + fileName;
 	}
-
+	numRows = nRows;
+	numCols = nCols;
 	width_ = surface->w;
 	height_ = surface->h;
 	renderer_ = renderer;
-
-	SDL_FreeSurface(surface);
-}
-Texture::Texture(SDL_Renderer* renderer, string filename, uint nRows, uint nCols) { //Se carga una textura 
-	SDL_Surface* tempSurface = IMG_Load(filename.c_str());
-	if (tempSurface == nullptr) throw "Error loading image from " + filename; // Error si no se encuentra el archivo
-	texture_ = SDL_CreateTextureFromSurface(renderer, tempSurface); //Se crea la textura
-	if (texture_ == nullptr)  throw "Error loading surface from " + filename; // Error si no se encuentra el archivo
-	numRows = nRows;
-	numCols = nCols;
-	width_ = tempSurface->w;
-	height_ = tempSurface->h;
 	fw = width_ / numCols;
 	fh = height_ / numRows;
-	renderer_ = renderer;
-	SDL_FreeSurface(tempSurface);
+	SDL_FreeSurface(surface);
+	std::cout << "textura leida " << fw << " " << fh << std::endl;
 }
+
 
 Texture::Texture(SDL_Renderer *renderer, const std::string &text,
 		const Font &font, const SDL_Color &fgColor) {

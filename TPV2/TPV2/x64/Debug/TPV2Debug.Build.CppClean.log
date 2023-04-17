@@ -1,6 +1,5 @@
 c:\users\admin\desktop\practica1_tpv2\tpv2\tpv2\x64\debug\vc142.pdb
 c:\users\admin\desktop\practica1_tpv2\tpv2\tpv2\x64\debug\vc142.idb
-c:\users\admin\desktop\practica1_tpv2\tpv2\tpv2\x64\debug\entity.obj
 c:\users\admin\desktop\practica1_tpv2\tpv2\tpv2\x64\debug\playstate.obj
 c:\users\admin\desktop\practica1_tpv2\tpv2\tpv2\x64\debug\pausestate.obj
 c:\users\admin\desktop\practica1_tpv2\tpv2\tpv2\x64\debug\multiplayerstate.obj
@@ -8,6 +7,7 @@ c:\users\admin\desktop\practica1_tpv2\tpv2\tpv2\x64\debug\mainmenustate.obj
 c:\users\admin\desktop\practica1_tpv2\tpv2\tpv2\x64\debug\gamestatemachine.obj
 c:\users\admin\desktop\practica1_tpv2\tpv2\tpv2\x64\debug\gamestate.obj
 c:\users\admin\desktop\practica1_tpv2\tpv2\tpv2\x64\debug\transform.obj
+c:\users\admin\desktop\practica1_tpv2\tpv2\tpv2\x64\debug\textboxcomponent.obj
 c:\users\admin\desktop\practica1_tpv2\tpv2\tpv2\x64\debug\showopposite.obj
 c:\users\admin\desktop\practica1_tpv2\tpv2\tpv2\x64\debug\image.obj
 c:\users\admin\desktop\practica1_tpv2\tpv2\tpv2\x64\debug\health.obj
@@ -20,7 +20,6 @@ c:\users\admin\desktop\practica1_tpv2\tpv2\tpv2\x64\debug\disableonexit.obj
 c:\users\admin\desktop\practica1_tpv2\tpv2\tpv2\x64\debug\deacceleration.obj
 c:\users\admin\desktop\practica1_tpv2\tpv2\tpv2\x64\debug\component.obj
 c:\users\admin\desktop\practica1_tpv2\tpv2\tpv2\x64\debug\button.obj
-c:\users\admin\desktop\practica1_tpv2\tpv2\tpv2\x64\debug\rendersystem.obj
 c:\users\admin\desktop\practica1_tpv2\tpv2\tpv2\x64\debug\menucontrolsystem.obj
 c:\users\admin\desktop\practica1_tpv2\tpv2\tpv2\x64\debug\gamectrlsystem.obj
 c:\users\admin\desktop\practica1_tpv2\tpv2\tpv2\x64\debug\fightersystemonline.obj
@@ -40,9 +39,10 @@ c:\users\admin\desktop\practica1_tpv2\tpv2\tpv2\x64\debug\json.obj
 c:\users\admin\desktop\practica1_tpv2\tpv2\tpv2\x64\debug\game.obj
 c:\users\admin\desktop\practica1_tpv2\tpv2\tpv2\x64\debug\asteroidsmanager.obj
 c:\users\admin\desktop\practica1_tpv2\tpv2\tpv2\x64\debug\system.obj
+c:\users\admin\desktop\practica1_tpv2\tpv2\tpv2\x64\debug\entity.obj
 c:\users\admin\desktop\practica1_tpv2\tpv2\tpv2\x64\debug\vector2d.obj
 c:\users\admin\desktop\practica1_tpv2\tpv2\tpv2\x64\debug\collisions.obj
-c:\users\admin\desktop\practica1_tpv2\tpv2\tpv2\x64\debug\textboxcomponent.obj
+c:\users\admin\desktop\practica1_tpv2\tpv2\tpv2\x64\debug\rendersystem.obj
 c:\users\admin\desktop\practica1_tpv2\tpv2\bin\tpv2debug.exe
 c:\users\admin\desktop\practica1_tpv2\tpv2\tpv2\x64\debug\tpv2debug.ilk
 c:\users\admin\desktop\practica1_tpv2\tpv2\bin\tpv2debug.pdb

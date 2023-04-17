@@ -58,34 +58,35 @@ void MainMenuState::refresh()
 
 void MainMenuState::createButtons()
 {
+	auto& sdl = *SDLUtils::instance();
 	//Botón de 1 jugador
 	auto p1 = manager_->addEntity(ecs::_grp_UI);
 	manager_->addComponent<Transform>(p1, Vector2D(WIN_WIDTH / 2 - buttonW / 2, WIN_HEIGHT / 2 - buttonH * 3), buttonW, buttonH);
-	manager_->addComponent<Image>(p1, manager_->getTexture(OnePlayer));
+	manager_->addComponent<Image>(p1, &sdl.images().at("singleB"));
 	manager_->addComponent<Button>(p1, startSingleplayer, game);
 
 	//Botón de multijugador
 	auto p2 = manager_->addEntity(ecs::_grp_UI);
 	manager_->addComponent<Transform>(p2, Vector2D(WIN_WIDTH / 2 - buttonW / 2, WIN_HEIGHT / 2 - buttonH / 2), buttonW, buttonH);
-	manager_->addComponent<Image>(p2, manager_->getTexture(Multiplayer));
+	manager_->addComponent<Image>(p2, &sdl.images().at("multiB"));
 	manager_->addComponent<Button>(p2, showButtonsClbck, game);
 
 	//Botón de salida
 	auto exitB = manager_->addEntity(ecs::_grp_UI);
 	manager_->addComponent<Transform>(exitB, Vector2D(WIN_WIDTH / 2 - buttonW / 2, WIN_HEIGHT / 2 + buttonH * 2), buttonW, buttonH);
-	manager_->addComponent<Image>(exitB, manager_->getTexture(Exit));
+	manager_->addComponent<Image>(exitB, &sdl.images().at("exitB"));
 	manager_->addComponent<Button>(exitB, exitGame, game);
 
 	//Botón de crear partida
 	auto hB = manager_->addEntity(ecs::_grp_UI, false);
 	manager_->addComponent<Transform>(hB, Vector2D(WIN_WIDTH / 2 + buttonW , WIN_HEIGHT / 2 - buttonH), buttonW, buttonH);
-	manager_->addComponent<Image>(hB, manager_->getTexture(Host));
+	manager_->addComponent<Image>(hB, &sdl.images().at("hostB"));
 	manager_->addComponent<Button>(hB, hostMultiplayer, game);
 
 	//Botón de unirse a partida
 	auto jB = manager_->addEntity(ecs::_grp_UI, false);
 	manager_->addComponent<Transform>(jB, Vector2D(WIN_WIDTH / 2 + buttonW , WIN_HEIGHT / 2 + buttonH/2), buttonW, buttonH);
-	manager_->addComponent<Image>(jB, manager_->getTexture(Join));
+	manager_->addComponent<Image>(jB, &sdl.images().at("joinB"));
 	manager_->addComponent<Button>(jB, searchMultiplayer, game);
 }
 

@@ -23,7 +23,9 @@ public:
 	Texture(Texture &&other) noexcept;
 
 	// Construct from image
-	Texture(SDL_Renderer *renderer, const std::string &fileName);
+	Texture(SDL_Renderer *renderer, const std::string &fileName, uint32_t numRows = 1, uint32_t numCols = 1);
+
+
 
 	// Construct from text
 	Texture(SDL_Renderer *renderer, const std::string &text, const Font &font,
@@ -32,8 +34,6 @@ public:
 	// Construct from text with background
 	Texture(SDL_Renderer *renderer, const std::string &text, const Font &font,
 			const SDL_Color &fgColor, const SDL_Color &bgColor);
-
-	Texture(SDL_Renderer* renderer, string filename, uint nRows, uint nCols);
 
 	virtual ~Texture() {
 		if (texture_ != nullptr)
@@ -91,12 +91,13 @@ public:
 		SDL_Rect src = { 0, 0, width_, height_ };
 		render(src, dest, rotation);
 	}
-	inline void renderFrame(const SDL_Rect& destRect, int row, int col, int angle = 0, SDL_RendererFlip flip = SDL_FLIP_NONE) const { //Renderizado de un frame concreto
+	void renderFrame(const SDL_Rect& destRect, int row, int col, int angle = 0, SDL_RendererFlip flip = SDL_RendererFlip::SDL_FLIP_NONE) {
 		SDL_Rect srcRect;
 		srcRect.x = fw * col;
 		srcRect.y = fh * row;
 		srcRect.w = fw;
 		srcRect.h = fh;
+		//render(srcRect, destRect, angle);
 		SDL_RenderCopyEx(renderer_, texture_, &srcRect, &destRect, angle, 0, flip);
 	}
 

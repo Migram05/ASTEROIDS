@@ -6,8 +6,8 @@
   ],
   
   "images" : [
-    { "id" : "GrayAsteroids", "file" : "resources/images/asteroid.png" },
-    { "id" : "GoldAsteroids", "file" : "resources/images/asteroid_gold.png" },
+    { "id" : "GrayAsteroids", "file" : "resources/images/asteroid.png", "rows" : 5, "cols" : 6 },
+    { "id" : "GoldAsteroids", "file" : "resources/images/asteroid_gold.png", "rows" : 5, "cols" : 6 },
     { "id" : "Fighter", "file" : "resources/images/fighter.png" },
     { "id" : "Fire", "file" : "resources/images/fire.png" },
     { "id" : "Heart", "file" : "resources/images/heart.png" },
