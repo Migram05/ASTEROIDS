@@ -57,9 +57,9 @@ void Game::InitGameObjects() { //Creación de la máquina de estados
 }
 
 void Game::LoadTextures(SDL_Renderer* renderer) { //Cada valor del array de texturas recibe su información del array de descripciones
-	//textures[GrayAsteroid] = new Texture(renderer, TEXT_DESCRIPT[GrayAsteroid].filename, 5, 6);
-	//textures[GoldAsteroid] = new Texture(renderer, TEXT_DESCRIPT[GoldAsteroid].filename, 5, 6);
-	/*textures[Fighter1] = new Texture(renderer, TEXT_DESCRIPT[Fighter1].filename);
+	textures[GrayAsteroid] = new Texture(renderer, TEXT_DESCRIPT[GrayAsteroid].filename, 5, 6);
+	textures[GoldAsteroid] = new Texture(renderer, TEXT_DESCRIPT[GoldAsteroid].filename, 5, 6);
+	textures[Fighter1] = new Texture(renderer, TEXT_DESCRIPT[Fighter1].filename);
 	textures[Fire] = new Texture(renderer, TEXT_DESCRIPT[Fire].filename);
 	textures[Heart] = new Texture(renderer, TEXT_DESCRIPT[Heart].filename);
 	textures[OnePlayer] = new Texture(renderer, TEXT_DESCRIPT[OnePlayer].filename);
@@ -67,7 +67,7 @@ void Game::LoadTextures(SDL_Renderer* renderer) { //Cada valor del array de text
 	textures[Exit] = new Texture(renderer, TEXT_DESCRIPT[Exit].filename);
 	textures[Host] = new Texture(renderer, TEXT_DESCRIPT[Host].filename);
 	textures[Join] = new Texture(renderer, TEXT_DESCRIPT[Join].filename);
-	textures[TextBox] = new Texture(renderer, TEXT_DESCRIPT[TextBox].filename);*/
+	textures[TextBox] = new Texture(renderer, TEXT_DESCRIPT[TextBox].filename);
 }
 Texture* Game::getTexture(int x) { //Devuelve una textura del vector
 	return textures[x];

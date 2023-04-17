@@ -21,7 +21,7 @@ void MultiplayerState::update()
 				// Espera una conexión entrante
 				client = SDLNet_TCP_Accept(master_socket);
 				if (client) {
-					playerIndex++;
+					playerIndex = 1;
 					cout << "cliente conectado" << endl;
 					SDLNet_TCP_AddSocket(socketSet, client);
 
@@ -31,6 +31,7 @@ void MultiplayerState::update()
 					int result = SDLNet_TCP_Send(client, message, strlen(message) + 1);
 					if (result < strlen(message) + 1) {
 						std::cerr << "Error al enviar el mensaje al cliente: " << SDLNet_GetError() << std::endl;
+						
 					}
 				}
 			}
@@ -45,7 +46,6 @@ void MultiplayerState::update()
 				}
 				else client = nullptr;
 			}
-			
 		}
 	}
 	else {
@@ -98,7 +98,7 @@ void MultiplayerState::onRecieveMessage(char* m)
 		manager_->send(msg, true);
 	}
 	else if (strncmp(m, "Move", 4) == 0) {
-		cout << "la nave se mueve" << endl;
+		cout << "la nave se mueve "<< (m[4] - 48) << endl;
 		Message msg; msg.id = _m_MOVESHIP; msg.moveShip_data.indx = (m[4] - 48);
 		manager_->send(msg, true);
 	}
@@ -110,6 +110,11 @@ void MultiplayerState::onRecieveMessage(char* m)
 	}
 	else if (strncmp(m, "Shoot", 5) == 0) {
 		Message msg; msg.id = _m_SHIPSHOOT; msg.shipShoot_data.indx = (m[5] - 48);
+		manager_->send(msg, true);
+	}
+	else if (strncmp(m, "Reset", 5) == 0) {
+		Message msg; msg.id = _m_EXIT;
+		cout << "reset " << endl;
 		manager_->send(msg, true);
 	}
 	else {

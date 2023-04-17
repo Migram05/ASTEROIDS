@@ -106,7 +106,7 @@ void FighterSystemOnline::updatePosition() //Mueve al caza
 				} break;
 			}
 			case SDLK_ESCAPE: { //mensaje de salida
-				msg.id = _m_EXIT;  mngr_->send(msg); break;
+				msg.id = _m_EXIT;  mngr_->send(msg); currentState->sendMessage("Reset"); break;
 			}
 			default: break;
 			}

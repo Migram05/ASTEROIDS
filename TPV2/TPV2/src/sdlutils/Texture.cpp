@@ -23,7 +23,7 @@ Texture::Texture(Texture &&other) noexcept {
 	height_ = other.height_;
 }
 
-Texture::Texture(SDL_Renderer *renderer, const std::string &fileName, uint32_t nRows, uint32_t nCols) {
+Texture::Texture(SDL_Renderer *renderer, const std::string &fileName, int nRows, int nCols) {
 
 	assert(renderer != nullptr);
 
@@ -38,13 +38,15 @@ Texture::Texture(SDL_Renderer *renderer, const std::string &fileName, uint32_t n
 	}
 	numRows = nRows;
 	numCols = nCols;
+	std::cout << nRows << endl;
+	std::cout << nCols << endl;
 	width_ = surface->w;
 	height_ = surface->h;
 	renderer_ = renderer;
-	fw = width_ / numCols;
-	fh = height_ / numRows;
+	fw_ = width_ / numCols;
+	fh_ = height_ / numRows;
 	SDL_FreeSurface(surface);
-	std::cout << "textura leida " << fw << " " << fh << std::endl;
+	std::cout << "textura leida " << fw_ << " " << fh_ << std::endl;
 }
 
 
@@ -56,6 +58,17 @@ Texture::Texture(SDL_Renderer *renderer, const std::string &text,
 Texture::Texture(SDL_Renderer *renderer, const std::string &text,
 		const Font &font, const SDL_Color &fgColor, const SDL_Color &bgColor) {
 	constructFromText(renderer, text, font, &fgColor, &bgColor);
+}
+
+void Texture::renderFrame(const SDL_Rect& destRect, int row, int col, int angle, SDL_RendererFlip flip)
+{
+	SDL_Rect srcRect;
+	srcRect.x = fw_ * col;
+	srcRect.y = fh_ * row;
+	srcRect.w = fw_;
+	srcRect.h = fh_;
+
+	SDL_RenderCopy(renderer_, texture_, &srcRect, &destRect);
 }
 
 void Texture::constructFromText(SDL_Renderer *renderer, const std::string &text,

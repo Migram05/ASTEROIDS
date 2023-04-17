@@ -8,14 +8,14 @@
   "images" : [
     { "id" : "GrayAsteroids", "file" : "resources/images/asteroid.png", "rows" : 5, "cols" : 6 },
     { "id" : "GoldAsteroids", "file" : "resources/images/asteroid_gold.png", "rows" : 5, "cols" : 6 },
-    { "id" : "Fighter", "file" : "resources/images/fighter.png" },
-    { "id" : "Fire", "file" : "resources/images/fire.png" },
-    { "id" : "Heart", "file" : "resources/images/heart.png" },
-    { "id" : "singleB", "file" : "resources/images/single.png" },
-    { "id" : "multiB", "file" : "resources/images/multi.png" },
-    { "id" : "exitB", "file" : "resources/images/exit.png" },
-    { "id" : "hostB", "file" : "resources/images/host.png" },
-    { "id" : "joinB", "file" : "resources/images/join.png" }
+    { "id" : "Fighter", "file" : "resources/images/fighter.png", "rows" : 1, "cols" : 1  },
+    { "id" : "Fire", "file" : "resources/images/fire.png" , "rows" : 1, "cols" : 1 },
+    { "id" : "Heart", "file" : "resources/images/heart.png" , "rows" : 1, "cols" : 1 },
+    { "id" : "singleB", "file" : "resources/images/single.png" , "rows" : 1, "cols" : 1 },
+    { "id" : "multiB", "file" : "resources/images/multi.png", "rows" : 1, "cols" : 1  },
+    { "id" : "exitB", "file" : "resources/images/exit.png", "rows" : 1, "cols" : 1  },
+    { "id" : "hostB", "file" : "resources/images/host.png", "rows" : 1, "cols" : 1  },
+    { "id" : "joinB", "file" : "resources/images/join.png", "rows" : 1, "cols" : 1  }
   ],
   
   "messages" : [

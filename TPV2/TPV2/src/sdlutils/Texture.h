@@ -23,7 +23,7 @@ public:
 	Texture(Texture &&other) noexcept;
 
 	// Construct from image
-	Texture(SDL_Renderer *renderer, const std::string &fileName, uint32_t numRows = 1, uint32_t numCols = 1);
+	Texture(SDL_Renderer *renderer, const std::string &fileName, int numRows = 1, int numCols = 1);
 
 
 
@@ -91,16 +91,10 @@ public:
 		SDL_Rect src = { 0, 0, width_, height_ };
 		render(src, dest, rotation);
 	}
-	void renderFrame(const SDL_Rect& destRect, int row, int col, int angle = 0, SDL_RendererFlip flip = SDL_RendererFlip::SDL_FLIP_NONE) {
-		SDL_Rect srcRect;
-		srcRect.x = fw * col;
-		srcRect.y = fh * row;
-		srcRect.w = fw;
-		srcRect.h = fh;
-		//render(srcRect, destRect, angle);
-		SDL_RenderCopyEx(renderer_, texture_, &srcRect, &destRect, angle, 0, flip);
-	}
+	void renderFrame(const SDL_Rect& destRect, int row, int col, int angle = 0, SDL_RendererFlip flip = SDL_FLIP_NONE);
 
+	inline void fH() { cout << fh_ << endl; }
+	inline void fW() { cout << fw_ << endl; }
 private:
 
 	// Construct from text
@@ -112,5 +106,8 @@ private:
 	SDL_Renderer *renderer_;
 	int width_;
 	int height_;
-	int fw, fh, numRows, numCols;
+	int fw_; ///< Anchura del frame de la textura
+	int fh_; ///< Altura del frame de la textura
+	int numCols; ///< Número de columnas de la textura
+	int numRows; ///< Número de filas de la textura
 };
