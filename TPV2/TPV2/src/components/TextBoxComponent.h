@@ -6,11 +6,13 @@ class MainMenuState;
 class TextBoxComponent : public Component
 {
 public:
-	TextBoxComponent(MainMenuState* state, Vector2D position);
+	TextBoxComponent(MainMenuState* state, Vector2D position, string display, bool readN);
 	virtual ~TextBoxComponent();
 	void initComponent() override;
 	inline Vector2D getPos() { return pos_; }
 	inline string& getText() { return text; }
+	inline string getDisplay() { return display; }
+	inline bool getReadNum() { return readNum; }
 	constexpr static cmpId_type id = ecs::_TEXTBOX;
 #ifdef COMPS
 	void update() override;
@@ -18,6 +20,7 @@ public:
 #endif // COMPS
 private:
 	Vector2D pos_;
-	string text = "";
+	string text = "", display = "";
 	MainMenuState* currentState;
+	bool readNum;
 };

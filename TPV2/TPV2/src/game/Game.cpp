@@ -97,9 +97,9 @@ void Game::playSingleplayer()
 	gameStateMachine->changeState(new PlayState(this, WIN_WIDTH, WIN_HEIGHT));
 }
 
-void Game::playMultiplayer(bool client, string dir)
+void Game::playMultiplayer(bool client, string dir, string name)
 {
-	gameStateMachine->changeState(new MultiplayerState(this, WIN_WIDTH, WIN_HEIGHT, client, dir));
+	gameStateMachine->changeState(new MultiplayerState(this, WIN_WIDTH, WIN_HEIGHT, client, name, dir));
 }
 
 

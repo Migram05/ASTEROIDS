@@ -54,6 +54,7 @@ bool MainMenuState::onEnter()
 
 void MainMenuState::refresh()
 {
+	manager_->refresh();
 }
 
 void MainMenuState::createButtons()
@@ -69,7 +70,7 @@ void MainMenuState::createButtons()
 	auto p2 = manager_->addEntity(ecs::_grp_UI);
 	manager_->addComponent<Transform>(p2, Vector2D(WIN_WIDTH / 2 - buttonW / 2, WIN_HEIGHT / 2 - buttonH / 2), buttonW, buttonH);
 	manager_->addComponent<Image>(p2, &sdl.images().at("multiB"));
-	manager_->addComponent<Button>(p2, showButtonsClbck, game);
+	manager_->addComponent<Button>(p2, enterName, game);
 
 	//Botón de salida
 	auto exitB = manager_->addEntity(ecs::_grp_UI);
@@ -97,18 +98,18 @@ void MainMenuState::startSingleplayer(Game* g)
 
 void MainMenuState::hostMultiplayer(Game* g)
 {
-	g->playMultiplayer(false);
+	static_cast<MainMenuState*>(g->getState())->startMultiplayer(false, "localhost");
 }
 
 void MainMenuState::searchMultiplayer(Game* g)
 {
-	static_cast<MainMenuState*>(g->getState())->startRead();
+	static_cast<MainMenuState*>(g->getState())->startRead("ESCRIBA LA DIRECCION IP:");
 }
 
-void MainMenuState::startMultiplayer(string dir)
+void MainMenuState::startMultiplayer(bool c, string dir)
 {
 	if (dir == "") dir = "localhost";
-	game->playMultiplayer(true, dir);
+	game->playMultiplayer(c, dir, manager_->getPlayerName());
 }
 
 void MainMenuState::exitGame(Game* g)
@@ -116,25 +117,26 @@ void MainMenuState::exitGame(Game* g)
 	g->exitGame();
 }
 
-void MainMenuState::showButtonsClbck(Game* g)
+void MainMenuState::enterName(Game* g)
 {
-	static_cast<MainMenuState*>(g->getState())->showButtons();
+	static_cast<MainMenuState*>(g->getState())->startRead("ESCRIBA NOMBRE DE USUARIO:", false);
 }
 
 void MainMenuState::showButtons()
 {
+	
 	for (Entity* e : manager_->getEntitiesByGroup(ecs::_grp_UI)) {
 		if (!e->isVisible()) e->setVisibility(true);
 	}
 }
 
-void MainMenuState::startRead()
+void MainMenuState::startRead(string dTxt, bool readN)
 {
 	//Cuadro de texto
 	textBoxEnt = manager_->addEntity(ecs::_grp_UI);
 	manager_->addComponent<Transform>(textBoxEnt, Vector2D((WIN_WIDTH / 2) - (txtBoxW/2), WIN_HEIGHT * 0.8), txtBoxW, txtBoxH);
 	manager_->addComponent<Image>(textBoxEnt, manager_->getTexture(TextBox));
-	manager_->addComponent<TextBoxComponent>(textBoxEnt, this, Vector2D(((WIN_WIDTH / 2) - (txtBoxW / 2))*1.1, (WIN_HEIGHT * 0.8) + txtBoxH/2));
+	manager_->addComponent<TextBoxComponent>(textBoxEnt, this, Vector2D(((WIN_WIDTH / 2) - (txtBoxW / 2))*1.1, (WIN_HEIGHT * 0.8) + txtBoxH/2), dTxt, readN);
 }
 
 MainMenuState::~MainMenuState()

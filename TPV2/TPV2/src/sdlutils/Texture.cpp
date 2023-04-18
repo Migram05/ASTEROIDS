@@ -38,15 +38,12 @@ Texture::Texture(SDL_Renderer *renderer, const std::string &fileName, int nRows,
 	}
 	numRows = nRows;
 	numCols = nCols;
-	std::cout << nRows << endl;
-	std::cout << nCols << endl;
 	width_ = surface->w;
 	height_ = surface->h;
 	renderer_ = renderer;
 	fw_ = width_ / numCols;
 	fh_ = height_ / numRows;
 	SDL_FreeSurface(surface);
-	std::cout << "textura leida " << fw_ << " " << fh_ << std::endl;
 }
 
 

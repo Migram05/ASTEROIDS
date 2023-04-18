@@ -3,6 +3,11 @@
 #include "../sdlutils/SDLUtils.h"
 void RenderSystem::receive(const Message& m)
 {
+	switch (m.id)
+	{
+	case _m_SHOWALL: showAllEntities(); break;
+	default: break;
+	}
 }
 
 void RenderSystem::initSystem()
@@ -69,12 +74,19 @@ void RenderSystem::update()
 				Vector2D pos_ = component->getPos();
 				string text = component->getText();
 				string display;
-				if (text == "") display = "ESCRIBA LA DIRECCION IP"; //En caso de no haber texto, escribe esto por defecto
+				if (text == "") display = component->getDisplay(); //En caso de no haber texto, escribe esto por defecto
 				else display = text;
 				Texture ipDirText(sdl.renderer(), display, sdl.fonts().at("ARIAL18"), build_sdlcolor(0x112233ff), build_sdlcolor(0xffffffff)); //Dibujado de textura
 				ipDirText.render(pos_.getX(), pos_.getY());
 			}
 		}
+	}
+}
+
+void RenderSystem::showAllEntities()
+{
+	for (Entity* e : mngr_->getEntitiesByGroup(ecs::_grp_UI)) {
+		if (!e->isVisible()) e->setVisibility(true);
 	}
 }
 

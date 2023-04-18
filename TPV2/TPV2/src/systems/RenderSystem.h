@@ -16,7 +16,7 @@ public:
 	void update() override;
 	constexpr static sysId_type id = ecs::_sys_RENDER; //Identificador del tipo de sistema
 private:
-
+	void showAllEntities();
 	Texture* tex_;
 	Texture* hTex_;
 };

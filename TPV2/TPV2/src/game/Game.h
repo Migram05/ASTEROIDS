@@ -32,7 +32,7 @@ public:
 	void resumeGame(bool l);
 	void playerLoses();
 	void playSingleplayer();
-	void playMultiplayer(bool client, string dir = "localhost");
+	void playMultiplayer(bool client, string dir , string name);
 	inline GameState* getState() { return gameStateMachine->currentState(); }
 private:
 	SDL_Window* window;

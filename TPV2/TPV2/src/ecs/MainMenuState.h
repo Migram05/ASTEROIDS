@@ -14,7 +14,7 @@ public:
 	virtual void render();
 	virtual bool onEnter();
 	virtual void refresh();
-	void startMultiplayer(string dir);
+	void startMultiplayer(bool c, string dir);
 	inline Entity* getTextBox() { return textBoxEnt; }
 	virtual std::string getStateID() const { return s_mainMID; }
 private:
@@ -24,9 +24,9 @@ private:
 	static void searchMultiplayer(Game* g);
 	
 	static void exitGame(Game* g);
-	static void showButtonsClbck(Game* g);
+	static void enterName(Game* g);
 	void showButtons();
-	void startRead();
+	void startRead(string dTxt, bool readN = true);
 	bool exit = false;
 	static const string s_mainMID;
 	float buttonW, buttonH, txtBoxW, txtBoxH;

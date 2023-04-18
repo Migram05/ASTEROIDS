@@ -7,7 +7,7 @@
 #include "../systems/RenderSystem.h"
 
 
-MultiplayerState::MultiplayerState(Game* g, double w, double h, bool c, string ipDirection) : GameState(w, h), isClient(c), ipDir(ipDirection) // Constructora
+MultiplayerState::MultiplayerState(Game* g, double w, double h, bool c, string name, string ipDirection) : GameState(w, h), isClient(c), ipDir(ipDirection) // Constructora
 {
 	game = g;
 }
@@ -68,13 +68,7 @@ void MultiplayerState::update()
 		checkExit();
 		return;
 	}
-
-#ifdef COMPS
-	manager_->update(); //Llamada al manager
-	checkCollisions(); //Colisiones
-#endif // COMPS
-#ifndef COMPS
-
+	
 	gameCtrlSys_->update();
 	fighterSys_->update();
 	bulletSys_->update();
@@ -82,7 +76,6 @@ void MultiplayerState::update()
 
 	manager_->flushMessages();
 	//El refresh es un método propio de Game State
-#endif // !COMPS
 }
 
 void MultiplayerState::onRecieveMessage(char* m)
@@ -144,12 +137,8 @@ void MultiplayerState::sendMessage(string m)
 
 void MultiplayerState::render()
 {
-#ifdef COMPS
-	manager_->render();
-#endif // COMPS
-#ifndef COMPS
 	renderSys_->update();
-#endif // !COMPS
+
 	if (!client) {
 		auto& sdl = *SDLUtils::instance();
 		Texture lostText(sdl.renderer(), "ESPERANDO JUGADORES", sdl.fonts().at("CAPTURE50"), build_sdlcolor(0x112233ff));
@@ -159,13 +148,16 @@ void MultiplayerState::render()
 
 bool MultiplayerState::onEnter()
 {
+#ifdef COMPS
+	game->exitToMenu(); //El multijugador solo funciona con sistemas
+	return false;
+#endif // COMPS
+#ifndef COMPS
 	if (SDLNet_Init() < 0) {
 		cout << "Conection error" << endl;
 	}
-
 	if (!isClient) {
 		//Si es el servidor
-
 		// Crea una dirección IP
 		if (SDLNet_ResolveHost(&ip, NULL, port) < 0) {
 			throw("Error resolviendo host servidor");
@@ -175,48 +167,34 @@ bool MultiplayerState::onEnter()
 		if (!master_socket) {
 			throw("Error creando el socket maestro");
 		}
-
 		SDLNet_TCP_AddSocket(socketSet, master_socket);
+		cout << system("ipconfig") << endl;
 	}
 	else {
 		//Cliente
 		if (SDLNet_ResolveHost(&ip, ipDir.c_str(), port) < 0) {
-			//throw("Error descifrando IP en el cliente");
 			game->exitToMenu(); //Si no hay una partida hosteada, devuelve al cliente al menú
 		}
-
 		// Crea un socket para conectarse al servidor
 		client = SDLNet_TCP_Open(&ip);
 		if (!client) {
-			//throw("Error conectandose al servidor");
 			game->exitToMenu(); //Si no hay una partida hosteada, devuelve al cliente al menú
 		}
 		SDLNet_TCP_AddSocket(socketSet, client);
 	}
-
 	manager_ = new Manager(game);
-#ifdef COMPS
-	cout << "Using components" << endl;
-	manager_->createPlayer(2);
-#endif // COMPS
-
-#ifndef COMPS
-	cout << "Using systems" << endl;
 	gameCtrlSys_ = manager_->addSystem<GameCtrlSystem>();
-
 	bulletSys_ = manager_->addSystem<BulletsSystem>();
-
 	fighterSys_ = manager_->addSystem<FighterSystemOnline>();
-
 	collisionSys_ = manager_->addSystem<CollisionsSystem>();
-
 	renderSys_ = manager_->addSystem<RenderSystem>();
-#endif // !COMPS
+
 	auto& sdl = *SDLUtils::instance();
 	Music::setMusicVolume(8); //Musica de fondo y volumen (8)
 	sdl.musics().at("theme").play();
 	SoundEffect::setChannelVolume(25); //(25)
 	return true;
+#endif // !COMPS
 }
 
 void MultiplayerState::refresh()
@@ -227,7 +205,8 @@ void MultiplayerState::refresh()
 MultiplayerState::~MultiplayerState()
 {
 	Music::haltMusic();
-	delete manager_;
+	if(manager_) delete manager_;
+	
 
 	// Cerrar sockets
 	if(client) SDLNet_TCP_Close(client);

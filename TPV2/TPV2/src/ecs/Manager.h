@@ -236,10 +236,13 @@ public:
 	inline Game* getGame() { return game; }
 	inline void setPlayerIndex(int i) { playerIndex = i; }
 	inline int getPlayerIndex() { return playerIndex; }
+	inline void setPlayerName(string name) { playerName = name; }
+	inline string getPlayerName() { return playerName; }
 private:
 	//Vector que almacena a los jugadores
 	std::vector<Entity*> players ;
 	int playerIndex = 0;
+	string playerName;
 	Game* game;
 	
 	//Entidades

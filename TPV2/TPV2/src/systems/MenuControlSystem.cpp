@@ -35,16 +35,27 @@ void MenuControlSystem::update()
 		else if (event.type == SDL_KEYDOWN) { //Para el elemento de textBox
 			auto entity = currentState->getTextBox(); //Obtiene la textBox del menú
 			if (!entity) return;
-			string& text = mngr_->getComponent<TextBoxComponent>(entity)->getText();
+			auto comp = mngr_->getComponent<TextBoxComponent>(entity);
+			string& text = comp->getText();
+			bool readN = comp->getReadNum();
 			char c = event.key.keysym.sym;
 			if (event.key.keysym.sym - 13 == 0) { //Cálculo para saber si es la tecla ENTER
-				currentState->startMultiplayer(text);
+				if (readN) currentState->startMultiplayer(true, text);
+				else {
+					mngr_->setAlive(entity, false);
+					Message msg; msg.id = _m_SHOWALL; mngr_->send(msg);
+					mngr_->setPlayerName(text);
+					cout << text << endl;
+				}
 			}
 			if (event.key.keysym.sym == SDLK_BACKSPACE && !text.empty()) {
 				auto it = text.end(); --it;
 				text.erase(it);
 			}
-			if (isdigit(c) || c == '.') text += c; //Solo si es un número se añade
+			if (readN) {
+				if (isdigit(c) || c == '.') text += c; //Solo si es un número se añade
+			}
+			else text += c;
 		}
 	}
 }
