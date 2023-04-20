@@ -27,7 +27,15 @@ void CollisionsSystem::update() //Comprueba colisiones
 					mngr_->setAlive(b, false);
 					int& lives = mngr_->getComponent<Health>(e)->getLives();
 					lives--;
-					Message msg; msg.id = _m_RESETPLAYERS; //Colisión jugador/asteroide, fin de la partida
+					Message msg;
+					if (lives <= 0) {
+						msg.id = _m_EXIT;
+						//msg.mainMenuInfo.menuInfoData = "DERROTA";
+					}
+					else {
+						msg.id = _m_RESETPLAYERS; //Colisión jugador/asteroide, fin de la partida
+					}
+					
 					mngr_->send(msg);
 				}
 			}
@@ -40,7 +48,15 @@ void CollisionsSystem::update() //Comprueba colisiones
 					lives--;
 					int& lives2 = mngr_->getComponent<Health>(p)->getLives();
 					lives2--;
-					Message msg; msg.id = _m_RESETPLAYERS; //Colisión jugador/asteroide, fin de la partida
+					Message msg; 
+					if (lives <= 0 || lives2 <= 0) {
+						msg.id = _m_EXIT;
+						//if(lives <= 0) msg.mainMenuInfo.menuInfoData = "DERROTA";
+						//else msg.mainMenuInfo.menuInfoData = "VICTORIA";
+					}
+					else {
+						msg.id = _m_RESETPLAYERS; //Colisión jugador/asteroide, fin de la partida
+					}
 					mngr_->send(msg);
 				}
 			}

@@ -12,12 +12,14 @@ public:
 	Transform(float x, float y, float w, float h, Vector2D vel, float rot = 0);
 	virtual ~Transform();
 	inline Vector2D& getPos() { return position_; }
+	inline void setPos(int x, int y) { position_ = Vector2D(x, y); }
 	inline Vector2D& getVel() { return velocity_; }
 	inline Vector2D& getForward() { return forward_; }
 	inline Vector2D& getLastForward() { return lastForward_; }
 	inline float& getW() { return width_; }
 	inline float& getH() { return height_; }
 	inline float& getRotation() { return rotation_; }
+	inline void setRotation(int r) { rotation_ = r; }
 	virtual void initComponent();
 	inline SDL_Rect getRect() {
 		SDL_Rect aux;

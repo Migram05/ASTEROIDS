@@ -28,12 +28,12 @@ bool MultiplayerState::onEnter()
 		//Si es el servidor
 		// Crea una dirección IP
 		if (SDLNet_ResolveHost(&ip, NULL, port) < 0) {
-			throw("Error resolviendo host servidor");
+			game->exitToMenu("Error resolviendo host servidor");
 		}
 		// Crea un socket para escuchar las conexiones entrantes
 		master_socket = SDLNet_TCP_Open(&ip);
 		if (!master_socket) {
-			throw("Error creando el socket maestro");
+			game->exitToMenu("Error creando el socket maestro");
 		}
 		SDLNet_TCP_AddSocket(socketSet, master_socket);
 		cout << system("ipconfig") << endl;
@@ -80,6 +80,7 @@ void MultiplayerState::update()
 			if (SDLNet_SocketReady(master_socket)) {
 				// Espera una conexión entrante
 				client = SDLNet_TCP_Accept(master_socket);
+
 				if (client) {
 					playerIndex = 1;
 					cout << "cliente conectado" << endl;
@@ -102,7 +103,7 @@ void MultiplayerState::update()
 				if (result > 0) {
 					onRecieveMessage(buffer);
 				}
-				else client = nullptr;
+				
 			}
 		}
 	}
@@ -138,8 +139,8 @@ void MultiplayerState::update()
 
 void MultiplayerState::onRecieveMessage(char* m)
 {
-	cout << m << endl;
-	cout << sizeof(m) << endl;
+	//cout << m << endl;
+	//cout << sizeof(m) << endl;
 	if (strncmp(m, "IndxSet", 7) == 0) {
 		// Los contenidos de las cadenas son iguales
 		cout << "cambio de index" << endl;
@@ -169,16 +170,36 @@ void MultiplayerState::onRecieveMessage(char* m)
 		Message msg; msg.id = _m_SHIPSHOOT; msg.shipShoot_data.indx = (m[5] - 48);
 		manager_->send(msg, true);
 	}
-	else if (strncmp(m, "Reset", 5) == 0) {
-		Message msg; msg.id = _m_EXIT;
+	if (strncmp(m, "Reset", 5) == 0) {
+		client = NULL;
+		Message msg; msg.id = _m_RESETPLAYERS;
 		cout << "reset " << endl;
-		manager_->send(msg, true);
+		manager_->send(msg);
 	}
 	else if (strncmp(m, "Name", 4) == 0) {
 		string otherName = m;
 		otherName = otherName.substr(4, otherName.size() - 4);
 		cout << "Nombre del otro jugador: " <<  otherName << endl;
 		manager_->setEnemyName(otherName);
+	}
+	else if (strncmp(m, "M", 1) == 0) {
+		int index = (m[1] - 48);
+		string msgS = m;
+		string sPX = msgS.substr(2, 4); int posX = stoi(sPX);
+		string sPY = msgS.substr(6, 4); int posY = stoi(sPY);
+		string sR = msgS.substr(10, 4); 
+		int Rot;
+		if (sR[1] == '-' || sR[2] == '-') {
+			if (sR[1] == '-') sR = sR.substr(2, 2);
+			else sR = sR.substr(3, 1);
+			Rot = -stoi(sR);
+		}
+		else Rot = stoi(sR);
+		string sS = msgS.substr(14, 1); int Shoot = stoi(sS);
+		
+		Message msg; msg.id = _m_SHIPSTATE; 
+		msg.shipData.idx = index; msg.shipData.pX = posX; msg.shipData.pY = posY; msg.shipData.R = Rot; msg.shipData.S = Shoot;
+		manager_->send(msg);
 	}
 	else {
 		// Los contenidos de las cadenas son diferentes
@@ -202,6 +223,11 @@ void MultiplayerState::sendMessage(string m)
 	int result = SDLNet_TCP_Send(client, message, strlen(message) + 1);
 	if (result < strlen(message) + 1) {
 		std::cerr << "Error al enviar el mensaje al cliente: " << SDLNet_GetError() << std::endl;
+		SDLNet_TCP_DelSocket(socketSet, client);
+		client = NULL;
+		Message msg; msg.id = _m_RESETPLAYERS;
+		cout << "reset " << endl;
+		manager_->send(msg);
 	}
 }
 
@@ -225,15 +251,10 @@ MultiplayerState::~MultiplayerState()
 {
 	Music::haltMusic();
 	if(manager_) delete manager_;
-	
-
-	// Cerrar sockets
-	if(client) SDLNet_TCP_Close(client);
-	if (!isClient) {
-		if(master_socket) SDLNet_TCP_Close(master_socket);
-		
-		SDLNet_FreeSocketSet(socketSet);
-	}
+	//Cierre de sockets
+	SDLNet_TCP_Close(client);
+	SDLNet_FreeSocketSet(socketSet);
+	if (!isClient && master_socket) SDLNet_TCP_Close(master_socket);
 	// Cierra SDL_net
 	SDLNet_Quit();
 }

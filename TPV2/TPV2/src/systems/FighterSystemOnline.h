@@ -1,6 +1,9 @@
 #pragma once
 #pragma once
 #include "../ecs/System.h"
+#include <iostream>
+#include <string>
+#include <algorithm>
 class MultiplayerState;
 class FighterSystemOnline : public System
 {
@@ -31,6 +34,7 @@ private:
 
 	void movePlayer(int index);
 	void rotatePlayer(int index, int proportion);
+	void setPlayerState(int index, int posX, int posY, int Rot);
 	//Variables del caza
 	float speed = 1.2, rotationSpeed = 5;
 	int nPlayers = 2;

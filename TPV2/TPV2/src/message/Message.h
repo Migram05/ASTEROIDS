@@ -17,6 +17,7 @@ enum msgId : msgId_type { //Identificadores de los mensajes
 	_m_SHIPSHOOT,
 	_m_RESETPLAYERS,
 	_m_SHOWALL,
+	_m_SHIPSTATE,
 };
 struct Message { //Clase de los mensajes
 	msgId_type id;
@@ -50,5 +51,12 @@ struct Message { //Clase de los mensajes
 	struct {
 		string menuInfoData;
 	} mainMenuInfo ;
+	struct {
+		int idx;
+		int pX;
+		int pY;
+		int R;
+		bool S;
+	} shipData;
 };
 
