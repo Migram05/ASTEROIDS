@@ -8,7 +8,7 @@ class MenuControlSystem;
 class MainMenuState : public GameState
 {
 public:
-	MainMenuState(Game* g, double w, double h);
+	MainMenuState(Game* g, double w, double h, string infoMsg = "");
 	~MainMenuState();
 	virtual void update();
 	virtual void render();
@@ -16,6 +16,7 @@ public:
 	virtual void refresh();
 	void startMultiplayer(bool c, string dir);
 	inline Entity* getTextBox() { return textBoxEnt; }
+	inline string getInfo() { return infoText; }
 	virtual std::string getStateID() const { return s_mainMID; }
 private:
 	void createButtons();
@@ -34,5 +35,6 @@ private:
 	Manager* manager_;
 	RenderSystem* renderSys_;
 	MenuControlSystem* menuCtrlSys_;
+	string infoText;
 };
 

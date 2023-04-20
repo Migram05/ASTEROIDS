@@ -25,7 +25,7 @@ private:
 	void onRecieveMessage(char* m);
 	void checkExit();
 	bool exit = false, gameOver = false, win = false, renderTime = false, startGame = false, isClient;
-	string ipDir;
+	string ipDir, localName, otherName;
 	static const string s_playID;
 	Manager* manager_ = nullptr;
 	IPaddress ip;

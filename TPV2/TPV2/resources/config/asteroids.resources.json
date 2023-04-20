@@ -2,7 +2,8 @@
 
   "fonts" : [
     { "id" : "ARIAL18", "file" : "resources/fonts/ARIAL.ttf", "size": 18 },
-    { "id" : "CAPTURE50", "file" : "resources/fonts/Capture_it.ttf", "size": 50 }
+    { "id" : "CAPTURE50", "file" : "resources/fonts/Capture_it.ttf", "size": 50 },
+    { "id" : "CAPTURE10", "file" : "resources/fonts/Capture_it.ttf", "size": 15 }
   ],
   
   "images" : [

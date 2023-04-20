@@ -47,5 +47,8 @@ struct Message { //Clase de los mensajes
 	struct {
 		int indx;
 	} shipShoot_data;
+	struct {
+		string menuInfoData;
+	} mainMenuInfo ;
 };
 

@@ -7,7 +7,7 @@ void GameCtrlSystem::receive(const Message& m)
 	case _m_PAUSEGAME: pauseGame(); break; //Mensajes para controlar la máquina de estados
 	case _m_PLAYERLOST: onCollision_FighterAsteroid(); break;
 	case _m_PLAYERWINS: onAsteroidsExtinction();  break;
-	case _m_EXIT: exitGame(); break;
+	case _m_EXIT: exitGame(m.mainMenuInfo.menuInfoData); break;
 	default: break;
 	}
 }
@@ -38,7 +38,7 @@ void GameCtrlSystem::pauseGame() //Menú de pausa
 	mngr_->pauseGame();
 }
 
-void GameCtrlSystem::exitGame() //Sale del juego
+void GameCtrlSystem::exitGame(string info) //Sale del juego
 {
-	mngr_->exitGame();
+	mngr_->exitGame(info);
 }

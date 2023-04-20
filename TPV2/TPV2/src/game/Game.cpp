@@ -75,9 +75,9 @@ Texture* Game::getTexture(int x) { //Devuelve una textura del vector
 void Game::exitGame() { //Activa la salida
 	exit = true;
 }
-void Game::exitToMenu()
+void Game::exitToMenu(string info)
 {
-	gameStateMachine->changeState(new MainMenuState(this, WIN_WIDTH, WIN_HEIGHT));
+	gameStateMachine->changeState(new MainMenuState(this, WIN_WIDTH, WIN_HEIGHT, info));
 }
 void Game::pauseGame() { //Pausa el juego
 	gameStateMachine->pushState(new PauseState(this, WIN_WIDTH, WIN_HEIGHT, false));

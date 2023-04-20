@@ -25,6 +25,6 @@ private:
 
 	void pauseGame();
 
-	void exitGame();
+	void exitGame(string info);
 };
 

@@ -132,7 +132,7 @@ public:
 	void pauseGame() { game->pauseGame(); }
 
 	//Sale del juego
-	void exitGame() { game->exitToMenu(); }
+	void exitGame(string info) { game->exitToMenu(info); }
 
 	//El jugador pierde
 	void playerLost() { game->playerLoses(); }
@@ -237,12 +237,14 @@ public:
 	inline void setPlayerIndex(int i) { playerIndex = i; }
 	inline int getPlayerIndex() { return playerIndex; }
 	inline void setPlayerName(string name) { playerName = name; }
+	inline void setEnemyName(string name) { enemyName = name; }
 	inline string getPlayerName() { return playerName; }
+	inline string getEnemyName() { return enemyName; }
 private:
 	//Vector que almacena a los jugadores
 	std::vector<Entity*> players ;
 	int playerIndex = 0;
-	string playerName;
+	string playerName, enemyName;
 	Game* game;
 	
 	//Entidades

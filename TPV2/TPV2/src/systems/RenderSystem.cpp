@@ -42,11 +42,21 @@ void RenderSystem::update()
 			auto tr_ = mngr_->getComponent<Transform>(e);
 			SDL_Rect dest = build_sdlrect(tr_->getPos(), tr_->getW(), tr_->getH()); //Crea el rectángulo destino
 			tex_->render(dest, tr_->getRotation()); //Renderiza la textura
+
+			//Nombre de los jugadores
+			string name;
+			if (nP == mngr_->getPlayerIndex()) name = mngr_->getPlayerName();
+			else name = mngr_->getEnemyName();
+			if (name.empty()) name = "waiting";
+			int tam = name.size()/2;
+			Vector2D texturePos = tr_->getPos() + Vector2D(-tam*5, tr_->getH());
+			Texture lostText(sdl.renderer(), name, sdl.fonts().at("CAPTURE10"), build_sdlcolor(0xffffffff));
+			lostText.render(texturePos.getX(), texturePos.getY());
 		}
+		//Vida de los jugadores
 		Health* playerHealth = mngr_->getComponent<Health>(mngr_->getPlayer(nP));
 		int nLives = playerHealth->getLives();
 		int hWidth = playerHealth->getWidth(), hHeight = playerHealth->getHeight();
-
 		for (int i = 0; i < nLives; ++i) {
 			SDL_Rect dest = build_sdlrect(hWidth * i, (mngr_->getHeight() / 90) + hHeight * nP, hWidth, hHeight);
 			hTex_->render(dest);
@@ -79,6 +89,13 @@ void RenderSystem::update()
 				Texture ipDirText(sdl.renderer(), display, sdl.fonts().at("ARIAL18"), build_sdlcolor(0x112233ff), build_sdlcolor(0xffffffff)); //Dibujado de textura
 				ipDirText.render(pos_.getX(), pos_.getY());
 			}
+		}
+	}
+	if (mngr_->getGame()->getState()->getStateID() == "MAINMENU") {
+		MainMenuState* menu = static_cast<MainMenuState*>(mngr_->getGame()->getState());
+		if (menu->getInfo() != "") {
+			Texture ipDirText(sdl.renderer(), menu->getInfo(), sdl.fonts().at("ARIAL18"), build_sdlcolor(0x112233ff), build_sdlcolor(0xffffffff)); //Dibujado de textura
+			ipDirText.render(mngr_->getHeight()*0.9, mngr_->getWidth()*0.3);
 		}
 	}
 }

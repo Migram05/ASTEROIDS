@@ -2,12 +2,13 @@
 #include "Manager.h"
 #include "../systems/RenderSystem.h"
 #include "../systems/MenuControlSystem.h"
-MainMenuState::MainMenuState(Game* g, double w, double h) : GameState(w, h) { // Constructora
+MainMenuState::MainMenuState(Game* g, double w, double h, string info) : GameState(w, h) { // Constructora
 	game = g;
 	buttonW = w / 10;
 	buttonH = h / 15;
 	txtBoxH = 1.2 * buttonH;
 	txtBoxW = 5 * buttonW;
+	infoText = info;
 }
 const std::string MainMenuState::s_mainMID = "MAINMENU";//ID del estado
 
