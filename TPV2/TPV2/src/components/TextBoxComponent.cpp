@@ -38,11 +38,10 @@ void TextBoxComponent::update()
 				auto it = text.end(); --it;
 				text.erase(it);
 			}
-			if (readNum) {
+			else if (readNum) {
 				if (isdigit(c) || c == '.') text += c; //Solo si es un número se añade
 			}
-			else text += c;
-			cout << text << endl;
+			else if(text.size() <= 10) text += c;
 		}
 	}
 }

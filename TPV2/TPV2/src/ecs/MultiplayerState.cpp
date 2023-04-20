@@ -17,7 +17,7 @@ const std::string MultiplayerState::s_playID = "MULTIPLAYER";//ID del estado
 bool MultiplayerState::onEnter()
 {
 #ifdef COMPS
-	game->exitToMenu(); //El multijugador solo funciona con sistemas
+	game->exitToMenu("MULTIJUGADOR SOLO CON SISTEMAS"); //El multijugador solo funciona con sistemas
 	return false;
 #endif // COMPS
 #ifndef COMPS
@@ -117,7 +117,7 @@ void MultiplayerState::update()
 				if (result > 0) {
 					onRecieveMessage(buffer);
 				}
-				else manager_->exitGame("HOST disconnected");
+				else manager_->exitGame("");
 			}
 
 		}
@@ -150,7 +150,7 @@ void MultiplayerState::onRecieveMessage(char* m)
 
 		//Con el cambio de indice tambien recibe el nombre del host
 		string otherName = m;
-		otherName = otherName.substr(7, otherName.size() - 7);
+		otherName = otherName.substr(8, otherName.size() - 8);
 		cout << "Nombre del otro jugador: " << otherName << endl;
 		manager_->setEnemyName(otherName);
 	}
@@ -230,7 +230,8 @@ MultiplayerState::~MultiplayerState()
 	// Cerrar sockets
 	if(client) SDLNet_TCP_Close(client);
 	if (!isClient) {
-		SDLNet_TCP_Close(master_socket);
+		if(master_socket) SDLNet_TCP_Close(master_socket);
+		
 		SDLNet_FreeSocketSet(socketSet);
 	}
 	// Cierra SDL_net

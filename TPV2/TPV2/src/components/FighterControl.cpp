@@ -46,7 +46,7 @@ void FighterControl::update()
 				}
 				break;
 			}
-			case SDLK_ESCAPE: mngr_->exitGame(); break; //(Adicional) Sale del juego
+			case SDLK_ESCAPE: mngr_->exitGame(""); break; //(Adicional) Sale del juego
 			case SDLK_SPACE: mngr_->pauseGame(); break;
 			default:
 				break;

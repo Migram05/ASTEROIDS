@@ -33,6 +33,11 @@ void MainMenuState::render()
 #ifndef COMPS
 	renderSys_->update();
 #endif // !COMPS
+	auto& sdl = *SDLUtils::instance();
+	if (infoText != "") {
+		Texture ipDirText(sdl.renderer(), infoText, sdl.fonts().at("CAPTURE10"), build_sdlcolor(0xffffffff));
+		ipDirText.render(manager_->getWidth() * 0.3, manager_->getHeight() * 0.9);
+	}
 }
 
 bool MainMenuState::onEnter()

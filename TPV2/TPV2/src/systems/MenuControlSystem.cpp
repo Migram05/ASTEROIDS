@@ -52,10 +52,10 @@ void MenuControlSystem::update()
 				auto it = text.end(); --it;
 				text.erase(it);
 			}
-			if (readN) {
+			else if (readN) {
 				if (isdigit(c) || c == '.') text += c; //Solo si es un número se añade
 			}
-			else text += c;
+			else if(text.size() <= 10) text += c;
 		}
 	}
 }

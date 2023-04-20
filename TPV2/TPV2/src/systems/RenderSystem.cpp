@@ -91,13 +91,6 @@ void RenderSystem::update()
 			}
 		}
 	}
-	if (mngr_->getGame()->getState()->getStateID() == "MAINMENU") {
-		MainMenuState* menu = static_cast<MainMenuState*>(mngr_->getGame()->getState());
-		if (menu->getInfo() != "") {
-			Texture ipDirText(sdl.renderer(), menu->getInfo(), sdl.fonts().at("ARIAL18"), build_sdlcolor(0x112233ff), build_sdlcolor(0xffffffff)); //Dibujado de textura
-			ipDirText.render(mngr_->getHeight()*0.9, mngr_->getWidth()*0.3);
-		}
-	}
 }
 
 void RenderSystem::showAllEntities()

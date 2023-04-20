@@ -31,7 +31,7 @@ private:
 	IPaddress ip;
 	int port = 5555;
 	int playerIndex = 0;
-	TCPsocket master_socket;
+	TCPsocket master_socket = NULL;
 	TCPsocket client = NULL;
 	SDLNet_SocketSet socketSet = SDLNet_AllocSocketSet(2);
 
