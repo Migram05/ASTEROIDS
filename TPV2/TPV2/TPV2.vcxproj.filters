@@ -284,9 +284,6 @@
     <ClCompile Include="src\ecs\System.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\message\Message.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="src\ecs\Entity.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>

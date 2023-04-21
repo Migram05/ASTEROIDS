@@ -16,7 +16,7 @@ void Button::update()
 {
 	bool stop = false;
 	SDL_Event event;
-	list<SDL_Event> listaEventos;
+	list<SDL_Event> listaEventos; //lista de eventos ignorados
 	SDL_Rect destRect = mngr_->getComponent<Transform>(ent_)->getRect();
 	while (!stop && SDL_PollEvent(&event)) { //Controla el input
 		SDL_Point mPoint; //Se guarda la posición del cursor
@@ -25,9 +25,9 @@ void Button::update()
 		}
 		else if (event.button.button == SDL_BUTTON_LEFT && event.type == SDL_MOUSEBUTTONUP) { //Input del ratón en el menú
 			mPoint.x = event.button.x; mPoint.y = event.button.y;
-			stop = true;
+			stop = true; //Detiene el bucle
 			if (SDL_PointInRect(&mPoint, &destRect)) buttonCallback(game);
-			else SDL_PushEvent(&event);
+			else SDL_PushEvent(&event); //En caso de no haber pulsado sobre el botón, manda el evento de nuevo a procesar
 		}
 	}
 	for (auto evento : listaEventos) SDL_PushEvent(&evento); //Se envian todos los eventos de pulsación de teclas

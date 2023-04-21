@@ -7,7 +7,6 @@ void BulletsSystem::receive(const Message& m)
 	case _m_SHOOT: shoot(m.shot_data.pos_, m.shot_data.dir_, m.shot_data.r_); break; //Crea una bala
 	case _m_BULLETCOLLIDES: onCollision_BulletAsteroid(m.bulletCollision_data.b_); break; //Destruye la bala si colisiona
 	case (_m_PLAYERLOST || _m_PLAYERWINS): onRoundOver(); break; //Destuye las balas
-	case _m_SHIPSHOOT: spawnShotAtPlayer(m.shipShoot_data.indx); break;
 	case _m_SHIPSTATE: {
 		if (m.shipData.S) {
 			spawnShotAtPlayer(m.shipData.idx); break;
@@ -60,6 +59,8 @@ void BulletsSystem::spawnShotAtPlayer(int index) //Crea un disparo en el jugador
 	float c = cos(rad), s = sin(rad);
 	forwardVector = Vector2D{ s, c }; //Se actualiza el vector forward según su rotación
 	Vector2D dir = Vector2D{ forwardVector.getX() * gun_->getSpeed(), forwardVector.getY() * -gun_->getSpeed() }; 
+	auto& sdl = *SDLUtils::instance();
+	sdl.soundEffects().at("shot").play(); //Efecto de sonido de la otra nave
 	mngr_->spawnShot(position_ + (dir * 4), dir, fRotation);
 }
 

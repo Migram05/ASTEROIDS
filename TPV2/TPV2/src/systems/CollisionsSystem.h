@@ -1,5 +1,6 @@
 #pragma once
 #include "../ecs/System.h"
+
 class CollisionsSystem : public System
 {
 public:
@@ -12,6 +13,9 @@ public:
 	void update() override;
 	constexpr static sysId_type id = ecs::_sys_COLLISION; //Identificador del tipo de sistema
 private:
+	void multiPlayerCollisions();
+	void singlePlayerCollisions();
 	bool isMultiplayer;
+	class MultiplayerState* multiState;
 };
 

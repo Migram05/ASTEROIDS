@@ -21,7 +21,7 @@ bool MultiplayerState::onEnter()
 	return false;
 #endif // COMPS
 #ifndef COMPS
-	if (SDLNet_Init() < 0) {
+	if (SDLNet_Init() < 0) { //Inicia SDL_Net
 		cout << "Conection error" << endl;
 	}
 	if (!isClient) {
@@ -36,7 +36,7 @@ bool MultiplayerState::onEnter()
 			game->exitToMenu("Error creando el socket maestro");
 		}
 		SDLNet_TCP_AddSocket(socketSet, master_socket);
-		cout << system("ipconfig") << endl;
+		cout << system("ipconfig") << endl; //Muestra la IP por consola
 	}
 	else {
 		//Cliente
@@ -54,10 +54,10 @@ bool MultiplayerState::onEnter()
 		const char* message = str.c_str();
 		int result = SDLNet_TCP_Send(client, message, strlen(message) + 1);
 		if (result < strlen(message) + 1) {
-			std::cerr << "Error al enviar el mensaje al servidor: " << SDLNet_GetError() << std::endl;
+			game->exitToMenu("ERROR CONEXION CON SERVIDOR");
 		}
 	}
-	manager_ = new Manager(game);
+	manager_ = new Manager(game); //Contruye los objetos
 	manager_->setPlayerName(localName);
 	gameCtrlSys_ = manager_->addSystem<GameCtrlSystem>();
 	bulletSys_ = manager_->addSystem<BulletsSystem>();
@@ -81,34 +81,34 @@ void MultiplayerState::update()
 				// Espera una conexión entrante
 				client = SDLNet_TCP_Accept(master_socket);
 
-				if (client) {
-					playerIndex = 1;
+				if (client) { //Si conecta con el cliente
+					
 					cout << "cliente conectado" << endl;
 					SDLNet_TCP_AddSocket(socketSet, client);
 					// Mensaje a enviar al servidor
-					string str = "IndxSet" + to_string(playerIndex) + localName;
+					string str = "IndxSet1" + localName; //Le indica al cliente su índice y le pasa el nombre del host
 					const char* message = str.c_str();
 					int result = SDLNet_TCP_Send(client, message, strlen(message) + 1);
-					if (result < strlen(message) + 1) {
+					if (result < strlen(message) + 1) { 
 						std::cerr << "Error al enviar el mensaje al cliente: " << SDLNet_GetError() << std::endl;
 					}
 				}
 			}
-			if (client && SDLNet_SocketReady(client)) {
+			if (client && SDLNet_SocketReady(client)) { //Recibe los mensajes del cliente
 				// Buffer para almacenar los datos recibidos
 				const int BUFFER_SIZE = 1024;
 				char buffer[BUFFER_SIZE];
 				memset(buffer, 0, BUFFER_SIZE);
 				int result = SDLNet_TCP_Recv(client, buffer, BUFFER_SIZE);
 				if (result > 0) {
-					onRecieveMessage(buffer);
+					onRecieveMessage(buffer); //Si llega el mensaje, se procesa
 				}
 				
 			}
 		}
 	}
 	else {
-		if (client != NULL && SDLNet_CheckSockets(socketSet, 0) > 0) {
+		if (client != NULL && SDLNet_CheckSockets(socketSet, 0) > 0) { //El cliente comprueba mensajes
 			if (SDLNet_SocketReady(client)) {
 				// Buffer para almacenar los datos recibidos
 				const int BUFFER_SIZE = 1024;
@@ -123,7 +123,7 @@ void MultiplayerState::update()
 
 		}
 	}
-	if (!client) {
+	if (!client) { //Comprobación de salida del host, mientras espera al cliente
 		checkExit();
 		return;
 	}
@@ -139,73 +139,49 @@ void MultiplayerState::update()
 
 void MultiplayerState::onRecieveMessage(char* m)
 {
-	//cout << m << endl;
-	//cout << sizeof(m) << endl;
+	//Procesado de la información de mensajes
 	if (strncmp(m, "IndxSet", 7) == 0) {
 		// Los contenidos de las cadenas son iguales
-		cout << "cambio de index" << endl;
 		cout << m[7] - 48 << endl;
 		manager_->setPlayerIndex(m[7]-48); //Calculo para obtener el índice a partir de un char
-		Message msg; msg.id = _m_CHANGEINDEX;
+		Message msg; msg.id = _m_CHANGEINDEX; 
 		manager_->send(msg, true);
 
 		//Con el cambio de indice tambien recibe el nombre del host
 		string otherName = m;
 		otherName = otherName.substr(8, otherName.size() - 8);
-		cout << "Nombre del otro jugador: " << otherName << endl;
 		manager_->setEnemyName(otherName);
 	}
-	else if (strncmp(m, "Move", 4) == 0) {
-		cout << "la nave se mueve "<< (m[4] - 48) << endl;
-		Message msg; msg.id = _m_MOVESHIP; msg.moveShip_data.indx = (m[4] - 48);
-		manager_->send(msg, true);
-	}
-	else if (strncmp(m, "Rotate", 6) == 0) {
-		Message msg; msg.id = _m_ROTATESHIP; msg.rotateShip_data.indx = (m[7] - 48);
-		if (m[6] == 'I') msg.rotateShip_data.proportion = -1;
-		else msg.rotateShip_data.proportion = 1;
-		manager_->send(msg, true);
-	}
-	else if (strncmp(m, "Shoot", 5) == 0) {
-		Message msg; msg.id = _m_SHIPSHOOT; msg.shipShoot_data.indx = (m[5] - 48);
-		manager_->send(msg, true);
-	}
-	if (strncmp(m, "Reset", 5) == 0) {
-		client = NULL;
-		Message msg; msg.id = _m_RESETPLAYERS;
-		cout << "reset " << endl;
+	else if (strncmp(m, "Reset", 5) == 0) {
+		//En caso de que el cliente abandone:
+		Message msg; msg.id = _m_RESETPLAYERS; msg.resetShipsData.resetLives = true;
 		manager_->send(msg);
 	}
 	else if (strncmp(m, "Name", 4) == 0) {
+		//Mensaje para que el host ajuste el nombre del cliente
 		string otherName = m;
 		otherName = otherName.substr(4, otherName.size() - 4);
-		cout << "Nombre del otro jugador: " <<  otherName << endl;
 		manager_->setEnemyName(otherName);
 	}
 	else if (strncmp(m, "M", 1) == 0) {
-		int index = (m[1] - 48);
+		int index = (m[1] - 48); //Se procesa toda la inforación de un jugador
 		string msgS = m;
-		string sPX = msgS.substr(2, 4); int posX = stoi(sPX);
-		string sPY = msgS.substr(6, 4); int posY = stoi(sPY);
+		string sPX = msgS.substr(2, 4); int posX = stoi(sPX); //Posición X
+		string sPY = msgS.substr(6, 4); int posY = stoi(sPY); //Posición Y
 		string sR = msgS.substr(10, 4); 
-		int Rot;
-		if (sR[1] == '-' || sR[2] == '-') {
+		int Rot; //Rotación
+		if (sR[1] == '-' || sR[2] == '-') { //Ajuste de lectura según la posición del signo negativo
 			if (sR[1] == '-') sR = sR.substr(2, 2);
 			else sR = sR.substr(3, 1);
 			Rot = -stoi(sR);
 		}
 		else Rot = stoi(sR);
-		string sS = msgS.substr(14, 1); int Shoot = stoi(sS);
-		
+		string sS = msgS.substr(14, 1); int Shoot = stoi(sS); //Comprueba si se ha disparado
 		Message msg; msg.id = _m_SHIPSTATE; 
 		msg.shipData.idx = index; msg.shipData.pX = posX; msg.shipData.pY = posY; msg.shipData.R = Rot; msg.shipData.S = Shoot;
-		manager_->send(msg);
+		manager_->send(msg); //Se le manda al sistema de la nave toda la información
 	}
-	else {
-		// Los contenidos de las cadenas son diferentes
-		cout << "mensaje desconocido" << endl;
-	}
-
+	else cout << "mensaje desconocido" << endl;
 }
 void MultiplayerState::checkExit() //Comprueba que no se quiera salir de la partida
 {
@@ -219,23 +195,20 @@ void MultiplayerState::checkExit() //Comprueba que no se quiera salir de la part
 //Envia mensajes al otro jugador
 void MultiplayerState::sendMessage(string m)
 {
-	const char* message = m.c_str();
-	int result = SDLNet_TCP_Send(client, message, strlen(message) + 1);
-	if (result < strlen(message) + 1) {
-		std::cerr << "Error al enviar el mensaje al cliente: " << SDLNet_GetError() << std::endl;
-		SDLNet_TCP_DelSocket(socketSet, client);
-		client = NULL;
-		Message msg; msg.id = _m_RESETPLAYERS;
-		cout << "reset " << endl;
+	const char* message = m.c_str(); //Crea el mensaje
+	int result = SDLNet_TCP_Send(client, message, strlen(message) + 1); //Lo envía
+	if (result < strlen(message) + 1) { //En caso de no poder enviarlo, es que el cliente no está
+		SDLNet_TCP_DelSocket(socketSet, client); //Se borra el socket del socketSet
+		client = NULL; //Cliente a nulo para que vuelva al estado de espera
+		Message msg; msg.id = _m_RESETPLAYERS; //Recoloca a los jugadores en la posición inicial
 		manager_->send(msg);
 	}
 }
 
 void MultiplayerState::render()
 {
-	renderSys_->update();
-
-	if (!client) {
+	renderSys_->update(); //Renderizado de entidades
+	if (!client) { //En caso de no haber cliente, muestra el texto de espera
 		auto& sdl = *SDLUtils::instance();
 		Texture lostText(sdl.renderer(), "WAITING FOR PLAYERS", sdl.fonts().at("CAPTURE50"), build_sdlcolor(0x112233ff));
 		lostText.render(sdl.width() / 2 - 270, sdl.height() / 2 - 50);
@@ -249,7 +222,7 @@ void MultiplayerState::refresh()
 
 MultiplayerState::~MultiplayerState()
 {
-	Music::haltMusic();
+	Music::haltMusic(); //Se detiene la música
 	if(manager_) delete manager_;
 	//Cierre de sockets
 	SDLNet_TCP_Close(client);

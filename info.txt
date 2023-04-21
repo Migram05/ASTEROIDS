@@ -1,14 +1,15 @@
 Miguel Ramírez Castrillo (entrega en solitario)
-Práctica 2 TPV2
+Práctica 3 TPV2
 El juego funciona correctamente y no deja ningún tipo de basura.
 
 El juego puede ejecutarse con componentes o sistemas a gusto del usuario.
 Para cambiar de sistemas a componentes descomentar el #DEFINE COMPS en el archivo component.h
 
-Los métodos de los sistemas encargados de activar/desactivar estos, han sido eliminados.
-No eran necesarios con una máquina de estados en uso.
+El nuevo contenido del menú funciona tanto por sistemas como por componentes.
+No obstante, el multijugador sólo funcionará con sistemas.
 
 Implementación adicional:
-	-Musica de fondo en todo el juego
-	-Carga de recursos mediante archivo json
-	-Configuración del juego mediante archivos
+	-Elemento de "textBox" en el menú principal para escribir IP/nombre jugador
+	-En el multijugador, cada jugador tiene varias vidas, el juego termina
+	cuando un jugador se quede sin.
+	-El menú principal ahora puede mostrar algún texto informativo según la situación.

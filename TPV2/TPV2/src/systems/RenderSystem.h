@@ -17,7 +17,12 @@ public:
 	constexpr static sysId_type id = ecs::_sys_RENDER; //Identificador del tipo de sistema
 private:
 	void showAllEntities();
+	void asteroidRender();
+	void playerRender();
+	void bulletRender();
+	void UIRender();
 	Texture* tex_;
 	Texture* hTex_;
+	bool isMultiplayer;
 };
 

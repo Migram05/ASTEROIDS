@@ -34,7 +34,7 @@ void MainMenuState::render()
 	renderSys_->update();
 #endif // !COMPS
 	auto& sdl = *SDLUtils::instance();
-	if (infoText != "") {
+	if (infoText != "") { //En caso de haber texto en el menú, se dibuja
 		Texture ipDirText(sdl.renderer(), infoText, sdl.fonts().at("CAPTURE10"), build_sdlcolor(0xffffffff));
 		ipDirText.render(manager_->getWidth() * 0.3, manager_->getHeight() * 0.9);
 	}
@@ -97,38 +97,38 @@ void MainMenuState::createButtons()
 	manager_->addComponent<Button>(jB, searchMultiplayer, game);
 }
 
-void MainMenuState::startSingleplayer(Game* g)
+void MainMenuState::startSingleplayer(Game* g) //Empieza el modo un jugador
 {
 	g->playSingleplayer();
 }
 
-void MainMenuState::hostMultiplayer(Game* g)
+void MainMenuState::hostMultiplayer(Game* g) //Entra como host
 {
 	static_cast<MainMenuState*>(g->getState())->startMultiplayer(false, "localhost");
 }
 
-void MainMenuState::searchMultiplayer(Game* g)
+void MainMenuState::searchMultiplayer(Game* g) //En caso de buscar partida, crea un text box para pedir la IP
 {
 	static_cast<MainMenuState*>(g->getState())->startRead("ESCRIBA LA DIRECCION IP:");
 }
 
-void MainMenuState::startMultiplayer(bool c, string dir)
+void MainMenuState::startMultiplayer(bool c, string dir) //Busca la partida multijugador
 {
-	if (dir == "") dir = "localhost";
+	if (dir == "") dir = "localhost"; //Si no hay dirección, busca partida local
 	game->playMultiplayer(c, dir, manager_->getPlayerName());
 }
 
-void MainMenuState::exitGame(Game* g)
+void MainMenuState::exitGame(Game* g) //Sale por completo de la aplicación
 {
 	g->exitGame();
 }
 
-void MainMenuState::enterName(Game* g)
+void MainMenuState::enterName(Game* g) //Pregunta por el nombre de usuario
 {
 	static_cast<MainMenuState*>(g->getState())->startRead("ESCRIBA NOMBRE DE USUARIO:", false);
 }
 
-void MainMenuState::showButtons()
+void MainMenuState::showButtons() //Muestra todas las entidades ocultas
 {
 	
 	for (Entity* e : manager_->getEntitiesByGroup(ecs::_grp_UI)) {
@@ -136,7 +136,7 @@ void MainMenuState::showButtons()
 	}
 }
 
-void MainMenuState::startRead(string dTxt, bool readN)
+void MainMenuState::startRead(string dTxt, bool readN) //Crea el textBox
 {
 	//Cuadro de texto
 	textBoxEnt = manager_->addEntity(ecs::_grp_UI);

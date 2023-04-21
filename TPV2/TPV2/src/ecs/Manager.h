@@ -233,12 +233,12 @@ public:
 		}
 		aux_msgs_.clear(); //Se borra la lista auxiliar
 	}
-	inline Game* getGame() { return game; }
-	inline void setPlayerIndex(int i) { playerIndex = i; }
-	inline int getPlayerIndex() { return playerIndex; }
-	inline void setPlayerName(string name) { playerName = name; }
+	inline Game* getGame() { return game; } //Referencia al game
+	inline void setPlayerIndex(int i) { playerIndex = i; } //Ajusta el índice del jugador 
+	inline int getPlayerIndex() { return playerIndex; } //Devuelve el índice
+	inline void setPlayerName(string name) { playerName = name; } //Ajusta el nombre del jugador y del enemigo
 	inline void setEnemyName(string name) { enemyName = name; }
-	inline string getPlayerName() { return playerName; }
+	inline string getPlayerName() { return playerName; } //Devuelve los nombres
 	inline string getEnemyName() { return enemyName; }
 private:
 	//Vector que almacena a los jugadores
