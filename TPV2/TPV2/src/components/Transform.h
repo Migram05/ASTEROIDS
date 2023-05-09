@@ -15,7 +15,7 @@ public:
 	inline void setPos(int x, int y) { position_ = Vector2D(x, y); }
 	inline Vector2D& getVel() { return velocity_; }
 	inline Vector2D& getForward() { return forward_; }
-	inline Vector2D& getLastForward() { return lastForward_; }
+	inline float& getMaxSpeed() { return maxSpeed; }
 	inline float& getW() { return width_; }
 	inline float& getH() { return height_; }
 	inline float& getRotation() { return rotation_; }
@@ -37,9 +37,9 @@ private:
 	Vector2D position_;
 	Vector2D velocity_;
 	Vector2D forward_ = { 0, -1 };
-	Vector2D lastForward_ = { 0, -1 };
 	float width_;
 	float height_;
 	float rotation_ = 0;
+	float maxSpeed = 2.5;
 };
 

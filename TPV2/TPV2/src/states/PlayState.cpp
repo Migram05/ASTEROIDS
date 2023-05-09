@@ -104,6 +104,7 @@ void PlayState::checkCollisions() { //Chequeo de colisiones
 				manager_->getComponent<Health>(p)->damage();//Se le hace daño
 				t3->getPos() = Vector2D{ (float)WIN_WIDTH / 2, (float)WIN_HEIGHT / 2 }; t3->getRotation() = 0; t3->getVel() = Vector2D{ 0,0 };
 				asteroidsManager_->destroyAllAsteroids(); // Se borran los asteroides
+				for (Entity* b : manager_->getEntitiesByGroup(ecs::_grp_BULLETS)) b->setAlive(false); //Destruye todas las balas
 				reset = true; //Variable que termina el bucle y resetea el juego
 			}
 		}
@@ -132,7 +133,7 @@ void PlayState::resetGame() //Reset del juego
 }
 
 PlayState::~PlayState() { //Destructora
-	Music::haltMusic();
+	//Music::haltMusic();
 	delete manager_;
 #ifdef COMPS
 	delete asteroidsManager_;

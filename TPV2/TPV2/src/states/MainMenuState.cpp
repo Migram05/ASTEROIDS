@@ -33,17 +33,27 @@ void MainMenuState::render()
 #ifndef COMPS
 	renderSys_->update();
 #endif // !COMPS
-	auto& sdl = *SDLUtils::instance();
-	Texture titleText(sdl.renderer(), "ASTEROIDS", sdl.fonts().at("VENOLITHIC100"), build_sdlcolor(0x05FAFFff));
-	titleText.render(manager_->getWidth()/2 - 285,0);
-	Texture authorName(sdl.renderer(), "CREATED BY MIGUEL RAMIREZ", sdl.fonts().at("SANIRETRO25"), build_sdlcolor(0x05FAFFff));
-	authorName.render(manager_->getWidth() / 2 - 115, manager_->getHeight() * 0.1);
-	if (infoText != "") { //En caso de haber texto en el menú, se dibuja
-		Texture ipDirText(sdl.renderer(), infoText, sdl.fonts().at("CAPTURE10"), build_sdlcolor(0xffffffff));
-		ipDirText.render(manager_->getWidth() /2 - (infoText.size()/2)*10, manager_->getHeight() * 0.9);
-	}
+	renderTexts();
 }
 
+void MainMenuState::renderTexts() //Escribe textos en el menú
+{
+	auto& sdl = *SDLUtils::instance();
+	Texture titleText(sdl.renderer(), "ASTEROIDS", sdl.fonts().at("VENOLITHIC100"), build_sdlcolor(0x05FAFFff)); //Título
+	titleText.render(manager_->getWidth() / 2 - 285, 0);
+	Texture authorName(sdl.renderer(), "CREATED BY MIGUEL RAMIREZ", sdl.fonts().at("SANIRETRO25"), build_sdlcolor(0x05FAFFff)); //Autor
+	authorName.render(manager_->getWidth() / 2 - 115, manager_->getHeight() * 0.1);
+	string cTxt = "USING SYSTEMS";
+#ifdef COMPS
+	cTxt = "USING COMPONENTS";
+#endif // COMPS
+	Texture compTxt(sdl.renderer(), cTxt, sdl.fonts().at("SANIRETRO25"), build_sdlcolor(0x05FAFFff)); //Escribe si el sistema usado es componentes o sistemas
+	compTxt.render(0, manager_->getHeight() * 0.95);
+	if (infoText != "") { //En caso de haber texto en el menú, se escribe
+		Texture ipDirText(sdl.renderer(), infoText, sdl.fonts().at("SANIRETRO25"), build_sdlcolor(0xffffffff));
+		ipDirText.render(manager_->getWidth() / 2 - (infoText.size() / 2) * 10, manager_->getHeight() * 0.9);
+	}
+}
 bool MainMenuState::onEnter()
 {
 	manager_ = new Manager(game);
@@ -140,6 +150,7 @@ void MainMenuState::showButtons() //Muestra todas las entidades ocultas
 		if (!e->isVisible()) e->setVisibility(true);
 	}
 }
+
 
 void MainMenuState::startRead(string dTxt, bool readN) //Crea el textBox
 {

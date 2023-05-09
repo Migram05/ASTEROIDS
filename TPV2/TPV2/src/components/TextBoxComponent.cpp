@@ -36,7 +36,9 @@ void TextBoxComponent::update()
 			else if (readNum) { //En caso de ser el textBox de IP, solo lee números
 				if (isdigit(c) || c == '.') text += c; //Solo si es un número se añade
 			}
-			else if(text.size() <= 10) text += c; //Sino, lee cualquier caracter, hasta 10
+			else if (text.size() <= 10) { //Lee hasta 10 caracteres para el nombre
+				if ((c >= 'a' && c <= 'z') || (c >= '0' && c <= '9') || (event.key.keysym.sym == SDLK_SPACE)) text += c; //Solo letras y números
+			}
 		}
 	}
 }

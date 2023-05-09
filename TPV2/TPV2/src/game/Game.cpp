@@ -82,6 +82,7 @@ void Game::exitGame() { //Activa la salida
 void Game::exitToMenu(string info)
 {
 	gameStateMachine->changeState(new MainMenuState(this, WIN_WIDTH, WIN_HEIGHT, info));
+	Music::haltMusic(); //Se detiene la música
 }
 void Game::pauseGame() { //Pausa el juego
 	gameStateMachine->pushState(new PauseState(this, WIN_WIDTH, WIN_HEIGHT, false));

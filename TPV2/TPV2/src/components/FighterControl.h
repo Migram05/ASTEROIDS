@@ -20,6 +20,6 @@ public:
 #endif // COMPS
 private:
 	Transform* tr_;
-	float speed, rotationSpeed;
+	float speed = 0.2, rotationSpeed = 5;
 };
 

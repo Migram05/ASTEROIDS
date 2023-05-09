@@ -114,6 +114,8 @@ void AsteroidsManager::onCollision(Entity* e) //En caso de haber una colisión
         numAsteroids += num;
         createSmallerAsteroids(num, gen, e); //Se crean tantos asteroides como hagan falta
     }
-    if (numAsteroids <= 0) cout << "GANASTE" << endl; //Si no hubiera asteroides, se gana la partida
+    if (numAsteroids <= 0) {
+        mngRef_->exitGame("YOU WIN!");
+    }
     
 }

@@ -13,7 +13,7 @@ void PauseState::update() //Se detecta si hay entrada para cambiar de estado o s
 			switch (event.key.keysym.sym)
 			{
 			case SDLK_SPACE: game->resumeGame(lost); break; //Al pulsar espacio se sale de la pausa
-			case SDLK_ESCAPE: game->exitGame(); break; //Al pulsar Escape, se sale del juego
+			case SDLK_ESCAPE: game->exitToMenu(""); break; //Al pulsar Escape, se sale del juego
 			default: break;
 			}
 		}
@@ -25,7 +25,7 @@ void PauseState::render() //Renderizado
 {
 	auto& sdl = *SDLUtils::instance();
 	if (lost) { //En caso de perder se escribe el texto de derrota
-		Texture lostText(sdl.renderer(), "GAME OVER", sdl.fonts().at("CAPTURE50"), build_sdlcolor(0x112233ff));
+		Texture lostText(sdl.renderer(), "GAME OVER", sdl.fonts().at("CAPTURE50"), build_sdlcolor(0x05FAFFff));
 		lostText.render(sdl.width() / 2 - 125, sdl.height() / 2 - 150);
 	}
 	//Siempre se muestra el texto de pulsar "Espacio" para continuar

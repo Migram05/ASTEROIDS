@@ -21,6 +21,6 @@ public:
 #endif // COMPS
 private:
 	Transform* tr_;
-	float reduction, stopMargin = 0.001;
+	float reduction = 0.993, stopMargin = 0.05;
 };
 

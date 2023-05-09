@@ -5,7 +5,7 @@
 #include "../systems/FighterSystemOnline.h"
 #include "../systems/GameCtrlSystem.h"
 #include "../systems/RenderSystem.h"
-
+#include "../ecs/Component.h"
 
 MultiplayerState::MultiplayerState(Game* g, double w, double h, bool c, string name, string ipDirection) : GameState(w, h), isClient(c), localName(name), ipDir(ipDirection)// Constructora
 {
@@ -16,10 +16,10 @@ const std::string MultiplayerState::s_playID = "MULTIPLAYER";//ID del estado
 
 bool MultiplayerState::onEnter()
 {
-#ifdef COMPS
-	game->exitToMenu("MULTIJUGADOR SOLO CON SISTEMAS"); //El multijugador solo funciona con sistemas
-	return false;
+#ifdef COMPS //Desactiva los componentes
+#undef COMPS
 #endif // COMPS
+
 #ifndef COMPS
 	manager_ = new Manager(game); //Contruye los objetos
 	manager_->setPlayerName(localName);
@@ -228,7 +228,6 @@ void MultiplayerState::refresh()
 
 MultiplayerState::~MultiplayerState()
 {
-	Music::haltMusic(); //Se detiene la música
 	if(manager_) delete manager_;
 	//Cierre de sockets
 	SDLNet_TCP_Close(client);

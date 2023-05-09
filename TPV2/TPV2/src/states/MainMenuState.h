@@ -28,6 +28,7 @@ private:
 	static void exitGame(Game* g);
 	static void enterName(Game* g);
 	void showButtons();
+	void renderTexts();
 	void startRead(string dTxt, bool readN = true);
 	bool exit = false;
 	static const string s_mainMID;
