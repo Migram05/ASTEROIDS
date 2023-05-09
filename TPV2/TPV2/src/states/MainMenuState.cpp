@@ -1,5 +1,5 @@
 #include "MainMenuState.h"
-#include "Manager.h"
+#include "../ecs/Manager.h"
 #include "../systems/RenderSystem.h"
 #include "../systems/MenuControlSystem.h"
 MainMenuState::MainMenuState(Game* g, double w, double h, string info) : GameState(w, h) { // Constructora
@@ -34,9 +34,13 @@ void MainMenuState::render()
 	renderSys_->update();
 #endif // !COMPS
 	auto& sdl = *SDLUtils::instance();
+	Texture titleText(sdl.renderer(), "ASTEROIDS", sdl.fonts().at("VENOLITHIC100"), build_sdlcolor(0x05FAFFff));
+	titleText.render(manager_->getWidth()/2 - 285,0);
+	Texture authorName(sdl.renderer(), "CREATED BY MIGUEL RAMIREZ", sdl.fonts().at("SANIRETRO25"), build_sdlcolor(0x05FAFFff));
+	authorName.render(manager_->getWidth() / 2 - 115, manager_->getHeight() * 0.1);
 	if (infoText != "") { //En caso de haber texto en el menú, se dibuja
 		Texture ipDirText(sdl.renderer(), infoText, sdl.fonts().at("CAPTURE10"), build_sdlcolor(0xffffffff));
-		ipDirText.render(manager_->getWidth() * 0.3, manager_->getHeight() * 0.9);
+		ipDirText.render(manager_->getWidth() /2 - (infoText.size()/2)*10, manager_->getHeight() * 0.9);
 	}
 }
 
@@ -55,6 +59,7 @@ bool MainMenuState::onEnter()
 	renderSys_ = manager_->addSystem<RenderSystem>();
 	menuCtrlSys_ = manager_->addSystem<MenuControlSystem>();
 #endif // !COMPS
+	SDL_ShowCursor(1);//Se muestra el cursor
 	return true;
 }
 
@@ -109,7 +114,7 @@ void MainMenuState::hostMultiplayer(Game* g) //Entra como host
 
 void MainMenuState::searchMultiplayer(Game* g) //En caso de buscar partida, crea un text box para pedir la IP
 {
-	static_cast<MainMenuState*>(g->getState())->startRead("ESCRIBA LA DIRECCION IP:");
+	static_cast<MainMenuState*>(g->getState())->startRead("WRITE THE IP ADDRESS:");
 }
 
 void MainMenuState::startMultiplayer(bool c, string dir) //Busca la partida multijugador
@@ -125,7 +130,7 @@ void MainMenuState::exitGame(Game* g) //Sale por completo de la aplicación
 
 void MainMenuState::enterName(Game* g) //Pregunta por el nombre de usuario
 {
-	static_cast<MainMenuState*>(g->getState())->startRead("ESCRIBA NOMBRE DE USUARIO:", false);
+	static_cast<MainMenuState*>(g->getState())->startRead("USERNAME:", false);
 }
 
 void MainMenuState::showButtons() //Muestra todas las entidades ocultas

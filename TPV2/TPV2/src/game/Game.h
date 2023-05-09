@@ -6,11 +6,11 @@
 #include <string>
 #include "../utils/Vector2D.h"
 #include "../sdlutils/Texture.h"
-#include "../ecs/GameStateMachine.h"
-#include "../ecs/PlayState.h"
-#include "../ecs/MainMenuState.h"
-#include "../ecs/PauseState.h"
-#include "../ecs/MultiplayerState.h"
+#include "../states/GameStateMachine.h"
+#include "../states/PlayState.h"
+#include "../states/MainMenuState.h"
+#include "../states/PauseState.h"
+#include "../states/MultiplayerState.h"
 #include "../sdlutils/SDLUtils.h"
 #include <list>
 #include <unordered_set>

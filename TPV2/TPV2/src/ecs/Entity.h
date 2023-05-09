@@ -1,7 +1,7 @@
 #pragma once
 //#include "../game/ecs.h"
 //#include "Manager.h"/
-#include "../components/Component.h"
+#include "Component.h"
 #include <array>
 #include <vector>
 #include <bitset>

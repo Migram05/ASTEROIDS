@@ -5,12 +5,12 @@ Transform::Transform()
 {
 }
 
-Transform::Transform(Vector2D pos, float w, float h) : position_(pos), width_(w), height_(h) //Constructora
+Transform::Transform(Vector2D pos, float w, float h, float rot) : position_(pos), width_(w), height_(h), rotation_(rot) //Constructora
 {
 	
 }
 
-Transform::Transform(float x, float y, float w, float h) : position_(Vector2D(x,y)), width_(w), height_(h)
+Transform::Transform(float x, float y, float w, float h, float rot) : position_(Vector2D(x,y)), width_(w), height_(h), rotation_(rot)
 {
 }
 

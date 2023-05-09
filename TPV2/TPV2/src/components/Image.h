@@ -1,5 +1,5 @@
 #pragma once
-#include "Component.h"
+#include "../ecs/Component.h"
 #include "../sdlutils/Texture.h"
 #include "Transform.h"
 #include "../ecs/Entity.h"

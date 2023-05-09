@@ -1,5 +1,5 @@
 #include "MultiplayerState.h"
-#include "Manager.h"
+#include "../ecs/Manager.h"
 #include "../systems/BulletsSystem.h"
 #include "../systems/CollisionsSystem.h"
 #include "../systems/FighterSystemOnline.h"
@@ -21,42 +21,6 @@ bool MultiplayerState::onEnter()
 	return false;
 #endif // COMPS
 #ifndef COMPS
-	if (SDLNet_Init() < 0) { //Inicia SDL_Net
-		cout << "Conection error" << endl;
-	}
-	if (!isClient) {
-		//Si es el servidor
-		// Crea una dirección IP
-		if (SDLNet_ResolveHost(&ip, NULL, port) < 0) {
-			game->exitToMenu("Error resolviendo host servidor");
-		}
-		// Crea un socket para escuchar las conexiones entrantes
-		master_socket = SDLNet_TCP_Open(&ip);
-		if (!master_socket) {
-			game->exitToMenu("Error creando el socket maestro");
-		}
-		SDLNet_TCP_AddSocket(socketSet, master_socket);
-		cout << system("ipconfig") << endl; //Muestra la IP por consola
-	}
-	else {
-		//Cliente
-		if (SDLNet_ResolveHost(&ip, ipDir.c_str(), port) < 0) {
-			game->exitToMenu("Connexion error"); //Si no hay una partida hosteada, devuelve al cliente al menú
-		}
-		// Crea un socket para conectarse al servidor
-		client = SDLNet_TCP_Open(&ip);
-		if (!client) {
-			game->exitToMenu("Connexion error"); //Si no hay una partida hosteada, devuelve al cliente al menú
-		}
-		SDLNet_TCP_AddSocket(socketSet, client);
-		// Mensaje para darle el nombre al servidor
-		string str = "Name" + localName;
-		const char* message = str.c_str();
-		int result = SDLNet_TCP_Send(client, message, strlen(message) + 1);
-		if (result < strlen(message) + 1) {
-			game->exitToMenu("ERROR CONEXION CON SERVIDOR");
-		}
-	}
 	manager_ = new Manager(game); //Contruye los objetos
 	manager_->setPlayerName(localName);
 	gameCtrlSys_ = manager_->addSystem<GameCtrlSystem>();
@@ -65,10 +29,56 @@ bool MultiplayerState::onEnter()
 	collisionSys_ = manager_->addSystem<CollisionsSystem>();
 	renderSys_ = manager_->addSystem<RenderSystem>();
 
+	Message msg; msg.id = _m_EXIT;  //Salida
+
+	if (SDLNet_Init() < 0) { //Inicia SDL_Net
+		msg.mainMenuInfo.menuInfoData = SDLNet_GetError();
+		manager_->send(msg);
+	}
+	if (!isClient) { //Si es el servidor
+		if (SDLNet_ResolveHost(&ip, NULL, port) < 0) {// Crea una dirección IP
+			msg.mainMenuInfo.menuInfoData = SDLNet_GetError();
+			manager_->send(msg);
+		}
+		// Crea un socket para escuchar las conexiones entrantes
+		master_socket = SDLNet_TCP_Open(&ip);
+		if (!master_socket) {
+			msg.mainMenuInfo.menuInfoData = SDLNet_GetError();
+			manager_->send(msg);
+		}
+		SDLNet_TCP_AddSocket(socketSet, master_socket);
+		cout << system("ipconfig") << endl; //Muestra la IP por consola
+	}
+	else {
+		//Cliente
+		if (SDLNet_ResolveHost(&ip, ipDir.c_str(), port) < 0) {
+			msg.mainMenuInfo.menuInfoData = SDLNet_GetError();
+			manager_->send(msg);
+			return false;
+		}
+		// Crea un socket para conectarse al servidor
+		client = SDLNet_TCP_Open(&ip);
+		if (!client) {
+			msg.mainMenuInfo.menuInfoData = SDLNet_GetError();
+			manager_->send(msg);
+			return false;
+		}
+		SDLNet_TCP_AddSocket(socketSet, client);
+		// Mensaje para darle el nombre al servidor
+		string str = "Name" + localName;
+		const char* message = str.c_str();
+		int result = SDLNet_TCP_Send(client, message, strlen(message) + 1);
+		if (result < strlen(message) + 1) {
+			msg.mainMenuInfo.menuInfoData = SDLNet_GetError();
+			manager_->send(msg);
+		}
+	}
+	
 	auto& sdl = *SDLUtils::instance();
 	Music::setMusicVolume(8); //Musica de fondo y volumen (8)
 	sdl.musics().at("theme").play();
 	SoundEffect::setChannelVolume(25); //(25)
+	SDL_ShowCursor(0);//Se oculta el cursor
 	return true;
 #endif // !COMPS
 }
@@ -118,10 +128,11 @@ void MultiplayerState::update()
 				if (result > 0) {
 					onRecieveMessage(buffer);
 				}
-				else manager_->exitGame("");
+				else { Message msg; msg.id = _m_EXIT; msg.mainMenuInfo.menuInfoData = "HOST DISCONNECTED"; manager_->send(msg); }  //Salida
 			}
 
 		}
+		else if(!client) { Message msg; msg.id = _m_EXIT; msg.mainMenuInfo.menuInfoData = "HOST DISCONNECTED"; manager_->send(msg); }  //Salida
 	}
 	if (!client) { //Comprobación de salida del host, mientras espera al cliente
 		checkExit();
@@ -152,11 +163,6 @@ void MultiplayerState::onRecieveMessage(char* m)
 		otherName = otherName.substr(8, otherName.size() - 8);
 		manager_->setEnemyName(otherName);
 	}
-	else if (strncmp(m, "Reset", 5) == 0) {
-		//En caso de que el cliente abandone:
-		Message msg; msg.id = _m_RESETPLAYERS; msg.resetShipsData.resetLives = true;
-		manager_->send(msg);
-	}
 	else if (strncmp(m, "Name", 4) == 0) {
 		//Mensaje para que el host ajuste el nombre del cliente
 		string otherName = m;
@@ -181,14 +187,14 @@ void MultiplayerState::onRecieveMessage(char* m)
 		msg.shipData.idx = index; msg.shipData.pX = posX; msg.shipData.pY = posY; msg.shipData.R = Rot; msg.shipData.S = Shoot;
 		manager_->send(msg); //Se le manda al sistema de la nave toda la información
 	}
-	else cout << "mensaje desconocido" << endl;
+	else cout << "unknown message" << endl;
 }
 void MultiplayerState::checkExit() //Comprueba que no se quiera salir de la partida
 {
 	SDL_Event event;
 	while (SDL_PollEvent(&event)) { //Controla la entrada
 		if (event.type == SDL_KEYDOWN && event.key.keysym.sym == SDLK_ESCAPE) { //Devuelve al host a menú principal
-			manager_->exitGame("");
+			Message msg; msg.id = _m_EXIT; msg.mainMenuInfo.menuInfoData = ""; manager_->send(msg);  //Salida
 		}
 	}
 }
@@ -200,7 +206,7 @@ void MultiplayerState::sendMessage(string m)
 	if (result < strlen(message) + 1) { //En caso de no poder enviarlo, es que el cliente no está
 		SDLNet_TCP_DelSocket(socketSet, client); //Se borra el socket del socketSet
 		client = NULL; //Cliente a nulo para que vuelva al estado de espera
-		Message msg; msg.id = _m_RESETPLAYERS; //Recoloca a los jugadores en la posición inicial
+		Message msg; msg.id = _m_RESETPLAYERS; msg.resetShipsData.resetLives = true; //Recoloca a los jugadores en la posición inicial
 		manager_->send(msg);
 	}
 }
@@ -210,7 +216,7 @@ void MultiplayerState::render()
 	renderSys_->update(); //Renderizado de entidades
 	if (!client) { //En caso de no haber cliente, muestra el texto de espera
 		auto& sdl = *SDLUtils::instance();
-		Texture lostText(sdl.renderer(), "WAITING FOR PLAYERS", sdl.fonts().at("CAPTURE50"), build_sdlcolor(0x112233ff));
+		Texture lostText(sdl.renderer(), "WAITING FOR PLAYERS", sdl.fonts().at("CAPTURE50"), build_sdlcolor(0x05FAFFff));
 		lostText.render(sdl.width() / 2 - 270, sdl.height() / 2 - 50);
 	}
 }

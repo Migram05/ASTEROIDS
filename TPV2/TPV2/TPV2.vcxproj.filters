@@ -90,13 +90,13 @@
     <ClInclude Include="src\game\Game.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\ecs\GameState.h">
+    <ClInclude Include="src\states\GameState.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\ecs\GameStateMachine.h">
+    <ClInclude Include="src\states\GameStateMachine.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\ecs\PlayState.h">
+    <ClInclude Include="src\states\PlayState.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="src\ecs\Manager.h">
@@ -105,7 +105,7 @@
     <ClInclude Include="src\ecs\Entity.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\components\Component.h">
+    <ClInclude Include="src\ecs\Component.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="src\game\ecs.h">
@@ -147,7 +147,7 @@
     <ClInclude Include="src\game\checkML.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\ecs\PauseState.h">
+    <ClInclude Include="src\states\PauseState.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="src\components\Gun.h">
@@ -177,7 +177,7 @@
     <ClInclude Include="src\systems\RenderSystem.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\ecs\MainMenuState.h">
+    <ClInclude Include="src\states\MainMenuState.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="src\components\Button.h">
@@ -186,7 +186,7 @@
     <ClInclude Include="src\systems\MenuControlSystem.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\ecs\MultiplayerState.h">
+    <ClInclude Include="src\states\MultiplayerState.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="src\systems\FighterSystemOnline.h">
@@ -230,16 +230,16 @@
     <ClCompile Include="src\game\Game.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\ecs\GameState.cpp">
+    <ClCompile Include="src\states\GameState.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\ecs\GameStateMachine.cpp">
+    <ClCompile Include="src\states\GameStateMachine.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\ecs\PlayState.cpp">
+    <ClCompile Include="src\states\PlayState.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\components\Component.cpp">
+    <ClCompile Include="src\ecs\Component.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="src\components\Transform.cpp">
@@ -275,7 +275,7 @@
     <ClCompile Include="src\game\AsteroidsManager.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\ecs\PauseState.cpp">
+    <ClCompile Include="src\states\PauseState.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="src\components\Gun.cpp">
@@ -305,7 +305,7 @@
     <ClCompile Include="src\systems\RenderSystem.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\ecs\MainMenuState.cpp">
+    <ClCompile Include="src\states\MainMenuState.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="src\components\Button.cpp">
@@ -314,7 +314,7 @@
     <ClCompile Include="src\systems\MenuControlSystem.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\ecs\MultiplayerState.cpp">
+    <ClCompile Include="src\states\MultiplayerState.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="src\systems\FighterSystemOnline.cpp">

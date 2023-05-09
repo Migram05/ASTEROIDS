@@ -1,13 +1,13 @@
 #pragma once
-#include "Component.h"
+#include "../ecs/Component.h"
 #include "../utils/Vector2D.h"
 #include <iostream>
 #include <SDL.h>
 struct Transform : public Component {
 public:
 	Transform();
-	Transform(Vector2D pos, float w, float h);
-	Transform(float x, float y, float w, float h);
+	Transform(Vector2D pos, float w, float h, float rot = 0);
+	Transform(float x, float y, float w, float h, float rot = 0);
 	Transform(Vector2D pos, float w, float h, Vector2D vel, float rot = 0);
 	Transform(float x, float y, float w, float h, Vector2D vel, float rot = 0);
 	virtual ~Transform();

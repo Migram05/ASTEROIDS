@@ -1,6 +1,6 @@
 #include "TextBoxComponent.h"
 #include "../ecs/Manager.h"
-#include "../ecs/MainMenuState.h"
+#include "../states/MainMenuState.h"
 TextBoxComponent::TextBoxComponent(MainMenuState* state, Vector2D position, string disp, bool readN) : currentState(state), pos_(position), display(disp), readNum(readN)
 {
 

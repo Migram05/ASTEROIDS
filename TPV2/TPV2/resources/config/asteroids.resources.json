@@ -3,7 +3,9 @@
   "fonts" : [
     { "id" : "ARIAL18", "file" : "resources/fonts/ARIAL.ttf", "size": 18 },
     { "id" : "CAPTURE50", "file" : "resources/fonts/Capture_it.ttf", "size": 50 },
-    { "id" : "CAPTURE10", "file" : "resources/fonts/Capture_it.ttf", "size": 15 }
+    { "id" : "CAPTURE10", "file" : "resources/fonts/Capture_it.ttf", "size": 15 },
+    { "id" : "VENOLITHIC100", "file" : "resources/fonts/venolithic.ttf", "size": 100},
+    { "id" : "SANIRETRO25", "file" : "resources/fonts/Saniretro.ttf", "size": 25}
   ],
   
   "images" : [

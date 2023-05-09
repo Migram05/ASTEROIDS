@@ -99,10 +99,7 @@ public:
 				switch (x)
 				{
 				case 0: addComponent<Transform>(player, game->WIN_WIDTH / 2 - 15, game->WIN_HEIGHT * 0.9, 30, 30); break;
-				case 1: addComponent<Transform>(player, game->WIN_WIDTH / 2 - 15, game->WIN_HEIGHT * 0.1, 30, 30); break;
-				case 2: addComponent<Transform>(player, game->WIN_WIDTH * 0.1, game->WIN_HEIGHT / 2 - 15, 30, 30); break;
-				case 3: addComponent<Transform>(player, game->WIN_WIDTH * 0.9, game->WIN_HEIGHT / 2 - 15, 30, 30); break;
-				default: addComponent<Transform>(player, game->WIN_WIDTH + x, game->WIN_HEIGHT + x, 30, 30); break; //A partir de 4 jugadores las posiciones son según su índice
+				case 1: addComponent<Transform>(player, game->WIN_WIDTH / 2 - 15, game->WIN_HEIGHT * 0.1, 30, 30, 180.0); break;
 				}
 			}
 			addComponent<Image>(player, game->getTexture(Fighter1));

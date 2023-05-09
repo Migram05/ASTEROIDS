@@ -15,6 +15,7 @@ Game::Game() { //Constructora del juego, con la carga de texturas incluida
 	LoadTextures(renderer); //Se canrgan las texturas en el array
 	InitGameObjects();//Se crean los estados del juego
 	SDL_ShowCursor(1);//Se muestra el cursor
+	
 }
 void Game::gameSettings() { //Carga los datos del juego desde un archivo, si lo encuentra
 
@@ -39,16 +40,19 @@ void Game::Run() { //Bucle principal de juego
 		throw exception("Error fatal SDL");
 	auto& sdl = *SDLUtils::instance();
 	startTime = sdl.currRealTime(); //Control del numero de frames/seg
+
 	while (!exit) { //Bucle de juego con condiciones de detención
 		frameTime = sdl.currRealTime() - startTime;
 		if (frameTime >= FRAME_RATE) { //Se comprueba el tiempo transcurrido entre el último update
 			gameStateMachine->update(); //Update controlado
 			startTime = SDL_GetTicks();
 		}
-		sdl.clearRenderer();
+		
+		sdl.clearRenderer(build_sdlcolor(0x00000FF));
 		gameStateMachine->render(); //Render
 		sdl.presentRenderer();
 		gameStateMachine->clearList(); //Se borran los estados que no se estén usando
+		
 	}
 }
 void Game::InitGameObjects() { //Creación de la máquina de estados

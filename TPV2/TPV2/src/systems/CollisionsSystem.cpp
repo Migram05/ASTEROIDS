@@ -1,6 +1,6 @@
 #include "CollisionsSystem.h"
 #include "../ecs/Manager.h"
-#include "../ecs/MultiplayerState.h"
+#include "../states/MultiplayerState.h"
 void CollisionsSystem::receive(const Message& m) //No recibe mensajes, solo envía
 {
 }
@@ -41,7 +41,6 @@ void CollisionsSystem::multiPlayerCollisions()
 				Message msg;
 				if (lives <= 0) { //Si un jugador se queda sin vidas, se termina el juego
 					msg.id = _m_EXIT;
-					//msg.mainMenuInfo.menuInfoData = "DERROTA";
 				}
 				else {
 					msg.id = _m_RESETPLAYERS; //En caso de haber más vidas, se reinician las posiciones

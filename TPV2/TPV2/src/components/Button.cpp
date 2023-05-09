@@ -1,6 +1,6 @@
 #include "Button.h"
 #include "../game/Game.h"
-#include "../ecs/MainMenuState.h"
+#include "../states/MainMenuState.h"
 #include "../ecs/Manager.h"
 Button::Button(void(*callback)(Game* g), Game* g) : buttonCallback(callback), game(g)
 {

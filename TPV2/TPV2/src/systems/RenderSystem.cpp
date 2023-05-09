@@ -70,7 +70,7 @@ void RenderSystem::playerRender()
 				string name;
 				if (nP == mngr_->getPlayerIndex()) name = mngr_->getPlayerName(); //Si el índice coincide, escribe el nombre del jugador
 				else name = mngr_->getEnemyName(); //Sino el del enemigo
-				if (name.empty()) name = "waiting"; //En caso de no haber nombre (jugador no conectado) 
+				if (name.empty()) name = "PLAYER " + to_string(nP); //En caso de no haber nombre (jugador no conectado) 
 				int tam = name.size() / 2;
 				Vector2D texturePos = tr_->getPos() + Vector2D(-tam * 5, tr_->getH());
 				Texture lostText(sdl.renderer(), name, sdl.fonts().at("CAPTURE10"), build_sdlcolor(0xffffffff));

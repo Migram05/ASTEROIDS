@@ -15,6 +15,7 @@ public:
 	virtual bool onEnter();
 	virtual void refresh();
 	void startMultiplayer(bool c, string dir);
+	inline void deactivateTextBox() { textBoxEnt = nullptr; }
 	inline Entity* getTextBox() { return textBoxEnt; }
 	inline string getInfo() { return infoText; }
 	virtual std::string getStateID() const { return s_mainMID; }

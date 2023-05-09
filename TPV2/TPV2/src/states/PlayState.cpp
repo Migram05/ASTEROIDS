@@ -1,7 +1,7 @@
 //Para activar el sistema de componentes descomentar la siguiente línea de código:
 
 #include "PlayState.h"
-#include "Manager.h"
+#include "../ecs/Manager.h"
 #include "../systems/AsteroidsSystem.h"
 #include "../systems/BulletsSystem.h"
 #include "../systems/CollisionsSystem.h"
@@ -69,6 +69,7 @@ bool PlayState::onEnter() //Se inicializan los objetos
 	Music::setMusicVolume(8); //Musica de fondo y volumen
 	sdl.musics().at("theme").play();
 	SoundEffect::setChannelVolume(25);
+	SDL_ShowCursor(0);//Se oculta el cursor
 	return true;
 }
 

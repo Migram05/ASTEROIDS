@@ -1,5 +1,5 @@
 #pragma once
-#include "Component.h"
+#include "../ecs/Component.h"
 #include "Transform.h"
 #include "../ecs/Entity.h"
 struct Generations : public Component

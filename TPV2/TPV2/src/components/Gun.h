@@ -1,5 +1,5 @@
 #pragma once
-#include "Component.h"
+#include "../ecs/Component.h"
 #include "../ecs/Entity.h"
 #include <SDL.h>
 #include <iostream>

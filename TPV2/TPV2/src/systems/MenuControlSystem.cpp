@@ -1,6 +1,6 @@
 #include "MenuControlSystem.h"
 #include "../ecs/Manager.h"
-#include "../ecs/MainMenuState.h"
+#include "../states/MainMenuState.h"
 void MenuControlSystem::receive(const Message& m)
 {
 
@@ -23,12 +23,14 @@ void MenuControlSystem::update()
 		if (event.button.button == SDL_BUTTON_LEFT && event.type == SDL_MOUSEBUTTONUP) { //Input del ratón en el menú
 			mPoint.x = event.button.x; mPoint.y = event.button.y;
 			for (auto e : mngr_->getEntitiesByGroup(ecs::_grp_UI)) { //Busca entre todos los elementos de la UI
-				SDL_Rect destRect = mngr_->getComponent<Transform>(e)->getRect();
-				auto but_ = mngr_->getComponent<Button>(e);
-				if (e->isVisible() && SDL_PointInRect(&mPoint, &destRect)) { //Si ha hecho clic en un botón:
-					buttonCallback = but_->getEvent();
-					buttonCallback(mngr_->getGame()); //Ejecuta la acción
-					stop = true; //Para la búsqueda
+				if (mngr_->hasComponent<Button>(e)) {
+					SDL_Rect destRect = mngr_->getComponent<Transform>(e)->getRect();
+					auto but_ = mngr_->getComponent<Button>(e);
+					if (e->isVisible() && SDL_PointInRect(&mPoint, &destRect)) { //Si ha hecho clic en un botón:
+						buttonCallback = but_->getEvent();
+						buttonCallback(mngr_->getGame()); //Ejecuta la acción
+						stop = true; //Para la búsqueda
+					}
 				}
 			}
 		}
@@ -45,7 +47,7 @@ void MenuControlSystem::update()
 					mngr_->setAlive(entity, false);
 					Message msg; msg.id = _m_SHOWALL; mngr_->send(msg);
 					mngr_->setPlayerName(text);
-					cout << text << endl;
+					currentState->deactivateTextBox();
 				}
 			}
 			if (event.key.keysym.sym == SDLK_BACKSPACE && !text.empty()) {
@@ -55,7 +57,9 @@ void MenuControlSystem::update()
 			else if (readN) {
 				if (isdigit(c) || c == '.') text += c; //Solo si es un número se añade
 			}
-			else if(text.size() <= 10) text += c;
+			else if (text.size() <= 10) {
+				if ((c >= 'a' && c <= 'z') || (c >= '0' && c <= '9') || (event.key.keysym.sym == SDLK_SPACE)) text += c; //Solo letras y números
+			}
 		}
 	}
 }

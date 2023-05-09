@@ -1,7 +1,7 @@
 #pragma once
 #include <SDL.h>
 #include <iostream>
-#include "Component.h"
+#include "../ecs/Component.h"
 #include "Transform.h"
 #include "../ecs/Entity.h"
 #include "../utils/Vector2D.h"

@@ -1,6 +1,6 @@
 #include "FighterSystemOnline.h"
 #include "../ecs/Manager.h"
-#include "../ecs/MultiplayerState.h"
+#include "../states/MultiplayerState.h"
 void FighterSystemOnline::receive(const Message& m)
 {
 	switch (m.id)
@@ -84,10 +84,7 @@ void FighterSystemOnline::updatePosition() //Mueve al caza
 				} break;
 			}
 			case SDLK_ESCAPE: { //mensaje de salida
-				currentState->sendMessage("Reset"); 
-				msg.id = _m_EXIT;
-				mngr_->send(msg, true);
-				return;
+				msg.id = _m_EXIT; mngr_->send(msg, true); return;
 			}
 			default: break;
 			}
@@ -125,19 +122,6 @@ void FighterSystemOnline::speedReduction() //Reduce la velocidad del caza
 
 void FighterSystemOnline::screenPositionCheck() //Movimiento toroidal
 {
-	//Comprueba que ningún caza se sale de la pantalla
-	/*for (int x = 0; x < nPlayers; ++x) {
-		auto mP = mngr_->getPlayer(x);
-
-		auto tr_ = mngr_->getComponent<Transform>(mP);
-		auto& position_ = tr_->getPos();
-		//Movimiento toroidal
-		if (position_.getX() + tr_->getW() < 0) position_ = Vector2D{ (float)mngr_->getWidth() , position_.getY() };
-		else if (position_.getX() > mngr_->getWidth()) position_ = Vector2D{ 0 , position_.getY() };
-
-		if (position_.getY() + tr_->getH() < 0) position_ = Vector2D{ position_.getX() ,(float)mngr_->getHeight() };
-		else if (position_.getY() > mngr_->getHeight()) position_ = Vector2D{ position_.getX() , 0 };
-	}*/
 	auto mP = mngr_->getPlayer(mngr_->getPlayerIndex());
 
 	auto tr_ = mngr_->getComponent<Transform>(mP);

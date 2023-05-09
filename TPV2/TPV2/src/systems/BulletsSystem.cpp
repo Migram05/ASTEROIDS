@@ -7,6 +7,7 @@ void BulletsSystem::receive(const Message& m)
 	case _m_SHOOT: shoot(m.shot_data.pos_, m.shot_data.dir_, m.shot_data.r_); break; //Crea una bala
 	case _m_BULLETCOLLIDES: onCollision_BulletAsteroid(m.bulletCollision_data.b_); break; //Destruye la bala si colisiona
 	case (_m_PLAYERLOST || _m_PLAYERWINS): onRoundOver(); break; //Destuye las balas
+	case _m_RESETPLAYERS: onRoundOver(); break;	
 	case _m_SHIPSTATE: {
 		if (m.shipData.S) {
 			spawnShotAtPlayer(m.shipData.idx); break;
